@@ -7,19 +7,19 @@ export default function LoginForm() {
   const navigate = useNavigate();
 
   //Comportements
-  const HandleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setName("");
     navigate(`/order/${name}`);
   };
 
-  const HandleInputChange = (e) => {
+  const handleInputChange = (e) => {
     setName(e.target.value);
   };
 
   //Affichage
   return (
-    <form onSubmit={HandleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
       <br />
       <h2>Connectez-vous</h2>
@@ -27,7 +27,7 @@ export default function LoginForm() {
         type="text"
         placeholder="Entrez votre prénom..."
         value={name}
-        onChange={HandleInputChange}
+        onChange={handleInputChange}
         required
       />
       <button>Accédez à votre espace</button>
