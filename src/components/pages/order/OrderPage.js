@@ -5,7 +5,9 @@ export default function OrderPage() {
   return (
     <div>
       <h1>Coucou</h1>
-      <Link to="/">Déconnexion</Link>
+      <Link to="/">
+        <button>Déconnexion</button>
+      </Link>
     </div>
   );
 }
