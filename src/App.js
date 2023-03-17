@@ -2,6 +2,7 @@ import "./App.css";
 import LoginPage from "./components/pages/login/LoginPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import OrderPage from "./components/pages/order/OrderPage";
+import ErrorPage from "./components/pages/error/ErrorPage";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/order" element={<OrderPage />} />
-        <Route errorElement={<h1>404</h1>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
