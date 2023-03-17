@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Login() {
+export default function LoginForm() {
   //State
   const [name, setName] = useState("");
 
