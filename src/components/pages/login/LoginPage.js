@@ -18,7 +18,7 @@ const LoginStyled = styled.div`
   gap: ${theme.spacing.xl};
   //background-color: aliceblue;
   background-color: ${theme.colors.background_dark};
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(${bgImage});
   background-size: cover;
   background-position: center;
@@ -27,7 +27,6 @@ const LoginStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   width: 100vw;
 
