@@ -8,6 +8,7 @@ export default function Login() {
   return (
     <LoginStyled>
       <LoginWelcome />
+      <div className="lineSeparator"></div>
       <LoginForm />
     </LoginStyled>
   );
@@ -15,10 +16,10 @@ export default function Login() {
 
 const LoginStyled = styled.div`
   gap: ${theme.spacing.xl};
-  background-color: aliceblue;
-  /*background-color: ${theme.colors.background_dark};
+  //background-color: aliceblue;
+  background-color: ${theme.colors.background_dark};
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${bgImage});*/
+    url(${bgImage});
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -29,4 +30,11 @@ const LoginStyled = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
+
+  .lineSeparator {
+    flex-shrink: 0;
+    width: 30%;
+    height: 5px;
+    background-color: orangered;
+  }
 `;
