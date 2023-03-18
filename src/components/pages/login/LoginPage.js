@@ -8,7 +8,7 @@ export default function Login() {
   return (
     <LoginStyled>
       <LoginWelcome />
-      <div className="lineSeparator"></div>
+      <hr />
       <LoginForm />
     </LoginStyled>
   );
@@ -30,10 +30,11 @@ const LoginStyled = styled.div`
   height: 100vh;
   width: 100vw;
 
-  .lineSeparator {
+  hr {
+    border: none;
     flex-shrink: 0;
-    width: 30%;
+    min-width: 30%;
     height: 5px;
-    background-color: orangered;
+    background-color: ${theme.colors.primary_burger};
   }
 `;
