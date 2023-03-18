@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
+import TextInput from "./TextInput.js";
 
 export default function LoginForm() {
   //State
@@ -26,12 +27,14 @@ export default function LoginForm() {
     <LoginFormStyled onSubmit={handleSubmit}>
       <span>Connectez-vous</span>
       <div className="inputContainer">
-        <BsPersonCircle className="personIcon" color="gray" size="20px" />
-        <input
-          type="text"
-          placeholder="Entrez votre prénom"
+        <TextInput
           value={name}
           onChange={handleInputChange}
+          type="text"
+          placeholder={"Entrez votre prénom"}
+          Icon={
+            <BsPersonCircle className="personIcon" color="gray" size="20px" />
+          }
           required
         />
       </div>
@@ -55,28 +58,6 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.P5};
     font-weight: ${theme.weights.bold};
     color: ${theme.colors.white};
-  }
-
-  .inputContainer {
-    gap: ${theme.spacing.xs};
-    display: flex;
-    align-items: center;
-    background-color: ${theme.colors.white};
-    width: 550px;
-    height: 75px;
-    border: none;
-    border-radius: ${theme.borderRadius.round};
-    input {
-      width: 70%;
-      font-size: ${theme.fonts.P1};
-      font-weight: ${theme.weights.medium};
-      border-radius: ${theme.borderRadius.round};
-      border: none;
-    }
-    .personIcon {
-      margin-left: ${theme.spacing.md};
-      padding: 0px 10px;
-    }
   }
 
   button {
