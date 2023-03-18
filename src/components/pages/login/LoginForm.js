@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
-import TextInput from "./TextInput.js";
+import TextInput from "../../reusable/TextInput.js";
+import PrimaryButton from "../../reusable/PrimaryButton";
 
 export default function LoginForm() {
   //State
@@ -25,22 +26,18 @@ export default function LoginForm() {
   //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
-      <span>Connectez-vous</span>
-      <div className="inputContainer">
-        <TextInput
-          value={name}
-          onChange={handleInputChange}
-          placeholder={"Entrez votre prénom"}
-          Icon={
-            <BsPersonCircle className="personIcon" color="gray" size="20px" />
-          }
-          required
-        />
-      </div>
-      <button>
-        Accéder à mon espace{" "}
-        <IoChevronForward className="nextChevron" size="25px" />
-      </button>
+      <h2>Connectez-vous</h2>
+      <TextInput
+        value={name}
+        onChange={handleInputChange}
+        placeholder={"Entrez votre prénom"}
+        Icon={<BsPersonCircle className="icon" />}
+        required
+      />
+      <PrimaryButton
+        label={"Accéder à mon espace"}
+        Icon={<IoChevronForward className="icon" />}
+      />
     </LoginFormStyled>
   );
 }
@@ -52,33 +49,14 @@ const LoginFormStyled = styled.form`
   gap: ${theme.spacing.md};
   margin-bottom: 10%;
 
-  span {
+  h2 {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.P5};
     font-weight: ${theme.weights.bold};
     color: ${theme.colors.white};
   }
 
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 550px;
-    height: 75px;
-    gap: ${theme.spacing.xs};
-    background-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.white};
-    border: none;
-    border-radius: ${theme.borderRadius.round};
-    font-size: ${theme.fonts.P2};
-    font-weight: ${theme.weights.bold};
-    &:hover {
-      border: 2px solid ${theme.colors.primary_burger};
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary_burger};
-      .nextChevron {
-        color: ${theme.colors.primary_burger};
-      }
-    }
+  .icon {
+    font-size: 25px;
   }
 `;

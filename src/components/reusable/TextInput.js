@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme/index.js";
+import { theme } from "../../theme/index.js";
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
@@ -27,7 +27,8 @@ const TextInputStyled = styled.div`
     border-radius: ${theme.borderRadius.round};
     border: none;
   }
-  .personIcon {
+  .icon {
+    color: ${theme.colors.greyDark};
     margin-left: ${theme.spacing.md};
     padding: 0px 10px;
   }
