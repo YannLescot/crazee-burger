@@ -15,7 +15,8 @@ const LoginStyled = styled.div`
   gap: ${theme.spacing.xl};
 
   background-color: ${theme.colors.background_dark};
-  background-image: url(${bgImage});
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${bgImage});
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -26,19 +27,4 @@ const LoginStyled = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
-
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.5
-    ); /* Adjust the color and opacity to your liking */
-  }
 `;
