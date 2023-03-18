@@ -91,5 +91,10 @@ const LoginFormStyled = styled.form`
     border-radius: ${theme.borderRadius.round};
     font-size: ${theme.fonts.P2};
     font-weight: ${theme.weights.bold};
+    &:hover {
+      border: 2px solid ${theme.colors.primary_burger};
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary_burger};
+    }
   }
 `;
