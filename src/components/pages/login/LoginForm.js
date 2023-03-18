@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
-import { MdOutlineNavigateNext } from "react-icons/md";
+import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 
 export default function LoginForm() {
@@ -36,7 +36,8 @@ export default function LoginForm() {
         />
       </div>
       <button>
-        Accéder à mon espace <MdOutlineNavigateNext color="white" size="25px" />
+        Accéder à mon espace{" "}
+        <IoChevronForward className="nextChevron" size="25px" />
       </button>
     </LoginFormStyled>
   );
@@ -95,6 +96,9 @@ const LoginFormStyled = styled.form`
       border: 2px solid ${theme.colors.primary_burger};
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary_burger};
+      .nextChevron {
+        color: ${theme.colors.primary_burger};
+      }
     }
   }
 `;
