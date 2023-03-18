@@ -47,6 +47,7 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   align-items: center;
   gap: ${theme.spacing.md};
+  margin-bottom: 10%;
 
   span {
     font-family: "Amatic SC", cursive;

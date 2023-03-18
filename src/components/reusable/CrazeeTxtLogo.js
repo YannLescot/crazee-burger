@@ -14,7 +14,7 @@ export default function CrazeeTxtLogo() {
 }
 
 const CrazeeTxtLogoStyled = styled.div`
-  padding: ${theme.spacing.md};
+  //padding: ${theme.spacing.md};
   display: flex;
   justify-content: center;
   align-items: center;

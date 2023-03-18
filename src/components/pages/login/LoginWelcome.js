@@ -13,7 +13,7 @@ export default function LoginWelcome() {
 }
 
 const LoginWelcomeStyled = styled.div`
-  margin-top: ${theme.spacing.xl};
+  //margin-top: ${theme.spacing.xl};
   //gap: ${theme.spacing.lg};
   display: flex;
   flex-direction: column;
