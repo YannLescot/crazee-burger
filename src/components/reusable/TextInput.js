@@ -22,10 +22,14 @@ const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   input {
     width: 70%;
-    font-size: ${theme.fonts.P1};
-    font-weight: ${theme.weights.medium};
+    font-size: ${theme.fonts.size.P1};
+    font-weight: ${theme.fonts.weight.medium};
     border-radius: ${theme.borderRadius.round};
     border: none;
+    &::placeholder {
+      background: ${theme.colors.white};
+      color: ${theme.colors.greyLight};
+    }
   }
   .icon {
     color: ${theme.colors.greyDark};

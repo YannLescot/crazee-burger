@@ -16,7 +16,7 @@ export default function CrazeeTxtLogo({ scaleValue }) {
 const CrazeeTxtLogoStyled = styled.div`
   display: flex;
   align-items: center;
-  transform: scale(2.5);
+  transform: scale(3);
 
   h1 {
     display: inline;
@@ -25,11 +25,11 @@ const CrazeeTxtLogoStyled = styled.div`
     font-family: "Amatic SC", cursive;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: ${theme.fonts.P4};
-    font-weight: ${theme.weights.bold};
+    font-size: ${theme.fonts.size.P4};
+    font-weight: ${theme.fonts.weight.bold};
     line-height: 1em;
 
-    color: ${theme.colors.primary_burger};
+    color: ${theme.colors.primary};
   }
   img {
     object-fit: contain;

@@ -18,13 +18,13 @@ const PrimaryButtonStyled = styled.button`
   width: 550px;
   height: 75px;
   gap: ${theme.spacing.xs};
-  background-color: ${theme.colors.primary_burger};
+  background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
   border: none;
   border-radius: ${theme.borderRadius.round};
   span {
-    font-size: ${theme.fonts.P2};
-    font-weight: ${theme.weights.bold};
+    font-size: ${theme.fonts.size.P2};
+    font-weight: ${theme.fonts.weight.bold};
   }
 
   .icon {
@@ -32,11 +32,11 @@ const PrimaryButtonStyled = styled.button`
   }
 
   &:hover {
-    border: 2px solid ${theme.colors.primary_burger};
+    border: 2px solid ${theme.colors.primary};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.primary_burger};
+    color: ${theme.colors.primary};
     .icon {
-      color: ${theme.colors.primary_burger};
+      color: ${theme.colors.primary};
     }
   }
 `;

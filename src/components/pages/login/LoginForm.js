@@ -26,7 +26,7 @@ export default function LoginForm() {
   //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
-      <h2>Connectez-vous</h2>
+      <small>Connectez-vous</small>
       <TextInput
         value={name}
         onChange={handleInputChange}
@@ -44,19 +44,22 @@ export default function LoginForm() {
 
 const LoginFormStyled = styled.form`
   display: flex;
+  max-width: 500px;
+  max-height: 400px;
   flex-direction: column;
   align-items: center;
   gap: ${theme.spacing.md};
+  border-radius: ${theme.borderRadius.round};
   margin-bottom: 10%;
 
-  h2 {
+  small {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.P5};
-    font-weight: ${theme.weights.bold};
+    font-size: ${theme.fonts.size.P5};
+    font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
   }
 
   .icon {
-    font-size: 25px;
+    font-size: ${theme.fonts.size.P2};
   }
 `;

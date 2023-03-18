@@ -1,27 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import CrazeeTxtLogo from "../../reusable/CrazeeTxtLogo";
+import TxtLogo from "../../reusable/TxtLogo";
 import { theme } from "../../../theme/index.js";
 
 export default function LoginWelcome() {
   return (
     <LoginWelcomeStyled>
-      <CrazeeTxtLogo />
+      <TxtLogo />
       <span>Bienvenue chez nous !</span>
     </LoginWelcomeStyled>
   );
 }
 
 const LoginWelcomeStyled = styled.div`
-  //margin-top: ${theme.spacing.xl};
-  //gap: ${theme.spacing.lg};
+  margin-top: ${theme.spacing.xxl};
+  padding-top: ${theme.spacing.xxl};
+  gap: ${theme.spacing.xxl};
   display: flex;
   flex-direction: column;
   align-items: center;
   span {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.P6};
-    font-weight: ${theme.weights.bold};
+    font-size: ${theme.fonts.size.P6};
+    font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
   }
 `;
