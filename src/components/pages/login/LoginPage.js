@@ -33,7 +33,7 @@ const LoginStyled = styled.div`
   hr {
     border: none;
     flex-shrink: 0;
-    min-width: 30%;
+    min-width: 550px;
     height: 5px;
     background-color: ${theme.colors.primary_burger};
   }
