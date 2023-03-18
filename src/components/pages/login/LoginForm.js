@@ -30,7 +30,6 @@ export default function LoginForm() {
         <TextInput
           value={name}
           onChange={handleInputChange}
-          type="text"
           placeholder={"Entrez votre prénom"}
           Icon={
             <BsPersonCircle className="personIcon" color="gray" size="20px" />
