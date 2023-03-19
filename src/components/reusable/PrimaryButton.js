@@ -35,6 +35,7 @@ const PrimaryButtonStyled = styled.button`
     border: 2px solid ${theme.colors.primary};
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
+    cursor: pointer;
     .icon {
       color: ${theme.colors.primary};
     }
