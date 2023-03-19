@@ -43,6 +43,7 @@ export default function LoginForm() {
 }
 
 const LoginFormStyled = styled.form`
+  margin-top: ${theme.spacing.xs};
   display: flex;
   max-width: 500px;
   max-height: 400px;

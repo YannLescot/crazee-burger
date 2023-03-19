@@ -15,7 +15,7 @@ export default function Login() {
 }
 
 const LoginStyled = styled.div`
-  gap: ${theme.spacing.xl};
+  gap: ${theme.spacing.lg};
 
   background-color: ${theme.colors.background_dark};
   background-size: cover;
