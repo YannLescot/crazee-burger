@@ -15,8 +15,8 @@ const PrimaryButtonStyled = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 550px;
-  height: 75px;
+  width: 400px;
+  height: 50px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
