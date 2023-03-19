@@ -20,7 +20,7 @@ const LoginStyled = styled.div`
   background-color: ${theme.colors.background_dark};
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${bgImage});
 
   display: flex;
