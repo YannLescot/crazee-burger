@@ -15,20 +15,22 @@ export default function Login() {
 }
 
 const LoginStyled = styled.div`
-  gap: ${theme.spacing.lg};
-
-  background-color: ${theme.colors.background_dark};
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${bgImage});
+  height: 100vh;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+
+  gap: ${theme.spacing.lg};
+
+  background-color: ${theme.colors.background_dark};
+  background-size: cover;
+  background-position: center;
+  background-position-y: 40%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${bgImage});
 
   hr {
     border: none;
