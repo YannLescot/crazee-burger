@@ -23,12 +23,13 @@ const PrimaryButtonStyled = styled.button`
   border: none;
   border-radius: ${theme.borderRadius.round};
   span {
-    font-size: ${theme.fonts.size.P2};
+    font-size: ${theme.fonts.size.P0};
     font-weight: ${theme.fonts.weight.bold};
   }
 
   .icon {
     color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P0};
   }
 
   &:hover {

@@ -16,8 +16,8 @@ const TextInputStyled = styled.div`
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
-  width: 550px;
-  height: 75px;
+  width: 400px;
+  height: 50px;
   border: none;
   border-radius: ${theme.borderRadius.round};
   input {
@@ -27,13 +27,15 @@ const TextInputStyled = styled.div`
     border-radius: ${theme.borderRadius.round};
     border: none;
     &::placeholder {
+      font-size: ${theme.fonts.size.P0};
       background: ${theme.colors.white};
       color: ${theme.colors.greyLight};
     }
   }
   .icon {
-    color: ${theme.colors.greyDark};
+    color: ${theme.colors.greyMedium};
     margin-left: ${theme.spacing.md};
+    font-size: ${theme.fonts.size.P0};
     padding: 0px 10px;
   }
 `;

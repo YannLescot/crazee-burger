@@ -54,7 +54,7 @@ const LoginFormStyled = styled.form`
 
   small {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P5};
+    font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
   }
