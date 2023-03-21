@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import TxtLogo from "../../reusable/TxtLogo";
+import Logo from "../../reusable/Logo";
 import { theme } from "../../../theme/index.js";
 
 export default function LoginWelcome() {
   return (
     <LoginWelcomeStyled>
-      <TxtLogo />
+      <Logo />
       <span>Bienvenue chez nous !</span>
       <hr />
     </LoginWelcomeStyled>
@@ -32,7 +32,7 @@ const LoginWelcomeStyled = styled.div`
     border: none;
     flex-shrink: 0;
     min-width: 550px;
-    height: 5px;
+    height: 3px;
     background-color: ${theme.colors.loginLine};
   }
 `;

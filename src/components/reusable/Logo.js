@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo from "../../assets/images/F03_logo-orange.png";
 import { theme } from "../../theme/index.js";
 
-export default function CrazeeTxtLogo({ scaleValue }) {
+export default function Logo() {
   return (
     <CrazeeTxtLogoStyled>
       <h1>CRAZEE</h1>
