@@ -59,8 +59,4 @@ const LoginFormStyled = styled.form`
     font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
   }
-
-  .icon {
-    font-size: ${theme.fonts.size.P2};
-  }
 `;
