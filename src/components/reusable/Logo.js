@@ -16,12 +16,12 @@ export default function Logo() {
 const CrazeeTxtLogoStyled = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${theme.spacing.lg};
   transform: scale(2);
 
   h1 {
     display: inline;
     text-align: center;
+    margin: 0px;
 
     font-family: "Amatic SC", cursive;
     letter-spacing: 1.5px;
@@ -34,7 +34,6 @@ const CrazeeTxtLogoStyled = styled.div`
   }
   img {
     object-fit: contain;
-    object-position: center;
     height: 75px;
     width: 100px;
     margin: 0 5px;

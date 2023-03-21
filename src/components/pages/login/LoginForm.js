@@ -51,7 +51,6 @@ const LoginFormStyled = styled.form`
   align-items: center;
   gap: ${theme.spacing.md};
   border-radius: ${theme.borderRadius.round};
-  margin-bottom: 10%;
 
   h2 {
     font-family: "Amatic SC", cursive;
