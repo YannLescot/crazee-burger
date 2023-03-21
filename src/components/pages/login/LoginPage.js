@@ -22,8 +22,6 @@ const LoginStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: ${theme.spacing.lg};
-
   background-color: ${theme.colors.background_dark};
   background-size: cover;
   background-position: center;

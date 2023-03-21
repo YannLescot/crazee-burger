@@ -31,7 +31,7 @@ const LoginWelcomeStyled = styled.div`
   hr {
     border: none;
     flex-shrink: 0;
-    min-width: 550px;
+    min-width: 400px;
     height: 3px;
     background-color: ${theme.colors.loginLine};
   }
