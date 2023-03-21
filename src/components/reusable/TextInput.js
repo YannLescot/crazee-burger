@@ -13,18 +13,17 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 
 const TextInputStyled = styled.div`
   gap: ${theme.spacing.xs};
-  padding: 2px 0px;
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
   width: 400px;
-  height: 50px;
+  height: 54px;
   border: none;
   border-radius: ${theme.borderRadius.round};
   input {
     width: 70%;
-    font-size: ${theme.fonts.size.P1};
-    font-weight: ${theme.fonts.weight.medium};
+    font-size: ${theme.fonts.size.P0};
+    font-weight: ${theme.fonts.weight.regular};
     border-radius: ${theme.borderRadius.round};
     border: none;
     &::placeholder {

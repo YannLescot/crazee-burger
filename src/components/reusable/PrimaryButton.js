@@ -16,7 +16,7 @@ const PrimaryButtonStyled = styled.button`
   justify-content: center;
   align-items: center;
   width: 400px;
-  height: 50px;
+  height: 54px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
@@ -33,7 +33,7 @@ const PrimaryButtonStyled = styled.button`
   }
 
   &:hover {
-    border: 2px solid ${theme.colors.primary};
+    border: 1px solid ${theme.colors.primary};
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
     cursor: pointer;
