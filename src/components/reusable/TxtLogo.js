@@ -16,6 +16,7 @@ export default function CrazeeTxtLogo({ scaleValue }) {
 const CrazeeTxtLogoStyled = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: ${theme.spacing.lg};
   transform: scale(2);
 
   h1 {

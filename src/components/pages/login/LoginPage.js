@@ -8,7 +8,6 @@ export default function Login() {
   return (
     <LoginStyled>
       <LoginWelcome />
-      <hr />
       <LoginForm />
     </LoginStyled>
   );
@@ -31,12 +30,4 @@ const LoginStyled = styled.div`
   background-position-y: 40%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${bgImage});
-
-  hr {
-    border: none;
-    flex-shrink: 0;
-    min-width: 550px;
-    height: 5px;
-    background-color: ${theme.colors.loginLine};
-  }
 `;

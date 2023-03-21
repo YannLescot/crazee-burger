@@ -8,6 +8,7 @@ export default function LoginWelcome() {
     <LoginWelcomeStyled>
       <TxtLogo />
       <span>Bienvenue chez nous !</span>
+      <hr />
     </LoginWelcomeStyled>
   );
 }
@@ -15,14 +16,23 @@ export default function LoginWelcome() {
 const LoginWelcomeStyled = styled.div`
   margin-top: ${theme.spacing.xxl};
   padding-top: ${theme.spacing.xxl};
-  gap: ${theme.spacing.xl};
+  gap: ${theme.spacing.lg};
   display: flex;
   flex-direction: column;
   align-items: center;
+
   span {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.size.P5};
     font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
+  }
+
+  hr {
+    border: none;
+    flex-shrink: 0;
+    min-width: 550px;
+    height: 5px;
+    background-color: ${theme.colors.loginLine};
   }
 `;

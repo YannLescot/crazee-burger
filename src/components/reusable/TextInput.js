@@ -13,6 +13,7 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 
 const TextInputStyled = styled.div`
   gap: ${theme.spacing.xs};
+  padding: 2px 0px;
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
@@ -33,7 +34,7 @@ const TextInputStyled = styled.div`
     }
   }
   .icon {
-    color: ${theme.colors.greyMedium};
+    color: ${theme.colors.greyBlue};
     margin-left: ${theme.spacing.md};
     font-size: ${theme.fonts.size.P0};
     padding: 0px 10px;
