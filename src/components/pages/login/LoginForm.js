@@ -26,7 +26,7 @@ export default function LoginForm() {
   //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
-      <small>Connectez-vous</small>
+      <h2>Connectez-vous</h2>
       <TextInput
         value={name}
         onChange={handleInputChange}
@@ -53,10 +53,11 @@ const LoginFormStyled = styled.form`
   border-radius: ${theme.borderRadius.round};
   margin-bottom: 10%;
 
-  small {
+  h2 {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
+    margin-bottom: 0px;
   }
 `;
