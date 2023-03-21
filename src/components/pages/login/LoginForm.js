@@ -19,7 +19,7 @@ export default function LoginForm() {
     navigate(`/order/${name}`);
   };
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     setName(e.target.value);
   };
 
@@ -29,7 +29,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <TextInput
         value={name}
-        onChange={handleInputChange}
+        onChange={handleChange}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
         required
