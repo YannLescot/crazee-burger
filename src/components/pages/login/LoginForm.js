@@ -9,18 +9,18 @@ import PrimaryButton from "../../reusable/PrimaryButton";
 
 export default function LoginForm() {
   //State
-  const [name, setName] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
   //Comportements
   const handleSubmit = (e) => {
     e.preventDefault();
-    setName("");
-    navigate(`/order/${name}`);
+    setInputValue("");
+    navigate(`/order/${inputValue}`);
   };
 
   const handleChange = (e) => {
-    setName(e.target.value);
+    setInputValue(e.target.value);
   };
 
   //Affichage
@@ -30,7 +30,7 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
       <TextInput
-        value={name}
+        value={inputValue}
         onChange={handleChange}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
