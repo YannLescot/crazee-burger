@@ -26,6 +26,8 @@ export default function LoginForm() {
   //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
+      <h1>Bienvenue chez nous !</h1>
+      <hr />
       <h2>Connectez-vous</h2>
       <TextInput
         value={name}
@@ -43,7 +45,7 @@ export default function LoginForm() {
 }
 
 const LoginFormStyled = styled.form`
-  margin-top: ${theme.spacing.xs};
+  margin-top: ${theme.spacing.xxl};
   display: flex;
   max-width: 500px;
   max-height: 400px;
@@ -51,6 +53,22 @@ const LoginFormStyled = styled.form`
   align-items: center;
   gap: ${theme.spacing.md};
   border-radius: ${theme.borderRadius.round};
+
+  h1 {
+    margin: 0px;
+    font-family: "Amatic SC", cursive;
+    font-size: ${theme.fonts.size.P5};
+    font-weight: ${theme.fonts.weight.bold};
+    color: ${theme.colors.white};
+  }
+
+  hr {
+    border: none;
+    flex-shrink: 0;
+    min-width: 400px;
+    height: 3px;
+    background-color: ${theme.colors.loginLine};
+  }
 
   h2 {
     font-family: "Amatic SC", cursive;

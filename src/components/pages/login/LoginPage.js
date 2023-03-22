@@ -2,14 +2,12 @@ import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import bgImage from "../../../assets/images/F03_burger-background.jpg";
 import { theme } from "../../../theme/index.js";
-import LoginWelcome from "./LoginWelcome";
 import Logo from "../../reusable/Logo";
 
 export default function LoginPage() {
   return (
     <LoginStyled>
       <Logo />
-      <LoginWelcome />
       <LoginForm />
     </LoginStyled>
   );
