@@ -5,15 +5,15 @@ import { theme } from "../../theme/index.js";
 
 export default function Logo() {
   return (
-    <CrazeeTxtLogoStyled>
+    <LogoStyled>
       <h1>CRAZEE</h1>
       <img src={logo} alt="logo" />
       <h1>BURGER</h1>
-    </CrazeeTxtLogoStyled>
+    </LogoStyled>
   );
 }
 
-const CrazeeTxtLogoStyled = styled.div`
+const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   transform: scale(2);
