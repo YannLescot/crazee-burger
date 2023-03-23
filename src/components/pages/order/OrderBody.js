@@ -13,5 +13,6 @@ export default function OrderBody() {
 }
 
 const OrderBodyStyled = styled.div`
+  height: 95vh;
   width: 1400px;
 `;
