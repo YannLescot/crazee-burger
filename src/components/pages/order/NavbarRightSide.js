@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
+import { useParams } from "react-router-dom";
 import UserProfile from "./UserProfile";
 
 export default function NavbarRightSide() {
+  const { username } = useParams();
+
   return (
     <NavbarRightSideStyled>
       {/*<div className="adminbutton"> Admin Button</div>*/}
-      <UserProfile />
+      <UserProfile username={username} />
     </NavbarRightSideStyled>
   );
 }

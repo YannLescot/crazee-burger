@@ -1,15 +1,10 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-/*
-    Le hook useParams permet de récupérer les paramètres de l'URL (passé dans le path de la route)
-
-  */
-export default function UserProfile() {
-  const { username } = useParams();
+export default function UserProfile({ username }) {
   return (
     <UserProfileStyled>
       <div className="panelText">

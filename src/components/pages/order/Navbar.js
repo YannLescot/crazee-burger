@@ -19,7 +19,7 @@ const NavbarStyled = styled.nav`
   align-items: center;
   height: 10vh;
   width: 100%;
-  background-color: ${theme.colors.background_white};
+  background-color: ${theme.colors.white};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
 
