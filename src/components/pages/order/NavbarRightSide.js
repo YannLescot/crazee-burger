@@ -14,6 +14,7 @@ export default function NavbarRightSide() {
 
 const NavbarRightSideStyled = styled.div`
   gap: ${theme.spacing.xl};
+  padding-right: 50px;
 
   display: flex;
   flex-direction: row;
