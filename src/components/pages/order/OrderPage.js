@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import OrderBody from "./OrderBody";
-import OrderNavbar from "./OrderNavbar";
 
 export default function OrderPage() {
   return (
     <OrderPageStyled>
-      <OrderNavbar />
       <OrderBody />
     </OrderPageStyled>
   );
