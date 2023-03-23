@@ -3,14 +3,12 @@ import styled from "styled-components";
 import Logo from "../../reusable/Logo";
 
 export default function NavbarLeftSide() {
-  const handleClick = () => {
-    window.location.reload();
-  };
   return (
     <NavbarLeftSideStyled>
-      <button onClick={handleClick}>
-        <Logo />
-      </button>
+      <Logo
+        className={"logo-order-page"}
+        onClick={() => window.location.reload()}
+      />
     </NavbarLeftSideStyled>
   );
 }
@@ -20,6 +18,10 @@ const NavbarLeftSideStyled = styled.div`
     background: none;
     border: none;
 
+    cursor: pointer;
+  }
+
+  .logo-order-page {
     cursor: pointer;
   }
 `;
