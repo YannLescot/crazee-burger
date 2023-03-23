@@ -34,6 +34,6 @@ const LoginStyled = styled.div`
     url(${bgImage});
 
   .login-page-logo {
-    transform: scale(2);
+    transform: scale(2.5);
   }
 `;

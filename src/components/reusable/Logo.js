@@ -25,7 +25,7 @@ const LogoStyled = styled.div`
     font-family: "Amatic SC", cursive;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: ${theme.fonts.size.P5};
+    font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weight.bold};
     line-height: 1em;
 
@@ -33,8 +33,8 @@ const LogoStyled = styled.div`
   }
   img {
     object-fit: contain;
-    height: 75px;
-    width: 100px;
+    height: 60px;
+    width: 80px;
     margin: 0 5px;
   }
 `;
