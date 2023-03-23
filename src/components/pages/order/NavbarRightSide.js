@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import UserPanel from "./UserPanel";
 
-export default function RightSide() {
+export default function NavbarRightSide() {
   return (
-    <RightSideStyled>
+    <NavbarRightSideStyled>
       <UserPanel />
-    </RightSideStyled>
+    </NavbarRightSideStyled>
   );
 }
 
-const RightSideStyled = styled.div``;
+const NavbarRightSideStyled = styled.div``;

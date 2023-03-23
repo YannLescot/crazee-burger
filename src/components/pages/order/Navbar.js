@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
+import NavbarLeftSide from "./NavbarLeftSide";
+import NavbarRightSide from "./NavbarRightSide";
 
 export default function Navbar() {
   return (
     <NavbarStyled>
-      <LeftSide />
-      <RightSide />
+      <NavbarLeftSide />
+      <NavbarRightSide />
     </NavbarStyled>
   );
 }
