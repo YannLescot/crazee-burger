@@ -7,7 +7,7 @@ import Logo from "../../reusable/Logo";
 export default function LoginPage() {
   return (
     <LoginStyled>
-      <Logo />
+      <Logo scale="2" />
       <LoginForm />
     </LoginStyled>
   );
