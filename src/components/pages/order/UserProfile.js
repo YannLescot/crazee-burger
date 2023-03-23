@@ -8,10 +8,10 @@ import { theme } from "../../../theme";
     Le hook useParams permet de récupérer les paramètres de l'URL (passé dans le path de la route)
 
   */
-export default function UserPanel() {
+export default function UserProfile() {
   const { username } = useParams();
   return (
-    <UserPanelStyled>
+    <UserProfileStyled>
       <div className="panelText">
         <span className="welcomeTxt">
           Hey, <span className="username">{username}</span>
@@ -21,13 +21,12 @@ export default function UserPanel() {
         </Link>
       </div>
       <BsPersonCircle className="icon" />
-    </UserPanelStyled>
+    </UserProfileStyled>
   );
 }
 
-const UserPanelStyled = styled.div`
+const UserProfileStyled = styled.div`
   gap: ${theme.spacing.xs};
-  margin-right: 70px;
 
   display: flex;
   justify-content: flex-end;
