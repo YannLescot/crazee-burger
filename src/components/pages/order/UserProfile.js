@@ -13,9 +13,9 @@ export default function UserProfile() {
   return (
     <UserProfileStyled>
       <div className="panelText">
-        <span className="welcomeTxt">
+        <p className="welcomeTxt">
           Hey, <span className="username">{username}</span>
-        </span>
+        </p>
         <Link to="/">
           <span className="disconnect">Se déconnecter</span>
         </Link>
@@ -46,11 +46,13 @@ const UserProfileStyled = styled.div`
     a:hover {
       text-decoration: underline;
       text-underline-offset: 5px;
+      color: ${theme.colors.greyDark};
     }
 
     .welcomeTxt {
       font-size: ${theme.fonts.size.P0};
       color: ${theme.colors.greyBlue};
+      margin: 0px;
 
       .username {
         font-weight: ${theme.fonts.weight.bold};
