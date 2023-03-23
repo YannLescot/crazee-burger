@@ -13,7 +13,7 @@ export default function Navbar() {
   );
 }
 
-const NavbarStyled = styled.div`
+const NavbarStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
