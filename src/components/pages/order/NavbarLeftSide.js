@@ -9,7 +9,7 @@ export default function NavbarLeftSide() {
   return (
     <NavbarLeftSideStyled>
       <button onClick={handleClick}>
-        <Logo scale="0.85" />
+        <Logo />
       </button>
     </NavbarLeftSideStyled>
   );
