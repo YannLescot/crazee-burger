@@ -20,18 +20,21 @@ const TextInputStyled = styled.div`
   height: 54px;
   border: none;
   border-radius: ${theme.borderRadius.round};
+
   input {
     width: 70%;
     font-size: ${theme.fonts.size.P0};
     font-weight: ${theme.fonts.weight.regular};
     border-radius: ${theme.borderRadius.round};
     border: none;
+
     &::placeholder {
       font-size: ${theme.fonts.size.P0};
       background: ${theme.colors.white};
       color: ${theme.colors.greyLight};
     }
   }
+
   .icon {
     color: ${theme.colors.greyBlue};
     margin-left: ${theme.spacing.md};

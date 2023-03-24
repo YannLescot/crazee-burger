@@ -22,7 +22,6 @@ export default function UserProfile({ username }) {
 
 const UserProfileStyled = styled.div`
   gap: ${theme.spacing.xs};
-
   display: flex;
   justify-content: flex-end;
   align-items: center;

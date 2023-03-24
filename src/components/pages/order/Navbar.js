@@ -22,7 +22,6 @@ const NavbarStyled = styled.nav`
   background-color: ${theme.colors.white};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-
   box-sizing: border-box;
   padding: 0 20px;
 `;
