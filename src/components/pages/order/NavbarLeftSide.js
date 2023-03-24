@@ -12,13 +12,6 @@ export default function NavbarLeftSide() {
 }
 
 const NavbarLeftSideStyled = styled.div`
-  button {
-    background: none;
-    border: none;
-
-    cursor: pointer;
-  }
-
   .logo-order-page {
     cursor: pointer;
   }
