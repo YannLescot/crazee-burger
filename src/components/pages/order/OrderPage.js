@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import OrderBody from "./OrderBody";
+import Main from "./Main";
+import Navbar from "./Navbar";
 
 export default function OrderPage() {
   return (
     <OrderPageStyled>
-      <OrderBody />
+      <div className="container">
+        <Navbar />
+        <Main />
+      </div>
     </OrderPageStyled>
   );
 }
@@ -18,4 +22,9 @@ const OrderPageStyled = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${theme.colors.primary};
+
+  .container {
+    height: 95vh;
+    width: 1400px;
+  }
 `;
