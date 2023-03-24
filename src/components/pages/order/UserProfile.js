@@ -7,8 +7,8 @@ import { theme } from "../../../theme";
 export default function UserProfile({ username }) {
   return (
     <UserProfileStyled>
-      <div className="panelText">
-        <p className="welcomeTxt">
+      <div className="profileTexts">
+        <p className="welcome">
           Hey, <span className="username">{username}</span>
         </p>
         <Link to="/">
@@ -27,7 +27,7 @@ const UserProfileStyled = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  .panelText {
+  .profileTexts {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +44,7 @@ const UserProfileStyled = styled.div`
       color: ${theme.colors.greyDark};
     }
 
-    .welcomeTxt {
+    .welcome {
       font-size: ${theme.fonts.size.P0};
       color: ${theme.colors.greyBlue};
       margin: 0px;
