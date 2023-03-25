@@ -4,7 +4,7 @@ import { theme } from "../../theme";
 
 export default function PrimaryButton({ label, Icon, ...extraProps }) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled className={extraProps.className}>
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
@@ -24,7 +24,6 @@ const PrimaryButtonStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
 
   span {
-    font-size: ${theme.fonts.size.P0};
     font-weight: ${theme.fonts.weight.bold};
   }
 
