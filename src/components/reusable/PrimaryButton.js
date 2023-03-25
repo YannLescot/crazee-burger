@@ -40,5 +40,10 @@ const PrimaryButtonStyled = styled.button`
     .icon {
       color: ${theme.colors.primary};
     }
+    &:active {
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      border: none;
+    }
   }
 `;
