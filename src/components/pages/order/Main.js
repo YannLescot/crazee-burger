@@ -3,16 +3,62 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import PrimaryButton from "../../reusable/PrimaryButton";
 
+import { formatPrice } from "../../../utils/maths";
+
 export default function Main() {
   return (
     <MainStyled>
       <div className="menu">
         <div className="card">
-          <img src="" alt="" className="productImg" />
+          <img src="/images/burger2.png" alt="" className="productImg" />
           <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQqqq</strong>
+            <strong className="productName">Burger Smoke BBQ</strong>
             <div className="productBuy">
-              <p className="price">5,60 €</p>
+              <p className="price">{formatPrice("5.60 €")}</p>
+              <PrimaryButton label="Add" className="add" />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <img src="/images/burger2.png" alt="" className="productImg" />
+          <div className="productInfo">
+            <strong className="productName">Burger Smoke BBQ</strong>
+            <div className="productBuy">
+              <p className="price">{formatPrice("5.60 €")}</p>
+              <PrimaryButton label="Add" className="add" />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <img src="/images/burger2.png" alt="" className="productImg" />
+          <div className="productInfo">
+            <strong className="productName">Burger Smoke BBQ</strong>
+            <div className="productBuy">
+              <p className="price">{formatPrice("5.60 €")}</p>
+              <PrimaryButton label="Add" className="add" />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <img src="/images/burger2.png" alt="" className="productImg" />
+          <div className="productInfo">
+            <strong className="productName">Burger Smoke BBQ</strong>
+            <div className="productBuy">
+              <p className="price">{formatPrice("5.60 €")}</p>
+              <PrimaryButton label="Add" className="add" />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <img src="/images/burger2.png" alt="" className="productImg" />
+          <div className="productInfo">
+            <strong className="productName">Burger Smoke BBQ</strong>
+            <div className="productBuy">
+              <p className="price">{formatPrice("5.60 €")}</p>
               <PrimaryButton label="Add" className="add" />
             </div>
           </div>
@@ -29,23 +75,29 @@ const MainStyled = styled.div`
   width: 100%;
   height: 85vh;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  overflow-y: auto;
 
   .menu {
-    background-color: aliceblue;
-    //background: #f5f5f7;
+    background: #f5f5f7;
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
     padding: 50px 50px 150px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
     grid-row-gap: 60px;
+    grid-column-gap: 5px;
   }
 
   .card {
+    margin: 20px 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 330px;
     width: 240px;
-    //background-color: red;
 
     gap: ${theme.spacing.xs};
 
@@ -55,13 +107,11 @@ const MainStyled = styled.div`
 
   .productImg {
     margin-top: 30px;
-    background-color: green;
     width: 200px;
     height: 145px;
   }
 
   .productInfo {
-    background-color: blue;
     width: 200px;
     white-space: nowrap;
     overflow: hidden;
@@ -70,7 +120,6 @@ const MainStyled = styled.div`
 
   .productName {
     width: 100%;
-    background-color: yellow;
     font-family: "Amatic SC", cursive;
     font-size: 36px;
   }
@@ -80,11 +129,9 @@ const MainStyled = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: orange;
   }
 
   .price {
-    background-color: pink;
     font-size: 16px;
   }
 
