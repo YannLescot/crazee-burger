@@ -1,9 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
+import PrimaryButton from "../../reusable/PrimaryButton";
 
 export default function Main() {
-  return <MainStyled></MainStyled>;
+  return (
+    <MainStyled>
+      <div className="menu">
+        <div className="card">
+          <img src="" alt="" className="productImg" />
+          <div className="productInfo">
+            <strong className="productName">Burger Smoke BBQqqq</strong>
+            <div className="productBuy">
+              <p className="price">5,60 €</p>
+              <PrimaryButton label="Add" className="add" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </MainStyled>
+  );
 }
 
 const MainStyled = styled.div`
@@ -13,4 +29,71 @@ const MainStyled = styled.div`
   width: 100%;
   height: 85vh;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+
+  .menu {
+    background-color: aliceblue;
+    //background: #f5f5f7;
+    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+    padding: 50px 50px 150px;
+    grid-row-gap: 60px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 330px;
+    width: 240px;
+    //background-color: red;
+
+    gap: ${theme.spacing.xs};
+
+    border-radius: ${theme.borderRadius.extraRound};
+    box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  }
+
+  .productImg {
+    margin-top: 30px;
+    background-color: green;
+    width: 200px;
+    height: 145px;
+  }
+
+  .productInfo {
+    background-color: blue;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .productName {
+    width: 100%;
+    background-color: yellow;
+    font-family: "Amatic SC", cursive;
+    font-size: 36px;
+  }
+
+  .productBuy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
+  }
+
+  .price {
+    background-color: pink;
+    font-size: 16px;
+  }
+
+  .add {
+    width: 95px;
+    height: 38px;
+
+    span {
+      font-size: ${theme.fonts.size.XS};
+    }
+  }
 `;
