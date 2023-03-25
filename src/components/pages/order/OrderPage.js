@@ -1,15 +1,30 @@
-import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../theme";
+import Main from "./Main";
+import Navbar from "./Navbar";
 
 export default function OrderPage() {
-  //Le hook useParams permet de récupérer les paramètres de l'URL (passé dans le path de la route)
-  const { username } = useParams();
-
   return (
-    <div>
-      <h1>Bonjour {username}</h1>
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
-    </div>
+    <OrderPageStyled>
+      <div className="container">
+        <Navbar />
+        <Main />
+      </div>
+    </OrderPageStyled>
   );
 }
+
+const OrderPageStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: ${theme.colors.primary};
+
+  .container {
+    height: 95vh;
+    width: 1400px;
+  }
+`;

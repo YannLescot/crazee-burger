@@ -22,6 +22,7 @@ const PrimaryButtonStyled = styled.button`
   color: ${theme.colors.white};
   border: none;
   border-radius: ${theme.borderRadius.round};
+
   span {
     font-size: ${theme.fonts.size.P0};
     font-weight: ${theme.fonts.weight.bold};

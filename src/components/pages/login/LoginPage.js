@@ -7,7 +7,11 @@ import Logo from "../../reusable/Logo";
 export default function LoginPage() {
   return (
     <LoginStyled>
-      <Logo />
+      <Logo
+        className={
+          "login-page-logo"
+        } /* Attention aux accolades car className de props */
+      />
       <LoginForm />
     </LoginStyled>
   );
@@ -16,16 +20,17 @@ export default function LoginPage() {
 const LoginStyled = styled.div`
   height: 100vh;
   width: 100vw;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background-color: ${theme.colors.background_dark};
   background-size: cover;
   background-position: center;
   background-position-y: 40%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${bgImage});
+  .login-page-logo {
+    transform: scale(2.5);
+  }
 `;
