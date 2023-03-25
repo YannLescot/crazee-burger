@@ -54,7 +54,7 @@ const MainStyled = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    grid-row-gap: 60px;
+    grid-row-gap: 40px;
     grid-column-gap: 5px;
   }
 `;
