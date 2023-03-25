@@ -15,8 +15,8 @@ export default function ProductCard({
       <img src={imageSource} alt="" />
       <div className="productInfo">
         <strong className="productName">{title}</strong>
-        <div className="productBuy">
-          <p className="price">{`${formatPrice(price)}`}</p>
+        <div className="productInfoBottomEnd">
+          <p className="priceTag">{`${formatPrice(price)}`}</p>
           <PrimaryButton
             label="Ajouter"
             className="productCard-primary-button"
@@ -66,7 +66,7 @@ const ProductCardStyled = styled.div`
     margin: 0 5px;
   }
 
-  .productBuy {
+  .productInfoBottomEnd {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -74,7 +74,7 @@ const ProductCardStyled = styled.div`
     margin: 0 5px;
   }
 
-  .price {
+  .priceTag {
     font-size: 16px;
     font-weight: ${theme.fonts.weight.regular};
     color: ${theme.colors.primary};
