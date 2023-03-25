@@ -1,5 +1,4 @@
 export function formatPrice(priceToFormat) {
-  console.log(priceToFormat);
   let price = priceToFormat;
 
   // @TODO: perhaps change this to if(!price) return 0
