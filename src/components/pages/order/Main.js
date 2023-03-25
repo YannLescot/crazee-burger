@@ -1,68 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import PrimaryButton from "../../reusable/PrimaryButton";
-
-import { formatPrice } from "../../../utils/maths";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import ProductCard from "../../reusable/ProductCard";
 
 export default function Main() {
   return (
     <MainStyled>
       <div className="menu">
-        <div className="card">
-          <img src="/images/burger2.png" alt="" className="productImg" />
-          <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQ</strong>
-            <div className="productBuy">
-              <p className="price">{formatPrice("5.60 €")}</p>
-              <PrimaryButton label="Add" className="add" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <img src="/images/burger2.png" alt="" className="productImg" />
-          <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQ</strong>
-            <div className="productBuy">
-              <p className="price">{formatPrice("5.60 €")}</p>
-              <PrimaryButton label="Add" className="add" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <img src="/images/burger2.png" alt="" className="productImg" />
-          <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQ</strong>
-            <div className="productBuy">
-              <p className="price">{formatPrice("5.60 €")}</p>
-              <PrimaryButton label="Add" className="add" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <img src="/images/burger2.png" alt="" className="productImg" />
-          <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQ</strong>
-            <div className="productBuy">
-              <p className="price">{formatPrice("5.60 €")}</p>
-              <PrimaryButton label="Add" className="add" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <img src="/images/burger2.png" alt="" className="productImg" />
-          <div className="productInfo">
-            <strong className="productName">Burger Smoke BBQ</strong>
-            <div className="productBuy">
-              <p className="price">{formatPrice("5.60 €")}</p>
-              <PrimaryButton label="Add" className="add" />
-            </div>
-          </div>
-        </div>
+        {fakeMenu2.map(
+          ({
+            imageSource,
+            title,
+            price,
+            quantity,
+            isAvailable,
+            isAdvertised,
+          }) => {
+            console.log(price);
+            return (
+              <ProductCard
+                imageSource={imageSource}
+                title={title}
+                price={price}
+                quantity={quantity}
+                isAvailable={isAvailable}
+                isAdvertised={isAdvertised}
+              />
+            );
+          }
+        )}
       </div>
     </MainStyled>
   );
@@ -81,6 +48,8 @@ const MainStyled = styled.div`
     background: #f5f5f7;
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
     padding: 50px 50px 150px;
+
+    min-height: 75%;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
