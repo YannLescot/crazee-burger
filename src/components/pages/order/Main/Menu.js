@@ -10,10 +10,10 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menu.map(({ key, imageSource, title, price }) => {
+      {menu.map(({ id, imageSource, title, price }) => {
         return (
           <Card
-            key={key}
+            key={id}
             imageSource={imageSource}
             title={title}
             leftDescription={formatPrice(price)}
@@ -25,16 +25,13 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  background: ${theme.colors.background_white};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-  padding: 50px 50px 150px;
-
-  min-height: 75%;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-
   grid-row-gap: 60px;
   grid-column-gap: 5px;
+  min-height: 75%;
+  background: ${theme.colors.background_white};
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  padding: 50px 50px 150px;
 `;

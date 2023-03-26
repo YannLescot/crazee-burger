@@ -23,11 +23,9 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: ${theme.spacing.xs};
   height: 330px;
   width: 240px;
-
-  gap: ${theme.spacing.xs};
-
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRound};
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
