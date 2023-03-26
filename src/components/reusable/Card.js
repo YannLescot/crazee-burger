@@ -23,17 +23,18 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: ${theme.spacing.xs};
-  height: 330px;
-  width: 240px;
+  padding: 20px;
+  padding-bottom: 10px;
+  width: 200px;
+  height: 300px;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRound};
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
   img {
     margin-top: 30px;
-    margin-bottom: 7px;
-    width: 200px;
+    margin-bottom: 20px;
+    width: 100%;
     height: 145px;
     object-fit: contain;
   }
