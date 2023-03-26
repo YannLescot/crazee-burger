@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main";
-import Navbar from "./Navbar";
+import Navbar from "./navBar/Navbar";
 
 export default function OrderPage() {
   return (

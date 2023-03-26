@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme";
-import { refreshPage } from "../../../utils/window";
-import Logo from "../../reusable/Logo";
+import { theme } from "../../../../theme";
+import { refreshPage } from "../../../../utils/window";
+import Logo from "../../../reusable/Logo";
 import NavbarRightSide from "./NavbarRightSide";
 
 export default function Navbar() {
