@@ -5,9 +5,11 @@ import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import ProductCard from "../../../reusable/ProductCard";
 
 export default function Menu() {
+  const [menu, setMenu] = React.useState(fakeMenu2);
+
   return (
     <MenuStyled>
-      {fakeMenu2.map(
+      {menu.map(
         ({
           imageSource,
           title,
@@ -42,7 +44,8 @@ const MenuStyled = styled.div`
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 
-  grid-row-gap: 40px;
+  grid-row-gap: 60px;
   grid-column-gap: 5px;
 `;
