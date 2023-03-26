@@ -24,7 +24,7 @@ const OrderPageStyled = styled.div`
   background-color: ${theme.colors.primary};
 
   .container {
-    height: 95vh;
+    height: 835px;
     width: 1400px;
   }
 `;
