@@ -5,7 +5,7 @@ import { theme } from "../../theme";
 export default function PrimaryButton({ label, Icon, ...extraProps }) {
   return (
     <PrimaryButtonStyled className={extraProps.className}>
-      <span>{label}</span>
+      {label}
       {Icon && Icon}
     </PrimaryButtonStyled>
   );
@@ -22,10 +22,7 @@ const PrimaryButtonStyled = styled.button`
   color: ${theme.colors.white};
   border: none;
   border-radius: ${theme.borderRadius.round};
-
-  span {
-    font-weight: ${theme.fonts.weight.bold};
-  }
+  font-weight: ${theme.fonts.weight.bold};
 
   .icon {
     color: ${theme.colors.white};

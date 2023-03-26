@@ -23,7 +23,7 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: ${theme.spacing.md};
   padding-bottom: 10px;
   width: 200px;
   height: 300px;
@@ -70,9 +70,7 @@ const CardStyled = styled.div`
         width: 95px;
         height: 38px;
 
-        span {
-          font-size: ${theme.fonts.size.XXS};
-        }
+        font-size: ${theme.fonts.size.XXS};
       }
     }
   }
