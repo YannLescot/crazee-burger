@@ -6,12 +6,16 @@ import { theme } from "../../theme";
 export default function Card({ imageSource, title, leftDescription }) {
   return (
     <CardStyled>
-      <img src={imageSource} alt="produit" />
+      <div className="image">
+        <img src={imageSource} alt="produit" />
+      </div>
       <div className="text-info">
         <strong className="title">{title}</strong>
         <div className="description">
           <p className="left-description">{leftDescription}</p>
-          <PrimaryButton label={"Ajouter"} className="card-primary-button" />
+          <div className="right-description">
+            <PrimaryButton label={"Ajouter"} className="primary-button" />
+          </div>
         </div>
       </div>
     </CardStyled>
@@ -19,58 +23,76 @@ export default function Card({ imageSource, title, leftDescription }) {
 }
 
 const CardStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: ${theme.spacing.md};
-  padding-bottom: 10px;
+  background: ${theme.colors.white};
   width: 200px;
   height: 300px;
-  background-color: ${theme.colors.white};
-  border-radius: ${theme.borderRadius.extraRound};
+  display: grid;
+  grid-template-rows: 65% 1fr;
+  padding: 20px;
+  padding-bottom: 10px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  border-radius: ${theme.borderRadius.extraRound};
 
-  img {
+  .image {
+    width: 100%;
+    height: auto;
     margin-top: 30px;
     margin-bottom: 20px;
-    width: 100%;
-    height: 145px;
-    object-fit: contain;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .text-info {
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    padding: 5px;
 
     .title {
-      width: 100%;
-      font-family: "Amatic SC", cursive;
-      font-size: 36px;
+      margin: auto 0;
+      font-size: ${theme.fonts.size.P4};
+      position: relative;
+      bottom: 10px;
       font-weight: ${theme.fonts.weight.bold};
-      margin: 0 5px;
+      color: ${theme.colors.dark};
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-overflow: ellipsis;
+      font-family: "Amatic SC", cursive;
     }
 
     .description {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
       .left-description {
-        font-size: 16px;
-        font-weight: ${theme.fonts.weight.regular};
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: ${theme.fonts.weight.medium};
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: ${theme.fonts.weight.medium};
         color: ${theme.colors.primary};
       }
 
-      .card-primary-button {
-        width: 95px;
-        height: 38px;
+      .right-description {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: ${theme.fonts.size.P1};
 
-        font-size: ${theme.fonts.size.XXS};
+        .primary-button {
+          font-size: ${theme.fonts.size.XS};
+          cursor: pointer;
+          padding: 12px;
+        }
       }
     }
   }

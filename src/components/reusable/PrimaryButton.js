@@ -12,18 +12,18 @@ export default function PrimaryButton({ label, Icon, ...extraProps }) {
 }
 
 const PrimaryButtonStyled = styled.button`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 54px;
+  padding: 18px 24px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
   border: none;
   border-radius: ${theme.borderRadius.round};
   font-weight: ${theme.fonts.weight.bold};
-
+  line-height: 1;
   .icon {
     color: ${theme.colors.white};
     font-size: ${theme.fonts.size.P0};
