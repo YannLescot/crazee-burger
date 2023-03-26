@@ -15,8 +15,10 @@ const MainStyled = styled.div`
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  width: 100%;
-  height: 85vh;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  max-height: 90%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
   overflow-y: auto;
 `;

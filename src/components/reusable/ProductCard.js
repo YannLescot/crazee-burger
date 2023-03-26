@@ -28,8 +28,6 @@ export default function ProductCard({
 }
 
 const ProductCardStyled = styled.div`
-  margin: 0 40px 0 40px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
