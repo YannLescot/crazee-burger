@@ -31,7 +31,6 @@ const MenuStyled = styled.div`
   grid-row-gap: 60px;
   grid-column-gap: 5px;
   min-height: 75%;
-  background: ${theme.colors.background_white};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  background: none;
   padding: 50px 50px 150px;
 `;
