@@ -25,7 +25,6 @@ const OrderPageStyled = styled.div`
 
   .container {
     height: 95vh;
-    width: 1400px;
     width: 73vw;
   }
 `;
