@@ -6,7 +6,7 @@ import { theme } from "../../theme";
 export default function Card({ imageSource, title, leftDescription }) {
   return (
     <CardStyled>
-      <img src={imageSource} alt="" />
+      <img src={imageSource} alt="produit" />
       <div className="text-info">
         <strong className="title">{title}</strong>
         <div className="description">
