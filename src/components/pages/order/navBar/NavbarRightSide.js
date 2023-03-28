@@ -17,7 +17,6 @@ export default function NavbarRightSide() {
 
     !isChecked &&
       toast.info("Mode admin activé", {
-        //icon: <FaUserSecret size={30} />,
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
