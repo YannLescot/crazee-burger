@@ -39,7 +39,7 @@ export default function LoginForm() {
       <PrimaryButton
         label={"Accéder à mon espace"}
         Icon={<IoChevronForward className="icon" />}
-        className={"loginform-primary-button"}
+        className={"login-form-button"}
       />
     </LoginFormStyled>
   );
@@ -79,7 +79,7 @@ const LoginFormStyled = styled.form`
     margin-bottom: 0px;
   }
 
-  .loginform-primary-button {
+  .login-form-button {
     width: 400px;
     height: 54px;
 
