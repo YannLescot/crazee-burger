@@ -92,6 +92,13 @@ const CardStyled = styled.div`
           font-size: ${theme.fonts.size.XS};
           cursor: pointer;
           padding: 12px;
+
+          &:active {
+            transition: background-color 0.2s ease-out;
+            background-color: ${theme.colors.primary};
+            color: ${theme.colors.white};
+            border: none;
+          }
         }
       }
     }

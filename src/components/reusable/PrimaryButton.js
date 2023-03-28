@@ -5,8 +5,10 @@ import { theme } from "../../theme";
 export default function PrimaryButton({ label, Icon, className }) {
   return (
     <PrimaryButtonStyled className={className}>
-      {label}
-      {Icon && Icon}
+      <span>
+        {label}
+        {Icon && Icon}
+      </span>
     </PrimaryButtonStyled>
   );
 }
@@ -19,28 +21,26 @@ const PrimaryButtonStyled = styled.button`
   padding: 18px 24px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
-  color: ${theme.colors.white};
+
   border: none;
   border-radius: ${theme.borderRadius.round};
-  font-weight: ${theme.fonts.weight.bold};
-  line-height: 1;
-  .icon {
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: ${theme.spacing.sm};
+    font-weight: ${theme.fonts.weight.bold};
+    line-height: 1;
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.size.P0};
   }
 
   &:hover {
+    transition: background-color 0.2s ease-out;
     border: 1px solid ${theme.colors.primary};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.primary};
-    cursor: pointer;
-    .icon {
+    span {
       color: ${theme.colors.primary};
     }
-    &:active {
-      background-color: ${theme.colors.primary};
-      color: ${theme.colors.white};
-      border: none;
-    }
+    cursor: pointer;
   }
 `;
