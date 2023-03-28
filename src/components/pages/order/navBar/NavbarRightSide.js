@@ -12,7 +12,7 @@ export default function NavbarRightSide() {
 
   const [isAdmin, setIsAdmin] = useState(false);
 
-  function displayToastNotification() {
+  const displayToastNotification = () => {
     setIsAdmin(!isAdmin);
 
     !isAdmin &&
@@ -26,7 +26,7 @@ export default function NavbarRightSide() {
         draggable: true,
         progress: undefined,
       });
-  }
+  };
 
   return (
     <NavbarRightSideStyled>
