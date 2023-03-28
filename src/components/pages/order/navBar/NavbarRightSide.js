@@ -1,4 +1,4 @@
-import React from "react";
+import useState from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useParams } from "react-router-dom";
@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function NavbarRightSide() {
   const { username } = useParams();
 
-  const [isChecked, setIsChecked] = React.useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   function handleClick() {
     setIsChecked(!isChecked);
