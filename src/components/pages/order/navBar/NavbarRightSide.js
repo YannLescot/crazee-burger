@@ -14,8 +14,6 @@ export default function NavbarRightSide() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const displayToastNotification = () => {
-    setIsAdmin(!isAdmin);
-
     !isAdmin &&
       toast.info("Mode admin activé", {
         theme: "dark",
@@ -27,6 +25,7 @@ export default function NavbarRightSide() {
         draggable: true,
         progress: undefined,
       });
+    setIsAdmin(!isAdmin);
   };
 
   return (
