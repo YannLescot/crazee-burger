@@ -66,8 +66,4 @@ const NavbarRightSideStyled = styled.div`
       line-height: 1.3em;
     }
   }
-
-  .adminbutton {
-    background-color: red;
-  }
 `;
