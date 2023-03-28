@@ -9,7 +9,7 @@ export default function NavbarRightSide() {
 
   return (
     <NavbarRightSideStyled>
-      {/*<div className="adminbutton"> Admin Button</div>*/}
+      {<div className="adminbutton"> Admin Button</div>}
       <UserProfile username={username} />
     </NavbarRightSideStyled>
   );
