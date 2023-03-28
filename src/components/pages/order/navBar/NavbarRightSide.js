@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useParams } from "react-router-dom";
 import UserProfile from "./UserProfile";
-import ToggleButton from "./ToggleButton";
+import ToggleButton from "../../../reusable/ToggleButton";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
