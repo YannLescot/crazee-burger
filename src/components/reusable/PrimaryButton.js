@@ -2,44 +2,47 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ label, Icon, ...extraProps }) {
+export default function PrimaryButton({ label, Icon, className }) {
   return (
-    <PrimaryButtonStyled>
-      <span>{label}</span>
+    <PrimaryButtonStyled className={className}>
+      {label}
       {Icon && Icon}
     </PrimaryButtonStyled>
   );
 }
 
 const PrimaryButtonStyled = styled.button`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 54px;
+  width: 100%;
+  padding: 18px 24px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
-  border: none;
+  border: 1px solid ${theme.colors.primary};
   border-radius: ${theme.borderRadius.round};
 
   span {
-    font-size: ${theme.fonts.size.P0};
+    display: flex;
+    align-items: center;
+    gap: ${theme.spacing.sm};
     font-weight: ${theme.fonts.weight.bold};
-  }
-
-  .icon {
+    line-height: 1;
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.size.P0};
   }
 
   &:hover {
-    border: 1px solid ${theme.colors.primary};
+    transition: background-color 0.2s ease-out;
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
     cursor: pointer;
-    .icon {
-      color: ${theme.colors.primary};
+
+    &:active {
+      transition: background-color 0.2s ease-out;
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      border: none;
     }
   }
 `;
