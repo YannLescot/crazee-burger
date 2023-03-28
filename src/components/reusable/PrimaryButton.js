@@ -5,10 +5,8 @@ import { theme } from "../../theme";
 export default function PrimaryButton({ label, Icon, className }) {
   return (
     <PrimaryButtonStyled className={className}>
-      <span>
-        {label}
-        {Icon && Icon}
-      </span>
+      {label}
+      {Icon && Icon}
     </PrimaryButtonStyled>
   );
 }
@@ -21,8 +19,8 @@ const PrimaryButtonStyled = styled.button`
   padding: 18px 24px;
   gap: ${theme.spacing.xs};
   background-color: ${theme.colors.primary};
-
-  border: none;
+  color: ${theme.colors.white};
+  border: 1px solid ${theme.colors.primary};
   border-radius: ${theme.borderRadius.round};
 
   span {
@@ -36,11 +34,15 @@ const PrimaryButtonStyled = styled.button`
 
   &:hover {
     transition: background-color 0.2s ease-out;
-    border: 1px solid ${theme.colors.primary};
     background-color: ${theme.colors.white};
-    span {
-      color: ${theme.colors.primary};
-    }
+    color: ${theme.colors.primary};
     cursor: pointer;
+
+    &:active {
+      transition: background-color 0.2s ease-out;
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      border: none;
+    }
   }
 `;
