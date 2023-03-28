@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminModeToast from "./AdminModeToast";
 
-export default function NavbarRightSide() {
+export default function RightSide() {
   const { username } = useParams();
 
   const [isAdmin, setIsAdmin] = useState(false);
@@ -29,7 +29,7 @@ export default function NavbarRightSide() {
   };
 
   return (
-    <NavbarRightSideStyled>
+    <RightSideStyled>
       <AdminModeToast />
       <ToggleButton
         isChecked={isAdmin}
@@ -38,11 +38,11 @@ export default function NavbarRightSide() {
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />
       <UserProfile username={username} />
-    </NavbarRightSideStyled>
+    </RightSideStyled>
   );
 }
 
-const NavbarRightSideStyled = styled.div`
+const RightSideStyled = styled.div`
   gap: ${theme.spacing.xl};
   padding-right: 50px;
   display: flex;

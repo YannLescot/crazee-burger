@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { refreshPage } from "../../../../utils/window";
 import Logo from "../../../reusable/Logo";
-import NavbarRightSide from "./NavbarRightSide";
+import RightSide from "./RightSide";
 
 export default function Navbar() {
   return (
     <NavbarStyled>
       <Logo className={"logo-order-page"} onClick={refreshPage} />
-      <NavbarRightSide />
+      <RightSide />
     </NavbarStyled>
   );
 }
