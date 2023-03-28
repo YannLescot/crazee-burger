@@ -28,8 +28,6 @@ export default function ToggleButton({
 }
 
 const ToggleButtonStyled = styled.div`
-  /* border: 1px solid red; */
-
   display: flex;
   margin-right: 10px;
   input[type="checkbox"] {
@@ -66,7 +64,6 @@ const ToggleButtonStyled = styled.div`
 
     // text inside the switch button (for checked and unchecked)
     &.toggle + label:after {
-      /* border: 1px solid blue; */
       width: 150px;
       text-align: center;
       z-index: 2;
@@ -90,7 +87,6 @@ const ToggleButtonStyled = styled.div`
 
     &.toggle:not(:checked) + label {
       background-color: ${theme.colors.background_dark};
-      /* text-align: right; */
     }
 
     // text label when not checked
