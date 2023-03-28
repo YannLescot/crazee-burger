@@ -10,12 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 export default function NavbarRightSide() {
   const { username } = useParams();
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  function handleClick() {
-    setIsChecked(!isChecked);
+  function displayToastNotification() {
+    setIsAdmin(!isAdmin);
 
-    !isChecked &&
+    !isAdmin &&
       toast.info("Mode admin activé", {
         theme: "dark",
         position: "bottom-right",
@@ -32,8 +32,8 @@ export default function NavbarRightSide() {
     <NavbarRightSideStyled>
       <ToastContainer className="toaster" bodyClassName="body-toast" />
       <ToggleButton
-        isChecked={isChecked}
-        onToggle={handleClick}
+        isChecked={isAdmin}
+        onToggle={displayToastNotification}
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />
