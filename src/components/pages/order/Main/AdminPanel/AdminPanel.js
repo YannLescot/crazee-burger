@@ -3,34 +3,14 @@ import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-import { theme } from "../../../../theme";
-import Tab from "../../../reusable/Tab";
+import { theme } from "../../../../../theme";
+import Tab from "../../../../reusable/Tab";
+import PanelTabs from "./PanelTabs";
 
 export default function AdminPanel() {
   return (
     <AdminPanelStyled>
-      <div className="tabs">
-        <Tab
-          icon={<FiChevronDown />}
-          label=""
-          onClick={() => {}}
-          isActive={false}
-        />
-
-        <Tab
-          icon={<AiOutlinePlus />}
-          label="Ajouter un produit"
-          onClick={() => {}}
-          isActive={false}
-        />
-
-        <Tab
-          icon={<MdModeEditOutline />}
-          label="Modifier un produit"
-          onClick={() => {}}
-          isActive={false}
-        />
-      </div>
+      <PanelTabs />
       <div className="adminPanelBody">
         <span>Ajouter un produit</span>
       </div>
@@ -48,17 +28,6 @@ const AdminPanelStyled = styled.div`
   align-self: flex-end;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-
-  .tabs {
-    margin-left: 71px;
-    display: flex;
-    align-items: center;
-
-    .collapse {
-      height: 100%;
-      width: 60px;
-    }
-  }
 
   .adminPanelBody {
     background-color: ${theme.colors.white};
