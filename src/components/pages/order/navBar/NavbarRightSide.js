@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import UserProfile from "./UserProfile";
@@ -6,9 +6,10 @@ import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminToast from "./AdminToast";
+import AdminContext from "../../../../context/AdminContext";
 
 export default function RightSide() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   const displayToastNotification = () => {
     !isAdmin &&
