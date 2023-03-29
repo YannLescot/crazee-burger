@@ -10,6 +10,8 @@ export default function Main() {
       <Menu />
       <div className="adminPanel">
         <div className="tabs">
+          <button className="collapse"></button>
+          <button className="addProduct"></button>
           <button className="addProduct"></button>
         </div>
         <div className="adminPanelBody">
@@ -42,6 +44,24 @@ const MainStyled = styled.div`
     align-self: flex-end;
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+    .tabs {
+      background-color: green;
+      display: flex;
+
+      .collapse {
+        background-color: pink;
+        margin-left: 71px;
+        height: 100%;
+        width: 60px;
+      }
+
+      .addProduct {
+        background-color: yellow;
+        height: 100%;
+        width: 212px;
+      }
+    }
 
     .adminPanelBody {
       background-color: red;
