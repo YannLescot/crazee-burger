@@ -4,16 +4,14 @@ import { theme } from "../../theme";
 
 export default function Tab({ icon, label, onClick, isActive }) {
   return (
-    <TabStyled>
-      <button onClick={onClick} className={isActive ? "active" : ""}>
-        {icon && icon}
-        {label}
-      </button>
+    <TabStyled onClick={onClick} className={isActive ? "active" : ""}>
+      {icon && icon}
+      {label}
     </TabStyled>
   );
 }
 
-const TabStyled = styled.div`
+const TabStyled = styled.button`
   background-color: ${theme.colors.white};
   padding: 0px 22px;
   display: flex;
