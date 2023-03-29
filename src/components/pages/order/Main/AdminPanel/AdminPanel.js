@@ -17,9 +17,9 @@ export default function AdminPanel() {
 }
 
 const AdminPanelStyled = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 4fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 1400px;
   height: 293px;
   position: absolute;
