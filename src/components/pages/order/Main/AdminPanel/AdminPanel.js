@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AdminContext from "../../../../../context/AdminContext";
 import { theme } from "../../../../../theme";
 import PanelBody from "./PanelBody";
 import PanelTabs from "./PanelTabs";
 
 export default function AdminPanel() {
+  const { isPanelCollapsed } = useContext(AdminContext);
+
   return (
     <AdminPanelStyled>
       <PanelTabs />
-      <PanelBody />
+      {!isPanelCollapsed && <PanelBody />}
     </AdminPanelStyled>
   );
 }
