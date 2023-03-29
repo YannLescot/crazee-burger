@@ -48,7 +48,6 @@ const MainStyled = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 4fr;
-    background-color: blue;
     width: 1400px;
     height: 293px;
     position: absolute;
@@ -58,11 +57,11 @@ const MainStyled = styled.div`
 
     .tabs {
       margin-left: 71px;
-      background-color: green;
       display: flex;
       align-items: center;
 
       button {
+        background-color: ${theme.colors.white};
         padding: 0px 22px;
         display: flex;
         flex-direction: row;
@@ -70,66 +69,55 @@ const MainStyled = styled.div`
         align-items: center;
         gap: 15px;
         border: 1px solid ${theme.colors.greyLight};
+        color: ${theme.colors.greyBlue};
+        font-size: 16px;
         border-top-left-radius: ${theme.borderRadius.round};
         border-top-right-radius: ${theme.borderRadius.round};
 
-        .icon {
-          font-size: 16px;
-          color: ${theme.colors.greyBlue};
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
         }
       }
 
       .collapse {
-        background-color: pink;
         height: 100%;
         width: 60px;
       }
 
       .addProduct {
-        background-color: yellow;
         font-size: 16px;
         font-weight: ${theme.fonts.weight.regular};
-        color: ${theme.colors.greyBlue};
         height: 100%;
         width: 212px;
       }
 
       .editProduct {
-        background-color: orange;
         font-size: 16px;
         font-weight: ${theme.fonts.weight.regular};
-        color: ${theme.colors.greyBlue};
         height: 100%;
         width: 212px;
       }
     }
 
     .adminPanelBody {
-      background-color: red;
+      background-color: ${theme.colors.white};
       width: 1365px;
       height: 207px;
       padding: 21px 17px;
       border-bottom-left-radius: ${theme.borderRadius.extraRound};
       border-bottom-right-radius: ${theme.borderRadius.extraRound};
       border: 1px solid ${theme.colors.greyLight};
-
-      span {
-        color: white;
-      }
     }
   }
 
   .adminPanelBody {
-    background-color: red;
     width: 1366px;
     height: 208px;
     padding: 21px 17px;
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
-
-    span {
-      color: white;
-    }
+    box-shadow: ${theme.shadows.medium};
   }
 
   /* .basket {
