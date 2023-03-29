@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ icon, label, onClick, isActive }) {
+export default function Tab({ id, icon, label, onClick, isActive }) {
   return (
-    <TabStyled onClick={onClick} className={isActive ? "active" : ""}>
+    <TabStyled id={id} onClick={onClick} className={isActive ? "active" : ""}>
       {icon && icon}
       {label}
     </TabStyled>
