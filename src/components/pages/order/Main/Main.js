@@ -10,9 +10,11 @@ export default function Main() {
 
   return (
     <MainStyled>
-      {/* <div className="basket">Basket</div> */}
-      <Menu />
-      {isAdmin && <AdminPanel />}
+      {/*<div className="basket">Basket</div>*/}
+      <div className="menu-and-admin">
+        <Menu />
+        {isAdmin && <AdminPanel />}
+      </div>
     </MainStyled>
   );
 }
@@ -20,15 +22,20 @@ export default function Main() {
 const MainStyled = styled.div`
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr;
-  max-height: 90%;
+  //grid-template-columns: 25% 1fr;
+  height: calc(95vh - 10vh);
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: ${theme.shadows.strong};
-  overflow-y: auto;
 
-  /* .basket {
+  .menu-and-admin {
+    display: grid;
+    position: relative;
+    overflow-y: hidden;
+  }
+
+  /*.basket {
     background: pink;
-  } */
+  }*/
 `;

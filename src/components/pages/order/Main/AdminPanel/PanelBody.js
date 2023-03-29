@@ -17,7 +17,7 @@ export default function PanelBody() {
 
 const PanelBodyStyled = styled.div`
   background-color: ${theme.colors.white};
-  width: 1365px;
+  width: 1364px;
   height: 207px;
   padding: 21px 17px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
