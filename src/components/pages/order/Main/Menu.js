@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusable/Card";
 import { formatPrice } from "../../../../utils/maths";

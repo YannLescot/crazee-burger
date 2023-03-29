@@ -1,11 +1,11 @@
 import React from "react";
 import { useContext } from "react";
 import styled from "styled-components";
-import AdminContext from "../../../../../context/AdminContext";
+import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
 
 export default function PanelBody() {
-  const { activeTab } = useContext(AdminContext);
+  const { activeTab } = useContext(OrderContext);
 
   return (
     <PanelBodyStyled>

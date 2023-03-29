@@ -3,7 +3,7 @@ import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import { useState } from "react";
-import AdminContext from "../../../context/AdminContext";
+import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -12,7 +12,7 @@ export default function OrderPage() {
 
   return (
     <OrderPageStyled>
-      <AdminContext.Provider
+      <OrderContext.Provider
         value={{
           isAdmin,
           setIsAdmin,
@@ -26,7 +26,7 @@ export default function OrderPage() {
           <Navbar />
           <Main />
         </div>
-      </AdminContext.Provider>
+      </OrderContext.Provider>
     </OrderPageStyled>
   );
 }

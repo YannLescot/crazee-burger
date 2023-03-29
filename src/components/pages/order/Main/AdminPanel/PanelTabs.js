@@ -3,12 +3,12 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { MdModeEditOutline } from "react-icons/md";
 import styled from "styled-components";
-import AdminContext from "../../../../../context/AdminContext";
+import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
 
 export default function PanelTabs() {
   const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
-    useContext(AdminContext);
+    useContext(OrderContext);
 
   const handleCollapse = () => {
     setIsPanelCollapsed(!isPanelCollapsed);

@@ -6,10 +6,10 @@ import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminToast from "./AdminToast";
-import AdminContext from "../../../../context/AdminContext";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin } = useContext(AdminContext);
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
     !isAdmin &&
