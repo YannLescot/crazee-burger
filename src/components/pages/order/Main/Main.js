@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
+import { FiChevronDown } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
 
 export default function Main() {
   return (
@@ -10,9 +13,17 @@ export default function Main() {
       <Menu />
       <div className="adminPanel">
         <div className="tabs">
-          <button className="collapse"></button>
-          <button className="addProduct"></button>
-          <button className="addProduct"></button>
+          <button className="collapse">
+            <FiChevronDown className="icon" />
+          </button>
+          <button className="addProduct">
+            <AiOutlinePlus className="icon" />
+            Ajouter un produit
+          </button>
+          <button className="editProduct">
+            <MdModeEditOutline className="icon" />
+            Modifier un produit
+          </button>
         </div>
         <div className="adminPanelBody">
           <span>Ajouter un produit</span>
@@ -46,18 +57,48 @@ const MainStyled = styled.div`
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
 
     .tabs {
+      margin-left: 71px;
       background-color: green;
       display: flex;
+      align-items: center;
+
+      button {
+        padding: 0px 22px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid ${theme.colors.greyLight};
+        border-top-left-radius: ${theme.borderRadius.round};
+        border-top-right-radius: ${theme.borderRadius.round};
+
+        .icon {
+          font-size: 16px;
+          color: ${theme.colors.greyBlue};
+        }
+      }
 
       .collapse {
         background-color: pink;
-        margin-left: 71px;
         height: 100%;
         width: 60px;
       }
 
       .addProduct {
         background-color: yellow;
+        font-size: 16px;
+        font-weight: ${theme.fonts.weight.regular};
+        color: ${theme.colors.greyBlue};
+        height: 100%;
+        width: 212px;
+      }
+
+      .editProduct {
+        background-color: orange;
+        font-size: 16px;
+        font-weight: ${theme.fonts.weight.regular};
+        color: ${theme.colors.greyBlue};
         height: 100%;
         width: 212px;
       }
@@ -65,11 +106,12 @@ const MainStyled = styled.div`
 
     .adminPanelBody {
       background-color: red;
-      width: 1366px;
-      height: 208px;
+      width: 1365px;
+      height: 207px;
       padding: 21px 17px;
       border-bottom-left-radius: ${theme.borderRadius.extraRound};
       border-bottom-right-radius: ${theme.borderRadius.extraRound};
+      border: 1px solid ${theme.colors.greyLight};
 
       span {
         color: white;
