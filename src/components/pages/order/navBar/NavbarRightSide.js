@@ -5,7 +5,7 @@ import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminModeToast from "./AdminModeToast";
+import AdminToast from "./AdminToast";
 
 export default function RightSide() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -27,7 +27,7 @@ export default function RightSide() {
 
   return (
     <RightSideStyled>
-      <AdminModeToast />
+      <AdminToast />
       <ToggleButton
         isChecked={isAdmin}
         onToggle={displayToastNotification}
