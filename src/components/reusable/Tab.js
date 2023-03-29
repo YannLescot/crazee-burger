@@ -20,11 +20,17 @@ const TabStyled = styled.button`
   align-items: center;
   gap: 15px;
   border: 1px solid ${theme.colors.greyLight};
-  color: ${theme.colors.greyBlue};
   font-size: 16px;
+  color: ${theme.colors.greyBlue};
   border-top-left-radius: ${theme.borderRadius.round};
   border-top-right-radius: ${theme.borderRadius.round};
   height: 100%;
+
+  &.active {
+    background-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.background_dark};
+  }
 
   &:hover {
     cursor: pointer;
