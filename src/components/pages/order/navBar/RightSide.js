@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import { useParams } from "react-router-dom";
 import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
@@ -9,8 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminModeToast from "./AdminModeToast";
 
 export default function RightSide() {
-  const { username } = useParams();
-
   const [isAdmin, setIsAdmin] = useState(false);
 
   const displayToastNotification = () => {
@@ -37,7 +34,7 @@ export default function RightSide() {
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />
-      <UserProfile username={username} />
+      <UserProfile />
     </RightSideStyled>
   );
 }
