@@ -4,22 +4,32 @@ import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { theme } from "../../../../theme";
+import Tab from "../../../reusable/Tab";
 
 export default function AdminPanel() {
   return (
     <AdminPanelStyled>
       <div className="tabs">
-        <button className="collapse">
-          <FiChevronDown className="icon" />
-        </button>
-        <button className="addProduct">
-          <AiOutlinePlus className="icon" />
-          Ajouter un produit
-        </button>
-        <button className="editProduct">
-          <MdModeEditOutline className="icon" />
-          Modifier un produit
-        </button>
+        <Tab
+          icon={<FiChevronDown />}
+          label=""
+          onClick={() => {}}
+          isActive={false}
+        />
+
+        <Tab
+          icon={<AiOutlinePlus />}
+          label="Ajouter un produit"
+          onClick={() => {}}
+          isActive={false}
+        />
+
+        <Tab
+          icon={<MdModeEditOutline />}
+          label="Modifier un produit"
+          onClick={() => {}}
+          isActive={false}
+        />
       </div>
       <div className="adminPanelBody">
         <span>Ajouter un produit</span>
@@ -44,43 +54,9 @@ const AdminPanelStyled = styled.div`
     display: flex;
     align-items: center;
 
-    button {
-      background-color: ${theme.colors.white};
-      padding: 0px 22px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      border: 1px solid ${theme.colors.greyLight};
-      color: ${theme.colors.greyBlue};
-      font-size: 16px;
-      border-top-left-radius: ${theme.borderRadius.round};
-      border-top-right-radius: ${theme.borderRadius.round};
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
     .collapse {
       height: 100%;
       width: 60px;
-    }
-
-    .addProduct {
-      font-size: 16px;
-      font-weight: ${theme.fonts.weight.regular};
-      height: 100%;
-      width: 212px;
-    }
-
-    .editProduct {
-      font-size: 16px;
-      font-weight: ${theme.fonts.weight.regular};
-      height: 100%;
-      width: 212px;
     }
   }
 
