@@ -1,11 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import AdminContext from "../../../../../context/AdminContext";
 import { theme } from "../../../../../theme";
 
 export default function PanelBody() {
+  const { activeTab } = useContext(AdminContext);
+
   return (
     <PanelBodyStyled>
-      <span>Ajouter un produit</span>
+      {activeTab === "add" && <span>Ajouter un produit</span>}
+      {activeTab === "edit" && <span>Modifier un produit</span>}
     </PanelBodyStyled>
   );
 }
