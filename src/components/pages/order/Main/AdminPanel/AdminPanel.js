@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FiChevronDown } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
 import { theme } from "../../../../../theme";
-import Tab from "../../../../reusable/Tab";
 import PanelTabs from "./PanelTabs";
 
 export default function AdminPanel() {
