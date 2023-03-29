@@ -7,10 +7,21 @@ import AdminContext from "../../../context/AdminContext";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState("add");
 
   return (
     <OrderPageStyled>
-      <AdminContext.Provider value={{ isAdmin, setIsAdmin }}>
+      <AdminContext.Provider
+        value={{
+          isAdmin,
+          setIsAdmin,
+          isPanelCollapsed,
+          setIsPanelCollapsed,
+          activeTab,
+          setActiveTab,
+        }}
+      >
         <div className="container">
           <Navbar />
           <Main />
