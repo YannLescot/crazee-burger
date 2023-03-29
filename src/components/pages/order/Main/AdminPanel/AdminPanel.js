@@ -7,6 +7,7 @@ export default function AdminPanel() {
   return (
     <AdminPanelStyled>
       <PanelTabs />
+
       <div className="adminPanelBody">
         <span>Ajouter un produit</span>
       </div>
