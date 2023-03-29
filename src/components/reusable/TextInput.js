@@ -23,13 +23,13 @@ const TextInputStyled = styled.div`
 
   input {
     width: 70%;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     font-weight: ${theme.fonts.weight.regular};
     border-radius: ${theme.borderRadius.round};
     border: none;
 
     &::placeholder {
-      font-size: ${theme.fonts.size.P0};
+      font-size: ${theme.fonts.size.SM};
       background: ${theme.colors.white};
       color: ${theme.colors.greyLight};
     }
@@ -38,7 +38,7 @@ const TextInputStyled = styled.div`
   .icon {
     color: ${theme.colors.greyBlue};
     margin-left: ${theme.spacing.md};
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     padding: 0px 10px;
   }
 `;

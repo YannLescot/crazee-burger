@@ -20,7 +20,7 @@ const TabStyled = styled.button`
   align-items: center;
   gap: 15px;
   border: 1px solid ${theme.colors.greyLight};
-  font-size: 16px;
+  font-size: ${theme.fonts.size.P0};
   color: ${theme.colors.greyBlue};
   border-top-left-radius: ${theme.borderRadius.round};
   border-top-right-radius: ${theme.borderRadius.round};

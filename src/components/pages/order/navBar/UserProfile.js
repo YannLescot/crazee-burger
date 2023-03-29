@@ -46,7 +46,7 @@ const UserProfileStyled = styled.div`
     }
 
     .welcome {
-      font-size: ${theme.fonts.size.P0};
+      font-size: ${theme.fonts.size.SM};
       color: ${theme.colors.greyBlue};
       margin: 0px;
 
