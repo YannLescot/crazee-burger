@@ -23,7 +23,7 @@ export default function PanelTabs() {
     <PanelTabsStyled>
       <Tab
         id="collapse"
-        icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
         onClick={handleCollapse}
         isActive={isPanelCollapsed}
@@ -31,7 +31,7 @@ export default function PanelTabs() {
 
       <Tab
         id="add"
-        icon={<AiOutlinePlus />}
+        Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
         onClick={handleClick}
         isActive={activeTab === "add" ? true : false}
@@ -39,7 +39,7 @@ export default function PanelTabs() {
 
       <Tab
         id="edit"
-        icon={<MdModeEditOutline />}
+        Icon={<MdModeEditOutline />}
         label="Modifier un produit"
         onClick={handleClick}
         isActive={activeTab === "edit" ? true : false}
@@ -49,6 +49,7 @@ export default function PanelTabs() {
 }
 
 const PanelTabsStyled = styled.div`
+  gap: 1px;
   margin-left: 71px;
   height: 43px;
   display: flex;
