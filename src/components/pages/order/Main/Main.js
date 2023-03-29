@@ -8,6 +8,14 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <Menu />
+      <div className="adminPanel">
+        <div className="tabs">
+          <button className="addProduct"></button>
+        </div>
+        <div className="adminPanelBody">
+          <span>Ajouter un produit</span>
+        </div>
+      </div>
     </MainStyled>
   );
 }
@@ -22,6 +30,45 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   overflow-y: auto;
+
+  .adminPanel {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+    background-color: blue;
+    width: 1400px;
+    height: 293px;
+    position: absolute;
+    align-self: flex-end;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+    .adminPanelBody {
+      background-color: red;
+      width: 1366px;
+      height: 208px;
+      padding: 21px 17px;
+      border-bottom-left-radius: ${theme.borderRadius.extraRound};
+      border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+      span {
+        color: white;
+      }
+    }
+  }
+
+  .adminPanelBody {
+    background-color: red;
+    width: 1366px;
+    height: 208px;
+    padding: 21px 17px;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+    span {
+      color: white;
+    }
+  }
 
   /* .basket {
     background: pink;
