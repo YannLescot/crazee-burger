@@ -9,24 +9,27 @@ export default function PanelTabs() {
   return (
     <PanelTabsStyled>
       <Tab
+        id="collapse"
         icon={<FiChevronDown />}
         label=""
         onClick={() => {}}
-        isActive={false}
+        activeTab={""}
       />
 
       <Tab
+        id="add"
         icon={<AiOutlinePlus />}
         label="Ajouter un produit"
         onClick={() => {}}
-        isActive={false}
+        activeTab={""}
       />
 
       <Tab
+        id="edit"
         icon={<MdModeEditOutline />}
         label="Modifier un produit"
         onClick={() => {}}
-        isActive={false}
+        activeTab={""}
       />
     </PanelTabsStyled>
   );
