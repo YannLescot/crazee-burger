@@ -23,7 +23,7 @@ export default function PanelTabs() {
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
         onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
-        isTabActive={isPanelCollapsed}
+        className={isPanelCollapsed ? "active" : ""}
       />
       {tabs.map(({ id, Icon, label }) => (
         <Tab
@@ -31,7 +31,7 @@ export default function PanelTabs() {
           Icon={Icon}
           label={label}
           onClick={() => selectTab(id)}
-          isTabActive={activeTab === id ? true : false}
+          className={activeTab === id ? "active" : ""}
         />
       ))}
     </PanelTabsStyled>
