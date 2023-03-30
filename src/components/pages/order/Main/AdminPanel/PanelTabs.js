@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { MdModeEditOutline } from "react-icons/md";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
+import { tabsConfig } from "./tabsConfig";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function PanelTabs() {
   const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
@@ -14,36 +13,33 @@ export default function PanelTabs() {
     setIsPanelCollapsed(!isPanelCollapsed);
   };
 
-  const selectTab = (e) => {
-    setActiveTab(e.target.id);
+  const selectTab = (tabId) => {
+    setActiveTab(tabId);
     setIsPanelCollapsed(false);
   };
+
+  const tabs = tabsConfig;
 
   return (
     <PanelTabsStyled>
       <Tab
-        id="collapse"
+        key="collapse"
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
         onClick={handleCollapse}
         isTabActive={isPanelCollapsed}
       />
-
-      <Tab
-        id="add"
-        Icon={<AiOutlinePlus />}
-        label="Ajouter un produit"
-        onClick={selectTab}
-        isTabActive={activeTab === "add" ? true : false}
-      />
-
-      <Tab
-        id="edit"
-        Icon={<MdModeEditOutline />}
-        label="Modifier un produit"
-        onClick={selectTab}
-        isTabActive={activeTab === "edit" ? true : false}
-      />
+      {tabs.map(({ id, Icon, label }) => {
+        return (
+          <Tab
+            key={id}
+            Icon={Icon}
+            label={label}
+            onClick={() => selectTab(id)}
+            isTabActive={activeTab === id ? true : false}
+          />
+        );
+      })}
     </PanelTabsStyled>
   );
 }
