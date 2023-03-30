@@ -29,17 +29,15 @@ export default function PanelTabs() {
         onClick={handleCollapse}
         isTabActive={isPanelCollapsed}
       />
-      {tabs.map(({ id, Icon, label }) => {
-        return (
-          <Tab
-            key={id}
-            Icon={Icon}
-            label={label}
-            onClick={() => selectTab(id)}
-            isTabActive={activeTab === id ? true : false}
-          />
-        );
-      })}
+      {tabs.map(({ id, Icon, label }) => (
+        <Tab
+          key={id}
+          Icon={Icon}
+          label={label}
+          onClick={() => selectTab(id)}
+          isTabActive={activeTab === id ? true : false}
+        />
+      ))}
     </PanelTabsStyled>
   );
 }

@@ -16,6 +16,5 @@ export const tabsConfig = [
   },
 ];
 
-export const getTabSelected = (tabs, currentTabSelected) => {
-  return tabs.find((tab) => tab.id === currentTabSelected);
-};
+export const getTabSelected = (tabs, currentTabSelected) =>
+  tabs.find((tab) => tab.id === currentTabSelected);
