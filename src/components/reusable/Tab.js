@@ -38,5 +38,8 @@ const TabStyled = styled.button`
     cursor: pointer;
     text-decoration: underline;
     border-bottom: 2px solid ${theme.colors.white};
+    &.active {
+      border: 1px solid ${theme.colors.background_dark};
+    }
   }
 `;

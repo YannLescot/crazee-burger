@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { MdModeEditOutline } from "react-icons/md";
@@ -7,14 +7,14 @@ import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
 
 export default function PanelTabs() {
-  const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
-    useContext(OrderContext);
+  const [activeTab, setActiveTab] = useState("add");
+  const { isPanelCollapsed, setIsPanelCollapsed } = useContext(OrderContext);
 
   const handleCollapse = () => {
     setIsPanelCollapsed(!isPanelCollapsed);
   };
 
-  const handleClick = (e) => {
+  const selectTab = (e) => {
     setActiveTab(e.target.id);
     setIsPanelCollapsed(false);
   };
@@ -33,7 +33,7 @@ export default function PanelTabs() {
         id="add"
         Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
-        onClick={handleClick}
+        onClick={selectTab}
         isActive={activeTab === "add" ? true : false}
       />
 
@@ -41,7 +41,7 @@ export default function PanelTabs() {
         id="edit"
         Icon={<MdModeEditOutline />}
         label="Modifier un produit"
-        onClick={handleClick}
+        onClick={selectTab}
         isActive={activeTab === "edit" ? true : false}
       />
     </PanelTabsStyled>

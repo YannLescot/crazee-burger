@@ -8,7 +8,6 @@ import OrderContext from "../../../context/OrderContext";
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState("add");
 
   return (
     <OrderPageStyled>
@@ -18,8 +17,6 @@ export default function OrderPage() {
           setIsAdmin,
           isPanelCollapsed,
           setIsPanelCollapsed,
-          activeTab,
-          setActiveTab,
         }}
       >
         <div className="container">
