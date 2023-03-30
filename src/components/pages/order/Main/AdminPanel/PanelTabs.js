@@ -9,10 +9,6 @@ export default function PanelTabs() {
   const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
     useContext(OrderContext);
 
-  const handleCollapse = () => {
-    setIsPanelCollapsed(!isPanelCollapsed);
-  };
-
   const selectTab = (tabId) => {
     setActiveTab(tabId);
     setIsPanelCollapsed(false);
@@ -26,7 +22,7 @@ export default function PanelTabs() {
         key="collapse"
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
-        onClick={handleCollapse}
+        onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
         isTabActive={isPanelCollapsed}
       />
       {tabs.map(({ id, Icon, label }) => (
