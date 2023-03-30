@@ -7,8 +7,8 @@ import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
 
 export default function PanelTabs() {
-  const [activeTab, setActiveTab] = useState("add");
-  const { isPanelCollapsed, setIsPanelCollapsed } = useContext(OrderContext);
+  const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
+    useContext(OrderContext);
 
   const handleCollapse = () => {
     setIsPanelCollapsed(!isPanelCollapsed);
@@ -26,7 +26,7 @@ export default function PanelTabs() {
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
         onClick={handleCollapse}
-        isActive={isPanelCollapsed}
+        isTabActive={isPanelCollapsed}
       />
 
       <Tab
@@ -34,7 +34,7 @@ export default function PanelTabs() {
         Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
         onClick={selectTab}
-        isActive={activeTab === "add" ? true : false}
+        isTabActive={activeTab === "add" ? true : false}
       />
 
       <Tab
@@ -42,7 +42,7 @@ export default function PanelTabs() {
         Icon={<MdModeEditOutline />}
         label="Modifier un produit"
         onClick={selectTab}
-        isActive={activeTab === "edit" ? true : false}
+        isTabActive={activeTab === "edit" ? true : false}
       />
     </PanelTabsStyled>
   );

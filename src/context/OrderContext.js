@@ -5,4 +5,6 @@ export default createContext({
   setIsAdmin: () => {},
   isPanelCollapsed: false,
   setIsPanelCollapsed: () => {},
+  activeTab: "",
+  setActiveTab: () => {},
 });
