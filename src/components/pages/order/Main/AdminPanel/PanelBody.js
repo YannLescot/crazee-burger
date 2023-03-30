@@ -12,17 +12,21 @@ export default function PanelBody() {
   const tabSelected = getTabSelected(tabs, activeTab);
 
   return (
-    <PanelBodyStyled>{tabSelected && tabSelected.content}</PanelBodyStyled>
+    <PanelBodyStyled>
+      {tabSelected && <p>tabSelected.content</p>}
+    </PanelBodyStyled>
   );
 }
 
 const PanelBodyStyled = styled.div`
   background-color: ${theme.colors.white};
-  width: 1364px;
-  height: 207px;
-  padding: 21px 17px;
+  height: 250px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+
+  p {
+    padding: 0 19px;
+  }
 `;

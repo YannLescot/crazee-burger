@@ -31,6 +31,9 @@ const TabStyled = styled.button`
   box-shadow: ${theme.shadows.subtle};
   height: 100%;
 
+  position: relative;
+  top: 1px;
+
   &.active {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
