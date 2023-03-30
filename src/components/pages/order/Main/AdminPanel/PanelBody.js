@@ -3,15 +3,16 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
+import { getTabSelected, tabsConfig } from "./tabsConfig";
 
 export default function PanelBody() {
   const { activeTab } = useContext(OrderContext);
 
+  const tabs = tabsConfig;
+  const tabSelected = getTabSelected(tabs, activeTab);
+
   return (
-    <PanelBodyStyled>
-      {activeTab === "add" && <span>Ajouter un produit</span>}
-      {activeTab === "edit" && <span>Modifier un produit</span>}
-    </PanelBodyStyled>
+    <PanelBodyStyled>{tabSelected && tabSelected.content}</PanelBodyStyled>
   );
 }
 
