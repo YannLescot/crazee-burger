@@ -43,8 +43,6 @@ const CardStyled = styled.div`
 
   .closeBtn {
     display: flex;
-    height: 30px;
-    width: 30px;
     font-size: 30px;
     color: ${theme.colors.primary};
     justify-self: end;
