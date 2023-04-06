@@ -6,13 +6,11 @@ import { theme } from "../../../../theme";
 
 export default function AdminToast() {
   return (
-    <AdminToastStyled>
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
-    </AdminToastStyled>
+    <ToastContainerStyled className="toaster" bodyClassName="body-toast" />
   );
 }
 
-const AdminToastStyled = styled.div`
+const ToastContainerStyled = styled(ToastContainer)`
   .toaster {
     max-width: 300px;
   }
