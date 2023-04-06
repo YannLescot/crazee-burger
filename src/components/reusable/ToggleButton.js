@@ -82,7 +82,7 @@ const ToggleButtonStyled = styled.div`
 
     // small circle
     &.toggle + label.rounded:before {
-      border-radius: 50%;
+      border-radius: ${theme.borderRadius.circle};
     }
 
     &.toggle:not(:checked) + label {

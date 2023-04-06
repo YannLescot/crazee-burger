@@ -84,7 +84,7 @@ const LoginFormStyled = styled.form`
     height: 54px;
 
     span {
-      font-size: ${theme.fonts.size.P0};
+      font-size: ${theme.fonts.size.SM};
     }
   }
 `;

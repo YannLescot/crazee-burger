@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminModeToast from "./AdminModeToast";
+import AdminToast from "./AdminToast";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function RightSide() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
     !isAdmin &&
@@ -27,7 +28,7 @@ export default function RightSide() {
 
   return (
     <RightSideStyled>
-      <AdminModeToast />
+      <AdminToast />
       <ToggleButton
         isChecked={isAdmin}
         onToggle={displayToastNotification}

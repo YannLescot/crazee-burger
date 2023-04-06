@@ -2,14 +2,31 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
+import { useState } from "react";
+import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState("add");
+
+  const orderContextValue = {
+    isAdmin,
+    setIsAdmin,
+    isPanelCollapsed,
+    setIsPanelCollapsed,
+    activeTab,
+    setActiveTab,
+  };
+
   return (
     <OrderPageStyled>
-      <div className="container">
-        <Navbar />
-        <Main />
-      </div>
+      <OrderContext.Provider value={orderContextValue}>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderContext.Provider>
     </OrderPageStyled>
   );
 }

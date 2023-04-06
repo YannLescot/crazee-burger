@@ -4,15 +4,13 @@ import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function AdminModeToast() {
+export default function AdminToast() {
   return (
-    <AdminModeToastStyled>
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
-    </AdminModeToastStyled>
+    <ToastContainerStyled className="toaster" bodyClassName="body-toast" />
   );
 }
 
-const AdminModeToastStyled = styled.div`
+const ToastContainerStyled = styled(ToastContainer)`
   .toaster {
     max-width: 300px;
   }

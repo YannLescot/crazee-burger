@@ -42,7 +42,6 @@ const PrimaryButtonStyled = styled.button`
       transition: background-color 0.2s ease-out;
       background-color: ${theme.colors.primary};
       color: ${theme.colors.white};
-      border: none;
     }
   }
 `;
