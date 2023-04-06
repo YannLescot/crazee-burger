@@ -6,6 +6,7 @@ import { theme } from "../../theme";
 export default function Card({ imageSource, title, leftDescription }) {
   return (
     <CardStyled>
+      <div className="closeBtn">X</div>
       <div className="image">
         <img src={imageSource} alt="produit" />
       </div>
@@ -27,16 +28,27 @@ const CardStyled = styled.div`
   width: 200px;
   height: 300px;
   display: grid;
-  grid-template-rows: 65% 1fr;
+  grid-template-rows: 5% 60% 1fr;
   padding: 20px;
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
 
+  .closeBtn {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    justify-self: end;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
   .image {
     width: 100%;
     height: auto;
-    margin-top: 30px;
+    //margin-top: 30px;
     margin-bottom: 20px;
 
     img {
