@@ -15,7 +15,7 @@ export default function PanelBody() {
     <PanelBodyStyled>
       {/*tabSelected && <p>{tabSelected.label}</p>*/}
       <div className="addProductLayout">
-        <div className="imageProduct">IMG</div>{" "}
+        <div className="imageProduct">Aucune image</div>{" "}
         <div className="form">
           <div className="textInput"></div>
           <div className="textInput"></div>
@@ -44,9 +44,16 @@ const PanelBodyStyled = styled.div`
     grid-template-columns:  1fr 3fr 2fr;
     grid-column-gap: 20px;
     .imageProduct {
-      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid ${theme.colors.greyLight};
+      border-radius: ${theme.borderRadius.round};
       width: 215px;
       height: 120px;
+      font-size: ${theme.fonts.size.P0};
+      font-weight: ${theme.fonts.weight.regular};
+      color: ${theme.colors.greySemiDark};
     }
     .form {
       background-color: blue;
