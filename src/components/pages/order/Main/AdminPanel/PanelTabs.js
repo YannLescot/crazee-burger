@@ -19,7 +19,6 @@ export default function PanelTabs() {
   return (
     <PanelTabsStyled>
       <Tab
-        key="collapse"
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
         onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
