@@ -16,8 +16,7 @@ const TextInputStyled = styled.div`
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
-  width: 400px;
-  height: 54px;
+  width: 100%;
   border: none;
   border-radius: ${theme.borderRadius.round};
 
