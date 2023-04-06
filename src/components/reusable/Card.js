@@ -2,11 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import PrimaryButton from "./PrimaryButton";
 import { theme } from "../../theme";
+import { TiDelete } from "react-icons/ti";
 
-export default function Card({ imageSource, title, leftDescription }) {
+export default function Card({
+  imageSource,
+  title,
+  leftDescription,
+  hasDeleteButton,
+}) {
   return (
     <CardStyled>
-      <div className="closeBtn">X</div>
+      <div className="closeBtn">{hasDeleteButton && <TiDelete />}</div>
+
       <div className="image">
         <img src={imageSource} alt="produit" />
       </div>
@@ -28,7 +35,7 @@ const CardStyled = styled.div`
   width: 200px;
   height: 300px;
   display: grid;
-  grid-template-rows: 5% 60% 1fr;
+  grid-template-rows: 10% 55% 1fr;
   padding: 20px;
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
@@ -36,19 +43,26 @@ const CardStyled = styled.div`
 
   .closeBtn {
     display: flex;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    background-color: red;
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    color: ${theme.colors.primary};
     justify-self: end;
-    border-radius: 50%;
+    border-radius: ${theme.borderRadius.round};
     cursor: pointer;
+
+    &:hover {
+      color: ${theme.colors.red};
+
+      &:active {
+        color: ${theme.colors.primary};
+      }
+    }
   }
 
   .image {
     width: 100%;
     height: auto;
-    //margin-top: 30px;
     margin-bottom: 20px;
 
     img {

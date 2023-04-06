@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusable/Card";
 import { formatPrice } from "../../../../utils/maths";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const { isAdmin } = useContext(OrderContext);
 
   return (
     <MenuStyled>
@@ -16,6 +18,7 @@ export default function Menu() {
             imageSource={imageSource}
             title={title}
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isAdmin}
           />
         );
       })}
