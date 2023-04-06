@@ -3,7 +3,12 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
+import TextInput from "../../../../reusable/TextInput";
 import { getTabSelected, tabsConfig } from "./tabsConfig";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
+import PrimaryButton from "../../../../reusable/PrimaryButton";
 
 export default function PanelBody() {
   const { activeTab } = useContext(OrderContext);
@@ -17,10 +22,33 @@ export default function PanelBody() {
       <div className="addProductLayout">
         <div className="imageProduct">Aucune image</div>{" "}
         <div className="form">
-          <div className="textInput"></div>
-          <div className="textInput"></div>
-          <div className="textInput"></div>
-          <div className="addButton"></div>
+          <TextInput
+            value=""
+            onChange={() => {}}
+            placeholder={"Nom du produit (ex: Super Burger)"}
+            Icon={<FaHamburger className="icon" />}
+            className="textInput"
+          />
+          <TextInput
+            value=""
+            onChange={() => {}}
+            placeholder={
+              "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+            }
+            Icon={<BsFillCameraFill className="icon" />}
+            className="textInput"
+          />
+          <TextInput
+            value=""
+            onChange={() => {}}
+            placeholder={"Prix"}
+            Icon={<MdOutlineEuro className="icon" />}
+            className="textInput"
+          />
+          <PrimaryButton
+            label={"Ajouter un nouveau produit au menu"}
+            className={"addButton"}
+          />
         </div>
       </div>
     </PanelBodyStyled>
@@ -61,7 +89,7 @@ const PanelBodyStyled = styled.div`
       grid-template-rows: repeat(4, 1fr);
       grid-row-gap: 8px;
       .textInput {
-        background-color: yellow;
+        //background-color: yellow;
         width: 645px;
         height: 35px;
       }
