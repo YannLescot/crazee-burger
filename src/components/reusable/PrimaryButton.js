@@ -1,10 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ label, Icon, className }) {
+export default function PrimaryButton({ label, Icon, variant, className }) {
   return (
-    <PrimaryButtonStyled className={className}>
+    <PrimaryButtonStyled className={className} variant={variant}>
       {label}
       {Icon && Icon}
     </PrimaryButtonStyled>
@@ -18,10 +18,8 @@ const PrimaryButtonStyled = styled.button`
   width: 100%;
   padding: 18px 24px;
   gap: ${theme.spacing.xs};
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.white};
-  border: 1px solid ${theme.colors.primary};
   border-radius: ${theme.borderRadius.round};
+  cursor: pointer;
 
   span {
     display: flex;
@@ -32,16 +30,44 @@ const PrimaryButtonStyled = styled.button`
     color: ${theme.colors.white};
   }
 
-  &:hover {
-    transition: background-color 0.2s ease-out;
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.primary};
-    cursor: pointer;
-
-    &:active {
-      transition: background-color 0.2s ease-out;
-      background-color: ${theme.colors.primary};
-      color: ${theme.colors.white};
-    }
-  }
+  ${({ variant }) => (variant === "add" ? getAddStyle() : getNormalStyle())}
 `;
+
+const getNormalStyle = () => {
+  return css`
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.primary};
+
+    &:hover {
+      transition: background-color 0.2s ease-out;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      cursor: pointer;
+
+      &:active {
+        transition: background-color 0.2s ease-out;
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.white};
+      }
+    }
+  `;
+};
+
+const getAddStyle = () => {
+  return css`
+    background-color: ${theme.colors.success};
+    color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.success};
+
+    &:hover {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.success};
+
+      &:active {
+        background-color: ${theme.colors.success};
+        color: ${theme.colors.white};
+      }
+    }
+  `;
+};

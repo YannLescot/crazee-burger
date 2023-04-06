@@ -47,6 +47,7 @@ export default function PanelBody() {
           />
           <PrimaryButton
             label={"Ajouter un nouveau produit au menu"}
+            variant="add"
             className={"addButton"}
           />
         </div>
@@ -94,7 +95,7 @@ const PanelBodyStyled = styled.div`
         height: 35px;
       }
       .addButton {
-        background-color: orange;
+        //background-color: orange;
         width: 275px;
         height: 35px;
       }
