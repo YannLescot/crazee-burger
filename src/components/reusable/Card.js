@@ -9,10 +9,13 @@ export default function Card({
   title,
   leftDescription,
   hasDeleteButton,
+  onDelete,
 }) {
   return (
     <CardStyled>
-      <div className="closeBtn">{hasDeleteButton && <TiDelete />}</div>
+      <div className="closeBtn">
+        {hasDeleteButton && <TiDelete onClick={onDelete} />}
+      </div>
 
       <div className="image">
         <img src={imageSource} alt="produit" />

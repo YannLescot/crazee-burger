@@ -5,7 +5,12 @@ import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
-  const { isAdmin, menu } = useContext(OrderContext);
+  const { isAdmin, menu, setMenu } = useContext(OrderContext);
+
+  const handleDelete = (id) => {
+    const newMenu = menu.filter((item) => item.id !== id);
+    setMenu(newMenu);
+  };
 
   return (
     <MenuStyled>
@@ -17,6 +22,7 @@ export default function Menu() {
             title={title}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}
