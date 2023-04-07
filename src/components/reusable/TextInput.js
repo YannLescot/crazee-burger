@@ -81,6 +81,7 @@ const getMinimalistStyle = () => {
     background-color: ${theme.colors.background_white};
 
     input {
+      width: 90%;
       background-color: ${theme.colors.background_white};
       margin-left: 15px;
 
