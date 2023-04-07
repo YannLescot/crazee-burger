@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FaHamburger } from "react-icons/fa";
-import { MdModeEditOutline, MdOutlineEuro } from "react-icons/md";
+import { MdOutlineEuro } from "react-icons/md";
+import { BsFillCameraFill } from "react-icons/bs";
 import AddProductContext from "../../../../../../context/AddProductContext";
 
 export const InputsConfig = () => {
@@ -19,7 +20,7 @@ export const InputsConfig = () => {
       field: "imageSource",
       placeholder:
         "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
-      Icon: <MdModeEditOutline className="icon" />,
+      Icon: <BsFillCameraFill className="icon" />,
     },
     {
       value: productToAdd.price,
