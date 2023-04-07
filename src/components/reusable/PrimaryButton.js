@@ -20,14 +20,12 @@ const PrimaryButtonStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
   cursor: pointer;
 
-  span {
-    display: flex;
-    align-items: center;
-    gap: ${theme.spacing.sm};
-    font-weight: ${theme.fonts.weight.bold};
-    line-height: 1;
-    color: ${theme.colors.white};
-  }
+  display: flex;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+  font-weight: ${theme.fonts.weight.bold};
+  line-height: 1;
+  color: ${theme.colors.white};
 
   ${({ variant }) => variant === "add" && getAddStyle()}
   ${({ variant }) => variant === "login" && getLoginStyle()}
@@ -70,6 +68,7 @@ const getAddStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
     padding: 0px 24px;
+    font-size: ${theme.fonts.size.XS};
 
     &:hover {
       background-color: ${theme.colors.white};
