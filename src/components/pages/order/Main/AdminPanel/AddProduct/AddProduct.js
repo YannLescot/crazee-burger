@@ -35,8 +35,8 @@ export default function AddProduct() {
   return (
     <AddProductStyled onSubmit={(e) => handleSubmit(e)}>
       <AddProductContext.Provider value={addProductContextValue}>
-        <div className={productToAdd.imageSource === "" ? "noImg" : "hasImg"}>
-          {productToAdd.imageSource === "" ? (
+        <div className={!productToAdd.imageSource ? "noImg" : "hasImg"}>
+          {!productToAdd.imageSource ? (
             <p>Aucune image</p>
           ) : (
             <img src={productToAdd.imageSource} alt="Produit" />
