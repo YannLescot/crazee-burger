@@ -64,6 +64,8 @@ const getLoginStyle = () => {
 
 const getAddStyle = () => {
   return css`
+    width: 275px;
+    height: 34px;
     background-color: ${theme.colors.success};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};

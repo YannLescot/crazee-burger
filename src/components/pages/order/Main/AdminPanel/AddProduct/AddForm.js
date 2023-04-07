@@ -34,7 +34,6 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
         <PrimaryButton
           label={"Ajouter un nouveau produit au menu"}
           variant="add"
-          className={"addButton"}
         />
         {wasProductAdded && (
           <span className="succesAdd">
@@ -57,10 +56,6 @@ const AddFormStyled = styled.form`
   }
   .addSection {
     display: flex;
-    .addButton {
-      width: 275px;
-      height: 34px;
-    }
     span {
       display: flex;
       align-items: center;
