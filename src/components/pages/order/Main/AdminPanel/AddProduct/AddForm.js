@@ -8,7 +8,6 @@ import { theme } from "../../../../../../theme";
 import PrimaryButton from "../../../../../reusable/PrimaryButton";
 import TextInput from "../../../../../reusable/TextInput";
 import AddProductContext from "../../../../../../context/AddProductContext";
-import { formatPrice } from "../../../../../../utils/maths";
 
 export default function AddForm({ onSubmit, productWasAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
@@ -22,7 +21,7 @@ export default function AddForm({ onSubmit, productWasAdded }) {
   };
 
   const handlePriceChange = (e) => {
-    setProductToAdd({ ...productToAdd, price: formatPrice(e.target.value) });
+    setProductToAdd({ ...productToAdd, price: e.target.value });
   };
 
   return (
@@ -47,7 +46,6 @@ export default function AddForm({ onSubmit, productWasAdded }) {
         className="textInput"
       />
       <TextInput
-        type="number"
         value={productToAdd.price}
         onChange={handlePriceChange}
         placeholder={"Prix"}
