@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import { BsFillCameraFill } from "react-icons/bs";
-import { FaHamburger } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
-import { MdOutlineEuro } from "react-icons/md";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import PrimaryButton from "../../../../../reusable/PrimaryButton";
 import TextInput from "../../../../../reusable/TextInput";
 import AddProductContext from "../../../../../../context/AddProductContext";
+import { InputsConfig } from "./inputsConfig";
 
 export default function AddForm({ onSubmit, wasProductAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
@@ -18,33 +16,20 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
 
   return (
     <AddFormStyled onSubmit={onSubmit}>
-      <TextInput
-        value={productToAdd.title}
-        onChange={(e) => handleFieldChange("title", e.target.value)}
-        placeholder={"Nom du produit (ex: Super Burger)"}
-        Icon={<FaHamburger className="icon" />}
-        variant="minimalist"
-        className="textInput"
-      />
-      <TextInput
-        type="url"
-        value={productToAdd.imageSource}
-        onChange={(e) => handleFieldChange("imageSource", e.target.value)}
-        placeholder={
-          "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-        }
-        Icon={<BsFillCameraFill className="icon" />}
-        variant="minimalist"
-        className="textInput"
-      />
-      <TextInput
-        value={productToAdd.price}
-        onChange={(e) => handleFieldChange("price", e.target.value)}
-        placeholder={"Prix"}
-        Icon={<MdOutlineEuro className="icon" />}
-        variant="minimalist"
-        className="textInput"
-      />
+      {InputsConfig().map(({ type, value, field, placeholder, Icon }) => {
+        return (
+          <TextInput
+            type={type && type}
+            value={value}
+            onChange={(e) => handleFieldChange(field, e.target.value)}
+            placeholder={placeholder}
+            Icon={Icon}
+            variant="minimalist"
+            className="textInput"
+          />
+        );
+      })}
+
       <div className="addSection">
         <PrimaryButton
           label={"Ajouter un nouveau produit au menu"}

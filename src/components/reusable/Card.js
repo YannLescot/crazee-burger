@@ -24,7 +24,7 @@ export default function Card({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <PrimaryButton label={"Ajouter"} className="primary-button" />
+            <PrimaryButton label={"Ajouter"} variant="basket" />
           </div>
         </div>
       </div>
@@ -118,12 +118,6 @@ const CardStyled = styled.div`
         justify-content: flex-end;
         align-items: center;
         font-size: ${theme.fonts.size.P1};
-
-        .primary-button {
-          font-size: ${theme.fonts.size.XS};
-          cursor: pointer;
-          padding: 12px;
-        }
       }
     }
   }

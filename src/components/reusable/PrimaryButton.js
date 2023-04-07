@@ -29,10 +29,12 @@ const PrimaryButtonStyled = styled.button`
     color: ${theme.colors.white};
   }
 
-  ${({ variant }) => (variant === "add" ? getAddStyle() : getNormalStyle())}
+  ${({ variant }) => variant === "add" && getAddStyle()}
+  ${({ variant }) => variant === "login" && getLoginStyle()}
+  ${({ variant }) => variant === "basket" && getBasketStyle()}
 `;
 
-const getNormalStyle = () => {
+const getLoginStyle = () => {
   return css`
     width: 400px;
     height: 54px;
@@ -73,6 +75,30 @@ const getAddStyle = () => {
 
       &:active {
         background-color: ${theme.colors.success};
+        color: ${theme.colors.white};
+      }
+    }
+  `;
+};
+
+const getBasketStyle = () => {
+  return css`
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.primary};
+    font-size: ${theme.fonts.size.XS};
+    cursor: pointer;
+    padding: 12px;
+
+    &:hover {
+      transition: background-color 0.2s ease-out;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      cursor: pointer;
+
+      &:active {
+        transition: background-color 0.2s ease-out;
+        background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
       }
     }
