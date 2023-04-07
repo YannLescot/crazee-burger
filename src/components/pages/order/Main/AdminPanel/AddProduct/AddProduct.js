@@ -4,9 +4,13 @@ import { theme } from "../../../../../../theme";
 import AddForm from "./AddForm";
 
 export default function AddProduct() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("submit");
+  };
+
   return (
-    <AddProductStyled>
-      {" "}
+    <AddProductStyled onSubmit={(e) => handleSubmit(e)}>
       <div className="imageProduct">Aucune image</div> <AddForm />
     </AddProductStyled>
   );

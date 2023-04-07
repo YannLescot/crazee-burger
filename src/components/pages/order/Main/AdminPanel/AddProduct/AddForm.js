@@ -8,9 +8,9 @@ import { theme } from "../../../../../../theme";
 import PrimaryButton from "../../../../../reusable/PrimaryButton";
 import TextInput from "../../../../../reusable/TextInput";
 
-export default function AddForm() {
+export default function AddForm({ onSubmit }) {
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={onSubmit}>
       <TextInput
         value=""
         onChange={() => {}}
