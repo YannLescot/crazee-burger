@@ -58,51 +58,52 @@ export default function AddProduct() {
   );
 }
 
-const AddProductStyled = styled.div`    width: 50%
+const AddProductStyled = styled.div`
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-column-gap: 20px;
+  .imageProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid ${theme.colors.greyLight};
+    border-radius: ${theme.borderRadius.round};
+    width: 215px;
+    height: 120px;
+    font-size: ${theme.fonts.size.P0};
+    font-weight: ${theme.fonts.weight.regular};
+    color: ${theme.colors.greySemiDark};
+  }
+  .form {
     display: grid;
-    grid-template-columns:  1fr 3fr 2fr;
-    grid-column-gap: 20px;
-    .imageProduct {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid ${theme.colors.greyLight};
-      border-radius: ${theme.borderRadius.round};
-      width: 215px;
-      height: 120px;
-      font-size: ${theme.fonts.size.P0};
-      font-weight: ${theme.fonts.weight.regular};
-      color: ${theme.colors.greySemiDark};
-    }
-    .form {
-      display: grid;
-      grid-template-rows: repeat(4, 1fr);
-      grid-row-gap: 8px;
-          height: 165px;
+    grid-template-rows: repeat(4, 1fr);
+    grid-row-gap: 8px;
+    height: 165px;
     max-height: 165px;
-      .textInput {
-        width: 645px;
-        height: 35px;
-      }
-      .addSection {
-        display: flex;
-              .addButton {
+    .textInput {
+      width: 645px;
+      height: 35px;
+    }
+    .addSection {
+      display: flex;
+      .addButton {
         width: 275px;
         height: 34px;
       }
-              span {
-          display: flex;
-          align-items: center;
-          font-size: ${theme.fonts.size.SM};
-          margin: 8px 18px;
-          color: ${theme.colors.success};
+      span {
+        display: flex;
+        align-items: center;
+        font-size: ${theme.fonts.size.SM};
+        margin: 8px 18px;
+        color: ${theme.colors.success};
 
-
-          .icon {
-            border: 1px solid ${theme.colors.success};
-            border-radius: ${theme.borderRadius.circle};
-            margin-right: 8px;
-          }
+        .icon {
+          border: 1px solid ${theme.colors.success};
+          border-radius: ${theme.borderRadius.circle};
+          margin-right: 8px;
         }
       }
-    }`;
+    }
+  }
+`;
