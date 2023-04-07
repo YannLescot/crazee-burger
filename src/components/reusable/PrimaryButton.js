@@ -41,9 +41,7 @@ const getLoginStyle = () => {
     border: 1px solid ${theme.colors.primary};
     padding: 18px 24px;
 
-    span {
-      font-size: ${theme.fonts.size.SM};
-    }
+    font-size: ${theme.fonts.size.XS};
 
     &:hover {
       transition: background-color 0.2s ease-out;

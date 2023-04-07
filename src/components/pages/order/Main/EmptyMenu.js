@@ -14,11 +14,9 @@ export default function EmptyMenu({ isAdmin, reloadMenu }) {
       </h2>
       {!isAdmin && <h3>À très vite !</h3>}
       {isAdmin && (
-        <PrimaryButton
-          className="reload"
-          label="Générer de nouveaux produits"
-          variant="login"
-        />
+        <div className="reload">
+          <PrimaryButton label="Générer de nouveaux produits" variant="login" />
+        </div>
       )}
     </EmptyMenuStyled>
   );
