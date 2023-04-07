@@ -12,23 +12,15 @@ import AddProductContext from "../../../../../../context/AddProductContext";
 export default function AddForm({ onSubmit, wasProductAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
 
-  const handleNameChange = (e) => {
-    setProductToAdd({ ...productToAdd, title: e.target.value });
-  };
-
-  const handleUrlChange = (e) => {
-    setProductToAdd({ ...productToAdd, imageSource: e.target.value });
-  };
-
-  const handlePriceChange = (e) => {
-    setProductToAdd({ ...productToAdd, price: e.target.value });
+  const handleFieldChange = (fieldName, value) => {
+    setProductToAdd({ ...productToAdd, [fieldName]: value });
   };
 
   return (
     <AddFormStyled onSubmit={onSubmit}>
       <TextInput
         value={productToAdd.title}
-        onChange={handleNameChange}
+        onChange={(e) => handleFieldChange("title", e.target.value)}
         placeholder={"Nom du produit (ex: Super Burger)"}
         Icon={<FaHamburger className="icon" />}
         variant="minimalist"
@@ -37,7 +29,7 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
       <TextInput
         type="url"
         value={productToAdd.imageSource}
-        onChange={handleUrlChange}
+        onChange={(e) => handleFieldChange("imageSource", e.target.value)}
         placeholder={
           "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
         }
@@ -47,7 +39,7 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
       />
       <TextInput
         value={productToAdd.price}
-        onChange={handlePriceChange}
+        onChange={(e) => handleFieldChange("price", e.target.value)}
         placeholder={"Prix"}
         Icon={<MdOutlineEuro className="icon" />}
         variant="minimalist"
