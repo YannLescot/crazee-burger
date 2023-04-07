@@ -7,4 +7,6 @@ export default createContext({
   setIsPanelCollapsed: () => {},
   activeTab: "",
   setActiveTab: () => {},
+  menu: [],
+  setMenu: () => {},
 });
