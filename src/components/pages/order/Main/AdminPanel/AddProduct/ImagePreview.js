@@ -35,8 +35,8 @@ const ImagePreviewStyled = styled.div`
       props.imageSource ? theme.colors.white : theme.colors.greyLight};
 
   img {
-    height: 100%;
-    width: 100%;
+    height: 215px;
+    width: 120px;
     object-fit: contain;
   }
 `;
