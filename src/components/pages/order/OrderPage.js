@@ -4,11 +4,13 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   const orderContextValue = {
     isAdmin,
@@ -17,6 +19,8 @@ export default function OrderPage() {
     setIsPanelCollapsed,
     activeTab,
     setActiveTab,
+    menu,
+    setMenu,
   };
 
   return (
