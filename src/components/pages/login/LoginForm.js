@@ -40,7 +40,6 @@ export default function LoginForm() {
       <PrimaryButton
         label={"Accéder à mon espace"}
         Icon={<IoChevronForward className="icon" />}
-        className={"login-form-button"}
       />
     </LoginFormStyled>
   );
@@ -83,14 +82,5 @@ const LoginFormStyled = styled.form`
   .login-form-input {
     max-width: 400px;
     height: 54px;
-  }
-
-  .login-form-button {
-    width: 400px;
-    height: 54px;
-
-    span {
-      font-size: ${theme.fonts.size.SM};
-    }
   }
 `;

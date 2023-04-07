@@ -34,10 +34,16 @@ const PrimaryButtonStyled = styled.button`
 
 const getNormalStyle = () => {
   return css`
+    width: 400px;
+    height: 54px;
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
     padding: 18px 24px;
+
+    span {
+      font-size: ${theme.fonts.size.SM};
+    }
 
     &:hover {
       transition: background-color 0.2s ease-out;
