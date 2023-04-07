@@ -7,6 +7,7 @@ import TextInput from "../../../../reusable/TextInput";
 import { getTabSelected, tabsConfig } from "./tabsConfig";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
+import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
 import PrimaryButton from "../../../../reusable/PrimaryButton";
 
@@ -48,11 +49,18 @@ export default function PanelBody() {
             variant="minimalist"
             className="textInput"
           />
-          <PrimaryButton
-            label={"Ajouter un nouveau produit au menu"}
-            variant="add"
-            className={"addButton"}
-          />
+          <div className="addSection">
+            {" "}
+            <PrimaryButton
+              label={"Ajouter un nouveau produit au menu"}
+              variant="add"
+              className={"addButton"}
+            />
+            <span className="succesAdd">
+              {" "}
+              <FiCheck className="icon" /> Ajouté avec succès !
+            </span>
+          </div>
         </div>
       </div>
     </PanelBodyStyled>
@@ -100,10 +108,28 @@ const PanelBodyStyled = styled.div`
         width: 645px;
         height: 35px;
       }
-      .addButton {
+      .addSection {
+        display: flex;
+              .addButton {
         //background-color: orange;
         width: 275px;
         height: 34px;
+      }
+              span {
+          display: flex;
+          align-items: center;
+          font-size: ${theme.fonts.size.SM};
+          margin: 8px 18px;
+          color: ${theme.colors.success};
+
+
+          .icon {
+            border: 1px solid ${theme.colors.success};
+            border-radius: ${theme.borderRadius.circle};
+            margin-right: 8px;
+          }
+          //padding: 18px 15px;
+        }
       }
     }
   }
