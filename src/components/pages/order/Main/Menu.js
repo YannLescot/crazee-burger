@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusable/Card";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
-  const { isAdmin } = useContext(OrderContext);
+  const { isAdmin, menu } = useContext(OrderContext);
 
   return (
     <MenuStyled>
@@ -15,7 +13,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource}
+            imageSource={imageSource ? imageSource : "/images/coming-soon.png"}
             title={title}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isAdmin}
