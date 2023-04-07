@@ -13,7 +13,7 @@ export default function Card({
 }) {
   return (
     <CardStyled>
-      <div className="deleteBtn">
+      <div>
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />
         )}
