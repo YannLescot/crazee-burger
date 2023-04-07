@@ -27,6 +27,7 @@ export default function PanelBody() {
             onChange={() => {}}
             placeholder={"Nom du produit (ex: Super Burger)"}
             Icon={<FaHamburger className="icon" />}
+            variant="minimalist"
             className="textInput"
           />
           <TextInput
@@ -36,6 +37,7 @@ export default function PanelBody() {
               "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
             }
             Icon={<BsFillCameraFill className="icon" />}
+            variant="minimalist"
             className="textInput"
           />
           <TextInput
@@ -43,6 +45,7 @@ export default function PanelBody() {
             onChange={() => {}}
             placeholder={"Prix"}
             Icon={<MdOutlineEuro className="icon" />}
+            variant="minimalist"
             className="textInput"
           />
           <PrimaryButton
@@ -65,10 +68,11 @@ const PanelBodyStyled = styled.div`
   box-shadow: ${theme.shadows.subtle};
   padding: 40px 60px;
   box-sizing: border-box;
+  //background-color: green;
 
   .addProductLayout {
     width: 50%
-    background-color: green;
+    background-color: orange;
     display: grid;
     grid-template-columns:  1fr 3fr 2fr;
     grid-column-gap: 20px;
@@ -85,10 +89,12 @@ const PanelBodyStyled = styled.div`
       color: ${theme.colors.greySemiDark};
     }
     .form {
-      background-color: blue;
+      //background-color: blue;
       display: grid;
       grid-template-rows: repeat(4, 1fr);
       grid-row-gap: 8px;
+          height: 165px;
+    max-height: 165px;
       .textInput {
         //background-color: yellow;
         width: 645px;
@@ -97,7 +103,7 @@ const PanelBodyStyled = styled.div`
       .addButton {
         //background-color: orange;
         width: 275px;
-        height: 35px;
+        height: 34px;
       }
     }
   }
