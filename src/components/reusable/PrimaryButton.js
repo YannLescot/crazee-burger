@@ -16,7 +16,6 @@ const PrimaryButtonStyled = styled.button`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 18px 24px;
   gap: ${theme.spacing.xs};
   border-radius: ${theme.borderRadius.round};
   cursor: pointer;
@@ -38,6 +37,7 @@ const getNormalStyle = () => {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
+    padding: 18px 24px;
 
     &:hover {
       transition: background-color 0.2s ease-out;
@@ -59,6 +59,7 @@ const getAddStyle = () => {
     background-color: ${theme.colors.success};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
+    padding: 0px 24px;
 
     &:hover {
       background-color: ${theme.colors.white};
