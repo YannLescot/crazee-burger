@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { BsFillCameraFill } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
@@ -13,29 +13,22 @@ import { formatPrice } from "../../../../../../utils/maths";
 export default function AddForm({ onSubmit, productWasAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
 
-  const [nameValue, setNameValue] = useState("");
-  const [urlValue, setUrlValue] = useState("");
-  const [priceValue, setPriceValue] = useState("");
-
   const handleNameChange = (e) => {
-    setNameValue(e.target.value);
     setProductToAdd({ ...productToAdd, title: e.target.value });
   };
 
   const handleUrlChange = (e) => {
-    setUrlValue(e.target.value);
     setProductToAdd({ ...productToAdd, imageSource: e.target.value });
   };
 
   const handlePriceChange = (e) => {
-    setPriceValue(e.target.value);
     setProductToAdd({ ...productToAdd, price: formatPrice(e.target.value) });
   };
 
   return (
     <AddFormStyled onSubmit={onSubmit}>
       <TextInput
-        value={nameValue}
+        value={productToAdd.title}
         onChange={handleNameChange}
         placeholder={"Nom du produit (ex: Super Burger)"}
         Icon={<FaHamburger className="icon" />}
@@ -44,7 +37,7 @@ export default function AddForm({ onSubmit, productWasAdded }) {
       />
       <TextInput
         type="url"
-        value={urlValue}
+        value={productToAdd.imageSource}
         onChange={handleUrlChange}
         placeholder={
           "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
@@ -55,7 +48,7 @@ export default function AddForm({ onSubmit, productWasAdded }) {
       />
       <TextInput
         type="number"
-        value={priceValue}
+        value={productToAdd.price}
         onChange={handlePriceChange}
         placeholder={"Prix"}
         Icon={<MdOutlineEuro className="icon" />}
@@ -63,7 +56,6 @@ export default function AddForm({ onSubmit, productWasAdded }) {
         className="textInput"
       />
       <div className="addSection">
-        {" "}
         <PrimaryButton
           label={"Ajouter un nouveau produit au menu"}
           variant="add"
@@ -84,7 +76,6 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
   grid-row-gap: 8px;
   height: 165px;
-  max-height: 165px;
   .textInput {
     width: 645px;
     height: 35px;
