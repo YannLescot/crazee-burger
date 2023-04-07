@@ -8,10 +8,10 @@ export default function TextInput({
   onChange,
   placeholder,
   Icon,
-  ...extraProps
+  variant,
 }) {
   return (
-    <TextInputStyled {...extraProps}>
+    <TextInputStyled variant={variant}>
       {Icon && Icon}
       <input
         value={value}
@@ -46,14 +46,14 @@ const TextInputStyled = styled.div`
     }
   }
 
-  ${(extraProps) =>
-    extraProps.variant === "minimalist"
-      ? getMinimalistStyle()
-      : getNormalStyle()}
+  ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}
+  ${({ variant }) => variant === "normal" && getNormalStyle()}
 `;
 
 const getNormalStyle = () => {
   return css`
+    max-width: 400px;
+    height: 54px;
     background-color: ${theme.colors.white};
     gap: ${theme.spacing.xs};
 
@@ -76,6 +76,8 @@ const getNormalStyle = () => {
 
 const getMinimalistStyle = () => {
   return css`
+    width: 100%;
+    height: 35px;
     background-color: ${theme.colors.background_white};
 
     input {

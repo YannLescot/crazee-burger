@@ -25,7 +25,6 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
             placeholder={placeholder}
             Icon={Icon}
             variant="minimalist"
-            className="textInput"
           />
         );
       })}
@@ -50,13 +49,11 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
   grid-row-gap: 8px;
   height: 165px;
-  .textInput {
-    width: 645px;
-    height: 35px;
-  }
   div {
     display: flex;
-    width: 275px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 645px;
     height: 34px;
     span {
       display: flex;
