@@ -13,12 +13,11 @@ export default function EmptyMenu({ isAdmin, reloadMenu }) {
           : "De nouvelles recettes sont encours de préparation."}
       </h2>
       {!isAdmin && <h2>À très vite !</h2>}
-      {isAdmin && (
-        <PrimaryButton
-          label="Générer de nouveaux produits"
-          className="reload-menu"
-        />
-      )}
+      <div className="reload">
+        {isAdmin && (
+          <PrimaryButton label="Générer de nouveaux produits" variant="login" />
+        )}
+      </div>
     </EmptyMenuStyled>
   );
 }
@@ -47,8 +46,8 @@ const EmptyMenuStyled = styled.form`
     margin-bottom: 31px;
   }
 
-  .reload-menu {
-    width: 224px;
+  .reload {
+    width: 235px;
     height: 50px;
     font-size: ${theme.fonts.size.XS};
   }

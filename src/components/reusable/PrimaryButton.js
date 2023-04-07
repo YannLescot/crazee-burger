@@ -36,7 +36,7 @@ const PrimaryButtonStyled = styled.button`
 
 const getLoginStyle = () => {
   return css`
-    width: 400px;
+    width: 100%;
     height: 54px;
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
