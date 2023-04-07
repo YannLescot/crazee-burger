@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
 export default function TextInput({
+  type,
   value,
   onChange,
   placeholder,
@@ -16,7 +17,7 @@ export default function TextInput({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        type="text"
+        type={type ? type : "text"}
       />
     </TextInputStyled>
   );

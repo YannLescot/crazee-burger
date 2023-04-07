@@ -32,6 +32,7 @@ export default function PanelBody() {
             className="textInput"
           />
           <TextInput
+            type="url"
             value=""
             onChange={() => {}}
             placeholder={
