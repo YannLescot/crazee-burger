@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { BsFillCameraFill } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
@@ -7,13 +7,36 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import PrimaryButton from "../../../../../reusable/PrimaryButton";
 import TextInput from "../../../../../reusable/TextInput";
+import AddProductContext from "../../../../../../context/AddProductContext";
+import { formatPrice } from "../../../../../../utils/maths";
 
 export default function AddForm({ onSubmit }) {
+  const { productToAdd, setProductToAdd } = useContext(AddProductContext);
+
+  const [nameValue, setNameValue] = useState("");
+  const [urlValue, setUrlValue] = useState("");
+  const [priceValue, setPriceValue] = useState("");
+
+  const handleNameChange = (e) => {
+    setNameValue(e.target.value);
+    setProductToAdd({ ...productToAdd, title: e.target.value });
+  };
+
+  const handleUrlChange = (e) => {
+    setUrlValue(e.target.value);
+    setProductToAdd({ ...productToAdd, imageSource: e.target.value });
+  };
+
+  const handlePriceChange = (e) => {
+    setPriceValue(e.target.value);
+    setProductToAdd({ ...productToAdd, price: formatPrice(e.target.value) });
+  };
+
   return (
     <AddFormStyled onSubmit={onSubmit}>
       <TextInput
-        value=""
-        onChange={() => {}}
+        value={nameValue}
+        onChange={handleNameChange}
         placeholder={"Nom du produit (ex: Super Burger)"}
         Icon={<FaHamburger className="icon" />}
         variant="minimalist"
@@ -21,8 +44,8 @@ export default function AddForm({ onSubmit }) {
       />
       <TextInput
         type="url"
-        value=""
-        onChange={() => {}}
+        value={urlValue}
+        onChange={handleUrlChange}
         placeholder={
           "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
         }
@@ -31,8 +54,9 @@ export default function AddForm({ onSubmit }) {
         className="textInput"
       />
       <TextInput
-        value=""
-        onChange={() => {}}
+        type="number"
+        value={priceValue}
+        onChange={handlePriceChange}
         placeholder={"Prix"}
         Icon={<MdOutlineEuro className="icon" />}
         variant="minimalist"
