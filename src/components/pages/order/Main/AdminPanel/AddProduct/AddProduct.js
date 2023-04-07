@@ -16,11 +16,9 @@ export default function AddProduct() {
   const { menu, setMenu } = useContext(OrderContext);
   const [productWasAdded, setProductWasAdded] = useState(false);
 
-  const [productToAdd, setProductToAdd] = useState({
-    emptyProduct,
-  });
+  const [productToAdd, setProductToAdd] = useState(emptyProduct);
 
-  const handleSubmit = (e, productWasAdded) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setMenu([...menu, { ...productToAdd, id: crypto.randomUUID() }]);
     setProductWasAdded(!productWasAdded);
@@ -37,7 +35,7 @@ export default function AddProduct() {
 
   return (
     <AddProductStyled
-      onSubmit={(e) => handleSubmit(e, productWasAdded)}
+      onSubmit={(e) => handleSubmit(e)}
       productAdded={productWasAdded}
     >
       <AddProductContext.Provider value={addProductContextValue}>
