@@ -15,7 +15,7 @@ const emptyProduct = {
 
 export default function AddProduct() {
   const { menu, setMenu } = useContext(OrderContext);
-  const [productWasAdded, setProductWasAdded] = useState(false);
+  const [wasProductAdded, setWasProductAdded] = useState(false);
 
   const [productToAdd, setProductToAdd] = useState(emptyProduct);
 
@@ -29,9 +29,9 @@ export default function AddProduct() {
       },
       ...menu,
     ]);
-    setProductWasAdded(!productWasAdded);
+    setWasProductAdded(!wasProductAdded);
     setTimeout(() => {
-      setProductWasAdded(false);
+      setWasProductAdded(false);
     }, 2000);
     setProductToAdd(emptyProduct);
   };
@@ -51,7 +51,7 @@ export default function AddProduct() {
             <img src={productToAdd.imageSource} alt="Produit" />
           )}
         </div>
-        <AddForm onSubmit={handleSubmit} productWasAdded={productWasAdded} />
+        <AddForm onSubmit={handleSubmit} wasProductAdded={wasProductAdded} />
       </AddProductContext.Provider>
     </AddProductStyled>
   );

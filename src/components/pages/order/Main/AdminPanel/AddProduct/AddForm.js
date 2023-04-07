@@ -9,7 +9,7 @@ import PrimaryButton from "../../../../../reusable/PrimaryButton";
 import TextInput from "../../../../../reusable/TextInput";
 import AddProductContext from "../../../../../../context/AddProductContext";
 
-export default function AddForm({ onSubmit, productWasAdded }) {
+export default function AddForm({ onSubmit, wasProductAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
 
   const handleNameChange = (e) => {
@@ -59,7 +59,7 @@ export default function AddForm({ onSubmit, productWasAdded }) {
           variant="add"
           className={"addButton"}
         />
-        {productWasAdded && (
+        {wasProductAdded && (
           <span className="succesAdd">
             <FiCheck className="icon" /> Ajouté avec succès !
           </span>
