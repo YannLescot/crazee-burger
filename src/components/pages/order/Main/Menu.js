@@ -48,7 +48,7 @@ const MenuStyled = styled.div`
   justify-items: center;
   grid-row-gap: 60px;
   grid-column-gap: 5px;
-  min-height: 75%;
+  min-height: 83%;
   background: none;
   padding: 50px 50px 150px;
   overflow-y: scroll;

@@ -12,12 +12,14 @@ export default function EmptyMenu({ isAdmin, reloadMenu }) {
           ? "Cliquez ci-dessous pour le réinitialiser"
           : "De nouvelles recettes sont encours de préparation."}
       </h2>
-      {!isAdmin && <h2>À très vite !</h2>}
-      <div className="reload">
-        {isAdmin && (
-          <PrimaryButton label="Générer de nouveaux produits" variant="login" />
-        )}
-      </div>
+      {!isAdmin && <h3>À très vite !</h3>}
+      {isAdmin && (
+        <PrimaryButton
+          className="reload"
+          label="Générer de nouveaux produits"
+          variant="login"
+        />
+      )}
     </EmptyMenuStyled>
   );
 }
@@ -44,6 +46,15 @@ const EmptyMenuStyled = styled.form`
     color: ${theme.colors.greyBlue};
     margin-top: 0px;
     margin-bottom: 31px;
+  }
+
+  h3 {
+    font-family: "Amatic SC", cursive;
+    font-size: ${theme.fonts.size.P4};
+    font-weight: ${theme.fonts.weight.regular};
+    color: ${theme.colors.greyBlue};
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   .reload {
