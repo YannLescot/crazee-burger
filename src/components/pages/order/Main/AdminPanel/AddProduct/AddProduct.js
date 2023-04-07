@@ -6,7 +6,7 @@ import AddProductContext from "../../../../../../context/AddProductContext";
 import OrderContext from "../../../../../../context/OrderContext";
 
 const emptyProduct = {
-  id: crypto.randomUUID(),
+  id: "",
   title: "",
   imageSource: "",
   price: 0,
@@ -14,16 +14,19 @@ const emptyProduct = {
 
 export default function AddProduct() {
   const { menu, setMenu } = useContext(OrderContext);
+  const [productWasAdded, setProductWasAdded] = useState(false);
 
   const [productToAdd, setProductToAdd] = useState({
     emptyProduct,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, productWasAdded) => {
     e.preventDefault();
-    setMenu([...menu, productToAdd]);
-    console.log(productToAdd.imageSource);
-
+    setMenu([...menu, { ...productToAdd, id: crypto.randomUUID() }]);
+    setProductWasAdded(!productWasAdded);
+    setTimeout(() => {
+      setProductWasAdded(false);
+    }, 2000);
     setProductToAdd(emptyProduct);
   };
 
@@ -33,7 +36,10 @@ export default function AddProduct() {
   };
 
   return (
-    <AddProductStyled onSubmit={(e) => handleSubmit(e)}>
+    <AddProductStyled
+      onSubmit={(e) => handleSubmit(e, productWasAdded)}
+      productAdded={productWasAdded}
+    >
       <AddProductContext.Provider value={addProductContextValue}>
         <div className={!productToAdd.imageSource ? "noImg" : "hasImg"}>
           {!productToAdd.imageSource ? (
@@ -42,7 +48,7 @@ export default function AddProduct() {
             <img src={productToAdd.imageSource} alt="Produit" />
           )}
         </div>
-        <AddForm />
+        <AddForm onSubmit={handleSubmit} productWasAdded={productWasAdded} />
       </AddProductContext.Provider>
     </AddProductStyled>
   );

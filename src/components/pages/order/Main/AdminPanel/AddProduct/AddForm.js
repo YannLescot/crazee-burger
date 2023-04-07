@@ -10,7 +10,7 @@ import TextInput from "../../../../../reusable/TextInput";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import { formatPrice } from "../../../../../../utils/maths";
 
-export default function AddForm({ onSubmit }) {
+export default function AddForm({ onSubmit, productWasAdded }) {
   const { productToAdd, setProductToAdd } = useContext(AddProductContext);
 
   const [nameValue, setNameValue] = useState("");
@@ -69,10 +69,11 @@ export default function AddForm({ onSubmit }) {
           variant="add"
           className={"addButton"}
         />
-        <span className="succesAdd">
-          {" "}
-          <FiCheck className="icon" /> Ajouté avec succès !
-        </span>
+        {productWasAdded && (
+          <span className="succesAdd">
+            <FiCheck className="icon" /> Ajouté avec succès !
+          </span>
+        )}
       </div>
     </AddFormStyled>
   );
