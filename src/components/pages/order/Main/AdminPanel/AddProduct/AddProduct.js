@@ -62,7 +62,8 @@ const AddProductStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 2fr;
   grid-column-gap: 20px;
-  .noImg {
+
+  div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,20 +74,13 @@ const AddProductStyled = styled.div`
     font-size: ${theme.fonts.size.P0};
     font-weight: ${theme.fonts.weight.regular};
     color: ${theme.colors.greySemiDark};
+  }
+
+  .noImg {
     border: 1px solid ${theme.colors.greyLight};
   }
 
   .hasImg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: ${theme.borderRadius.round};
-    width: 215px;
-    height: 120px;
-    font-size: ${theme.fonts.size.P0};
-    font-weight: ${theme.fonts.weight.regular};
-    color: ${theme.colors.greySemiDark};
     border: 1px solid ${theme.colors.white};
 
     img {

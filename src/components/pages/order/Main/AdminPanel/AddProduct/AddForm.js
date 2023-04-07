@@ -54,8 +54,10 @@ const AddFormStyled = styled.form`
     width: 645px;
     height: 35px;
   }
-  .addSection {
+  div {
     display: flex;
+    width: 275px;
+    height: 34px;
     span {
       display: flex;
       align-items: center;
