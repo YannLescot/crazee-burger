@@ -3,7 +3,6 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
-import AddProduct from "./AddProduct/AddProduct";
 import { getTabSelected, tabsConfig } from "./tabsConfig";
 
 export default function PanelBody() {
@@ -14,8 +13,7 @@ export default function PanelBody() {
 
   return (
     <PanelBodyStyled>
-      {/*tabSelected && <p>{tabSelected.label}</p>*/}
-      <AddProduct />
+      {tabSelected && <div>{tabSelected.content}</div>}
     </PanelBodyStyled>
   );
 }
@@ -27,7 +25,7 @@ const PanelBodyStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
-  padding: 40px 60px;
+  padding: 31px 71px;
   box-sizing: border-box;
 
   p {
