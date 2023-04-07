@@ -31,7 +31,7 @@ const PrimaryButtonStyled = styled.button`
 
   ${({ variant }) => variant === "add" && getAddStyle()}
   ${({ variant }) => variant === "login" && getLoginStyle()}
-  ${({ variant }) => variant === "card" && getCardStyle()}
+  ${({ variant }) => variant === "cardButton" && getCardButtonStyle()}
 `;
 
 const getLoginStyle = () => {
@@ -83,7 +83,7 @@ const getAddStyle = () => {
   `;
 };
 
-const getCardStyle = () => {
+const getCardButtonStyle = () => {
   return css`
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
