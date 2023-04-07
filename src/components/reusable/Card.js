@@ -13,11 +13,10 @@ export default function Card({
 }) {
   return (
     <CardStyled>
-      <div className="closeBtn">
-        {hasDeleteButton && <TiDelete onClick={onDelete} />}
-      </div>
-
       <div className="image">
+        {hasDeleteButton && (
+          <TiDelete className="closeBtn" onClick={onDelete} />
+        )}
         <img src={imageSource} alt="produit" />
       </div>
       <div className="text-info">
@@ -38,30 +37,17 @@ const CardStyled = styled.div`
   width: 200px;
   height: 300px;
   display: grid;
-  grid-template-rows: 10% 55% 1fr;
+  grid-template-rows: 65% 1fr;
   padding: 20px;
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
 
-  .closeBtn {
-    display: flex;
-    font-size: 30px;
-    color: ${theme.colors.primary};
-    justify-self: end;
-    border-radius: ${theme.borderRadius.round};
-    cursor: pointer;
-
-    &:hover {
-      color: ${theme.colors.red};
-
-      &:active {
-        color: ${theme.colors.primary};
-      }
-    }
-  }
-
   .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
     height: auto;
     margin-bottom: 20px;
@@ -70,6 +56,24 @@ const CardStyled = styled.div`
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .closeBtn {
+      position: relative;
+      top: -10px;
+      right: -10px;
+      font-size: 35px;
+      color: ${theme.colors.primary};
+      border-radius: ${theme.borderRadius.round};
+      cursor: pointer;
+
+      &:hover {
+        color: ${theme.colors.red};
+
+        &:active {
+          color: ${theme.colors.primary};
+        }
+      }
     }
   }
 
