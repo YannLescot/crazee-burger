@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Card from "../../../reusable/Card";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
+import EmptyMenu from "./EmptyMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const { isAdmin, menu, setMenu } = useContext(OrderContext);
@@ -12,20 +14,30 @@ export default function Menu() {
     setMenu(newMenu);
   };
 
+  const reloadMenu = () => {
+    setMenu(fakeMenu.SMALL);
+  };
+
   return (
     <MenuStyled>
-      {menu.map(({ id, imageSource, title, price }) => {
-        return (
-          <Card
-            key={id}
-            imageSource={imageSource ? imageSource : "/images/coming-soon.png"}
-            title={title}
-            leftDescription={formatPrice(price)}
-            hasDeleteButton={isAdmin}
-            onDelete={() => handleDelete(id)}
-          />
-        );
-      })}
+      {menu.length ? (
+        menu.map(({ id, imageSource, title, price }) => {
+          return (
+            <Card
+              key={id}
+              imageSource={
+                imageSource !== "" ? imageSource : "/images/coming-soon.png"
+              }
+              title={title}
+              leftDescription={formatPrice(price)}
+              hasDeleteButton={isAdmin}
+              onDelete={() => handleDelete(id)}
+            />
+          );
+        })
+      ) : (
+        <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />
+      )}
     </MenuStyled>
   );
 }
