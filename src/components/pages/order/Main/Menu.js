@@ -8,11 +8,17 @@ import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import EmptyMenuCustomer from "./EmptyMenuCustomer";
 
 export default function Menu() {
-  const { isAdmin, menu, setMenu } = useContext(OrderContext);
+  const { isAdmin, menu, setMenu, productToEdit, setProductToEdit } =
+    useContext(OrderContext);
 
   const handleDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
     setMenu(newMenu);
+  };
+
+  const selectProductToEdit = (id) => {
+    const product = menu.find((item) => item.id === id);
+    setProductToEdit(product);
   };
 
   const reloadMenu = () => {
@@ -33,6 +39,7 @@ export default function Menu() {
               leftDescription={formatPrice(price)}
               hasDeleteButton={isAdmin}
               onDelete={() => handleDelete(id)}
+              onClick={isAdmin ? () => selectProductToEdit(id) : null}
             />
           );
         })

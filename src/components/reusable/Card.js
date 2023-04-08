@@ -10,9 +10,10 @@ export default function Card({
   leftDescription,
   hasDeleteButton,
   onDelete,
+  onClick,
 }) {
   return (
-    <CardStyled>
+    <CardStyled onClick={onClick}>
       <div>
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />

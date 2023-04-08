@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import AddForm from "./AddForm";
+import ProductForm from "./ProductForm";
 import OrderContext from "../../../../../../context/OrderContext";
 import ImagePreview from "./ImagePreview";
 
@@ -40,7 +40,11 @@ export default function AddProduct() {
   return (
     <AddProductStyled>
       <ImagePreview imageSource={productToAdd.imageSource} />
-      <AddForm onSubmit={handleSubmit} wasProductAdded={wasProductAdded} />
+      <ProductForm
+        onSubmit={handleSubmit}
+        wasProductAdded={wasProductAdded}
+        tab="add"
+      />
     </AddProductStyled>
   );
 }
