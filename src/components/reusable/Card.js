@@ -14,7 +14,11 @@ export default function Card({
   isActive,
 }) {
   return (
-    <CardStyled onClick={onClick} isActive={isActive}>
+    <CardStyled
+      onClick={onClick}
+      isActive={isActive}
+      hasDeleteButton={hasDeleteButton}
+    >
       <div>
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />
@@ -127,11 +131,17 @@ const CardStyled = styled.div`
   }
 
   &:hover {
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
-  }
+    ${({ hasDeleteButton }) => {
+      if (hasDeleteButton) {
+        return css`
+          transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+          cursor: pointer;
+          transform: scale(1.05);
+          box-shadow: ${theme.shadows.medium},
+            0 0 10px 0.1px ${theme.colors.primary};
+        `;
+      }
+    }}
 
   //change the card's color when isActive is true
   ${({ isActive }) => {
