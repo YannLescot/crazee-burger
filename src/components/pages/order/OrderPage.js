@@ -31,6 +31,8 @@ export default function OrderPage() {
     setMenu,
     productToAdd,
     setProductToAdd,
+    productToEdit,
+    setProductToEdit,
   };
 
   return (
