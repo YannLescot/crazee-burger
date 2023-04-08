@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
@@ -16,6 +16,8 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
     menu,
     setMenu,
   } = useContext(OrderContext);
+
+  const inputRef = useRef(null);
 
   const handleFieldChange = (fieldName, value, tab) => {
     if (tab === "add") {
@@ -37,6 +39,7 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
       {InputsConfig(tab).map(({ type, value, field, placeholder, Icon }) => {
         return (
           <TextInput
+            ref={field === "title" ? inputRef : null}
             key={field}
             type={type && type}
             value={value}
@@ -44,6 +47,8 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
             placeholder={placeholder}
             Icon={Icon}
             variant="minimalist"
+            productToEdit={productToEdit}
+            tab={tab}
           />
         );
       })}
@@ -61,7 +66,7 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
 
       {tab === "edit" && (
         <div className="editSection">
-          <p>Modifie un produit en temps réel</p>
+          Cliquer sur un produit du menu pour le modifier <p>en temps réel</p>
         </div>
       )}
     </ProductFormStyled>
@@ -78,6 +83,9 @@ const ProductFormStyled = styled.form`
     align-items: center;
     justify-content: flex-start;
     height: 34px;
+  }
+
+  .addSection {
     span {
       display: flex;
       align-items: center;
@@ -90,6 +98,15 @@ const ProductFormStyled = styled.form`
         border-radius: ${theme.borderRadius.circle};
         margin-right: 8px;
       }
+    }
+  }
+
+  .editSection {
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.size.SM};
+    p {
+      text-decoration: underline;
+      padding: 5px;
     }
   }
 `;

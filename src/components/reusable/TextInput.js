@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
-export default function TextInput({
-  type,
-  value,
-  onChange,
-  placeholder,
-  Icon,
-  variant,
-}) {
-  return (
-    <TextInputStyled variant={variant}>
-      <div className="icon">{Icon && Icon}</div>
-      <input
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type ? type : "text"}
-      />
-    </TextInputStyled>
-  );
-}
+const TextInput = React.forwardRef(
+  (
+    { type, value, onChange, placeholder, Icon, variant, productToEdit, tab },
+    ref
+  ) => {
+    useEffect(() => {
+      if (ref && tab === "edit") {
+        ref.current.focus();
+      }
+    }, [productToEdit.id, ref]);
+
+    return (
+      <TextInputStyled variant={variant}>
+        <div className="icon">{Icon && Icon}</div>
+        <input
+          ref={ref}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          type={type ? type : "text"}
+        />
+      </TextInputStyled>
+    );
+  }
+);
+
+export default TextInput;
 
 const TextInputStyled = styled.div`
   display: flex;

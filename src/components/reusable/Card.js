@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
@@ -11,9 +11,10 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
+  isActive,
 }) {
   return (
-    <CardStyled onClick={onClick}>
+    <CardStyled onClick={onClick} isActive={isActive}>
       <div>
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />
@@ -124,4 +125,56 @@ const CardStyled = styled.div`
       }
     }
   }
+
+  &:hover {
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
+  }
+
+  //change the card's color when isActive is true
+  ${({ isActive }) => {
+    if (isActive) {
+      return css`
+        background: ${theme.colors.primary};
+        color: ${theme.colors.white};
+
+        .closeBtn {
+          color: ${theme.colors.white};
+          &:hover {
+            color: ${theme.colors.red};
+            &:active {
+              color: ${theme.colors.white};
+            }
+          }
+        }
+
+        .text-info {
+          .description {
+            .left-description {
+              color: ${theme.colors.white};
+            }
+
+            .right-description {
+              button {
+                background: ${theme.colors.white};
+                color: ${theme.colors.primary};
+                border: 1px solid ${theme.colors.white};
+                &:hover {
+                  background: ${theme.colors.primary};
+                  color: ${theme.colors.white};
+                }
+
+                &:active {
+                  background: ${theme.colors.white};
+                  color: ${theme.colors.primary};
+                }
+                
+            }
+          }
+        }
+      `;
+    }
+  }}
 `;
