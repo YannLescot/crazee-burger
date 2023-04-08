@@ -7,8 +7,7 @@ import { theme } from "../../../../../../theme";
 import { HiCursorClick } from "react-icons/hi";
 
 export default function EditProduct() {
-  const { menu, setMenu, productToEdit, setProductToEdit } =
-    useContext(OrderContext);
+  const { productToEdit } = useContext(OrderContext);
 
   return (
     <EditProductStyled>
