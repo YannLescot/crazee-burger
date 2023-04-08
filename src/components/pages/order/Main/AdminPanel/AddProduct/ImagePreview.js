@@ -31,8 +31,7 @@ const ImagePreviewStyled = styled.div`
 
   //Make it so the border is wite when there is an image
   border: 1px solid
-    ${(props) =>
-      props.imageSource ? theme.colors.white : theme.colors.greyLight};
+    ${(props) => (props.imageSource ? "transparent" : theme.colors.greyLight)};
 
   img {
     height: 215px;
