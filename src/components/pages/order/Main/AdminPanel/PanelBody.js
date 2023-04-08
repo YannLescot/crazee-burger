@@ -13,7 +13,7 @@ export default function PanelBody() {
 
   return (
     <PanelBodyStyled>
-      {tabSelected && <div>{tabSelected.content}</div>}
+      {tabSelected && <div>{tabSelected.Content}</div>}
     </PanelBodyStyled>
   );
 }
