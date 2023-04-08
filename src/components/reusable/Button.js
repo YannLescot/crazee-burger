@@ -2,16 +2,16 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ label, Icon, variant }) {
+export default function Button({ label, Icon, variant }) {
   return (
-    <PrimaryButtonStyled variant={variant}>
+    <ButtonStyled variant={variant}>
       {label}
       {Icon && Icon}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;

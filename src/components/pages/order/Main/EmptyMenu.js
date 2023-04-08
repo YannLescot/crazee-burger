@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable/PrimaryButton";
+import Button from "../../../reusable/Button";
 
 export default function EmptyMenu({ isAdmin, reloadMenu }) {
   return (
@@ -15,7 +15,7 @@ export default function EmptyMenu({ isAdmin, reloadMenu }) {
       {!isAdmin && <h3>À très vite !</h3>}
       {isAdmin && (
         <div className="reload">
-          <PrimaryButton label="Générer de nouveaux produits" variant="login" />
+          <Button label="Générer de nouveaux produits" variant="login" />
         </div>
       )}
     </EmptyMenuStyled>

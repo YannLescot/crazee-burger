@@ -5,7 +5,7 @@ import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable/TextInput.js";
-import PrimaryButton from "../../reusable/PrimaryButton";
+import Button from "../../reusable/Button";
 
 export default function LoginForm() {
   //State
@@ -37,7 +37,7 @@ export default function LoginForm() {
         variant="normal"
         required
       />
-      <PrimaryButton
+      <Button
         label={"Accéder à mon espace"}
         Icon={<IoChevronForward className="icon" />}
         variant="login"

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
-import PrimaryButton from "../../../../../reusable/PrimaryButton";
+import Button from "../../../../../reusable/Button";
 import TextInput from "../../../../../reusable/TextInput";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import { InputsConfig } from "./inputsConfig";
@@ -30,10 +30,7 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
       })}
 
       <div className="addSection">
-        <PrimaryButton
-          label={"Ajouter un nouveau produit au menu"}
-          variant="add"
-        />
+        <Button label={"Ajouter un nouveau produit au menu"} variant="add" />
         {wasProductAdded && (
           <span className="succesAdd">
             <FiCheck className="icon" /> Ajouté avec succès !
