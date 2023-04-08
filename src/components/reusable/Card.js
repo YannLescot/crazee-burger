@@ -142,8 +142,8 @@ const CardStyled = styled.div`
         `;
       }
     }}
+  }
 
-  //change the card's color when isActive is true
   ${({ isActive }) => {
     if (isActive) {
       return css`
