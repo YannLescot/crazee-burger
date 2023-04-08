@@ -39,6 +39,7 @@ const EditProductStyled = styled.div`
 
   .isEmpty {
     display: grid;
+    margin-top: 30px;
     grid-column-gap: 20px;
     grid-template-columns: 4fr 2fr;
     p {
