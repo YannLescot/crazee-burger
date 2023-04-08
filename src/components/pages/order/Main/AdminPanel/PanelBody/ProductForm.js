@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable/Button";
 import TextInput from "../../../../../reusable/TextInput";
-import { InputsConfig } from "./inputsConfig";
+import { InputsConfig } from "../inputsConfig";
 import OrderContext from "../../../../../../context/OrderContext";
 
 export default function ProductForm({ onSubmit, wasProductAdded, tab }) {

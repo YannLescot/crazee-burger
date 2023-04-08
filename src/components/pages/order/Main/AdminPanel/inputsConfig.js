@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaHamburger } from "react-icons/fa";
 import { MdOutlineEuro } from "react-icons/md";
 import { BsFillCameraFill } from "react-icons/bs";
-import OrderContext from "../../../../../../context/OrderContext";
+import OrderContext from "../../../../../context/OrderContext";
 
 export const InputsConfig = (tab) => {
   const { productToAdd, productToEdit } = useContext(OrderContext);

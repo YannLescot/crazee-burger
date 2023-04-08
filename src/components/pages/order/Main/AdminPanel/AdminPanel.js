@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
-import PanelBody from "./PanelBody";
+import PanelBody from "./PanelBody/PanelBody";
 import PanelTabs from "./PanelTabs";
 
 export default function AdminPanel() {
