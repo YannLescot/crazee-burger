@@ -26,7 +26,7 @@ export default function Card({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <Button label={"Ajouter"} variant="cardButton" />
+            <Button label={"Ajouter"} variant="small" />
           </div>
         </div>
       </div>

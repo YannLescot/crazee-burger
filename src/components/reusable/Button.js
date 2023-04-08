@@ -27,12 +27,36 @@ const ButtonStyled = styled.button`
   line-height: 1;
   color: ${theme.colors.white};
 
+  ${({ variant }) => variant === "small" && getSmallStyle()}
+  ${({ variant }) => variant === "large" && getLargeStyle()}
   ${({ variant }) => variant === "add" && getAddStyle()}
-  ${({ variant }) => variant === "login" && getLoginStyle()}
-  ${({ variant }) => variant === "cardButton" && getCardButtonStyle()}
 `;
 
-const getLoginStyle = () => {
+const getSmallStyle = () => {
+  return css`
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.primary};
+    font-size: ${theme.fonts.size.XS};
+    cursor: pointer;
+    padding: 12px;
+
+    &:hover {
+      transition: background-color 0.2s ease-out;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      cursor: pointer;
+
+      &:active {
+        transition: background-color 0.2s ease-out;
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.white};
+      }
+    }
+  `;
+};
+
+const getLargeStyle = () => {
   return css`
     width: 100%;
     height: 54px;
@@ -74,30 +98,6 @@ const getAddStyle = () => {
 
       &:active {
         background-color: ${theme.colors.success};
-        color: ${theme.colors.white};
-      }
-    }
-  `;
-};
-
-const getCardButtonStyle = () => {
-  return css`
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.primary};
-    font-size: ${theme.fonts.size.XS};
-    cursor: pointer;
-    padding: 12px;
-
-    &:hover {
-      transition: background-color 0.2s ease-out;
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary};
-      cursor: pointer;
-
-      &:active {
-        transition: background-color 0.2s ease-out;
-        background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
       }
     }
