@@ -11,7 +11,7 @@ const TextInput = React.forwardRef(
       if (ref && tab === "edit") {
         ref.current.focus();
       }
-    }, [productToEdit.id, ref]);
+    }, [productToEdit && productToEdit.id, ref && ref]);
 
     return (
       <TextInputStyled variant={variant}>
