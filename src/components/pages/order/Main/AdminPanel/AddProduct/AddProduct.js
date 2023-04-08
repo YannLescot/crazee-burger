@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
 import AddForm from "./AddForm";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import OrderContext from "../../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../../utils/maths";
 import ImagePreview from "./ImagePreview";
 
-const emptyProduct = {
+const EMPTY_PRODUCT = {
   id: "",
   title: "",
   imageSource: "",
@@ -18,7 +17,7 @@ export default function AddProduct() {
   const { menu, setMenu } = useContext(OrderContext);
   const [wasProductAdded, setWasProductAdded] = useState(false);
 
-  const [productToAdd, setProductToAdd] = useState(emptyProduct);
+  const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +33,7 @@ export default function AddProduct() {
     setTimeout(() => {
       setWasProductAdded(false);
     }, 2000);
-    setProductToAdd(emptyProduct);
+    setProductToAdd(EMPTY_PRODUCT);
   };
 
   const addProductContextValue = {
