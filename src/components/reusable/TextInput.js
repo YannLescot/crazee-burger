@@ -12,7 +12,7 @@ export default function TextInput({
 }) {
   return (
     <TextInputStyled variant={variant}>
-      {Icon && Icon}
+      <div className="icon">{Icon && Icon}</div>
       <input
         value={value}
         onChange={onChange}
@@ -40,10 +40,10 @@ const TextInputStyled = styled.div`
     &::placeholder {
       font-size: ${theme.fonts.size.SM};
     }
+  }
 
-    .icon {
-      font-size: ${theme.fonts.size.SM};
-    }
+  .icon {
+    font-size: ${theme.fonts.size.SM};
   }
 
   ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}

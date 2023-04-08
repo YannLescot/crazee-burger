@@ -12,7 +12,7 @@ export const InputsConfig = () => {
       value: productToAdd.title,
       field: "title",
       placeholder: "Nom du produit (ex: Super Burger)",
-      Icon: <FaHamburger className="icon" />,
+      Icon: <FaHamburger />,
     },
     {
       type: "url",
@@ -20,13 +20,13 @@ export const InputsConfig = () => {
       field: "imageSource",
       placeholder:
         "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
-      Icon: <BsFillCameraFill className="icon" />,
+      Icon: <BsFillCameraFill />,
     },
     {
       value: productToAdd.price,
       field: "price",
       placeholder: "Prix",
-      Icon: <MdOutlineEuro className="icon" />,
+      Icon: <MdOutlineEuro />,
     },
   ];
 
