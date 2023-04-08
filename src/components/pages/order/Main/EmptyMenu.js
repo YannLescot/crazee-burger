@@ -3,17 +3,16 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Button from "../../../reusable/Button";
 
-export default function EmptyMenu({ isAdmin, reloadMenu }) {
+export default function EmptyMenu({ message, reloadMenu }) {
   return (
     <EmptyMenuStyled onSubmit={reloadMenu}>
-      <h1>{isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D"}</h1>
-      <h2>
-        {isAdmin
-          ? "Cliquez ci-dessous pour le réinitialiser"
-          : "De nouvelles recettes sont encours de préparation."}
-      </h2>
-      {!isAdmin && <h3>À très vite !</h3>}
-      {isAdmin && (
+      <h1>{message.title}</h1>
+
+      <h2>{message.subtitle}</h2>
+
+      {message.showh3 && <h3>À très vite !</h3>}
+
+      {message.showReload && (
         <div className="reload">
           <Button label="Générer de nouveaux produits" variant="large" />
         </div>

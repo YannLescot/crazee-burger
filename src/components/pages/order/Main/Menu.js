@@ -9,6 +9,20 @@ import { fakeMenu } from "../../../../fakeData/fakeMenu";
 export default function Menu() {
   const { isAdmin, menu, setMenu } = useContext(OrderContext);
 
+  const EmptyMenuMessage = isAdmin
+    ? {
+        title: "Le menu est vide ?",
+        subtitle: "Cliquez ci-dessous pour le réinitialiser",
+        showh3: false,
+        showReload: true,
+      }
+    : {
+        title: "Victime de notre succès ! :D",
+        subtitle: "De nouvelles recettes sont encours de préparation.",
+        showh3: true,
+        showReload: false,
+      };
+
   const handleDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
     setMenu(newMenu);
@@ -36,7 +50,7 @@ export default function Menu() {
           );
         })
       ) : (
-        <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />
+        <EmptyMenu message={EmptyMenuMessage} reloadMenu={reloadMenu} />
       )}
     </MenuStyled>
   );
