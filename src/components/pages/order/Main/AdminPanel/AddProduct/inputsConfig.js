@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { FaHamburger } from "react-icons/fa";
 import { MdOutlineEuro } from "react-icons/md";
 import { BsFillCameraFill } from "react-icons/bs";
-import AddProductContext from "../../../../../../context/AddProductContext";
+import OrderContext from "../../../../../../context/OrderContext";
 
 export const InputsConfig = () => {
-  const { productToAdd } = useContext(AddProductContext);
+  const { productToAdd } = useContext(OrderContext);
 
   const inputsConfig = [
     {

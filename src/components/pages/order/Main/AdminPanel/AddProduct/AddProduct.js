@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import AddForm from "./AddForm";
-import AddProductContext from "../../../../../../context/AddProductContext";
 import OrderContext from "../../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../../utils/maths";
 import ImagePreview from "./ImagePreview";
 
 const EMPTY_PRODUCT = {
@@ -14,10 +12,9 @@ const EMPTY_PRODUCT = {
 };
 
 export default function AddProduct() {
-  const { menu, setMenu } = useContext(OrderContext);
+  const { menu, setMenu, productToAdd, setProductToAdd } =
+    useContext(OrderContext);
   const [wasProductAdded, setWasProductAdded] = useState(false);
-
-  const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +22,7 @@ export default function AddProduct() {
       {
         ...productToAdd,
         id: crypto.randomUUID(),
-        price: formatPrice(productToAdd.price),
+        price: productToAdd.price,
       },
       ...menu,
     ]);
@@ -36,17 +33,10 @@ export default function AddProduct() {
     setProductToAdd(EMPTY_PRODUCT);
   };
 
-  const addProductContextValue = {
-    productToAdd,
-    setProductToAdd,
-  };
-
   return (
     <AddProductStyled>
-      <AddProductContext.Provider value={addProductContextValue}>
-        <ImagePreview imageSource={productToAdd.imageSource} />
-        <AddForm onSubmit={handleSubmit} wasProductAdded={wasProductAdded} />
-      </AddProductContext.Provider>
+      <ImagePreview imageSource={productToAdd.imageSource} />
+      <AddForm onSubmit={handleSubmit} wasProductAdded={wasProductAdded} />
     </AddProductStyled>
   );
 }

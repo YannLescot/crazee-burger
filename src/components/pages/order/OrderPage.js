@@ -11,6 +11,12 @@ export default function OrderPage() {
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [productToAdd, setProductToAdd] = useState({
+    id: "",
+    title: "",
+    imageSource: "",
+    price: "",
+  });
 
   const orderContextValue = {
     isAdmin,
@@ -21,6 +27,8 @@ export default function OrderPage() {
     setActiveTab,
     menu,
     setMenu,
+    productToAdd,
+    setProductToAdd,
   };
 
   return (

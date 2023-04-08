@@ -9,4 +9,6 @@ export default createContext({
   setActiveTab: () => {},
   menu: [],
   setMenu: () => {},
+  productToAdd: {},
+  setProductToAdd: () => {},
 });

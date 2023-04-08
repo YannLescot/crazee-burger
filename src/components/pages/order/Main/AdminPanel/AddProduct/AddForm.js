@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable/Button";
 import TextInput from "../../../../../reusable/TextInput";
-import AddProductContext from "../../../../../../context/AddProductContext";
 import { InputsConfig } from "./inputsConfig";
+import OrderContext from "../../../../../../context/OrderContext";
 
 export default function AddForm({ onSubmit, wasProductAdded }) {
-  const { productToAdd, setProductToAdd } = useContext(AddProductContext);
+  const { productToAdd, setProductToAdd } = useContext(OrderContext);
 
   const handleFieldChange = (fieldName, value) => {
     setProductToAdd({ ...productToAdd, [fieldName]: value });
@@ -19,6 +19,7 @@ export default function AddForm({ onSubmit, wasProductAdded }) {
       {InputsConfig().map(({ type, value, field, placeholder, Icon }) => {
         return (
           <TextInput
+            key={field}
             type={type && type}
             value={value}
             onChange={(e) => handleFieldChange(field, e.target.value)}
