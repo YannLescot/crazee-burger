@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
 import NoImage from "./NoImage";
 
 export default function ImagePreview({ imageSource }) {

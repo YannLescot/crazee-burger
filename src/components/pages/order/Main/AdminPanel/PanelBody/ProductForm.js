@@ -14,9 +14,7 @@ export default function ProductForm({
 }) {
   return (
     <ProductFormStyled onSubmit={handleSubmit}>
-      <div className="imgPreview">
-        <ImagePreview imageSource={imageSource} />
-      </div>
+      <ImagePreview imageSource={imageSource} />
 
       <div className="inputSection">
         {getInputsConfig(product).map(
