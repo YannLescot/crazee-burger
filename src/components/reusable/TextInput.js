@@ -4,14 +4,28 @@ import { theme } from "../../theme/index.js";
 
 const TextInput = React.forwardRef(
   (
-    { type, value, onChange, placeholder, Icon, variant, productToEdit, tab },
+    {
+      type,
+      value,
+      index,
+      onChange,
+      placeholder,
+      Icon,
+      variant,
+      productToEdit,
+      tab,
+    },
     ref
   ) => {
     useEffect(() => {
-      if (ref && tab === "edit") {
+      if (productToEdit) {
+        console.log(index, "   0");
+      }
+
+      if (productToEdit && ref && ref.current && index === 0) {
         ref.current.focus();
       }
-    }, [productToEdit && productToEdit.id, ref && ref]);
+    }, [value]);
 
     return (
       <TextInputStyled variant={variant}>

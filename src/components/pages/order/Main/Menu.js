@@ -22,12 +22,7 @@ export default function Menu() {
     const newMenu = menu.filter((item) => item.id !== id);
     setMenu(newMenu);
     if (productToEdit && productToEdit.id === id) {
-      setProductToEdit({
-        id: "",
-        title: "",
-        imageSource: "",
-        price: "",
-      });
+      setProductToEdit();
     }
   };
 

@@ -36,22 +36,25 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
 
   return (
     <ProductFormStyled onSubmit={onSubmit}>
-      {InputsConfig(tab).map(({ type, value, field, placeholder, Icon }) => {
-        return (
-          <TextInput
-            ref={field === "title" ? inputRef : null}
-            key={field}
-            type={type && type}
-            value={value}
-            onChange={(e) => handleFieldChange(field, e.target.value, tab)}
-            placeholder={placeholder}
-            Icon={Icon}
-            variant="minimalist"
-            productToEdit={productToEdit}
-            tab={tab}
-          />
-        );
-      })}
+      {InputsConfig(tab).map(
+        ({ type, value, field, placeholder, Icon }, index) => {
+          return (
+            <TextInput
+              ref={field === "title" ? inputRef : null}
+              key={field}
+              type={type && type}
+              value={value}
+              index={index}
+              onChange={(e) => handleFieldChange(field, e.target.value, tab)}
+              placeholder={placeholder}
+              Icon={Icon}
+              variant="minimalist"
+              productToEdit={productToEdit}
+              tab={tab}
+            />
+          );
+        }
+      )}
 
       {tab === "add" && (
         <div className="addSection">

@@ -11,7 +11,7 @@ export default function EditProduct() {
 
   return (
     <EditProductStyled>
-      {productToEdit.id !== "" ? (
+      {productToEdit ? (
         <div className="hasItem">
           <ImagePreview imageSource={productToEdit.imageSource} />
           <ProductForm tab="edit" />
