@@ -22,6 +22,6 @@ const EditFooterStyled = styled.div`
     display: inline;
     text-decoration: underline;
     padding: 0px 0px;
-    margin: 0px;
+    margin: 0px 0px;
   }
 `;
