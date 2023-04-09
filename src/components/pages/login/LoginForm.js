@@ -55,6 +55,7 @@ const LoginFormStyled = styled.form`
   align-items: center;
   gap: ${theme.spacing.md};
   border-radius: ${theme.borderRadius.round};
+  margin-bottom: ${theme.spacing.lg};
 
   h1 {
     margin: 0px;
@@ -68,7 +69,7 @@ const LoginFormStyled = styled.form`
     border: none;
     flex-shrink: 0;
     min-width: 400px;
-    height: 3px;
+    height: 2px;
     background-color: ${theme.colors.loginLine};
   }
 
@@ -77,6 +78,7 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weight.bold};
     color: ${theme.colors.white};
+    margin-top: 10px;
     margin-bottom: 0px;
   }
 `;

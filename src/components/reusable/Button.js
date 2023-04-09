@@ -65,7 +65,7 @@ const getLargeStyle = () => {
     border: 1px solid ${theme.colors.primary};
     padding: 18px 24px;
 
-    font-size: ${theme.fonts.size.XS};
+    font-size: ${theme.fonts.size.SM};
 
     &:hover {
       transition: background-color 0.2s ease-out;

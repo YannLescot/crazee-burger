@@ -54,7 +54,7 @@ const getNormalStyle = () => {
     max-width: 400px;
     height: 54px;
     background-color: ${theme.colors.white};
-    gap: ${theme.spacing.xs};
+    gap: ${theme.spacing.sm};
 
     input {
       width: 70%;
@@ -67,8 +67,7 @@ const getNormalStyle = () => {
 
     .icon {
       color: ${theme.colors.greyBlue};
-      margin-left: ${theme.spacing.md};
-      padding: 0px 10px;
+      margin-left: ${theme.spacing.sm};
     }
   `;
 };
