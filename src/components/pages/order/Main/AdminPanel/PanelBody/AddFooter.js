@@ -1,6 +1,7 @@
 import React from "react";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
+import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable/Button";
 
 export default function AddFooter({ wasProductAdded }) {
@@ -12,7 +13,7 @@ export default function AddFooter({ wasProductAdded }) {
         variant="add"
       />
       {wasProductAdded && (
-        <span className="succesAdd">
+        <span>
           <FiCheck className="icon" /> Ajouté avec succès !
         </span>
       )}
@@ -30,5 +31,18 @@ const AddFooterStyled = styled.div`
 
   .submit-button {
     height: 100%;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    font-size: ${theme.fonts.size.SM};
+    margin: 8px 18px;
+    color: ${theme.colors.success};
+    .icon {
+      border: 1px solid ${theme.colors.success};
+      border-radius: ${theme.borderRadius.circle};
+      margin-right: 8px;
+    }
   }
 `;
