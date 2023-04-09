@@ -5,13 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-
-const EMPTY_PRODUCT = {
-  id: "",
-  title: "",
-  imageSource: "",
-  price: "",
-};
+import { EMPTY_PRODUCT } from "../../../js/enum";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -19,6 +13,7 @@ export default function OrderPage() {
   const [activeTab, setActiveTab] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
+  const [productToEdit, setProductToEdit] = useState();
 
   const titleEditBoxRef = useRef();
 

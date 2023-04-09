@@ -7,7 +7,12 @@ import TextInput from "../../../../../reusable/TextInput";
 import { getInputsConfig } from "../inputsConfig";
 import OrderContext from "../../../../../../context/OrderContext";
 
-export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
+export default function ProductForm({
+  onSubmit,
+  wasProductAdded,
+  product,
+  tab,
+}) {
   const {
     productToAdd,
     setProductToAdd,
@@ -18,24 +23,29 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
     titleEditBoxRef,
   } = useContext(OrderContext);
 
-  const handleFieldChange = (fieldName, value, tab) => {
-    if (tab === "add") {
-      setProductToAdd({ ...productToAdd, [fieldName]: value });
-    } else if (tab === "edit") {
-      setProductToEdit({ ...productToEdit, [fieldName]: value });
+  // const handleFieldChange = (fieldName, value, tab) => {
+  //   if (tab === "add") {
+  //     setProductToAdd({ ...productToAdd, [fieldName]: value });
+  //   } else if (tab === "edit") {
+  //     setProductToEdit({ ...productToEdit, [fieldName]: value });
 
-      const newMenu = menu.map((product) =>
-        product.id === productToEdit.id
-          ? { ...product, [fieldName]: value }
-          : product
-      );
-      setMenu(newMenu);
-    }
+  //     const newMenu = menu.map((product) =>
+  //       product.id === productToEdit.id
+  //         ? { ...product, [fieldName]: value }
+  //         : product
+  //     );
+  //     setMenu(newMenu);
+  //   }
+  // };
+
+  const handleFieldChange = (event) => {
+    const { field, value } = event.target;
+    setProductToEdit({ ...productToEdit, [field]: value });
   };
 
   return (
     <ProductFormStyled onSubmit={onSubmit}>
-      {getInputsConfig(tab, productToAdd, productToEdit).map(
+      {getInputsConfig(product).map(
         ({ type, value, field, placeholder, Icon }, index) => {
           return (
             <TextInput
@@ -44,12 +54,11 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
               type={type && type}
               value={value}
               index={index}
-              onChange={(e) => handleFieldChange(field, e.target.value, tab)}
+              onChange={handleFieldChange}
               placeholder={placeholder}
               Icon={Icon}
               variant="minimalist"
               productToEdit={productToEdit}
-              tab={tab}
             />
           );
         }

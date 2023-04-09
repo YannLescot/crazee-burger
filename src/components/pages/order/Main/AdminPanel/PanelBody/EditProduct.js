@@ -14,7 +14,7 @@ export default function EditProduct() {
       {productToEdit ? (
         <div className="hasItem">
           <ImagePreview imageSource={productToEdit.imageSource} />
-          <ProductForm tab="edit" />
+          <ProductForm product={productToEdit} />
         </div>
       ) : (
         <div className="isEmpty">

@@ -43,7 +43,7 @@ export default function AddProduct() {
       <ProductForm
         onSubmit={handleSubmit}
         wasProductAdded={wasProductAdded}
-        tab="add"
+        product={productToAdd}
       />
     </AddProductStyled>
   );
