@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ProductForm from "./ProductForm";
 import OrderContext from "../../../../../../context/OrderContext";
-import NoProductToEdit from "./NoProductToEdit";
+import CtaEdit from "./CtaEdit";
 import EditFooter from "./EditFooter";
 
 export default function EditProduct() {
@@ -32,7 +32,7 @@ export default function EditProduct() {
           />
         </div>
       ) : (
-        <NoProductToEdit />
+        <CtaEdit />
       )}
     </EditProductStyled>
   );

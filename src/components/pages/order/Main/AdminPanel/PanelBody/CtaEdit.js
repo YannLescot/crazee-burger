@@ -3,18 +3,18 @@ import { HiCursorClick } from "react-icons/hi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 
-export default function NoProductToEdit() {
+export default function CtaEdit() {
   return (
-    <NoProductToEditStyled>
+    <CtaEditStyled>
       <p>
         Cliquer sur un produit du menu pour le modifier{" "}
         <HiCursorClick className="icon" />
       </p>
-    </NoProductToEditStyled>
+    </CtaEditStyled>
   );
 }
 
-const NoProductToEditStyled = styled.div`
+const CtaEditStyled = styled.div`
   display: grid;
   margin-top: 30px;
   grid-column-gap: 20px;
