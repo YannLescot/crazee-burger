@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ProductForm from "./ProductForm";
 import OrderContext from "../../../../../../context/OrderContext";
-import { theme } from "../../../../../../theme";
-import { HiCursorClick } from "react-icons/hi";
 import NoProductToEdit from "./NoProductToEdit";
+import EditFooter from "./EditFooter";
 
 export default function EditProduct() {
   const { productToEdit, setProductToEdit, menu, setMenu, titleEditBoxRef } =
@@ -29,10 +28,8 @@ export default function EditProduct() {
             product={productToEdit}
             handleChange={handleFieldChange}
             titleRef={titleEditBoxRef}
+            UnderFields={<EditFooter />}
           />
-          <div className="editSection">
-            Cliquer sur un produit du menu pour le modifier <p>en temps réel</p>
-          </div>
         </div>
       ) : (
         <NoProductToEdit />
@@ -50,20 +47,5 @@ const EditProductStyled = styled.div`
     grid-column-gap: 20px;
     grid-row-gap: 10px;
     grid-template-rows: repeat(1fr, 1fr);
-
-    .editSection {
-      display: flex;
-      align-items: center;
-      color: ${theme.colors.primary};
-      font-size: ${theme.fonts.size.SM};
-      grid-row: 2;
-      margin-left: 220px;
-
-      p {
-        text-decoration: underline;
-        padding: 0px 5px;
-        margin: 0px;
-      }
-    }
   }
 `;
