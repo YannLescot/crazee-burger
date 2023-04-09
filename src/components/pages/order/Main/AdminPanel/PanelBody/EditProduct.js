@@ -7,14 +7,32 @@ import { theme } from "../../../../../../theme";
 import { HiCursorClick } from "react-icons/hi";
 
 export default function EditProduct() {
-  const { productToEdit } = useContext(OrderContext);
+  const { productToEdit, setProductToEdit, menu, setMenu, titleEditBoxRef } =
+    useContext(OrderContext);
+
+  const handleFieldChange = (event) => {
+    const { name, value } = event.target;
+    setProductToEdit({ ...productToEdit, [name]: value });
+
+    const newMenu = menu.map((product) =>
+      product.id === productToEdit.id ? { ...product, [name]: value } : product
+    );
+    setMenu(newMenu);
+  };
 
   return (
     <EditProductStyled>
       {productToEdit ? (
         <div className="hasItem">
           <ImagePreview imageSource={productToEdit.imageSource} />
-          <ProductForm product={productToEdit} />
+          <ProductForm
+            product={productToEdit}
+            handleChange={handleFieldChange}
+            neededRef={titleEditBoxRef}
+          />
+          <div className="editSection">
+            Cliquer sur un produit du menu pour le modifier <p>en temps réel</p>
+          </div>
         </div>
       ) : (
         <div className="isEmpty">
@@ -52,6 +70,15 @@ const EditProductStyled = styled.div`
       .icon {
         margin-left: 10px;
       }
+    }
+  }
+
+  .editSection {
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.size.SM};
+    p {
+      text-decoration: underline;
+      padding: 5px;
     }
   }
 `;

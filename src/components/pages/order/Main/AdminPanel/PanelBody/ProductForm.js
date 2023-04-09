@@ -1,123 +1,41 @@
-import React, { useContext } from "react";
-import { FiCheck } from "react-icons/fi";
+import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
-import Button from "../../../../../reusable/Button";
 import TextInput from "../../../../../reusable/TextInput";
 import { getInputsConfig } from "../inputsConfig";
-import OrderContext from "../../../../../../context/OrderContext";
 
-export default function ProductForm({
-  onSubmit,
-  wasProductAdded,
-  product,
-  tab,
-}) {
-  const {
-    productToAdd,
-    setProductToAdd,
-    productToEdit,
-    setProductToEdit,
-    menu,
-    setMenu,
-    titleEditBoxRef,
-  } = useContext(OrderContext);
-
-  // const handleFieldChange = (fieldName, value, tab) => {
-  //   if (tab === "add") {
-  //     setProductToAdd({ ...productToAdd, [fieldName]: value });
-  //   } else if (tab === "edit") {
-  //     setProductToEdit({ ...productToEdit, [fieldName]: value });
-
-  //     const newMenu = menu.map((product) =>
-  //       product.id === productToEdit.id
-  //         ? { ...product, [fieldName]: value }
-  //         : product
-  //     );
-  //     setMenu(newMenu);
-  //   }
-  // };
-
-  const handleFieldChange = (event) => {
-    const { field, value } = event.target;
-    setProductToEdit({ ...productToEdit, [field]: value });
-  };
-
+export default function ProductForm({ product, handleChange, neededRef }) {
   return (
-    <ProductFormStyled onSubmit={onSubmit}>
-      {getInputsConfig(product).map(
-        ({ type, value, field, placeholder, Icon }, index) => {
-          return (
-            <TextInput
-              ref={field === "title" ? titleEditBoxRef : null}
-              key={field}
-              type={type && type}
-              value={value}
-              index={index}
-              onChange={handleFieldChange}
-              placeholder={placeholder}
-              Icon={Icon}
-              variant="minimalist"
-              productToEdit={productToEdit}
-            />
-          );
-        }
-      )}
-
-      {tab === "add" && (
-        <div className="addSection">
-          <Button label={"Ajouter un nouveau produit au menu"} variant="add" />
-          {wasProductAdded && (
-            <span className="succesAdd">
-              <FiCheck className="icon" /> Ajouté avec succès !
-            </span>
-          )}
-        </div>
-      )}
-
-      {tab === "edit" && (
-        <div className="editSection">
-          Cliquer sur un produit du menu pour le modifier <p>en temps réel</p>
-        </div>
-      )}
+    <ProductFormStyled>
+      <div className="inputSection">
+        {getInputsConfig(product).map(
+          ({ type, value, name, placeholder, Icon }) => {
+            return (
+              <TextInput
+                key={name}
+                ref={name === "title" ? neededRef : null}
+                type={type && type}
+                value={value}
+                name={name}
+                onChange={handleChange}
+                placeholder={placeholder}
+                Icon={Icon}
+                variant="minimalist"
+              />
+            );
+          }
+        )}
+      </div>
     </ProductFormStyled>
   );
 }
 
-const ProductFormStyled = styled.form`
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  grid-row-gap: 8px;
-  height: 165px;
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 34px;
-  }
+const ProductFormStyled = styled.div`
+  .inputSection {
+    grid-area: 1 / 2 / 4 / -1;
 
-  .addSection {
-    span {
-      display: flex;
-      align-items: center;
-      font-size: ${theme.fonts.size.SM};
-      margin: 8px 18px;
-      color: ${theme.colors.success};
-
-      .icon {
-        border: 1px solid ${theme.colors.success};
-        border-radius: ${theme.borderRadius.circle};
-        margin-right: 8px;
-      }
-    }
-  }
-
-  .editSection {
-    color: ${theme.colors.primary};
-    font-size: ${theme.fonts.size.SM};
-    p {
-      text-decoration: underline;
-      padding: 5px;
-    }
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 8px;
   }
 `;

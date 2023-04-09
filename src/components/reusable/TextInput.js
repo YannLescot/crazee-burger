@@ -9,6 +9,7 @@ const TextInput = React.forwardRef(
       value,
       index,
       onChange,
+      name,
       placeholder,
       Icon,
       variant,
@@ -22,6 +23,7 @@ const TextInput = React.forwardRef(
         <div className="icon">{Icon && Icon}</div>
         <input
           ref={ref}
+          name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
