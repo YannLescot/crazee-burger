@@ -53,7 +53,7 @@ export default function Menu() {
               title={title}
               leftDescription={formatPrice(price)}
               hasDeleteButton={isAdmin}
-              onDelete={(e) => handleDelete(e, id)}
+              onDelete={() => handleDelete(id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               isActive={productToEdit && productToEdit.id === id}
             />

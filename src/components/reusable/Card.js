@@ -13,6 +13,11 @@ export default function Card({
   onClick,
   isActive,
 }) {
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    onDelete();
+  };
+
   return (
     <CardStyled
       onClick={onClick}
@@ -21,7 +26,7 @@ export default function Card({
     >
       <div>
         {hasDeleteButton && (
-          <TiDelete className="closeBtn" onClick={onDelete} />
+          <TiDelete className="closeBtn" onClick={handleDelete} />
         )}
       </div>
       <div className="image">
