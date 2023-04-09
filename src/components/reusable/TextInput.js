@@ -1,23 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
 const TextInput = React.forwardRef(
-  (
-    {
-      type,
-      value,
-      index,
-      onChange,
-      name,
-      placeholder,
-      Icon,
-      variant,
-      productToEdit,
-      tab,
-    },
-    ref
-  ) => {
+  ({ type, value, onChange, name, placeholder, Icon, variant }, ref) => {
     return (
       <TextInputStyled variant={variant}>
         <div className="icon">{Icon && Icon}</div>
