@@ -22,7 +22,7 @@ export default function EditProduct() {
   return (
     <EditProductStyled>
       {productToEdit ? (
-        <div className="hasItem">
+        <div>
           <ProductForm
             imageSource={productToEdit.imageSource}
             product={productToEdit}
@@ -42,10 +42,8 @@ const EditProductStyled = styled.div`
   height: 100%;
   width: 70%;
 
-  .hasItem {
-    display: grid;
-    grid-column-gap: 20px;
-    grid-row-gap: 10px;
-    grid-template-rows: repeat(1fr, 1fr);
-  }
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-rows: repeat(1fr, 1fr);
 `;

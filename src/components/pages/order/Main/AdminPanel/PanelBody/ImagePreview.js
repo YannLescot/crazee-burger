@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
+import NoImage from "./NoImage";
 
 export default function ImagePreview({ imageSource }) {
   return (
     <ImagePreviewStyled imageSource={imageSource}>
-      <div>
-        {!imageSource ? (
-          <p>Aucune image</p>
-        ) : (
-          <img src={imageSource} alt="Produit" />
-        )}
-      </div>
+      {!imageSource ? <NoImage /> : <img src={imageSource} alt="Produit" />}
     </ImagePreviewStyled>
   );
 }
@@ -35,8 +30,9 @@ const ImagePreviewStyled = styled.div`
     imageSource ? "none" : `1px solid ${theme.colors.greyLight}`};
 
   img {
-    height: 215px;
-    width: 120px;
+    border: 1px solid "transparent";
+    max-height: 100%;
+    max-width: 100%;
     object-fit: contain;
   }
 `;
