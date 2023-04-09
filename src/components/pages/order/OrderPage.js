@@ -14,7 +14,7 @@ const EMPTY_PRODUCT = {
 };
 
 export default function OrderPage() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);

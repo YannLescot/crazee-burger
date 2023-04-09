@@ -1,10 +1,10 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable/Button";
 import TextInput from "../../../../../reusable/TextInput";
-import { InputsConfig } from "../inputsConfig";
+import { getInputsConfig } from "../inputsConfig";
 import OrderContext from "../../../../../../context/OrderContext";
 
 export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
@@ -17,8 +17,6 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
     setMenu,
     titleEditBoxRef,
   } = useContext(OrderContext);
-
-  //const inputRef = useRef(null);
 
   const handleFieldChange = (fieldName, value, tab) => {
     if (tab === "add") {
@@ -37,7 +35,7 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
 
   return (
     <ProductFormStyled onSubmit={onSubmit}>
-      {InputsConfig(tab).map(
+      {getInputsConfig(tab, productToAdd, productToEdit).map(
         ({ type, value, field, placeholder, Icon }, index) => {
           return (
             <TextInput
