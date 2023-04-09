@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import ProductForm from "./ProductForm";
 import OrderContext from "../../../../../../context/OrderContext";
-import ImagePreview from "./ImagePreview";
 import Button from "../../../../../reusable/Button";
 import { FiCheck } from "react-icons/fi";
 import { EMPTY_PRODUCT } from "../../../../../../js/enum";
@@ -40,8 +39,8 @@ export default function AddProduct() {
 
   return (
     <AddProductStyled onSubmit={handleSubmit}>
-      <ImagePreview imageSource={productToAdd.imageSource} />
       <ProductForm
+        imageSource={productToAdd.imageSource}
         wasProductAdded={wasProductAdded}
         product={productToAdd}
         handleChange={handleFieldChange}
@@ -67,10 +66,9 @@ const AddProductStyled = styled.form`
   width: 70%;
 
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 20px;
-  grid-row-gap: 8px;
+  grid-row-gap: 10px;
+  grid-template-rows: repeat(1fr, 1fr);
 
   .addSection {
     grid-area: 4 / 2 / -1 / -1;
@@ -78,6 +76,8 @@ const AddProductStyled = styled.form`
     align-items: center;
     position: relative;
     top: 3px;
+    grid-row: 2;
+    margin-left: 220px;
 
     .submit-button {
       height: 100%;
