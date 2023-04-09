@@ -6,7 +6,8 @@ export default function EditFooter() {
   return (
     <EditFooterStyled>
       <div className="editSection">
-        Cliquer sur un produit du menu pour le modifier <p>en temps réel</p>
+        Cliquer sur un produit du menu pour le modifier{" "}
+        <span>en temps réel</span>
       </div>
     </EditFooterStyled>
   );
@@ -18,10 +19,8 @@ const EditFooterStyled = styled.div`
   color: ${theme.colors.primary};
   font-size: ${theme.fonts.size.SM};
 
-  p {
+  span {
     display: inline;
     text-decoration: underline;
-    padding: 0px 0px;
-    margin: 0px 0px;
   }
 `;
