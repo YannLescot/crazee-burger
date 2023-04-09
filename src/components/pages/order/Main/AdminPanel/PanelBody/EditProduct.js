@@ -47,12 +47,29 @@ export default function EditProduct() {
 }
 
 const EditProductStyled = styled.div`
-  width: 100%;
+  height: 100%;
+  width: 70%;
 
   .hasItem {
     display: grid;
     grid-column-gap: 20px;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-row-gap: 10px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(1fr, 1fr);
+
+    .editSection {
+      display: flex;
+      align-items: center;
+      color: ${theme.colors.primary};
+      font-size: ${theme.fonts.size.SM};
+      grid-column: 2;
+
+      p {
+        text-decoration: underline;
+        padding: 0px 5px;
+        margin: 0px;
+      }
+    }
   }
 
   .isEmpty {
@@ -70,15 +87,6 @@ const EditProductStyled = styled.div`
       .icon {
         margin-left: 10px;
       }
-    }
-  }
-
-  .editSection {
-    color: ${theme.colors.primary};
-    font-size: ${theme.fonts.size.SM};
-    p {
-      text-decoration: underline;
-      padding: 5px;
     }
   }
 `;
