@@ -15,9 +15,10 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
     setProductToEdit,
     menu,
     setMenu,
+    titleEditBoxRef,
   } = useContext(OrderContext);
 
-  const inputRef = useRef(null);
+  //const inputRef = useRef(null);
 
   const handleFieldChange = (fieldName, value, tab) => {
     if (tab === "add") {
@@ -40,7 +41,7 @@ export default function ProductForm({ onSubmit, wasProductAdded, tab }) {
         ({ type, value, field, placeholder, Icon }, index) => {
           return (
             <TextInput
-              ref={field === "title" ? inputRef : null}
+              ref={field === "title" ? titleEditBoxRef : null}
               key={field}
               type={type && type}
               value={value}

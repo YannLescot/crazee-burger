@@ -17,16 +17,6 @@ const TextInput = React.forwardRef(
     },
     ref
   ) => {
-    useEffect(() => {
-      if (productToEdit) {
-        console.log(index, "   0");
-      }
-
-      if (productToEdit && ref && ref.current && index === 0) {
-        ref.current.focus();
-      }
-    }, [value]);
-
     return (
       <TextInputStyled variant={variant}>
         <div className="icon">{Icon && Icon}</div>

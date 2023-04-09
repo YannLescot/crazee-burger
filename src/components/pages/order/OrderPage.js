@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 
@@ -20,6 +20,8 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.SMALL);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
 
+  const titleEditBoxRef = useRef();
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -33,6 +35,7 @@ export default function OrderPage() {
     setProductToAdd,
     productToEdit,
     setProductToEdit,
+    titleEditBoxRef,
   };
 
   return (

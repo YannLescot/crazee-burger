@@ -16,6 +16,7 @@ export default function Menu() {
     setProductToEdit,
     setIsPanelCollapsed,
     setActiveTab,
+    titleEditBoxRef,
   } = useContext(OrderContext);
 
   const handleDelete = (id) => {
@@ -26,11 +27,13 @@ export default function Menu() {
     }
   };
 
-  const selectProductToEdit = (id) => {
+  const selectProductToEdit = async (id) => {
     const product = menu.find((item) => item.id === id);
-    setProductToEdit(product);
-    setIsPanelCollapsed(false);
-    setActiveTab("edit");
+    await setProductToEdit(product);
+    await setIsPanelCollapsed(false);
+    await setActiveTab("edit");
+
+    titleEditBoxRef.current.focus();
   };
 
   const reloadMenu = () => {

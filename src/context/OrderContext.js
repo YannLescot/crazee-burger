@@ -13,4 +13,5 @@ export default createContext({
   setProductToAdd: () => {},
   productToEdit: {},
   setProductToEdit: () => {},
+  titleEditBoxRef: {},
 });
