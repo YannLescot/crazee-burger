@@ -6,21 +6,21 @@ import { BsFillCameraFill } from "react-icons/bs";
 export const getInputsConfig = (product) => [
   {
     value: product.title,
-    field: "title",
+    name: "title",
     placeholder: "Nom du produit (ex: Super Burger)",
     Icon: <FaHamburger />,
   },
   {
     type: "url",
     value: product.imageSource,
-    field: "imageSource",
+    name: "imageSource",
     placeholder:
       "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
     Icon: <BsFillCameraFill />,
   },
   {
     value: product.price ? product.price : "",
-    field: "price",
+    name: "price",
     placeholder: "Prix",
     Icon: <MdOutlineEuro />,
   },
