@@ -27,6 +27,11 @@ export default function Menu() {
     }
   };
 
+  const onDelete = (e, id) => {
+    e.stopPropagation();
+    handleDelete(id);
+  };
+
   const selectProductToEdit = async (id) => {
     const product = menu.find((item) => item.id === id);
     await setProductToEdit(product);
@@ -53,7 +58,7 @@ export default function Menu() {
               title={title}
               leftDescription={formatPrice(price)}
               hasDeleteButton={isAdmin}
-              onDelete={() => handleDelete(id)}
+              onDelete={() => onDelete(id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               isActive={productToEdit && productToEdit.id === id}
             />
