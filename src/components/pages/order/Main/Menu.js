@@ -60,6 +60,7 @@ export default function Menu() {
               hasDeleteButton={isAdmin}
               onDelete={() => onDelete(id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
+              onAdd={(e) => e.stopPropagation()}
               isActive={productToEdit && productToEdit.id === id}
             />
           );

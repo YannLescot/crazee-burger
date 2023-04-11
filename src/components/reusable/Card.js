@@ -11,6 +11,7 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
+  onAdd,
   isActive,
 }) {
   return (
@@ -32,7 +33,7 @@ export default function Card({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <Button label={"Ajouter"} variant="small" />
+            <Button label={"Ajouter"} variant="small" onClick={onAdd} />
           </div>
         </div>
       </div>
@@ -144,8 +145,8 @@ const CardStyled = styled.div`
     }}
   }
 
-  ${({ isActive }) => {
-    if (isActive) {
+  ${({ isActive, hasDeleteButton }) => {
+    if (isActive && hasDeleteButton) {
       return css`
         background: ${theme.colors.primary};
         color: ${theme.colors.white};
