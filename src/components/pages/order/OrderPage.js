@@ -4,11 +4,21 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
+
+const EMPTY_PRODUCT = {
+  id: "",
+  title: "",
+  imageSource: "",
+  price: "",
+};
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
 
   const orderContextValue = {
     isAdmin,
@@ -17,6 +27,10 @@ export default function OrderPage() {
     setIsPanelCollapsed,
     activeTab,
     setActiveTab,
+    menu,
+    setMenu,
+    productToAdd,
+    setProductToAdd,
   };
 
   return (

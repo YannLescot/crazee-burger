@@ -1,23 +1,32 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({
+  type,
+  value,
+  onChange,
+  placeholder,
+  Icon,
+  variant,
+}) {
   return (
-    <TextInputStyled>
-      {Icon && Icon}
-      <input value={value} onChange={onChange} type="text" {...extraProps} />
+    <TextInputStyled variant={variant}>
+      <div className="icon">{Icon && Icon}</div>
+      <input
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        type={type ? type : "text"}
+      />
     </TextInputStyled>
   );
 }
 
 const TextInputStyled = styled.div`
-  gap: ${theme.spacing.xs};
   display: flex;
   align-items: center;
-  background-color: ${theme.colors.white};
-  width: 400px;
-  height: 54px;
+  width: 100%;
   border: none;
   border-radius: ${theme.borderRadius.round};
 
@@ -30,15 +39,60 @@ const TextInputStyled = styled.div`
 
     &::placeholder {
       font-size: ${theme.fonts.size.SM};
-      background: ${theme.colors.white};
-      color: ${theme.colors.greyLight};
     }
   }
 
   .icon {
-    color: ${theme.colors.greyBlue};
-    margin-left: ${theme.spacing.md};
     font-size: ${theme.fonts.size.SM};
-    padding: 0px 10px;
   }
+
+  ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}
+  ${({ variant }) => variant === "normal" && getNormalStyle()}
 `;
+
+const getNormalStyle = () => {
+  return css`
+    max-width: 400px;
+    height: 54px;
+    background-color: ${theme.colors.white};
+    gap: ${theme.spacing.xs};
+
+    input {
+      width: 70%;
+
+      &::placeholder {
+        background: ${theme.colors.white};
+        color: ${theme.colors.greyLight};
+      }
+    }
+
+    .icon {
+      color: ${theme.colors.greyBlue};
+      margin-left: ${theme.spacing.md};
+      padding: 0px 10px;
+    }
+  `;
+};
+
+const getMinimalistStyle = () => {
+  return css`
+    width: 100%;
+    height: 35px;
+    background-color: ${theme.colors.background_white};
+
+    input {
+      width: 90%;
+      background-color: ${theme.colors.background_white};
+      margin-left: 15px;
+
+      &::placeholder {
+        color: ${theme.colors.greyMedium};
+      }
+    }
+
+    .icon {
+      color: ${theme.colors.greyBlue};
+      margin-left: 25px;
+    }
+  `;
+};

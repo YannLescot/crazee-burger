@@ -1,11 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
 import { theme } from "../../theme";
+import { TiDelete } from "react-icons/ti";
 
-export default function Card({ imageSource, title, leftDescription }) {
+export default function Card({
+  imageSource,
+  title,
+  leftDescription,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled>
+      <div>
+        {hasDeleteButton && (
+          <TiDelete className="closeBtn" onClick={onDelete} />
+        )}
+      </div>
       <div className="image">
         <img src={imageSource} alt="produit" />
       </div>
@@ -14,7 +26,7 @@ export default function Card({ imageSource, title, leftDescription }) {
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <PrimaryButton label={"Ajouter"} className="primary-button" />
+            <Button label={"Ajouter"} variant="small" />
           </div>
         </div>
       </div>
@@ -27,16 +39,37 @@ const CardStyled = styled.div`
   width: 200px;
   height: 300px;
   display: grid;
-  grid-template-rows: 65% 1fr;
+  grid-template-rows: 10% 55% 1fr;
   padding: 20px;
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
 
+  .closeBtn {
+    position: relative;
+    top: -5px;
+    right: -175px;
+    font-size: 30px;
+    color: ${theme.colors.primary};
+    border-radius: ${theme.borderRadius.round};
+    cursor: pointer;
+
+    &:hover {
+      color: ${theme.colors.red};
+
+      &:active {
+        color: ${theme.colors.primary};
+      }
+    }
+  }
+
   .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
     height: auto;
-    margin-top: 30px;
     margin-bottom: 20px;
 
     img {
@@ -87,12 +120,6 @@ const CardStyled = styled.div`
         justify-content: flex-end;
         align-items: center;
         font-size: ${theme.fonts.size.P1};
-
-        .primary-button {
-          font-size: ${theme.fonts.size.XS};
-          cursor: pointer;
-          padding: 12px;
-        }
       }
     }
   }

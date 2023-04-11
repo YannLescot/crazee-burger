@@ -13,7 +13,7 @@ export default function PanelBody() {
 
   return (
     <PanelBodyStyled>
-      {tabSelected && <p>{tabSelected.label}</p>}
+      {tabSelected && <div>{tabSelected.Content}</div>}
     </PanelBodyStyled>
   );
 }
@@ -25,6 +25,8 @@ const PanelBodyStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+  padding: 31px 71px;
+  box-sizing: border-box;
 
   p {
     padding: 0 19px;
