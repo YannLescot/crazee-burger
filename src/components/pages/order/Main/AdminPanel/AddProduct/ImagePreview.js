@@ -20,6 +20,7 @@ const ImagePreviewStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
 
   font-size: ${theme.fonts.size.P0};
@@ -29,9 +30,9 @@ const ImagePreviewStyled = styled.div`
   width: 215px;
   height: 120px;
 
-  //Make it so the border is wite when there is an image
-  border: 1px solid
-    ${(props) => (props.imageSource ? "transparent" : theme.colors.greyLight)};
+  //Make it so the border is 1 px solid greylight when there is no image, and none when there is an image
+  border: ${({ imageSource }) =>
+    imageSource ? "none" : `1px solid ${theme.colors.greyLight}`};
 
   img {
     height: 215px;
