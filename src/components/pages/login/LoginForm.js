@@ -9,7 +9,7 @@ import Button from "../../reusable/Button";
 
 export default function LoginForm() {
   //State
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("Yann");
   const navigate = useNavigate();
 
   //Comportements
