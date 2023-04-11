@@ -58,7 +58,7 @@ export default function Menu() {
               title={title}
               leftDescription={formatPrice(price)}
               hasDeleteButton={isAdmin}
-              onDelete={() => onDelete(id)}
+              onDelete={(e) => onDelete(e, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               onAdd={(e) => e.stopPropagation()}
               isActive={productToEdit && productToEdit.id === id}
