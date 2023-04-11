@@ -3,25 +3,12 @@ import styled from "styled-components";
 import Card from "../../../reusable/Card";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
-import EmptyMenu from "./EmptyMenu";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import { fakeMenu } from "../../../../fakeData/fakeMenu";
+import EmptyMenuCustomer from "./EmptyMenuCustomer";
 
 export default function Menu() {
   const { isAdmin, menu, setMenu } = useContext(OrderContext);
-
-  const EmptyMenuMessage = isAdmin
-    ? {
-        title: "Le menu est vide ?",
-        subtitle: "Cliquez ci-dessous pour le réinitialiser",
-        showh3: false,
-        showReload: true,
-      }
-    : {
-        title: "Victime de notre succès ! :D",
-        subtitle: "De nouvelles recettes sont encours de préparation.",
-        showh3: true,
-        showReload: false,
-      };
 
   const handleDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
@@ -49,8 +36,10 @@ export default function Menu() {
             />
           );
         })
+      ) : isAdmin ? (
+        <EmptyMenuAdmin reloadMenu={reloadMenu} />
       ) : (
-        <EmptyMenu message={EmptyMenuMessage} reloadMenu={reloadMenu} />
+        <EmptyMenuCustomer />
       )}
     </MenuStyled>
   );

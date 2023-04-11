@@ -1,27 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Button from "../../../reusable/Button";
 
-export default function EmptyMenu({ message, reloadMenu }) {
+export default function EmptyMenuCustomer() {
   return (
-    <EmptyMenuStyled onSubmit={reloadMenu}>
-      <h1>{message.title}</h1>
+    <EmptyMenuCustomerStyled>
+      <h1>Victime de notre succès ! :D</h1>
 
-      <h2>{message.subtitle}</h2>
+      <h2>De nouvelles recettes sont encours de préparation.</h2>
 
-      {message.showh3 && <h3>À très vite !</h3>}
-
-      {message.showReload && (
-        <div className="reload">
-          <Button label="Générer de nouveaux produits" variant="large" />
-        </div>
-      )}
-    </EmptyMenuStyled>
+      <h3>À très vite !</h3>
+    </EmptyMenuCustomerStyled>
   );
 }
 
-const EmptyMenuStyled = styled.form`
+const EmptyMenuCustomerStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,11 +45,5 @@ const EmptyMenuStyled = styled.form`
     color: ${theme.colors.greyBlue};
     margin-top: 0px;
     margin-bottom: 0px;
-  }
-
-  .reload {
-    width: 235px;
-    height: 50px;
-    font-size: ${theme.fonts.size.XS};
   }
 `;
