@@ -16,6 +16,13 @@ export default function AddProduct() {
     useContext(OrderContext);
   const [wasProductAdded, setWasProductAdded] = useState(false);
 
+  const displaySuccessMessage = () => {
+    setWasProductAdded(!wasProductAdded);
+    setTimeout(() => {
+      setWasProductAdded(false);
+    }, 2000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setMenu([
@@ -26,10 +33,7 @@ export default function AddProduct() {
       },
       ...menu,
     ]);
-    setWasProductAdded(!wasProductAdded);
-    setTimeout(() => {
-      setWasProductAdded(false);
-    }, 2000);
+    displaySuccessMessage();
     setProductToAdd(EMPTY_PRODUCT);
   };
 
