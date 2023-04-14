@@ -47,6 +47,10 @@ export default function Menu() {
     setMenu(fakeMenu.SMALL);
   };
 
+  const isCardActive = (id) => {
+    return productToEdit && activeTab === "edit" && productToEdit.id === id;
+  };
+
   return (
     <MenuStyled>
       {menu.length ? (
@@ -63,9 +67,7 @@ export default function Menu() {
               onDelete={(e) => onDelete(e, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               onAdd={(e) => e.stopPropagation()}
-              isActive={
-                productToEdit && activeTab === "edit" && productToEdit.id === id
-              }
+              isActive={isCardActive(id)}
             />
           );
         })
