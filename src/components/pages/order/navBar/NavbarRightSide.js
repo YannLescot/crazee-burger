@@ -9,9 +9,10 @@ import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin } = useContext(OrderContext);
+  const { isAdmin, setIsAdmin, activeTab, titleEditBoxRef } =
+    useContext(OrderContext);
 
-  const displayToastNotification = () => {
+  const displayToastNotification = async () => {
     !isAdmin &&
       toast.info("Mode admin activé", {
         theme: "dark",
@@ -23,7 +24,16 @@ export default function RightSide() {
         draggable: true,
         progress: undefined,
       });
-    setIsAdmin(!isAdmin);
+  };
+
+  const setEditFocus = () => {
+    activeTab === "edit" && titleEditBoxRef.current.focus();
+  };
+
+  const onToggle = async () => {
+    await setIsAdmin(!isAdmin);
+    await displayToastNotification();
+    await setEditFocus();
   };
 
   return (
@@ -31,7 +41,7 @@ export default function RightSide() {
       <AdminToast />
       <ToggleButton
         isChecked={isAdmin}
-        onToggle={displayToastNotification}
+        onToggle={onToggle}
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />
