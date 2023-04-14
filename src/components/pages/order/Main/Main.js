@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Menu from "./Menu";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
+import Menu from "./Menu/Menu";
 
 export default function Main() {
   const { isAdmin } = useContext(OrderContext);

@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Card from "../../../reusable/Card";
-import { formatPrice } from "../../../../utils/maths";
-import OrderContext from "../../../../context/OrderContext";
-import EmptyMenuAdmin from "./EmptyMenuAdmin";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
-import EmptyMenuCustomer from "./EmptyMenuCustomer";
+import Card from "../../../../reusable/Card";
+import { formatPrice } from "../../../../../utils/maths";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenu from "./EmptyMenu";
+import { fakeMenu } from "../../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const {
@@ -19,6 +18,22 @@ export default function Menu() {
     titleEditBoxRef,
     activeTab,
   } = useContext(OrderContext);
+
+  const EmptyMenuMessage = isAdmin
+    ? {
+        title: "Le menu est vide ?",
+        subtitle: "Cliquez ci-dessous pour le réinitialiser",
+        subheading: "",
+        showSubheading: false,
+        showButton: true,
+      }
+    : {
+        title: "Victime de notre succès ! :D",
+        subtitle: "De nouvelles recettes sont encours de préparation.",
+        subheading: "À très vite !",
+        showSubheading: true,
+        showButton: false,
+      };
 
   const handleDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
@@ -71,10 +86,8 @@ export default function Menu() {
             />
           );
         })
-      ) : isAdmin ? (
-        <EmptyMenuAdmin reloadMenu={reloadMenu} />
       ) : (
-        <EmptyMenuCustomer />
+        <EmptyMenu message={EmptyMenuMessage} reloadMenu={reloadMenu} />
       )}
     </MenuStyled>
   );
