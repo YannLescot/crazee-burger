@@ -18,6 +18,18 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
+  const handleAdminChange = (bool) => {
+    setIsAdmin(bool);
+  };
+
+  const handlePanelCollapsing = (bool) => {
+    setIsPanelCollapsed(bool);
+  };
+
+  const handleSelectTab = (tabId) => {
+    setActiveTab(tabId);
+  };
+
   const handleCardDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
     setMenu(newMenu);
@@ -34,7 +46,7 @@ export default function OrderPage() {
     const product = menu.find((item) => item.id === id);
     await setProductToEdit(product);
     await setIsPanelCollapsed(false);
-    await setActiveTab("edit");
+    await handleSelectTab("edit");
 
     focusTitleEditBox();
   };
@@ -78,16 +90,16 @@ export default function OrderPage() {
 
   const orderContextValue = {
     isAdmin,
-    setIsAdmin,
     isPanelCollapsed,
-    setIsPanelCollapsed,
     activeTab,
-    setActiveTab,
     menu,
     productToAdd,
     productToEdit,
     titleEditBoxRef,
     wasProductAdded,
+    handleSelectTab,
+    handlePanelCollapsing,
+    handleAdminChange,
     focusTitleEditBox,
     handleCardDelete,
     reloadMenu,
