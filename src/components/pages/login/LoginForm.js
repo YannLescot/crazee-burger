@@ -59,9 +59,9 @@ const LoginFormStyled = styled.form`
 
   h1 {
     margin: 0px;
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P5};
-    font-weight: ${theme.fonts.weight.bold};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P5};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.white};
   }
 
@@ -74,9 +74,9 @@ const LoginFormStyled = styled.form`
   }
 
   h2 {
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.bold};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.white};
     margin-top: 10px;
     margin-bottom: 0px;

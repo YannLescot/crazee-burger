@@ -23,7 +23,7 @@ const ButtonStyled = styled.button`
   display: flex;
   align-items: center;
   gap: ${theme.spacing.sm};
-  font-weight: ${theme.fonts.weight.bold};
+  font-weight: ${theme.font.weights.bold};
   line-height: 1;
   color: ${theme.colors.white};
 
@@ -37,7 +37,7 @@ const getSmallStyle = () => {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
-    font-size: ${theme.fonts.size.XS};
+    font-size: ${theme.font.sizes.XS};
     cursor: pointer;
     padding: 12px;
 
@@ -65,7 +65,7 @@ const getLargeStyle = () => {
     border: 1px solid ${theme.colors.primary};
     padding: 18px 24px;
 
-    font-size: ${theme.fonts.size.SM};
+    font-size: ${theme.font.sizes.SM};
 
     &:hover {
       transition: background-color 0.2s ease-out;
@@ -90,7 +90,7 @@ const getAddStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
     padding: 0px 24px;
-    font-size: ${theme.fonts.size.XS};
+    font-size: ${theme.font.sizes.XS};
 
     &:hover {
       background-color: ${theme.colors.white};

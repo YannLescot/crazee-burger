@@ -41,7 +41,7 @@ const ToggleButtonStyled = styled.div`
       height: 40px;
       width: 200px;
       position: relative;
-      font-size: ${theme.fonts.size.XXS};
+      font-size: ${theme.font.sizes.XXS};
       letter-spacing: 0.5px;
       border: 2px solid ${theme.colors.background_dark};
       padding: 0;
@@ -96,7 +96,7 @@ const ToggleButtonStyled = styled.div`
       left: auto;
       opacity: 1;
       color: ${theme.colors.primary};
-      font-weight: ${theme.fonts.weight.bold};
+      font-weight: ${theme.font.weights.bold};
     }
 
     // small circle when not checked

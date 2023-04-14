@@ -28,8 +28,8 @@ const spacing = {
   xxl: "84px",
 };
 
-const fonts = {
-  size: {
+const font = {
+  sizes: {
     XXXS: "8px",
     XXS: "10px",
     XS: "12px",
@@ -42,13 +42,17 @@ const fonts = {
     P5: "48px",
     P6: "60px",
   },
-  weight: {
+  weights: {
     light: 300,
     regular: 400,
     medium: 500,
     semiBold: 600,
     bold: 700,
     heavy: 800,
+  },
+  families: {
+    //Set stylish to Amatic SC cursive
+    stylish: `"Amatic SC", cursive`,
   },
 };
 const gridUnit = 8;
@@ -66,7 +70,7 @@ const shadows = {
 
 export const theme = {
   colors,
-  fonts,
+  font,
   gridUnit,
   borderRadius,
   shadows,

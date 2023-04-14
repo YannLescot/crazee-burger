@@ -36,7 +36,7 @@ const AddFooterStyled = styled.div`
   span {
     display: flex;
     align-items: center;
-    font-size: ${theme.fonts.size.SM};
+    font-size: ${theme.font.sizes.SM};
     margin: 8px 18px;
     color: ${theme.colors.success};
     .icon {

@@ -31,18 +31,18 @@ const TextInputStyled = styled.div`
 
   input {
     width: 70%;
-    font-size: ${theme.fonts.size.SM};
-    font-weight: ${theme.fonts.weight.regular};
+    font-size: ${theme.font.sizes.SM};
+    font-weight: ${theme.font.weights.regular};
     border-radius: ${theme.borderRadius.round};
     border: none;
 
     &::placeholder {
-      font-size: ${theme.fonts.size.SM};
+      font-size: ${theme.font.sizes.SM};
     }
   }
 
   .icon {
-    font-size: ${theme.fonts.size.SM};
+    font-size: ${theme.font.sizes.SM};
   }
 
   ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}

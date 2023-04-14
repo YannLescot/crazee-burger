@@ -16,7 +16,7 @@ const NoImageStyled = styled.div`
   width: 100%;
   height: 100%;
 
-  font-size: ${theme.fonts.size.P0};
-  font-weight: ${theme.fonts.weight.regular};
+  font-size: ${theme.font.sizes.P0};
+  font-weight: ${theme.font.weights.regular};
   color: ${theme.colors.greySemiDark};
 `;

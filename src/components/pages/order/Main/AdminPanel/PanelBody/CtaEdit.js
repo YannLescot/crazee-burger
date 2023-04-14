@@ -20,8 +20,8 @@ const CtaEditStyled = styled.div`
   grid-column-gap: 20px;
   grid-template-columns: 4fr 2fr;
   p {
-    font-family: "amatic sc", cursive;
-    font-size: ${theme.fonts.size.P3};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P3};
     color: ${theme.colors.greyBlue};
     display: flex;
     align-items: center;

@@ -93,17 +93,17 @@ const CardStyled = styled.div`
 
     .title {
       margin: auto 0;
-      font-size: ${theme.fonts.size.P4};
+      font-size: ${theme.font.sizes.P4};
       position: relative;
       bottom: 10px;
-      font-weight: ${theme.fonts.weight.bold};
+      font-weight: ${theme.font.weights.bold};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
       width: 100%;
       text-overflow: ellipsis;
-      font-family: "Amatic SC", cursive;
+      font-family: ${theme.font.families.stylish};
     }
 
     .description {
@@ -114,11 +114,11 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        font-weight: ${theme.fonts.weight.medium};
+        font-weight: ${theme.font.weights.medium};
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-weight: ${theme.fonts.weight.medium};
+        font-weight: ${theme.font.weights.medium};
         color: ${theme.colors.primary};
       }
 
@@ -126,7 +126,7 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        font-size: ${theme.fonts.size.P1};
+        font-size: ${theme.font.sizes.P1};
       }
     }
   }

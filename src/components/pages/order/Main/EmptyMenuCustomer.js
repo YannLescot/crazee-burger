@@ -21,27 +21,27 @@ const EmptyMenuCustomerStyled = styled.div`
   align-items: center;
 
   h1 {
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.bold};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.greyBlue};
     margin-bottom: 31px;
     margin-top: 0px;
   }
 
   h2 {
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.regular};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.greyBlue};
     margin-top: 0px;
     margin-bottom: 31px;
   }
 
   h3 {
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.regular};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.greyBlue};
     margin-top: 0px;
     margin-bottom: 0px;
