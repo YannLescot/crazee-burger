@@ -8,13 +8,12 @@ export default function ProductForm({
   product,
   handleChange,
   handleSubmit,
-  imageSource,
   titleRef,
   UnderFields,
 }) {
   return (
     <ProductFormStyled onSubmit={handleSubmit}>
-      <ImagePreview imageSource={imageSource} />
+      <ImagePreview imageSource={product.imageSource} />
 
       <div className="inputSection">
         {getInputsConfig(product).map(

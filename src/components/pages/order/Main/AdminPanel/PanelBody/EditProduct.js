@@ -24,7 +24,6 @@ export default function EditProduct() {
       {productToEdit ? (
         <div>
           <ProductForm
-            imageSource={productToEdit.imageSource}
             product={productToEdit}
             handleChange={handleFieldChange}
             titleRef={titleEditBoxRef}

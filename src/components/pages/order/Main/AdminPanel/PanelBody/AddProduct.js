@@ -39,7 +39,6 @@ export default function AddProduct() {
   return (
     <AddProductStyled onSubmit={handleSubmit}>
       <ProductForm
-        imageSource={productToAdd.imageSource}
         wasProductAdded={wasProductAdded}
         product={productToAdd}
         handleChange={handleFieldChange}
