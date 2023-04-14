@@ -31,6 +31,12 @@ export default function OrderPage() {
   const handleSelectTab = (tabId) => {
     setActiveTab(tabId);
     handlePanelCollapsing === true && handlePanelCollapsing(false);
+    //focus the title edit box if the tab is edit
+    if (tabId === "edit") {
+      setTimeout(() => {
+        titleEditBoxRef.current.focus();
+      }, 0);
+    }
   };
 
   const focusTitleEditBox = () => {
@@ -51,45 +57,55 @@ export default function OrderPage() {
     setMenu(fakeMenu.SMALL);
   };
 
-  const selectProductToEdit = async (id) => {
+  const selectProductToEdit = (id) => {
     const product = menu.find((item) => item.id === id);
-    await setActiveTab("edit");
-    await setIsPanelCollapsed(false);
-    await setProductToEdit(product);
+    setActiveTab("edit");
+    handlePanelCollapsing(false);
+    setProductToEdit(product);
     // setTimeout is needed to wait for the states to update
+    // async await doesn't work here since I call this function from a child component
     setTimeout(() => {
       titleEditBoxRef.current.focus();
     }, 0);
   };
 
-  const handleEditFieldChange = (event) => {
+  const handleEditFieldChange = ({ event }) => {
     const { name, value } = event.target;
-    setProductToEdit({ ...productToEdit, [name]: value });
 
-    const newMenu = menu.map((product) =>
+    const productToEditCopy = deepClone(productToEdit);
+    const newProductToEdit = { ...productToEditCopy, [name]: value };
+    setProductToEdit(newProductToEdit);
+
+    const menuCopy = deepClone(menu);
+    const newMenu = menuCopy.map((product) =>
       product.id === productToEdit.id ? { ...product, [name]: value } : product
     );
     setMenu(newMenu);
   };
 
-  const handleProductAddition = (e) => {
-    setMenu([
-      {
-        ...productToAdd,
-        id: crypto.randomUUID(),
-      },
-      ...menu,
-    ]);
+  const handleProductAddition = () => {
+    const menuCopy = deepClone(menu);
+    const productToAddCopy = deepClone(productToAdd);
+    const newMenu = [
+      { ...productToAddCopy, id: crypto.randomUUID() },
+      ...menuCopy,
+    ];
+    setMenu(newMenu);
+
     setWasProductAdded(!wasProductAdded);
     setTimeout(() => {
       setWasProductAdded(false);
     }, 2000);
+
     setProductToAdd(EMPTY_PRODUCT);
   };
 
   const handleAddFieldChange = (event) => {
     const { name, value } = event.target;
-    setProductToAdd({ ...productToAdd, [name]: value });
+
+    const productToAddCopy = deepClone(productToAdd);
+    const newProductToAdd = { ...productToAddCopy, [name]: value };
+    setProductToAdd(newProductToAdd);
   };
 
   const orderContextValue = {

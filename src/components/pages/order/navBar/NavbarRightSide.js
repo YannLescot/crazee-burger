@@ -29,7 +29,7 @@ export default function RightSide() {
   const onToggle = async () => {
     await handleAdminChange(!isAdmin);
     await displayToastNotification();
-    await focusTitleEditBox();
+    isAdmin === false && (await focusTitleEditBox());
   };
 
   return (
