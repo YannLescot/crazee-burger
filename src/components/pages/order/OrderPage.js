@@ -17,6 +17,18 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
+  const handleCardDelete = (id) => {
+    const newMenu = menu.filter((item) => item.id !== id);
+    setMenu(newMenu);
+    if (productToEdit && productToEdit.id === id) {
+      setProductToEdit();
+    }
+  };
+
+  const reloadMenu = () => {
+    setMenu(fakeMenu.SMALL);
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -25,12 +37,13 @@ export default function OrderPage() {
     activeTab,
     setActiveTab,
     menu,
-    setMenu,
     productToAdd,
     setProductToAdd,
     productToEdit,
     setProductToEdit,
     titleEditBoxRef,
+    handleCardDelete,
+    reloadMenu,
   };
 
   return (

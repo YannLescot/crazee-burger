@@ -8,10 +8,12 @@ export default createContext({
   activeTab: "",
   setActiveTab: () => {},
   menu: [],
-  setMenu: () => {},
   productToAdd: {},
   setProductToAdd: () => {},
   productToEdit: {},
   setProductToEdit: () => {},
   titleEditBoxRef: {},
+
+  handleCardDelete: () => {},
+  reloadMenu: () => {},
 });

@@ -4,32 +4,24 @@ import Card from "../../../../reusable/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
-import { fakeMenu } from "../../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const {
     isAdmin,
     menu,
-    setMenu,
     productToEdit,
     setProductToEdit,
     setIsPanelCollapsed,
     setActiveTab,
     titleEditBoxRef,
     activeTab,
+    handleCardDelete,
+    reloadMenu,
   } = useContext(OrderContext);
-
-  const handleDelete = (id) => {
-    const newMenu = menu.filter((item) => item.id !== id);
-    setMenu(newMenu);
-    if (productToEdit && productToEdit.id === id) {
-      setProductToEdit();
-    }
-  };
 
   const onDelete = (e, id) => {
     e.stopPropagation();
-    handleDelete(id);
+    handleCardDelete(id);
     activeTab === "edit" &&
       menu.length &&
       productToEdit &&
@@ -43,10 +35,6 @@ export default function Menu() {
     await setActiveTab("edit");
 
     titleEditBoxRef.current.focus();
-  };
-
-  const reloadMenu = () => {
-    setMenu(fakeMenu.SMALL);
   };
 
   const isCardActive = (id) => {
