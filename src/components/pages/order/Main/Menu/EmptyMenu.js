@@ -5,17 +5,14 @@ import { theme } from "../../../../theme";
 ========
 import { theme } from "../../../../../theme";
 import Button from "../../../../reusable/Button";
->>>>>>>> 2780ebd (♻️ F09: Create Menu folder):src/components/pages/order/Main/Menu/EmptyMenu.js
+import EmptyMessageAdmin from "./EmptyMessageAdmin";
+import EmptyMessageCustomer from "./EmptyMessageCustomer";
 
-export default function EmptyMenuCustomer() {
+export default function EmptyMenu({ isAdmin, reloadMenu }) {
   return (
-    <EmptyMenuCustomerStyled>
-      <h1>Victime de notre succès ! :D</h1>
-
-      <h2>De nouvelles recettes sont encours de préparation.</h2>
-
-      <h3>À très vite !</h3>
-    </EmptyMenuCustomerStyled>
+    <EmptyMenuStyled onSubmit={reloadMenu}>
+      {isAdmin ? <EmptyMessageAdmin /> : <EmptyMessageCustomer />}
+    </EmptyMenuStyled>
   );
 }
 

@@ -19,22 +19,6 @@ export default function Menu() {
     activeTab,
   } = useContext(OrderContext);
 
-  const EmptyMenuMessage = isAdmin
-    ? {
-        title: "Le menu est vide ?",
-        subtitle: "Cliquez ci-dessous pour le réinitialiser",
-        subheading: "",
-        showSubheading: false,
-        showButton: true,
-      }
-    : {
-        title: "Victime de notre succès ! :D",
-        subtitle: "De nouvelles recettes sont encours de préparation.",
-        subheading: "À très vite !",
-        showSubheading: true,
-        showButton: false,
-      };
-
   const handleDelete = (id) => {
     const newMenu = menu.filter((item) => item.id !== id);
     setMenu(newMenu);
@@ -87,7 +71,7 @@ export default function Menu() {
           );
         })
       ) : (
-        <EmptyMenu message={EmptyMenuMessage} reloadMenu={reloadMenu} />
+        <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />
       )}
     </MenuStyled>
   );
