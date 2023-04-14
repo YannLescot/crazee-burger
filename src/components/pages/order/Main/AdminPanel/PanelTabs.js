@@ -6,12 +6,18 @@ import { tabsConfig } from "./tabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function PanelTabs() {
-  const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
-    useContext(OrderContext);
+  const {
+    activeTab,
+    setActiveTab,
+    isPanelCollapsed,
+    setIsPanelCollapsed,
+    titleEditBoxRef,
+  } = useContext(OrderContext);
 
-  const selectTab = (tabId) => {
-    setActiveTab(tabId);
-    setIsPanelCollapsed(false);
+  const selectTab = async (tabId) => {
+    await setActiveTab(tabId);
+    await setIsPanelCollapsed(false);
+    titleEditBoxRef.current.focus();
   };
 
   const tabs = tabsConfig;

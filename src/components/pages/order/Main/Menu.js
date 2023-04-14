@@ -17,6 +17,7 @@ export default function Menu() {
     setIsPanelCollapsed,
     setActiveTab,
     titleEditBoxRef,
+    activeTab,
   } = useContext(OrderContext);
 
   const handleDelete = (id) => {
@@ -30,6 +31,7 @@ export default function Menu() {
   const onDelete = (e, id) => {
     e.stopPropagation();
     handleDelete(id);
+    menu.length && productToEdit && titleEditBoxRef.current.focus();
   };
 
   const selectProductToEdit = async (id) => {
@@ -61,7 +63,9 @@ export default function Menu() {
               onDelete={(e) => onDelete(e, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               onAdd={(e) => e.stopPropagation()}
-              isActive={productToEdit && productToEdit.id === id}
+              isActive={
+                productToEdit && activeTab === "edit" && productToEdit.id === id
+              }
             />
           );
         })
