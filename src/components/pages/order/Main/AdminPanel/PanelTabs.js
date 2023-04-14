@@ -11,14 +11,7 @@ export default function PanelTabs() {
     handleSelectTab,
     isPanelCollapsed,
     handlePanelCollapsing,
-    focusTitleEditBox,
   } = useContext(OrderContext);
-
-  const selectTab = async (tabId) => {
-    await handleSelectTab(tabId);
-    await handlePanelCollapsing(false);
-    focusTitleEditBox();
-  };
 
   const tabs = tabsConfig;
 
@@ -35,7 +28,7 @@ export default function PanelTabs() {
           key={id}
           Icon={Icon}
           label={label}
-          onClick={() => selectTab(id)}
+          onClick={() => handleSelectTab(id)}
           className={activeTab === id ? "active" : ""}
         />
       ))}

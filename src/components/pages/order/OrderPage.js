@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../js/enum";
+import { deepClone } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -22,20 +23,28 @@ export default function OrderPage() {
     setIsAdmin(bool);
   };
 
-  const handlePanelCollapsing = (bool) => {
-    setIsPanelCollapsed(bool);
+  const handlePanelCollapsing = async (bool) => {
+    await setIsPanelCollapsed(bool);
+    if (bool === false) focusTitleEditBox();
   };
 
   const handleSelectTab = (tabId) => {
     setActiveTab(tabId);
+    handlePanelCollapsing === true && handlePanelCollapsing(false);
+  };
+
+  const focusTitleEditBox = () => {
+    if (activeTab === "edit" && menu.length && productToEdit.id !== "")
+      titleEditBoxRef.current.focus();
   };
 
   const handleCardDelete = (id) => {
-    const newMenu = menu.filter((item) => item.id !== id);
+    const menuCopy = deepClone(menu);
+
+    const newMenu = menuCopy.filter((item) => item.id !== id);
     setMenu(newMenu);
-    if (productToEdit && productToEdit.id === id) {
-      setProductToEdit();
-    }
+
+    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
   };
 
   const reloadMenu = () => {
@@ -44,11 +53,13 @@ export default function OrderPage() {
 
   const selectProductToEdit = async (id) => {
     const product = menu.find((item) => item.id === id);
-    await setProductToEdit(product);
+    await setActiveTab("edit");
     await setIsPanelCollapsed(false);
-    await handleSelectTab("edit");
-
-    focusTitleEditBox();
+    await setProductToEdit(product);
+    // setTimeout is needed to wait for the states to update
+    setTimeout(() => {
+      titleEditBoxRef.current.focus();
+    }, 0);
   };
 
   const handleEditFieldChange = (event) => {
@@ -79,13 +90,6 @@ export default function OrderPage() {
   const handleAddFieldChange = (event) => {
     const { name, value } = event.target;
     setProductToAdd({ ...productToAdd, [name]: value });
-  };
-
-  const focusTitleEditBox = () => {
-    activeTab === "edit" &&
-      menu.length &&
-      productToEdit &&
-      titleEditBoxRef.current.focus();
   };
 
   const orderContextValue = {
