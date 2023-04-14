@@ -14,6 +14,7 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.SMALL);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState();
+  const [wasProductAdded, setWasProductAdded] = useState(false);
 
   const titleEditBoxRef = useRef();
 
@@ -29,6 +30,52 @@ export default function OrderPage() {
     setMenu(fakeMenu.SMALL);
   };
 
+  const selectProductToEdit = async (id) => {
+    const product = menu.find((item) => item.id === id);
+    await setProductToEdit(product);
+    await setIsPanelCollapsed(false);
+    await setActiveTab("edit");
+
+    focusTitleEditBox();
+  };
+
+  const handleEditFieldChange = (event) => {
+    const { name, value } = event.target;
+    setProductToEdit({ ...productToEdit, [name]: value });
+
+    const newMenu = menu.map((product) =>
+      product.id === productToEdit.id ? { ...product, [name]: value } : product
+    );
+    setMenu(newMenu);
+  };
+
+  const handleProductAddition = (e) => {
+    setMenu([
+      {
+        ...productToAdd,
+        id: crypto.randomUUID(),
+      },
+      ...menu,
+    ]);
+    setWasProductAdded(!wasProductAdded);
+    setTimeout(() => {
+      setWasProductAdded(false);
+    }, 2000);
+    setProductToAdd(EMPTY_PRODUCT);
+  };
+
+  const handleAddFieldChange = (event) => {
+    const { name, value } = event.target;
+    setProductToAdd({ ...productToAdd, [name]: value });
+  };
+
+  const focusTitleEditBox = () => {
+    activeTab === "edit" &&
+      menu.length &&
+      productToEdit &&
+      titleEditBoxRef.current.focus();
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -38,12 +85,16 @@ export default function OrderPage() {
     setActiveTab,
     menu,
     productToAdd,
-    setProductToAdd,
     productToEdit,
-    setProductToEdit,
     titleEditBoxRef,
+    wasProductAdded,
+    focusTitleEditBox,
     handleCardDelete,
     reloadMenu,
+    selectProductToEdit,
+    handleEditFieldChange,
+    handleAddFieldChange,
+    handleProductAddition,
   };
 
   return (

@@ -9,11 +9,15 @@ export default createContext({
   setActiveTab: () => {},
   menu: [],
   productToAdd: {},
-  setProductToAdd: () => {},
   productToEdit: {},
-  setProductToEdit: () => {},
   titleEditBoxRef: {},
+  wasProductAdded: false,
 
+  focusTitleEditBox: () => {},
   handleCardDelete: () => {},
   reloadMenu: () => {},
+  selectProductToEdit: () => {},
+  handleEditFieldChange: () => {},
+  handleAddFieldChange: () => {},
+  handleProductAddition: () => {},
 });

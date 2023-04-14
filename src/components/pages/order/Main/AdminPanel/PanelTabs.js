@@ -11,13 +11,13 @@ export default function PanelTabs() {
     setActiveTab,
     isPanelCollapsed,
     setIsPanelCollapsed,
-    titleEditBoxRef,
+    focusTitleEditBox,
   } = useContext(OrderContext);
 
   const selectTab = async (tabId) => {
     await setActiveTab(tabId);
     await setIsPanelCollapsed(false);
-    titleEditBoxRef.current.focus();
+    focusTitleEditBox();
   };
 
   const tabs = tabsConfig;

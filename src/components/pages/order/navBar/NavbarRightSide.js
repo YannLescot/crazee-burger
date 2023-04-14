@@ -9,8 +9,7 @@ import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin, activeTab, titleEditBoxRef } =
-    useContext(OrderContext);
+  const { isAdmin, setIsAdmin, focusTitleEditBox } = useContext(OrderContext);
 
   const displayToastNotification = async () => {
     !isAdmin &&
@@ -26,14 +25,10 @@ export default function RightSide() {
       });
   };
 
-  const setEditFocus = () => {
-    activeTab === "edit" && titleEditBoxRef.current.focus();
-  };
-
   const onToggle = async () => {
     await setIsAdmin(!isAdmin);
     await displayToastNotification();
-    await setEditFocus();
+    await focusTitleEditBox();
   };
 
   return (

@@ -6,18 +6,8 @@ import CtaEdit from "./CtaEdit";
 import EditFooter from "./EditFooter";
 
 export default function EditProduct() {
-  const { productToEdit, setProductToEdit, menu, setMenu, titleEditBoxRef } =
+  const { productToEdit, titleEditBoxRef, handleEditFieldChange } =
     useContext(OrderContext);
-
-  const handleFieldChange = (event) => {
-    const { name, value } = event.target;
-    setProductToEdit({ ...productToEdit, [name]: value });
-
-    const newMenu = menu.map((product) =>
-      product.id === productToEdit.id ? { ...product, [name]: value } : product
-    );
-    setMenu(newMenu);
-  };
 
   return (
     <EditProductStyled>
@@ -25,7 +15,7 @@ export default function EditProduct() {
         <div>
           <ProductForm
             product={productToEdit}
-            handleChange={handleFieldChange}
+            handleChange={handleEditFieldChange}
             titleRef={titleEditBoxRef}
             UnderFields={<EditFooter />}
           />

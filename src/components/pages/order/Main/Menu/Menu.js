@@ -10,31 +10,17 @@ export default function Menu() {
     isAdmin,
     menu,
     productToEdit,
-    setProductToEdit,
-    setIsPanelCollapsed,
-    setActiveTab,
-    titleEditBoxRef,
+    focusTitleEditBox,
     activeTab,
     handleCardDelete,
     reloadMenu,
+    selectProductToEdit,
   } = useContext(OrderContext);
 
   const onDelete = (e, id) => {
     e.stopPropagation();
     handleCardDelete(id);
-    activeTab === "edit" &&
-      menu.length &&
-      productToEdit &&
-      titleEditBoxRef.current.focus();
-  };
-
-  const selectProductToEdit = async (id) => {
-    const product = menu.find((item) => item.id === id);
-    await setProductToEdit(product);
-    await setIsPanelCollapsed(false);
-    await setActiveTab("edit");
-
-    titleEditBoxRef.current.focus();
+    focusTitleEditBox();
   };
 
   const isCardActive = (id) => {
