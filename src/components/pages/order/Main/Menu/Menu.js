@@ -30,7 +30,10 @@ export default function Menu() {
   const onDelete = (e, id) => {
     e.stopPropagation();
     handleDelete(id);
-    menu.length && productToEdit && titleEditBoxRef.current.focus();
+    activeTab === "edit" &&
+      menu.length &&
+      productToEdit &&
+      titleEditBoxRef.current.focus();
   };
 
   const selectProductToEdit = async (id) => {
