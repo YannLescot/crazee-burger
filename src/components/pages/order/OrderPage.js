@@ -32,7 +32,7 @@ export default function OrderPage() {
     setActiveTab(tabId);
     handlePanelCollapsing === true && handlePanelCollapsing(false);
     //focus the title edit box if the tab is edit
-    if (tabId === "edit") {
+    if (tabId === "edit" && productToEdit) {
       setTimeout(() => {
         titleEditBoxRef.current.focus();
       }, 0);
