@@ -14,13 +14,24 @@ export default function Menu() {
     activeTab,
     handleCardDelete,
     reloadMenu,
-    selectProductToEdit,
     titleEditBoxRef,
+    setActiveTab,
+    setIsPanelCollapsed,
+    setProductToEdit,
   } = useContext(OrderContext);
 
   const onDelete = (e, id) => {
     e.stopPropagation();
     handleCardDelete(id);
+    focusTitleEditBox(titleEditBoxRef);
+  };
+
+  const selectProductToEdit = async (id) => {
+    const product = menu.find((item) => item.id === id);
+    await setActiveTab("edit");
+    await setIsPanelCollapsed(false);
+    await setProductToEdit(product);
+
     focusTitleEditBox(titleEditBoxRef);
   };
 

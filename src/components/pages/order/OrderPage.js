@@ -37,19 +37,6 @@ export default function OrderPage() {
     setMenu(fakeMenu.SMALL);
   };
 
-  const selectProductToEdit = (id) => {
-    //SConcern tab, collapse, focus dans menu
-    const product = menu.find((item) => item.id === id);
-    setActiveTab("edit");
-    setIsPanelCollapsed(false);
-    setProductToEdit(product);
-    // setTimeout is needed to wait for the states to update
-    // async await doesn't work here since I call this function from a child component
-    setTimeout(() => {
-      titleEditBoxRef.current.focus();
-    }, 0);
-  };
-
   const handleEdit = (productEdited) => {
     const newMenu = menu.map((product) =>
       product.id === productEdited.id ? productEdited : product
@@ -102,7 +89,6 @@ export default function OrderPage() {
     handleCardDelete,
 
     handleAddFieldChange,
-    selectProductToEdit,
     reloadMenu,
 
     focusTitleEditBox,

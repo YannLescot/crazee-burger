@@ -19,7 +19,6 @@ export default createContext({
   focusTitleEditBox: () => {},
   handleCardDelete: () => {},
   reloadMenu: () => {},
-  selectProductToEdit: () => {},
   handleAddFieldChange: () => {},
   handleProductAddition: () => {},
 });
