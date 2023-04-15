@@ -12,10 +12,10 @@ export default createContext({
 
   setProductToEdit: () => {},
   setIsAdmin: () => {},
+  setIsPanelCollapsed: () => {},
 
   handleEdit: () => {},
   handleSelectTab: () => {},
-  handlePanelCollapsing: () => {},
   focusTitleEditBox: () => {},
   handleCardDelete: () => {},
   reloadMenu: () => {},

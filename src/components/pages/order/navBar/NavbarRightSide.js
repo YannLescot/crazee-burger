@@ -9,7 +9,8 @@ import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin, focusTitleEditBox } = useContext(OrderContext);
+  const { isAdmin, setIsAdmin, focusTitleEditBox, titleEditBoxRef } =
+    useContext(OrderContext);
 
   const displayToastNotification = async () => {
     !isAdmin &&
@@ -28,7 +29,7 @@ export default function RightSide() {
   const onToggle = async () => {
     await setIsAdmin(!isAdmin);
     await displayToastNotification();
-    isAdmin === false && (await focusTitleEditBox());
+    focusTitleEditBox(titleEditBoxRef);
   };
 
   return (

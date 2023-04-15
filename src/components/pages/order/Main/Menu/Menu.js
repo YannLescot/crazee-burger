@@ -15,12 +15,13 @@ export default function Menu() {
     handleCardDelete,
     reloadMenu,
     selectProductToEdit,
+    titleEditBoxRef,
   } = useContext(OrderContext);
 
   const onDelete = (e, id) => {
     e.stopPropagation();
     handleCardDelete(id);
-    focusTitleEditBox();
+    focusTitleEditBox(titleEditBoxRef);
   };
 
   const isCardSelected = (id) => {

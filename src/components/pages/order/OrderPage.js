@@ -19,16 +19,10 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
-  const handlePanelCollapsing = async (bool) => {
-    // Setter, useles function + separation concern focus
-    await setIsPanelCollapsed(bool);
-    if (bool === false) focusTitleEditBox();
-  };
-
   const handleSelectTab = (tabId) => {
     //SConcern focus
     setActiveTab(tabId);
-    handlePanelCollapsing === true && handlePanelCollapsing(false);
+    isPanelCollapsed === true && setIsPanelCollapsed(false);
     //focus the title edit box if the tab is edit
     if (tabId === "edit" && productToEdit) {
       setTimeout(() => {
@@ -37,9 +31,10 @@ export default function OrderPage() {
     }
   };
 
-  const focusTitleEditBox = () => {
-    if (activeTab === "edit" && menu.length && productToEdit.id !== "")
-      titleEditBoxRef.current.focus();
+  const focusTitleEditBox = (ref) => {
+    //if (activeTab === "edit" && menu.length && productToEdit.id !== "")
+    if (!ref.current) return;
+    titleEditBoxRef.current.focus();
   };
 
   const handleCardDelete = (id) => {
@@ -59,7 +54,7 @@ export default function OrderPage() {
     //SConcern tab, collapse, focus dans menu
     const product = menu.find((item) => item.id === id);
     setActiveTab("edit");
-    handlePanelCollapsing(false);
+    setIsPanelCollapsed(false);
     setProductToEdit(product);
     // setTimeout is needed to wait for the states to update
     // async await doesn't work here since I call this function from a child component
@@ -112,10 +107,10 @@ export default function OrderPage() {
 
     setProductToEdit,
     setIsAdmin,
+    setIsPanelCollapsed,
 
     handleEdit,
     handleSelectTab,
-    handlePanelCollapsing,
     focusTitleEditBox,
     handleCardDelete,
     reloadMenu,
