@@ -20,15 +20,18 @@ export default function OrderPage() {
   const titleEditBoxRef = useRef();
 
   const handleAdminChange = (bool) => {
+    // Setter, useles function
     setIsAdmin(bool);
   };
 
   const handlePanelCollapsing = async (bool) => {
+    // Setter, useles function + separation concern focus
     await setIsPanelCollapsed(bool);
     if (bool === false) focusTitleEditBox();
   };
 
   const handleSelectTab = (tabId) => {
+    //SConcern focus
     setActiveTab(tabId);
     handlePanelCollapsing === true && handlePanelCollapsing(false);
     //focus the title edit box if the tab is edit
@@ -58,6 +61,7 @@ export default function OrderPage() {
   };
 
   const selectProductToEdit = (id) => {
+    //SConcern tab, collapse, focus dans menu
     const product = menu.find((item) => item.id === id);
     setActiveTab("edit");
     handlePanelCollapsing(false);
@@ -69,16 +73,9 @@ export default function OrderPage() {
     }, 0);
   };
 
-  const handleEditFieldChange = ({ event }) => {
-    const { name, value } = event.target;
-
-    const productToEditCopy = deepClone(productToEdit);
-    const newProductToEdit = { ...productToEditCopy, [name]: value };
-    setProductToEdit(newProductToEdit);
-
-    const menuCopy = deepClone(menu);
-    const newMenu = menuCopy.map((product) =>
-      product.id === productToEdit.id ? { ...product, [name]: value } : product
+  const handleEdit = (productEdited) => {
+    const newMenu = menu.map((product) =>
+      product.id === productEdited.id ? productEdited : product
     );
     setMenu(newMenu);
   };
@@ -117,6 +114,10 @@ export default function OrderPage() {
     productToEdit,
     titleEditBoxRef,
     wasProductAdded,
+
+    setProductToEdit,
+
+    handleEdit,
     handleSelectTab,
     handlePanelCollapsing,
     handleAdminChange,
@@ -124,7 +125,6 @@ export default function OrderPage() {
     handleCardDelete,
     reloadMenu,
     selectProductToEdit,
-    handleEditFieldChange,
     handleAddFieldChange,
     handleProductAddition,
   };

@@ -10,6 +10,9 @@ export default createContext({
   titleEditBoxRef: {},
   wasProductAdded: false,
 
+  setProductToEdit: () => {},
+
+  handleEdit: () => {},
   handleSelectTab: () => {},
   handlePanelCollapsing: () => {},
   handleAdminChange: () => {},
@@ -17,7 +20,6 @@ export default createContext({
   handleCardDelete: () => {},
   reloadMenu: () => {},
   selectProductToEdit: () => {},
-  handleEditFieldChange: () => {},
   handleAddFieldChange: () => {},
   handleProductAddition: () => {},
 });
