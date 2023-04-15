@@ -103,6 +103,7 @@ const getMediumSize = () => {
   return css`
     width: ${theme.button.sizes.width.MD};
     height: ${theme.button.sizes.height.LG};
+    font-size: ${theme.font.sizes.XS};
   `;
 };
 

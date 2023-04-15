@@ -8,7 +8,12 @@ export default function EmptyMessageAdmin() {
       <h1>Le menu est vide ?</h1>
 
       <h2>Cliquez ci-dessous pour le réinitialiser</h2>
-      <Button label="Générer de nouveaux produits" variant="large" />
+      <Button
+        label="Générer de nouveaux produits"
+        variant="primary"
+        sizing="medium"
+        padding="large"
+      />
     </EmptyMessageAdminStyled>
   );
 }

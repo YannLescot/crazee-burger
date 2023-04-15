@@ -42,6 +42,7 @@ export default function LoginForm() {
         Icon={<IoChevronForward className="icon" />}
         variant="primary"
         sizing="xlarge"
+        padding="medium"
       />
     </LoginFormStyled>
   );
