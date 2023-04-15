@@ -12,13 +12,14 @@ export default function Card({
   onDelete,
   onClick,
   onAdd,
-  isActive,
+  isHoverable,
+  isSelected,
 }) {
   return (
     <CardStyled
       onClick={onClick}
-      isActive={isActive}
-      hasDeleteButton={hasDeleteButton}
+      isSelected={isSelected}
+      isHoverable={isHoverable}
     >
       <div>
         {hasDeleteButton && (
@@ -51,6 +52,8 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
+
+  ${({ isHoverable }) => isHoverable && hoverableStyle}
 
   .closeBtn {
     position: relative;
@@ -131,61 +134,54 @@ const CardStyled = styled.div`
     }
   }
 
+  ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
+`;
+
+const hoverableStyle = css`
   &:hover {
-    ${({ hasDeleteButton }) => {
-      if (hasDeleteButton) {
-        return css`
-          transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-          cursor: pointer;
-          transform: scale(1.05);
-          box-shadow: ${theme.shadows.medium},
-            0 0 10px 0.1px ${theme.colors.primary};
-        `;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
+  }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+
+  .closeBtn {
+    color: ${theme.colors.white};
+    &:hover {
+      color: ${theme.colors.red};
+      &:active {
+        color: ${theme.colors.white};
       }
-    }}
+    }
   }
 
-  ${({ isActive, hasDeleteButton }) => {
-    if (isActive && hasDeleteButton) {
-      return css`
-        background: ${theme.colors.primary};
+  .text-info {
+    .description {
+      .left-description {
         color: ${theme.colors.white};
+      }
 
-        .closeBtn {
-          color: ${theme.colors.white};
+      .right-description {
+        button {
+          background: ${theme.colors.white};
+          color: ${theme.colors.primary};
+          border: 1px solid ${theme.colors.white};
           &:hover {
-            color: ${theme.colors.red};
-            &:active {
-              color: ${theme.colors.white};
-            }
+            background: ${theme.colors.primary};
+            color: ${theme.colors.white};
+          }
+
+          &:active {
+            background: ${theme.colors.white};
+            color: ${theme.colors.primary};
           }
         }
-
-        .text-info {
-          .description {
-            .left-description {
-              color: ${theme.colors.white};
-            }
-
-            .right-description {
-              button {
-                background: ${theme.colors.white};
-                color: ${theme.colors.primary};
-                border: 1px solid ${theme.colors.white};
-                &:hover {
-                  background: ${theme.colors.primary};
-                  color: ${theme.colors.white};
-                }
-
-                &:active {
-                  background: ${theme.colors.white};
-                  color: ${theme.colors.primary};
-                }
-                
-            }
-          }
-        }
-      `;
+      }
     }
-  }}
+  }
 `;

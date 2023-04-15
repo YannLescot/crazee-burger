@@ -23,7 +23,7 @@ export default function Menu() {
     focusTitleEditBox();
   };
 
-  const isCardActive = (id) => {
+  const isCardSelected = (id) => {
     return productToEdit && activeTab === "edit" && productToEdit.id === id;
   };
 
@@ -43,7 +43,8 @@ export default function Menu() {
               onDelete={(e) => onDelete(e, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               onAdd={(e) => e.stopPropagation()}
-              isActive={isCardActive(id)}
+              isHoverable={isAdmin}
+              isSelected={isCardSelected(id)}
             />
           );
         })
