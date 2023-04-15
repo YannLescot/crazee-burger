@@ -34,7 +34,13 @@ export default function Card({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <Button label={"Ajouter"} variant="small" onClick={onAdd} />
+            <Button
+              label={"Ajouter"}
+              variant="primary"
+              sizing="small"
+              padding="small"
+              onClick={onAdd}
+            />
           </div>
         </div>
       </div>

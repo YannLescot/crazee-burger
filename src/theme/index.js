@@ -28,6 +28,27 @@ const spacing = {
   xxl: "84px",
 };
 
+const button = {
+  sizes: {
+    width: {
+      SM: "95px",
+      MD: "225px",
+      LG: "275px",
+      XL: "400px",
+    },
+    height: {
+      SM: "34px",
+      MD: "38px",
+      LG: "53px",
+    },
+  },
+  paddings: {
+    SM: "12px",
+    MD: "0px 24px",
+    LG: "18px 24px",
+  },
+};
+
 const font = {
   sizes: {
     XXXS: "8px",
@@ -75,4 +96,5 @@ export const theme = {
   borderRadius,
   shadows,
   spacing,
+  button,
 };

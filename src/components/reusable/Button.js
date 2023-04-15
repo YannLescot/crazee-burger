@@ -2,9 +2,21 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function Button({ label, Icon, variant, onClick }) {
+export default function Button({
+  label,
+  Icon,
+  variant,
+  sizing,
+  padding,
+  onClick,
+}) {
   return (
-    <ButtonStyled variant={variant} onClick={onClick}>
+    <ButtonStyled
+      variant={variant}
+      sizing={sizing}
+      padding={padding}
+      onClick={onClick}
+    >
       {label}
       {Icon && Icon}
     </ButtonStyled>
@@ -12,66 +24,44 @@ export default function Button({ label, Icon, variant, onClick }) {
 }
 
 const ButtonStyled = styled.button`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: ${theme.spacing.xs};
+  box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
+  gap: ${theme.spacing.xs};
   cursor: pointer;
 
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: ${theme.spacing.sm};
   font-weight: ${theme.font.weights.bold};
   line-height: 1;
   color: ${theme.colors.white};
 
-  ${({ variant }) => variant === "small" && getSmallStyle()}
-  ${({ variant }) => variant === "large" && getLargeStyle()}
+  ${({ sizing }) => sizing === "small" && getSmallSize()}
+  ${({ sizing }) => sizing === "medium" && getMediumSize()}
+  ${({ sizing }) => sizing === "large" && getLargeSize()}
+  ${({ sizing }) => sizing === "xlarge" && getExtraLargeSize()}
+
+  ${({ padding }) => padding === "small" && getSmallPadding()}
+  ${({ padding }) => padding === "medium" && getMediumPadding()}
+  ${({ padding }) => padding === "large" && getLargePadding()}
+
+
+  ${({ variant }) => variant === "primary" && getPrimaryStyle()}
   ${({ variant }) => variant === "add" && getAddStyle()}
 `;
 
-const getSmallStyle = () => {
+const getPrimaryStyle = () => {
   return css`
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
-    font-size: ${theme.font.sizes.XS};
     cursor: pointer;
-    padding: 12px;
 
     &:hover {
       transition: background-color 0.2s ease-out;
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary};
-      cursor: pointer;
-
-      &:active {
-        transition: background-color 0.2s ease-out;
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.white};
-      }
-    }
-  `;
-};
-
-const getLargeStyle = () => {
-  return css`
-    width: 100%;
-    height: 54px;
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.primary};
-    padding: 18px 24px;
-
-    font-size: ${theme.font.sizes.SM};
-
-    &:hover {
-      transition: background-color 0.2s ease-out;
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary};
-      cursor: pointer;
 
       &:active {
         transition: background-color 0.2s ease-out;
@@ -84,12 +74,9 @@ const getLargeStyle = () => {
 
 const getAddStyle = () => {
   return css`
-    width: 275px;
-    height: 34px;
     background-color: ${theme.colors.success};
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
-    padding: 0px 24px;
     font-size: ${theme.font.sizes.XS};
 
     &:hover {
@@ -101,5 +88,53 @@ const getAddStyle = () => {
         color: ${theme.colors.white};
       }
     }
+  `;
+};
+
+const getSmallSize = () => {
+  return css`
+    width: ${theme.button.sizes.width.SM};
+    height: ${theme.button.sizes.height.MD};
+    font-size: ${theme.font.sizes.XS};
+  `;
+};
+
+const getMediumSize = () => {
+  return css`
+    width: ${theme.button.sizes.width.MD};
+    height: ${theme.button.sizes.height.LG};
+  `;
+};
+
+const getLargeSize = () => {
+  return css`
+    width: ${theme.button.sizes.width.LG};
+    height: ${theme.button.sizes.height.SM};
+  `;
+};
+
+const getExtraLargeSize = () => {
+  return css`
+    width: ${theme.button.sizes.width.XL};
+    height: ${theme.button.sizes.height.LG};
+    font-size: ${theme.font.sizes.SM};
+  `;
+};
+
+const getSmallPadding = () => {
+  return css`
+    padding: ${theme.button.paddings.SM};
+  `;
+};
+
+const getMediumPadding = () => {
+  return css`
+    padding: ${theme.button.paddings.MD};
+  `;
+};
+
+const getLargePadding = () => {
+  return css`
+    padding: ${theme.button.paddings.LG};
   `;
 };
