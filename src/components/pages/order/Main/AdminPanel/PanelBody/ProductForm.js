@@ -9,7 +9,7 @@ export default function ProductForm({
   handleChange,
   handleSubmit,
   titleRef,
-  UnderFields,
+  children,
 }) {
   return (
     <ProductFormStyled onSubmit={handleSubmit}>
@@ -33,7 +33,7 @@ export default function ProductForm({
             );
           }
         )}
-        <div className="underField">{UnderFields && UnderFields}</div>
+        <div className="formFooter">{children}</div>
       </div>
     </ProductFormStyled>
   );
@@ -50,7 +50,7 @@ const ProductFormStyled = styled.form`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
     grid-row-gap: 8px;
-    .underField {
+    .formFooter {
       grid-column: 1;
       grid-row: 4;
     }

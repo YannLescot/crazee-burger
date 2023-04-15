@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
-import { tabsConfig } from "./tabsConfig";
+import { getTabsConfig } from "./tabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function PanelTabs() {
@@ -11,9 +11,10 @@ export default function PanelTabs() {
     handleSelectTab,
     isPanelCollapsed,
     handlePanelCollapsing,
+    productToEdit,
   } = useContext(OrderContext);
 
-  const tabs = tabsConfig;
+  const tabs = getTabsConfig(productToEdit);
 
   return (
     <PanelTabsStyled>

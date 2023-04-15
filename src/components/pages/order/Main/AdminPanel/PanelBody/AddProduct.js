@@ -20,12 +20,12 @@ export default function AddProduct() {
   return (
     <AddProductStyled onSubmit={onSubmit}>
       <ProductForm
-        wasProductAdded={wasProductAdded}
         product={productToAdd}
         handleChange={handleAddFieldChange}
         handleSubmit={onSubmit}
-        UnderFields={<AddFooter wasProductAdded={wasProductAdded} />}
-      />
+      >
+        <AddFooter wasProductAdded={wasProductAdded} />
+      </ProductForm>
     </AddProductStyled>
   );
 }

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ProductForm from "./ProductForm";
 import OrderContext from "../../../../../../context/OrderContext";
-import CtaEdit from "./CtaEdit";
 import EditFooter from "./EditFooter";
 
 export default function EditProduct() {
@@ -11,18 +10,15 @@ export default function EditProduct() {
 
   return (
     <EditProductStyled>
-      {productToEdit ? (
-        <div>
-          <ProductForm
-            product={productToEdit}
-            handleChange={handleEditFieldChange}
-            titleRef={titleEditBoxRef}
-            UnderFields={<EditFooter />}
-          />
-        </div>
-      ) : (
-        <CtaEdit />
-      )}
+      <div>
+        <ProductForm
+          product={productToEdit}
+          handleChange={handleEditFieldChange}
+          titleRef={titleEditBoxRef}
+        >
+          <EditFooter />
+        </ProductForm>
+      </div>
     </EditProductStyled>
   );
 }
