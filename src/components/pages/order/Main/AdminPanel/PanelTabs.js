@@ -8,18 +8,24 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 export default function PanelTabs() {
   const {
     activeTab,
-    handleSelectTab,
     isPanelCollapsed,
     setIsPanelCollapsed,
     productToEdit,
     focusTitleEditBox,
     titleEditBoxRef,
+    setActiveTab,
   } = useContext(OrderContext);
 
   const tabs = getTabsConfig(productToEdit);
 
   const onCollapseClick = async () => {
     await setIsPanelCollapsed(!isPanelCollapsed);
+    focusTitleEditBox(titleEditBoxRef);
+  };
+
+  const onTabClick = async (id) => {
+    await setActiveTab(id);
+    await setIsPanelCollapsed(false);
     focusTitleEditBox(titleEditBoxRef);
   };
 
@@ -36,7 +42,7 @@ export default function PanelTabs() {
           key={id}
           Icon={Icon}
           label={label}
-          onClick={() => handleSelectTab(id)}
+          onClick={() => onTabClick(id)}
           className={activeTab === id ? "active" : ""}
         />
       ))}

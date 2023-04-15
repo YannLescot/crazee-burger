@@ -13,9 +13,9 @@ export default createContext({
   setProductToEdit: () => {},
   setIsAdmin: () => {},
   setIsPanelCollapsed: () => {},
+  setActiveTab: () => {},
 
   handleEdit: () => {},
-  handleSelectTab: () => {},
   focusTitleEditBox: () => {},
   handleCardDelete: () => {},
   reloadMenu: () => {},

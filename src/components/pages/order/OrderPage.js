@@ -19,20 +19,7 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
-  const handleSelectTab = (tabId) => {
-    //SConcern focus
-    setActiveTab(tabId);
-    isPanelCollapsed === true && setIsPanelCollapsed(false);
-    //focus the title edit box if the tab is edit
-    if (tabId === "edit" && productToEdit) {
-      setTimeout(() => {
-        titleEditBoxRef.current.focus();
-      }, 0);
-    }
-  };
-
   const focusTitleEditBox = (ref) => {
-    //if (activeTab === "edit" && menu.length && productToEdit.id !== "")
     if (!ref.current) return;
     titleEditBoxRef.current.focus();
   };
@@ -105,18 +92,20 @@ export default function OrderPage() {
     titleEditBoxRef,
     wasProductAdded,
 
-    setProductToEdit,
     setIsAdmin,
+    setActiveTab,
     setIsPanelCollapsed,
+    setProductToEdit,
 
-    handleEdit,
-    handleSelectTab,
-    focusTitleEditBox,
-    handleCardDelete,
-    reloadMenu,
-    selectProductToEdit,
-    handleAddFieldChange,
     handleProductAddition,
+    handleEdit,
+    handleCardDelete,
+
+    handleAddFieldChange,
+    selectProductToEdit,
+    reloadMenu,
+
+    focusTitleEditBox,
   };
 
   return (
