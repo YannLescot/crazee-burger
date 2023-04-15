@@ -19,11 +19,6 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
-  const handleAdminChange = (bool) => {
-    // Setter, useles function
-    setIsAdmin(bool);
-  };
-
   const handlePanelCollapsing = async (bool) => {
     // Setter, useles function + separation concern focus
     await setIsPanelCollapsed(bool);
@@ -116,11 +111,11 @@ export default function OrderPage() {
     wasProductAdded,
 
     setProductToEdit,
+    setIsAdmin,
 
     handleEdit,
     handleSelectTab,
     handlePanelCollapsing,
-    handleAdminChange,
     focusTitleEditBox,
     handleCardDelete,
     reloadMenu,

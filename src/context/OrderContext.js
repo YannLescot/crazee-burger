@@ -11,11 +11,11 @@ export default createContext({
   wasProductAdded: false,
 
   setProductToEdit: () => {},
+  setIsAdmin: () => {},
 
   handleEdit: () => {},
   handleSelectTab: () => {},
   handlePanelCollapsing: () => {},
-  handleAdminChange: () => {},
   focusTitleEditBox: () => {},
   handleCardDelete: () => {},
   reloadMenu: () => {},
