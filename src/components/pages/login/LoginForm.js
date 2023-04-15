@@ -8,11 +8,9 @@ import TextInput from "../../reusable/TextInput.js";
 import Button from "../../reusable/Button";
 
 export default function LoginForm() {
-  //State
   const [inputValue, setInputValue] = useState("Yann");
   const navigate = useNavigate();
 
-  //Comportements
   const handleSubmit = (e) => {
     e.preventDefault();
     setInputValue("");
@@ -23,7 +21,6 @@ export default function LoginForm() {
     setInputValue(e.target.value);
   };
 
-  //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>

@@ -72,7 +72,6 @@ const font = {
     heavy: 800,
   },
   families: {
-    //Set stylish to Amatic SC cursive
     stylish: `"Amatic SC", cursive`,
   },
 };
