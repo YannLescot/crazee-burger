@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-<<<<<<<< HEAD:src/components/pages/order/Main/EmptyMenuCustomer.js
-import { theme } from "../../../../theme";
-========
 import { theme } from "../../../../../theme";
 import EmptyMessageAdmin from "./EmptyMessageAdmin";
 import EmptyMessageCustomer from "./EmptyMessageCustomer";
@@ -15,7 +12,7 @@ export default function EmptyMenu({ isAdmin, reloadMenu }) {
   );
 }
 
-const EmptyMenuCustomerStyled = styled.div`
+const EmptyMenuStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

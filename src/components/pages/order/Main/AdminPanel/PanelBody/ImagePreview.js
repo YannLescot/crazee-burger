@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NoImage from "./NoImage";
+import { theme } from "../../../../../../theme";
 
 export default function ImagePreview({ imageSource }) {
   return (
@@ -17,8 +18,8 @@ const ImagePreviewStyled = styled.div`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
 
-  font-size: ${theme.fonts.size.P0};
-  font-weight: ${theme.fonts.weight.regular};
+  font-size: ${theme.font.sizes.P0};
+  font-weight: ${theme.font.weights.regular};
   color: ${theme.colors.greySemiDark};
 
   width: 215px;

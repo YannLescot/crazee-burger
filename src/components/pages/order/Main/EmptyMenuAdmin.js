@@ -25,8 +25,8 @@ const EmptyMenuAdminStyled = styled.form`
 
   h1 {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.bold};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.greyBlue};
     margin-bottom: 31px;
     margin-top: 0px;
@@ -34,8 +34,8 @@ const EmptyMenuAdminStyled = styled.form`
 
   h2 {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.regular};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.greyBlue};
     margin-top: 0px;
     margin-bottom: 31px;
@@ -44,6 +44,6 @@ const EmptyMenuAdminStyled = styled.form`
   .reload {
     width: 235px;
     height: 50px;
-    font-size: ${theme.fonts.size.XS};
+    font-size: ${theme.font.sizes.XS};
   }
 `;
