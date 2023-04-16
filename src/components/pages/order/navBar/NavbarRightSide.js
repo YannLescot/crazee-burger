@@ -7,10 +7,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
+import { focusTitleEditBox } from "../../../../utils/ref";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin, focusTitleEditBox, titleEditBoxRef } =
-    useContext(OrderContext);
+  const { isAdmin, setIsAdmin, titleEditBoxRef } = useContext(OrderContext);
 
   const displayToastNotification = async () => {
     !isAdmin &&
