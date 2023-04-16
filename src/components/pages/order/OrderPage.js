@@ -24,7 +24,7 @@ export default function OrderPage() {
     titleEditBoxRef.current.focus();
   };
 
-  const handleCardDelete = (id) => {
+  const handleProductDelete = (id) => {
     const menuCopy = deepClone(menu);
 
     const newMenu = menuCopy.filter((item) => item.id !== id);
@@ -37,14 +37,14 @@ export default function OrderPage() {
     setMenu(fakeMenu.SMALL);
   };
 
-  const handleEdit = (productEdited) => {
+  const handleProductEdited = (productEdited) => {
     const newMenu = menu.map((product) =>
       product.id === productEdited.id ? productEdited : product
     );
     setMenu(newMenu);
   };
 
-  const handleProductAddition = () => {
+  const handleProductAdd = () => {
     const menuCopy = deepClone(menu);
     const productToAddCopy = deepClone(productToAdd);
     const newMenu = [
@@ -61,37 +61,27 @@ export default function OrderPage() {
     setProductToAdd(EMPTY_PRODUCT);
   };
 
-  const handleAddFieldChange = (event) => {
-    const { name, value } = event.target;
-
-    const productToAddCopy = deepClone(productToAdd);
-    const newProductToAdd = { ...productToAddCopy, [name]: value };
-    setProductToAdd(newProductToAdd);
-  };
-
   const orderContextValue = {
     isAdmin,
-    isPanelCollapsed,
-    activeTab,
-    menu,
-    productToAdd,
-    productToEdit,
-    titleEditBoxRef,
-    wasProductAdded,
-
     setIsAdmin,
-    setActiveTab,
+    isPanelCollapsed,
     setIsPanelCollapsed,
+    activeTab,
+    setActiveTab,
+    productToAdd,
+    setProductToAdd,
+    productToEdit,
     setProductToEdit,
+    titleEditBoxRef,
+    focusTitleEditBox,
 
-    handleProductAddition,
-    handleEdit,
-    handleCardDelete,
-
-    handleAddFieldChange,
+    handleProductAdd,
+    handleProductDelete,
+    handleProductEdited,
     reloadMenu,
 
-    focusTitleEditBox,
+    menu,
+    wasProductAdded,
   };
 
   return (

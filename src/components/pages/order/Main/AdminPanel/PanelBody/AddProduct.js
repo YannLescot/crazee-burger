@@ -5,23 +5,26 @@ import OrderContext from "../../../../../../context/OrderContext";
 import AddFooter from "./AddFooter";
 
 export default function AddProduct() {
-  const {
-    productToAdd,
-    handleProductAddition,
-    wasProductAdded,
-    handleAddFieldChange,
-  } = useContext(OrderContext);
+  const { productToAdd, handleProductAdd, wasProductAdded, setProductToAdd } =
+    useContext(OrderContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    handleProductAddition();
+    handleProductAdd();
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    const newProductToAdd = { ...productToAdd, [name]: value };
+    setProductToAdd(newProductToAdd);
   };
 
   return (
     <AddProductStyled onSubmit={onSubmit}>
       <ProductForm
         product={productToAdd}
-        handleChange={handleAddFieldChange}
+        handleChange={handleChange}
         handleSubmit={onSubmit}
       >
         <AddFooter wasProductAdded={wasProductAdded} />

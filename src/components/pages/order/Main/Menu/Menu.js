@@ -12,7 +12,7 @@ export default function Menu() {
     productToEdit,
     focusTitleEditBox,
     activeTab,
-    handleCardDelete,
+    handleProductDelete,
     reloadMenu,
     titleEditBoxRef,
     setActiveTab,
@@ -22,7 +22,7 @@ export default function Menu() {
 
   const onDelete = (e, id) => {
     e.stopPropagation();
-    handleCardDelete(id);
+    handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
   };
 

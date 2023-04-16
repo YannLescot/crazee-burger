@@ -2,23 +2,23 @@ import { createContext } from "react";
 
 export default createContext({
   isAdmin: false,
-  isPanelCollapsed: false,
-  activeTab: "",
-  menu: [],
-  productToAdd: {},
-  productToEdit: {},
-  titleEditBoxRef: {},
-  wasProductAdded: false,
-
-  setProductToEdit: () => {},
   setIsAdmin: () => {},
+  isPanelCollapsed: false,
   setIsPanelCollapsed: () => {},
+  activeTab: "",
   setActiveTab: () => {},
-
-  handleEdit: () => {},
+  productToAdd: {},
+  setProductToAdd: () => {},
+  productToEdit: {},
+  setProductToEdit: () => {},
+  titleEditBoxRef: {},
   focusTitleEditBox: () => {},
-  handleCardDelete: () => {},
+
+  handleProductEdited: () => {},
+  handleProductDelete: () => {},
+  handleProductAdd: () => {},
   reloadMenu: () => {},
-  handleAddFieldChange: () => {},
-  handleProductAddition: () => {},
+
+  menu: [],
+  wasProductAdded: false,
 });

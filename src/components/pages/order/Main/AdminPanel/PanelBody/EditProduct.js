@@ -5,8 +5,12 @@ import OrderContext from "../../../../../../context/OrderContext";
 import EditFooter from "./EditFooter";
 
 export default function EditProduct() {
-  const { productToEdit, titleEditBoxRef, setProductToEdit, handleEdit } =
-    useContext(OrderContext);
+  const {
+    productToEdit,
+    titleEditBoxRef,
+    setProductToEdit,
+    handleProductEdited,
+  } = useContext(OrderContext);
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -14,7 +18,7 @@ export default function EditProduct() {
     const newProductToEdit = { ...productToEdit, [name]: value };
     setProductToEdit(newProductToEdit);
 
-    handleEdit(newProductToEdit);
+    handleProductEdited(newProductToEdit);
   };
 
   return (
