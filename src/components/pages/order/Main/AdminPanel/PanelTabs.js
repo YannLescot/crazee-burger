@@ -4,6 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
 import { getTabsConfig } from "./tabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { focusTitleEditBox } from "../../../../../utils/ref";
 
 export default function PanelTabs() {
   const {
@@ -11,7 +12,6 @@ export default function PanelTabs() {
     isPanelCollapsed,
     setIsPanelCollapsed,
     productToEdit,
-    focusTitleEditBox,
     titleEditBoxRef,
     setActiveTab,
   } = useContext(OrderContext);

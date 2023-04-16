@@ -4,13 +4,13 @@ import Card from "../../../../reusable/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
+import { focusTitleEditBox } from "../../../../../utils/ref";
 
 export default function Menu() {
   const {
     isAdmin,
     menu,
     productToEdit,
-    focusTitleEditBox,
     activeTab,
     handleProductDelete,
     reloadMenu,

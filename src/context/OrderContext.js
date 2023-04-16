@@ -12,7 +12,6 @@ export default createContext({
   productToEdit: {},
   setProductToEdit: () => {},
   titleEditBoxRef: {},
-  focusTitleEditBox: () => {},
 
   handleProductEdited: () => {},
   handleProductDelete: () => {},

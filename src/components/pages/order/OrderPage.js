@@ -19,31 +19,6 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
-  const focusTitleEditBox = (ref) => {
-    if (!ref.current) return;
-    titleEditBoxRef.current.focus();
-  };
-
-  const handleProductDelete = (id) => {
-    const menuCopy = deepClone(menu);
-
-    const newMenu = menuCopy.filter((item) => item.id !== id);
-    setMenu(newMenu);
-
-    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
-  };
-
-  const reloadMenu = () => {
-    setMenu(fakeMenu.SMALL);
-  };
-
-  const handleProductEdited = (productEdited) => {
-    const newMenu = menu.map((product) =>
-      product.id === productEdited.id ? productEdited : product
-    );
-    setMenu(newMenu);
-  };
-
   const handleProductAdd = () => {
     const menuCopy = deepClone(menu);
     const productToAddCopy = deepClone(productToAdd);
@@ -61,6 +36,26 @@ export default function OrderPage() {
     setProductToAdd(EMPTY_PRODUCT);
   };
 
+  const handleProductEdited = (productEdited) => {
+    const newMenu = menu.map((product) =>
+      product.id === productEdited.id ? productEdited : product
+    );
+    setMenu(newMenu);
+  };
+
+  const handleProductDelete = (id) => {
+    const menuCopy = deepClone(menu);
+
+    const newMenu = menuCopy.filter((item) => item.id !== id);
+    setMenu(newMenu);
+
+    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
+  };
+
+  const reloadMenu = () => {
+    setMenu(fakeMenu.SMALL);
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -73,7 +68,6 @@ export default function OrderPage() {
     productToEdit,
     setProductToEdit,
     titleEditBoxRef,
-    focusTitleEditBox,
 
     handleProductAdd,
     handleProductDelete,
