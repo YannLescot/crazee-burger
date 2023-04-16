@@ -1,8 +1,8 @@
 import React from "react";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
-import Button from "../../../../../reusable/Button";
+import { theme } from "../../../../../../../theme";
+import Button from "../../../../../../reusable/Button";
 
 export default function AddFooter({ wasProductAdded }) {
   return (

@@ -1,20 +1,20 @@
 import React from "react";
 import { HiCursorClick } from "react-icons/hi";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../../../theme";
 
-export default function CtaEdit() {
+export default function EditHint() {
   return (
-    <CtaEditStyled>
+    <EditHintStyled>
       <p>
         Cliquer sur un produit du menu pour le modifier{" "}
         <HiCursorClick className="icon" />
       </p>
-    </CtaEditStyled>
+    </EditHintStyled>
   );
 }
 
-const CtaEditStyled = styled.div`
+const EditHintStyled = styled.div`
   display: grid;
   margin-top: 30px;
   grid-column-gap: 20px;

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import ProductForm from "./ProductForm";
-import OrderContext from "../../../../../../context/OrderContext";
 import AddFooter from "./AddFooter";
+import OrderContext from "../../../../../../../context/OrderContext";
+import ProductForm from "../ProductForm";
 
 export default function AddProduct() {
   const { productToAdd, handleProductAdd, wasProductAdded, setProductToAdd } =

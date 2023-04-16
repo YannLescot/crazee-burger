@@ -1,8 +1,8 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-import AddProduct from "./PanelBody/AddProduct";
-import EditProduct from "./PanelBody/EditProduct";
-import CtaEdit from "./PanelBody/CtaEdit";
+import EditHint from "./PanelBody/Edit/EditHint";
+import EditProduct from "./PanelBody/Edit/EditProduct";
+import AddProduct from "./PanelBody/Add/AddProduct";
 
 export const getTabsConfig = (isAnyProductSelected) => [
   {
@@ -15,7 +15,7 @@ export const getTabsConfig = (isAnyProductSelected) => [
     id: "edit",
     Icon: <MdModeEditOutline />,
     label: "Modifier un produit",
-    Content: isAnyProductSelected ? <EditProduct /> : <CtaEdit />,
+    Content: isAnyProductSelected ? <EditProduct /> : <EditHint />,
   },
 ];
 
