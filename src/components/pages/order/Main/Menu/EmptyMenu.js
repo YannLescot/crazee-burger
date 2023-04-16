@@ -6,8 +6,12 @@ import EmptyMessageCustomer from "./EmptyMessageCustomer";
 
 export default function EmptyMenu({ isAdmin, reloadMenu }) {
   return (
-    <EmptyMenuStyled onSubmit={reloadMenu}>
-      {isAdmin ? <EmptyMessageAdmin /> : <EmptyMessageCustomer />}
+    <EmptyMenuStyled>
+      {isAdmin ? (
+        <EmptyMessageAdmin reloadMenu={reloadMenu} />
+      ) : (
+        <EmptyMessageCustomer />
+      )}
     </EmptyMenuStyled>
   );
 }
