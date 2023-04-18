@@ -5,6 +5,7 @@ import { formatPrice } from "../../../../../utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
+import { theme } from "../../../../../theme";
 
 export default function Menu() {
   const {
@@ -77,4 +78,5 @@ const MenuStyled = styled.div`
   background: none;
   padding: 50px 50px 150px;
   overflow-y: scroll;
+  box-shadow: ${theme.shadows.strong};
 `;

@@ -38,10 +38,6 @@ export default function EditProduct() {
 
 const EditProductStyled = styled.div`
   height: 100%;
-  width: 70%;
-
+  width: 80%;
   display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
-  grid-template-rows: repeat(1fr, 1fr);
 `;

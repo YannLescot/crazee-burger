@@ -5,7 +5,7 @@ import { theme } from "../../../../../theme";
 export default function BasketHeader() {
   return (
     <BasketHeaderStyled>
-      <p className="total">TOTAL</p>
+      <p>Total</p>
       <p className="price">0,00 €</p>
     </BasketHeaderStyled>
   );
@@ -22,10 +22,6 @@ const BasketHeaderStyled = styled.div`
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P4};
     color: ${theme.colors.primary};
-  }
-
-  .total {
-    font-weight: ${theme.font.weights.regular};
   }
 
   .price {

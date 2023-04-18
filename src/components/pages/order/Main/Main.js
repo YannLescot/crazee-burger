@@ -29,7 +29,6 @@ const MainStyled = styled.div`
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  box-shadow: ${theme.shadows.strong};
 
   .menu-and-admin {
     display: grid;
