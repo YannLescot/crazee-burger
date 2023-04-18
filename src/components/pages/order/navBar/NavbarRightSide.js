@@ -13,22 +13,21 @@ export default function RightSide() {
   const { isAdmin, setIsAdmin, titleEditBoxRef } = useContext(OrderContext);
 
   const displayToastNotification = async () => {
-    !isAdmin &&
-      toast.info("Mode admin activé", {
-        theme: "dark",
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    toast.info("Mode admin activé", {
+      theme: "dark",
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   const onToggle = async () => {
     await setIsAdmin(!isAdmin);
-    await displayToastNotification();
+    !isAdmin && (await displayToastNotification());
     focusTitleEditBox(titleEditBoxRef);
   };
 
