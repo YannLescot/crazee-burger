@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import BasketHeader from "./BasketHeader";
+import BasketFooter from "./BasketFooter";
 
 export default function Basket() {
   return (
     <BasketStyled>
-      <BasketHeader className="header" />
+      <BasketHeader />
       <div className="body">BODY</div>
-      <div className="footer">FOOTER</div>
+      <BasketFooter />
     </BasketStyled>
   );
 }
@@ -16,13 +17,6 @@ const BasketStyled = styled.div`
   display: grid;
   grid-template-rows: 9% 1fr 9%;
   background: pink;
-
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: green;
-  }
 
   .body {
     display: flex;
