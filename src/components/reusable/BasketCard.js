@@ -27,7 +27,7 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1.5fr;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
@@ -35,9 +35,11 @@ const BasketCardStyled = styled.div`
   padding: 8px 16px;
   margin: 20px 0;
   border-radius: ${theme.borderRadius.extraRound};
+  overflow: hidden;
 
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.medium};
+  position: relative;
 
   img {
     width: 85px;
@@ -51,10 +53,15 @@ const BasketCardStyled = styled.div`
     margin-left: 14px;
 
     .title {
+      max-width: 100px;
       font-size: ${theme.font.sizes.P3};
       line-height: 32px;
       font-family: ${theme.font.families.stylish};
       font-weight: ${theme.font.weights.bold};
+      //Make it display one line only
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .prix {
@@ -73,18 +80,15 @@ const BasketCardStyled = styled.div`
 
   &:hover {
     .delete {
-      display: block;
       cursor: pointer;
-      position: relative;
-      grid-column: 4;
-      left: 131%;
-      transform: translateX(-100%);
-      width: 50px;
-      height: 123%;
-      border-top-right-radius: ${theme.borderRadius.extraRound};
-      border-bottom-right-radius: ${theme.borderRadius.extraRound};
-      border: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 68px;
       background-color: ${theme.colors.red};
+      border: none;
       font-size: ${theme.font.sizes.P3};
       color: ${theme.colors.white};
     }
