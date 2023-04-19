@@ -29,6 +29,5 @@ const BasketStyled = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    box-shadow: ${theme.shadows.strong};
   }
 `;

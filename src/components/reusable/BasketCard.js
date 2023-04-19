@@ -34,14 +34,14 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3.5fr 1fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
-  height: 85px;
+  height: 86px;
   padding: 8px 16px;
   margin: 20px 0;
-  border-radius: ${theme.borderRadius.extraRound};
+  border-radius: ${theme.borderRadius.round};
   overflow: hidden;
 
   background-color: ${theme.colors.background_white};
@@ -93,7 +93,7 @@ const BasketCardStyled = styled.div`
       top: 0;
       right: 0;
       bottom: 0;
-      width: 50px;
+      width: 75px;
       background-color: ${theme.colors.red};
       border: none;
       font-size: ${theme.font.sizes.P3};
