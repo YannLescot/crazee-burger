@@ -14,27 +14,26 @@ export default function BasketBody() {
         {basket.length === 0 && (
           <div className="empty">Votre commande est vide.</div>
         )}
-        {basket.length > 0 &&
-          basket.map((product) => {
-            const productInfo = menu.find((item) => item.id === product.id);
-            return (
-              <BasketCard
-                key={product.id}
-                imageSource={productInfo.imageSource}
-                title={productInfo.title}
-                price={formatPrice(productInfo.price)}
-                quantity={product.quantity}
-                onDelete={() => handleRemoveFromBasket(product.id)}
-              />
-            );
-          })}
+        {basket.map((product) => {
+          const productInfo = menu.find((item) => item.id === product.id);
+          return (
+            <BasketCard
+              key={product.id}
+              imageSource={productInfo.imageSource}
+              title={productInfo.title}
+              price={formatPrice(productInfo.price)}
+              quantity={product.quantity}
+              onDelete={() => handleRemoveFromBasket(product.id)}
+            />
+          );
+        })}
       </div>
     </BasketBodyStyled>
   );
 }
 
 const BasketBodyStyled = styled.div`
-  background: ${theme.colors.background_white};
+  //background: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +51,11 @@ const BasketBodyStyled = styled.div`
     align-items: center;
 
     .empty {
-      margin-top: 280px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: ${theme.font.sizes.P4};
       font-family: ${theme.font.families.stylish};
       color: ${theme.colors.greyBlue};

@@ -29,12 +29,11 @@ export default function OrderPage() {
       productInBasket.quantity++;
       setBasket(basketCopy);
       return;
-    } else {
-      //if the product ID is not in the basket, add it to the basket with quantity 1
-      const newProduct = { id: productID, quantity: 1 };
-      const newBasket = [...basketCopy, newProduct];
-      setBasket(newBasket);
     }
+    //if the product ID is not in the basket, add it to the basket with quantity 1
+    const newProduct = { id: productID, quantity: 1 };
+    const newBasket = [...basketCopy, newProduct];
+    setBasket(newBasket);
   };
 
   const handleRemoveFromBasket = (productID) => {
