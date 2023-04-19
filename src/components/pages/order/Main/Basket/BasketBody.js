@@ -17,6 +17,7 @@ export default function BasketBody() {
     setIsPanelCollapsed,
     setProductToEdit,
     titleEditBoxRef,
+    activeTab,
   } = useContext(OrderContext);
 
   const selectProductToEdit = async (id) => {
@@ -26,6 +27,10 @@ export default function BasketBody() {
     await setProductToEdit(product);
 
     focusTitleEditBox(titleEditBoxRef);
+  };
+
+  const isCardSelected = (id) => {
+    return productToEdit && activeTab === "edit" && productToEdit.id === id;
   };
 
   return (
@@ -45,7 +50,7 @@ export default function BasketBody() {
               quantity={product.quantity}
               onDelete={() => handleRemoveFromBasket(product.id)}
               isHoverable={isAdmin}
-              isSelected={productToEdit && productToEdit.id === product.id}
+              isSelected={isCardSelected(product.id)}
               onClick={() => selectProductToEdit(product.id)}
             />
           );

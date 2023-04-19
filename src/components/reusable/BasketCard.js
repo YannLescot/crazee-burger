@@ -105,14 +105,7 @@ const BasketCardStyled = styled.div`
   ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
 `;
 
-const hoverableStyle = css`
-  &:hover {
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
-  }
-`;
+const hoverableStyle = css``;
 
 const selectedStyle = css`
   background: ${theme.colors.primary};

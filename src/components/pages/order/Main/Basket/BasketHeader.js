@@ -10,7 +10,6 @@ export default function BasketHeader() {
   const totalPrice = formatPrice(
     basket.reduce((acc, product) => {
       const productInfo = menu.find((item) => item.id === product.id);
-      //Make it so the price isnt taken in account when its not a number
       isNaN(productInfo.price);
       return acc + productInfo.price * product.quantity;
     }, 0)
