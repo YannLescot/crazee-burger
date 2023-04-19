@@ -44,7 +44,6 @@ const BasketBodyStyled = styled.div`
   z-index: 2;
 
   .produits {
-    align-items: flex-start;
     width: 100%;
     min-height: 100%;
     display: flex;
