@@ -25,7 +25,6 @@ const ImagePreviewStyled = styled.div`
   width: 160px;
   height: 130px;
 
-  //Make it so the border is 1 px solid greylight when there is no image, and none when there is an image
   border: ${({ imageSource }) =>
     imageSource ? "none" : `1px solid ${theme.colors.greyLight}`};
 

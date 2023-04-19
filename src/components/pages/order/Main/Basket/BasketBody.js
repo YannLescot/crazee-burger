@@ -88,14 +88,5 @@ const BasketBodyStyled = styled.div`
     grid-template-rows: repeat(6, 86px);
     grid-row-gap: 20px;
     justify-items: center;
-    //padding: 0px 16px;
-
-    /* overflow-y: scroll;
-    flex-shrink: 0;
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; */
   }
 `;

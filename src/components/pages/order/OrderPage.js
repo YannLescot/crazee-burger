@@ -23,14 +23,12 @@ export default function OrderPage() {
   const handleAddToBasket = (productID) => {
     const basketCopy = deepClone(basket);
 
-    //if the product ID is already in the basket, increase the quantity
     const productInBasket = basketCopy.find((item) => item.id === productID);
     if (productInBasket) {
       productInBasket.quantity++;
       setBasket(basketCopy);
       return;
     }
-    //if the product ID is not in the basket, add it to the basket with quantity 1
     const newProduct = { id: productID, quantity: 1 };
     const newBasket = [...basketCopy, newProduct];
     setBasket(newBasket);
@@ -73,7 +71,6 @@ export default function OrderPage() {
     const newMenu = menuCopy.filter((item) => item.id !== id);
     setMenu(newMenu);
 
-    //if the product deleted was in the basket, remove it from the basket
     if (basket.find((item) => item.id === id)) {
       const basketCopy = deepClone(basket);
       const newBasket = basketCopy.filter((item) => item.id !== id);

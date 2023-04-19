@@ -66,7 +66,6 @@ const BasketCardStyled = styled.div`
       line-height: 32px;
       font-family: ${theme.font.families.stylish};
       font-weight: ${theme.font.weights.bold};
-      //Make it display one line only
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
