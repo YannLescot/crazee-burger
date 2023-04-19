@@ -36,7 +36,6 @@ const BasketBodyStyled = styled.div`
   //background: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   max-height: 100%;
   overflow-y: scroll;
