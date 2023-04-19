@@ -94,18 +94,24 @@ const BasketCardStyled = styled.div`
       top: 0;
       right: 0;
       bottom: 0;
-      width: 68px;
+      width: 50px;
       background-color: ${theme.colors.red};
       border: none;
       font-size: ${theme.font.sizes.P3};
       color: ${theme.colors.white};
+
+      &:hover {
+        color: black;
+      }
     }
   }
 
   ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
 `;
 
-const hoverableStyle = css``;
+const hoverableStyle = css`
+  cursor: pointer;
+`;
 
 const selectedStyle = css`
   background: ${theme.colors.primary};
