@@ -2,18 +2,21 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../utils/maths";
+import {
+  formatPrice,
+  replaceFrenchCommaWithDot,
+} from "../../../../../utils/maths";
 
 export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
-  const totalPrice = formatPrice(
-    basket.reduce((acc, product) => {
-      const productInfo = menu.find((item) => item.id === product.id);
-      isNaN(productInfo.price);
-      return acc + productInfo.price * product.quantity;
-    }, 0)
-  );
+  const totalPrice = basket.reduce((acc, product) => {
+    const productInfo = menu.find((item) => item.id === product.id);
+    const price = replaceFrenchCommaWithDot(productInfo.price);
+    if (isNaN(price)) return acc;
+
+    return acc + price * product.quantity;
+  }, 0);
 
   return (
     <BasketHeaderStyled>
