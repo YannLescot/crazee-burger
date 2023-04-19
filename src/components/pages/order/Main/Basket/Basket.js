@@ -23,6 +23,7 @@ const BasketStyled = styled.div`
   height: 100%;
   max-height: calc(95vh - 10vh);
   position: relative;
+  overflow: hidden;
 
   .shadow {
     position: absolute;
