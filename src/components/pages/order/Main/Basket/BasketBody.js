@@ -4,9 +4,29 @@ import { theme } from "../../../../../theme";
 import BasketCard from "../../../../reusable/BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
+import { focusTitleEditBox } from "../../../../../utils/ref";
 
 export default function BasketBody() {
-  const { basket, menu, handleRemoveFromBasket } = useContext(OrderContext);
+  const {
+    basket,
+    menu,
+    handleRemoveFromBasket,
+    isAdmin,
+    productToEdit,
+    setActiveTab,
+    setIsPanelCollapsed,
+    setProductToEdit,
+    titleEditBoxRef,
+  } = useContext(OrderContext);
+
+  const selectProductToEdit = async (id) => {
+    const product = menu.find((item) => item.id === id);
+    await setActiveTab("edit");
+    await setIsPanelCollapsed(false);
+    await setProductToEdit(product);
+
+    focusTitleEditBox(titleEditBoxRef);
+  };
 
   return (
     <BasketBodyStyled>
@@ -24,6 +44,9 @@ export default function BasketBody() {
               price={formatPrice(productInfo.price)}
               quantity={product.quantity}
               onDelete={() => handleRemoveFromBasket(product.id)}
+              isHoverable={isAdmin}
+              isSelected={productToEdit && productToEdit.id === product.id}
+              onClick={() => selectProductToEdit(product.id)}
             />
           );
         })}

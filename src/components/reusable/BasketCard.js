@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -9,9 +9,16 @@ export default function BasketCard({
   price,
   quantity,
   onDelete,
+  isHoverable,
+  isSelected,
+  onClick,
 }) {
   return (
-    <BasketCardStyled>
+    <BasketCardStyled
+      isHoverable={isHoverable}
+      isSelected={isSelected}
+      onClick={onClick}
+    >
       <img src={imageSource} alt="produit" />
       <div className="description">
         <div className="title">{title}</div>
@@ -41,10 +48,11 @@ const BasketCardStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   position: relative;
 
+  ${({ isHoverable }) => isHoverable && hoverableStyle}
+
   img {
     width: 85px;
     height: 60px;
-    background-color: aliceblue;
 
     object-fit: contain;
   }
@@ -92,5 +100,35 @@ const BasketCardStyled = styled.div`
       font-size: ${theme.font.sizes.P3};
       color: ${theme.colors.white};
     }
+  }
+
+  ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
+`;
+
+const hoverableStyle = css`
+  &:hover {
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
+  }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+
+  .description {
+    .title {
+      color: black;
+    }
+
+    .prix {
+      color: ${theme.colors.white};
+    }
+  }
+
+  .quantity {
+    color: ${theme.colors.white};
   }
 `;
