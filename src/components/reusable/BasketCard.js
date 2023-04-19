@@ -23,7 +23,7 @@ const BasketCardStyled = styled.div`
   width: 90%;
   height: 85px;
   padding: 8px 16px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   border-radius: ${theme.borderRadius.extraRound};
 
   background-color: ${theme.colors.background_white};

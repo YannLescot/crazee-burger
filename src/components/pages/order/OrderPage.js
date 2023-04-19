@@ -20,10 +20,21 @@ export default function OrderPage() {
 
   const titleEditBoxRef = useRef();
 
-  const handleAddToBasket = (product) => {
+  const handleAddToBasket = (productID) => {
     const basketCopy = deepClone(basket);
-    const newBasket = [...basketCopy, product];
-    setBasket(newBasket);
+
+    //if the product ID is already in the basket, increase the quantity
+    const productInBasket = basketCopy.find((item) => item.id === productID);
+    if (productInBasket) {
+      productInBasket.quantity++;
+      setBasket(basketCopy);
+      return;
+    } else {
+      //if the product ID is not in the basket, add it to the basket with quantity 1
+      const newProduct = { id: productID, quantity: 1 };
+      const newBasket = [...basketCopy, newProduct];
+      setBasket(newBasket);
+    }
   };
 
   const handleProductAdd = () => {
