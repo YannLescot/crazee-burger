@@ -13,11 +13,14 @@ export default createContext({
   setProductToEdit: () => {},
   titleEditBoxRef: {},
 
+  menu: [],
   handleProductEdited: () => {},
   handleProductDelete: () => {},
   handleProductAdd: () => {},
   reloadMenu: () => {},
 
-  menu: [],
+  basket: [],
+  handleAddToBasket: () => {},
+
   wasProductAdded: false,
 });

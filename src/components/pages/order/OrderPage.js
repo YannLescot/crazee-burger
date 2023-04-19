@@ -13,11 +13,18 @@ export default function OrderPage() {
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [basket, setBasket] = useState([]);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState();
   const [wasProductAdded, setWasProductAdded] = useState(false);
 
   const titleEditBoxRef = useRef();
+
+  const handleAddToBasket = (product) => {
+    const basketCopy = deepClone(basket);
+    const newBasket = [...basketCopy, product];
+    setBasket(newBasket);
+  };
 
   const handleProductAdd = () => {
     const menuCopy = deepClone(menu);
@@ -69,12 +76,15 @@ export default function OrderPage() {
     setProductToEdit,
     titleEditBoxRef,
 
+    menu,
     handleProductAdd,
     handleProductDelete,
     handleProductEdited,
     reloadMenu,
 
-    menu,
+    basket,
+    handleAddToBasket,
+
     wasProductAdded,
   };
 
