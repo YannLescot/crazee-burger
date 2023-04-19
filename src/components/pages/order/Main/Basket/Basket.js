@@ -19,6 +19,7 @@ const BasketStyled = styled.div`
   display: grid;
   grid-template-rows: 70px 1fr 70px;
   height: 100%;
+  max-height: calc(95vh - 10vh);
   position: relative;
 
   //Create a shadow that goes over my basket
