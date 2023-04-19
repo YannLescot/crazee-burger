@@ -6,20 +6,16 @@ import OrderContext from "../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
 
 export default function BasketBody() {
-  const { basket, menu } = useContext(OrderContext);
+  const { basket, menu, handleRemoveFromBasket } = useContext(OrderContext);
 
   return (
     <BasketBodyStyled>
-      {basket.length === 0 && (
-        <div className="empty">Votre commande est vide.</div>
-      )}
-
       <div className="produits">
+        {basket.length === 0 && (
+          <div className="empty">Votre commande est vide.</div>
+        )}
         {basket.length > 0 &&
           basket.map((product) => {
-            console.log(product);
-            console.log(product.id);
-            console.log(menu);
             const productInfo = menu.find((item) => item.id === product.id);
             return (
               <BasketCard
@@ -28,6 +24,7 @@ export default function BasketBody() {
                 title={productInfo.title}
                 price={formatPrice(productInfo.price)}
                 quantity={product.quantity}
+                onDelete={() => handleRemoveFromBasket(product.id)}
               />
             );
           })}
@@ -47,17 +44,18 @@ const BasketBodyStyled = styled.div`
 
   z-index: 2;
 
-  .empty {
-    font-size: ${theme.font.sizes.P4};
-    font-family: ${theme.font.families.stylish};
-    color: ${theme.colors.greyBlue};
-  }
-
   .produits {
     width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .empty {
+      margin-top: 280px;
+      font-size: ${theme.font.sizes.P4};
+      font-family: ${theme.font.families.stylish};
+      color: ${theme.colors.greyBlue};
+    }
   }
 `;

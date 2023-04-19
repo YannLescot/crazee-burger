@@ -37,6 +37,13 @@ export default function OrderPage() {
     }
   };
 
+  const handleRemoveFromBasket = (productID) => {
+    const basketCopy = deepClone(basket);
+
+    const newBasket = basketCopy.filter((item) => item.id !== productID);
+    setBasket(newBasket);
+  };
+
   const handleProductAdd = () => {
     const menuCopy = deepClone(menu);
     const productToAddCopy = deepClone(productToAdd);
@@ -67,6 +74,13 @@ export default function OrderPage() {
     const newMenu = menuCopy.filter((item) => item.id !== id);
     setMenu(newMenu);
 
+    //if the product deleted was in the basket, remove it from the basket
+    if (basket.find((item) => item.id === id)) {
+      const basketCopy = deepClone(basket);
+      const newBasket = basketCopy.filter((item) => item.id !== id);
+      setBasket(newBasket);
+    }
+
     if (productToEdit && productToEdit.id === id) setProductToEdit(null);
   };
 
@@ -95,6 +109,7 @@ export default function OrderPage() {
 
     basket,
     handleAddToBasket,
+    handleRemoveFromBasket,
 
     wasProductAdded,
   };
