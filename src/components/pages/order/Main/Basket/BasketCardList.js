@@ -3,7 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import BasketCard from "../../../../reusable/BasketCard";
 import { formatPrice } from "../../../../../utils/maths";
-import { DEFAULT_IMAGE_SOURCE } from "../../../../../js/enum";
+import { getImageSource } from "../../../../../utils/falsy";
 
 export default function BasketCardList() {
   const {
@@ -22,11 +22,7 @@ export default function BasketCardList() {
         return (
           <BasketCard
             key={product.id}
-            imageSource={
-              productInfo.imageSource
-                ? productInfo.imageSource
-                : DEFAULT_IMAGE_SOURCE
-            }
+            imageSource={getImageSource(productInfo.imageSource)}
             title={productInfo.title}
             price={formatPrice(productInfo.price)}
             quantity={product.quantity}
