@@ -6,6 +6,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
+import { DEFAULT_IMAGE_SOURCE } from "../../../../../js/enum";
 
 export default function Menu() {
   const {
@@ -39,7 +40,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource ? imageSource : "/images/coming-soon.png"}
+            imageSource={imageSource ? imageSource : DEFAULT_IMAGE_SOURCE}
             title={title}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isAdmin}

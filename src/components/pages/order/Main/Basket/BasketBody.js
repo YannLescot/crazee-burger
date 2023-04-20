@@ -4,6 +4,7 @@ import { theme } from "../../../../../theme";
 import BasketCard from "../../../../reusable/BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
+import { DEFAULT_IMAGE_SOURCE } from "../../../../../js/enum";
 
 export default function BasketBody() {
   const {
@@ -29,7 +30,7 @@ export default function BasketBody() {
                 imageSource={
                   productInfo.imageSource
                     ? productInfo.imageSource
-                    : "/images/coming-soon.png"
+                    : DEFAULT_IMAGE_SOURCE
                 }
                 title={productInfo.title}
                 price={formatPrice(productInfo.price)}
