@@ -21,16 +21,13 @@ export default function OrderPage() {
   const titleEditBoxRef = useRef();
 
   const handleAddToBasket = (productID) => {
-    const basketCopy = deepClone(basket);
-
-    const productInBasket = basketCopy.find((item) => item.id === productID);
+    const productInBasket = basket.find((item) => item.id === productID);
     if (productInBasket) {
       productInBasket.quantity++;
-      setBasket(basketCopy);
       return;
     }
     const newProduct = { id: productID, quantity: 1 };
-    const newBasket = [...basketCopy, newProduct];
+    const newBasket = [newProduct, ...basket];
     setBasket(newBasket);
   };
 

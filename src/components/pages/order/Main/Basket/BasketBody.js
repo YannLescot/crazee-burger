@@ -68,11 +68,9 @@ export default function BasketBody() {
 const BasketBodyStyled = styled.div`
   display: flex;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
-  max-height: calc(85vh - 18%);
-  z-index: 2;
   overflow: hidden;
+  z-index: 2;
 
   .empty {
     width: 100%;
@@ -86,12 +84,14 @@ const BasketBodyStyled = styled.div`
   }
 
   .produits {
-    display: grid;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow-y: scroll;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(86px);
-    min-height: 100%;
-    grid-row-gap: 20px;
-    justify-items: center;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;

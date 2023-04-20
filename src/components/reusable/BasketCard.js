@@ -38,9 +38,9 @@ const BasketCardStyled = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 90%;
-  height: 86px;
+  min-height: 86px;
   padding: 8px 16px;
-  margin: 20px 0;
+  margin: 10px 0;
   border-radius: ${theme.borderRadius.round};
   overflow: hidden;
 
