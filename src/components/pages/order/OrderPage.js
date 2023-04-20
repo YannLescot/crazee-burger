@@ -7,6 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../js/enum";
 import { deepClone } from "../../../utils/array";
+import { focusTitleEditBox } from "../../../utils/ref";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -36,6 +37,19 @@ export default function OrderPage() {
 
     const newBasket = basketCopy.filter((item) => item.id !== productID);
     setBasket(newBasket);
+  };
+
+  const selectProductToEdit = async (id) => {
+    const product = menu.find((item) => item.id === id);
+    await setActiveTab("edit");
+    await setIsPanelCollapsed(false);
+    await setProductToEdit(product);
+
+    focusTitleEditBox(titleEditBoxRef);
+  };
+
+  const verifyIfCardIsSelected = (id) => {
+    return productToEdit && activeTab === "edit" && productToEdit.id === id;
   };
 
   const handleProductAdd = () => {
@@ -93,6 +107,9 @@ export default function OrderPage() {
     productToEdit,
     setProductToEdit,
     titleEditBoxRef,
+
+    selectProductToEdit,
+    verifyIfCardIsSelected,
 
     menu,
     handleProductAdd,

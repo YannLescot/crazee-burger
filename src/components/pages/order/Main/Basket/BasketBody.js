@@ -4,7 +4,6 @@ import { theme } from "../../../../../theme";
 import BasketCard from "../../../../reusable/BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
-import { focusTitleEditBox } from "../../../../../utils/ref";
 
 export default function BasketBody() {
   const {
@@ -12,26 +11,9 @@ export default function BasketBody() {
     menu,
     handleRemoveFromBasket,
     isAdmin,
-    productToEdit,
-    setActiveTab,
-    setIsPanelCollapsed,
-    setProductToEdit,
-    titleEditBoxRef,
-    activeTab,
+    verifyIfCardIsSelected,
+    selectProductToEdit,
   } = useContext(OrderContext);
-
-  const selectProductToEdit = async (id) => {
-    const product = menu.find((item) => item.id === id);
-    await setActiveTab("edit");
-    await setIsPanelCollapsed(false);
-    await setProductToEdit(product);
-
-    focusTitleEditBox(titleEditBoxRef);
-  };
-
-  const isCardSelected = (id) => {
-    return productToEdit && activeTab === "edit" && productToEdit.id === id;
-  };
 
   return (
     <BasketBodyStyled>
@@ -54,7 +36,7 @@ export default function BasketBody() {
                 quantity={product.quantity}
                 onDelete={() => handleRemoveFromBasket(product.id)}
                 isHoverable={isAdmin}
-                isSelected={isCardSelected(product.id)}
+                isSelected={verifyIfCardIsSelected(product.id)}
                 onClick={() => selectProductToEdit(product.id)}
               />
             );

@@ -11,14 +11,11 @@ export default function Menu() {
   const {
     isAdmin,
     menu,
-    productToEdit,
-    activeTab,
+    verifyIfCardIsSelected,
+    selectProductToEdit,
     handleProductDelete,
     reloadMenu,
     titleEditBoxRef,
-    setActiveTab,
-    setIsPanelCollapsed,
-    setProductToEdit,
     handleAddToBasket,
   } = useContext(OrderContext);
 
@@ -26,19 +23,6 @@ export default function Menu() {
     event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
-  };
-
-  const selectProductToEdit = async (id) => {
-    const product = menu.find((item) => item.id === id);
-    await setActiveTab("edit");
-    await setIsPanelCollapsed(false);
-    await setProductToEdit(product);
-
-    focusTitleEditBox(titleEditBoxRef);
-  };
-
-  const isCardSelected = (id) => {
-    return productToEdit && activeTab === "edit" && productToEdit.id === id;
   };
 
   const onAdd = (e, id) => {
@@ -63,7 +47,7 @@ export default function Menu() {
             onClick={isAdmin ? () => selectProductToEdit(id) : null}
             onAdd={(e) => onAdd(e, id)}
             isHoverable={isAdmin}
-            isSelected={isCardSelected(id)}
+            isSelected={verifyIfCardIsSelected(id)}
           />
         );
       })}

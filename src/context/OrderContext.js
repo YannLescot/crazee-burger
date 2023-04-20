@@ -13,6 +13,9 @@ export default createContext({
   setProductToEdit: () => {},
   titleEditBoxRef: {},
 
+  selectProductToEdit: () => {},
+  verifyIfCardIsSelected: () => {},
+
   menu: [],
   handleProductEdited: () => {},
   handleProductDelete: () => {},
