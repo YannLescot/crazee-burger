@@ -22,6 +22,8 @@ const EmptyMenuStyled = styled.div`
   justify-content: center;
   align-items: center;
 
+  box-shadow: ${theme.shadows.strong};
+
   h1 {
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P4};

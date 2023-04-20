@@ -46,30 +46,27 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
+  if (menu.length === 0)
+    return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;
+
   return (
     <MenuStyled>
-      {menu.length ? (
-        menu.map(({ id, imageSource, title, price }) => {
-          return (
-            <Card
-              key={id}
-              imageSource={
-                imageSource ? imageSource : "/images/coming-soon.png"
-              }
-              title={title}
-              leftDescription={formatPrice(price)}
-              hasDeleteButton={isAdmin}
-              onDelete={(event) => onDelete(event, id)}
-              onClick={isAdmin ? () => selectProductToEdit(id) : null}
-              onAdd={(e) => onAdd(e, id)}
-              isHoverable={isAdmin}
-              isSelected={isCardSelected(id)}
-            />
-          );
-        })
-      ) : (
-        <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />
-      )}
+      {menu.map(({ id, imageSource, title, price }) => {
+        return (
+          <Card
+            key={id}
+            imageSource={imageSource ? imageSource : "/images/coming-soon.png"}
+            title={title}
+            leftDescription={formatPrice(price)}
+            hasDeleteButton={isAdmin}
+            onDelete={(e) => onDelete(e, id)}
+            onClick={isAdmin ? () => selectProductToEdit(id) : null}
+            onAdd={(e) => onAdd(e, id)}
+            isHoverable={isAdmin}
+            isSelected={isCardSelected(id)}
+          />
+        );
+      })}
     </MenuStyled>
   );
 }
