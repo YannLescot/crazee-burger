@@ -34,7 +34,7 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3.5fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
@@ -44,7 +44,7 @@ const BasketCardStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   overflow: hidden;
 
-  background-color: ${theme.colors.background_white};
+  background-color: ${theme.colors.white};
   box-shadow: ${theme.shadows.medium};
   position: relative;
 
@@ -74,6 +74,7 @@ const BasketCardStyled = styled.div`
     .prix {
       color: ${theme.colors.primary};
       font-size: ${theme.font.sizes.SM};
+      justify-self: center;
     }
   }
 

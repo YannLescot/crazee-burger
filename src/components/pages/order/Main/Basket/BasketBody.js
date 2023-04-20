@@ -44,7 +44,11 @@ export default function BasketBody() {
             return (
               <BasketCard
                 key={product.id}
-                imageSource={productInfo.imageSource}
+                imageSource={
+                  productInfo.imageSource
+                    ? productInfo.imageSource
+                    : "/images/coming-soon.png"
+                }
                 title={productInfo.title}
                 price={formatPrice(productInfo.price)}
                 quantity={product.quantity}
@@ -64,9 +68,9 @@ export default function BasketBody() {
 const BasketBodyStyled = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   align-items: center;
-  max-height: 100%;
+  max-height: calc(85vh - 18%);
   z-index: 2;
   overflow: hidden;
 
