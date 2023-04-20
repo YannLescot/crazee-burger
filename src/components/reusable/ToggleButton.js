@@ -29,7 +29,8 @@ export default function ToggleButton({
 
 const ToggleButtonStyled = styled.div`
   display: flex;
-  margin-right: 10px;
+  margin-right: 40px;
+
   input[type="checkbox"] {
     // Hides the square box but keeps the core "toggle functionality"
     &.toggle {

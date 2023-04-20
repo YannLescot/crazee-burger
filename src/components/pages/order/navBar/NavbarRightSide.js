@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
 import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
 import { toast } from "react-toastify";
@@ -46,8 +45,7 @@ export default function RightSide() {
 }
 
 const RightSideStyled = styled.div`
-  gap: ${theme.spacing.xl};
-  padding-right: 50px;
+  padding-right: 45px;
   display: flex;
   flex-direction: row;
   align-items: center;
