@@ -17,6 +17,7 @@ const BasketHeaderStyled = styled.div`
   align-items: center;
   padding: 12px 18px;
   background: ${theme.colors.background_dark};
+  letter-spacing: 2px;
 
   p {
     font-family: ${theme.font.families.stylish};
