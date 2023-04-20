@@ -25,6 +25,7 @@ export default function OrderPage() {
     const productInBasket = basket.find((item) => item.id === productID);
     if (productInBasket) {
       productInBasket.quantity++;
+      setBasket([...basket]);
       return;
     }
     const newProduct = { id: productID, quantity: 1 };
