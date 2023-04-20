@@ -45,7 +45,7 @@ const BasketCardStyled = styled.div`
   overflow: hidden;
 
   background-color: ${theme.colors.white};
-  box-shadow: ${theme.shadows.medium};
+  box-shadow: ${theme.shadows.tiny};
   position: relative;
 
   ${({ isHoverable }) => isHoverable && hoverableStyle}

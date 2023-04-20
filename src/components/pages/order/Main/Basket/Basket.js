@@ -22,5 +22,5 @@ const BasketStyled = styled.div`
   max-height: calc(95vh - 10vh);
   position: relative;
   overflow: hidden;
-  box-shadow: ${theme.shadows.tiny};
+  box-shadow: ${theme.shadows.light};
 `;
