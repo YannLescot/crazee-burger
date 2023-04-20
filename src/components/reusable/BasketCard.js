@@ -61,6 +61,7 @@ const BasketCardStyled = styled.div`
     margin-left: 14px;
 
     .title {
+      min-height: 32px;
       max-width: 100px;
       font-size: ${theme.font.sizes.P3};
       line-height: 32px;
