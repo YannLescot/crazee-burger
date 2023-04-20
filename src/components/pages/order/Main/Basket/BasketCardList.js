@@ -29,7 +29,7 @@ export default function BasketCardList() {
             onDelete={() => handleRemoveFromBasket(product.id)}
             isHoverable={isAdmin}
             isSelected={verifyIfCardIsSelected(product.id)}
-            onClick={() => selectProductToEdit(product.id)}
+            onClick={isAdmin ? () => selectProductToEdit(product.id) : null}
           />
         );
       })}
