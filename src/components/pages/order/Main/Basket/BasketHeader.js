@@ -10,12 +10,12 @@ import {
 export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
-  const totalPrice = basket.reduce((acc, product) => {
+  const totalPrice = basket.reduce((currentTotal, product) => {
     const productInfo = menu.find((item) => item.id === product.id);
     const price = replaceFrenchCommaWithDot(productInfo.price);
-    if (isNaN(price)) return acc;
+    if (isNaN(price)) return currentTotal;
 
-    return acc + price * product.quantity;
+    return currentTotal + price * product.quantity;
   }, 0);
 
   return (
