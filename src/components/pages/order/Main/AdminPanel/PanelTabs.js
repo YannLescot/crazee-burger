@@ -54,6 +54,5 @@ const PanelTabsStyled = styled.div`
   gap: 1px;
   margin-left: 53px;
   height: 43px;
-  display: flex;
-  align-items: center;
+  display: inline-flex;
 `;

@@ -20,4 +20,10 @@ const AdminPanelStyled = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+
+  pointer-events: none;
+
+  & > * {
+    pointer-events: all;
+  }
 `;
