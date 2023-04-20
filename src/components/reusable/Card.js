@@ -101,6 +101,7 @@ const CardStyled = styled.div`
     padding: 5px;
 
     .title {
+      min-height: 45px;
       margin: auto 0;
       font-size: ${theme.font.sizes.P4};
       position: relative;
