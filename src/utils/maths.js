@@ -16,3 +16,13 @@ export function replaceFrenchCommaWithDot(price) {
   if (typeof price === "string") price = price.replace(",", ".");
   return price;
 }
+
+export function calculateTotalPrice(basket, menu) {
+  return basket.reduce((currentTotal, product) => {
+    const productInfo = menu.find((item) => item.id === product.id);
+    const price = replaceFrenchCommaWithDot(productInfo.price);
+    if (isNaN(price)) return currentTotal;
+
+    return currentTotal + price * product.quantity;
+  }, 0);
+}
