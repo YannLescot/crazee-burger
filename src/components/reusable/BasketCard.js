@@ -95,7 +95,7 @@ const BasketCardStyled = styled.div`
       top: 0;
       right: 0;
       bottom: 0;
-      width: 75px;
+      width: 95px;
       background-color: ${theme.colors.red};
       border: none;
       font-size: ${theme.font.sizes.P3};
