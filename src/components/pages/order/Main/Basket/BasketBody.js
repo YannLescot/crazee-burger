@@ -89,7 +89,8 @@ const BasketBodyStyled = styled.div`
     display: grid;
     overflow-y: scroll;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 86px);
+    grid-template-rows: minmax(86px);
+    min-height: 100%;
     grid-row-gap: 20px;
     justify-items: center;
   }
