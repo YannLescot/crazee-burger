@@ -4,41 +4,34 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../js/enum";
-import { deepClone } from "../../../utils/array";
 import { focusTitleEditBox } from "../../../utils/ref";
+import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
-  const [basket, setBasket] = useState([]);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState();
-  const [wasProductAdded, setWasProductAdded] = useState(false);
+
+  const {
+    menu,
+    handleProductAdd,
+    handleProductDelete,
+    handleProductEdited,
+    reloadMenu,
+  } = useMenu();
+
+  const {
+    basket,
+    handleAddToBasket,
+    handleRemoveFromBasket,
+    isProductInBasket,
+  } = useBasket();
 
   const titleEditBoxRef = useRef();
-
-  const handleAddToBasket = (productID) => {
-    const productInBasket = basket.find((item) => item.id === productID);
-    if (productInBasket) {
-      productInBasket.quantity++;
-      setBasket([...basket]);
-      return;
-    }
-    const newProduct = { id: productID, quantity: 1 };
-    const newBasket = [newProduct, ...basket];
-    setBasket(newBasket);
-  };
-
-  const handleRemoveFromBasket = (productID) => {
-    const basketCopy = deepClone(basket);
-
-    const newBasket = basketCopy.filter((item) => item.id !== productID);
-    setBasket(newBasket);
-  };
 
   const selectProductToEdit = async (id) => {
     const product = menu.find((item) => item.id === id);
@@ -51,49 +44,6 @@ export default function OrderPage() {
 
   const verifyIfCardIsSelected = (id) => {
     return productToEdit && activeTab === "edit" && productToEdit.id === id;
-  };
-
-  const handleProductAdd = () => {
-    const menuCopy = deepClone(menu);
-    const productToAddCopy = deepClone(productToAdd);
-    const newMenu = [
-      { ...productToAddCopy, id: crypto.randomUUID() },
-      ...menuCopy,
-    ];
-    setMenu(newMenu);
-
-    setWasProductAdded(!wasProductAdded);
-    setTimeout(() => {
-      setWasProductAdded(false);
-    }, 2000);
-
-    setProductToAdd(EMPTY_PRODUCT);
-  };
-
-  const handleProductEdited = (productEdited) => {
-    const newMenu = menu.map((product) =>
-      product.id === productEdited.id ? productEdited : product
-    );
-    setMenu(newMenu);
-  };
-
-  const handleProductDelete = (id) => {
-    const menuCopy = deepClone(menu);
-
-    const newMenu = menuCopy.filter((item) => item.id !== id);
-    setMenu(newMenu);
-
-    if (basket.find((item) => item.id === id)) {
-      const basketCopy = deepClone(basket);
-      const newBasket = basketCopy.filter((item) => item.id !== id);
-      setBasket(newBasket);
-    }
-
-    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
-  };
-
-  const reloadMenu = () => {
-    setMenu(fakeMenu.SMALL);
   };
 
   const orderContextValue = {
@@ -121,8 +71,7 @@ export default function OrderPage() {
     basket,
     handleAddToBasket,
     handleRemoveFromBasket,
-
-    wasProductAdded,
+    isProductInBasket,
   };
 
   return (

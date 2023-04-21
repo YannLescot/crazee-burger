@@ -18,12 +18,18 @@ export default function Menu() {
     reloadMenu,
     titleEditBoxRef,
     handleAddToBasket,
+    productToEdit,
+    setProductToEdit,
+    isProductInBasket,
+    handleRemoveFromBasket,
   } = useContext(OrderContext);
 
   const onDelete = (event, id) => {
     event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
+    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
+    if (isProductInBasket(id)) handleRemoveFromBasket(id);
   };
 
   const onAdd = (e, id) => {
