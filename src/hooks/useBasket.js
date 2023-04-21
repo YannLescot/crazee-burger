@@ -5,8 +5,8 @@ export const useBasket = () => {
   const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productID) => {
-    const productInBasket = basket.find((item) => item.id === productID);
-    if (productInBasket) {
+    if (isProductInBasket(productID)) {
+      const productInBasket = basket.find((item) => item.id === productID);
       productInBasket.quantity++;
       setBasket([...basket]);
       return;
