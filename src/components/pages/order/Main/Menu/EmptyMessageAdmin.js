@@ -11,7 +11,7 @@ export default function EmptyMessageAdmin({ reloadMenu }) {
       <Button
         label="Générer de nouveaux produits"
         variant="primary"
-        sizing="medium"
+        size="medium"
         padding="large"
         onClick={reloadMenu}
       />

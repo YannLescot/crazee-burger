@@ -6,14 +6,14 @@ export default function Button({
   label,
   Icon,
   variant,
-  sizing,
+  size,
   padding,
   onClick,
 }) {
   return (
     <ButtonStyled
       variant={variant}
-      sizing={sizing}
+      size={size}
       padding={padding}
       onClick={onClick}
     >
@@ -37,10 +37,10 @@ const ButtonStyled = styled.button`
   line-height: 1;
   color: ${theme.colors.white};
 
-  ${({ sizing }) => sizing === "small" && getSmallSize()}
-  ${({ sizing }) => sizing === "medium" && getMediumSize()}
-  ${({ sizing }) => sizing === "large" && getLargeSize()}
-  ${({ sizing }) => sizing === "xlarge" && getExtraLargeSize()}
+  ${({ size }) => size === "small" && getSmallSize()}
+  ${({ size }) => size === "medium" && getMediumSize()}
+  ${({ size }) => size === "large" && getLargeSize()}
+  ${({ size }) => size === "xlarge" && getExtraLargeSize()}
 
   ${({ padding }) => padding === "small" && getSmallPadding()}
   ${({ padding }) => padding === "medium" && getMediumPadding()}

@@ -11,7 +11,7 @@ export default function AddFooter({ wasProductAdded }) {
         className="submit-button"
         label={"Ajouter un nouveau produit au menu"}
         variant="add"
-        sizing="large"
+        size="large"
         padding="large"
       />
       {wasProductAdded && (

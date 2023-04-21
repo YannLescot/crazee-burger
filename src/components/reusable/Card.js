@@ -37,7 +37,7 @@ export default function Card({
             <Button
               label={"Ajouter"}
               variant="primary"
-              sizing="small"
+              size="small"
               padding="small"
               onClick={onAdd}
             />
