@@ -18,7 +18,7 @@ export default function PanelTabs() {
 
   const tabs = getTabsConfig(productToEdit);
 
-  const onCollapseClick = async () => {
+  const handleCollapseClick = async () => {
     await setIsPanelCollapsed(!isPanelCollapsed);
     focusTitleEditBox(titleEditBoxRef);
   };
@@ -34,7 +34,7 @@ export default function PanelTabs() {
       <Tab
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
-        onClick={() => onCollapseClick()}
+        onClick={handleCollapseClick}
         className={isPanelCollapsed ? "active" : ""}
       />
       {tabs.map(({ id, Icon, label }) => (
