@@ -8,11 +8,9 @@ import TextInput from "../../reusable/TextInput.js";
 import Button from "../../reusable/Button";
 
 export default function LoginForm() {
-  //State
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("Yann");
   const navigate = useNavigate();
 
-  //Comportements
   const handleSubmit = (e) => {
     e.preventDefault();
     setInputValue("");
@@ -23,7 +21,6 @@ export default function LoginForm() {
     setInputValue(e.target.value);
   };
 
-  //Affichage
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
@@ -40,7 +37,9 @@ export default function LoginForm() {
       <Button
         label={"Accéder à mon espace"}
         Icon={<IoChevronForward className="icon" />}
-        variant="large"
+        variant="primary"
+        size="xlarge"
+        padding="medium"
       />
     </LoginFormStyled>
   );
@@ -55,12 +54,13 @@ const LoginFormStyled = styled.form`
   align-items: center;
   gap: ${theme.spacing.md};
   border-radius: ${theme.borderRadius.round};
+  margin-bottom: ${theme.spacing.lg};
 
   h1 {
     margin: 0px;
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P5};
-    font-weight: ${theme.fonts.weight.bold};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P5};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.white};
   }
 
@@ -68,15 +68,16 @@ const LoginFormStyled = styled.form`
     border: none;
     flex-shrink: 0;
     min-width: 400px;
-    height: 3px;
+    height: 2px;
     background-color: ${theme.colors.loginLine};
   }
 
   h2 {
-    font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.bold};
+    font-family: ${theme.font.families.stylish};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.bold};
     color: ${theme.colors.white};
+    margin-top: 10px;
     margin-bottom: 0px;
   }
 `;

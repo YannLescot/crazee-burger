@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
@@ -10,9 +10,17 @@ export default function Card({
   leftDescription,
   hasDeleteButton,
   onDelete,
+  onClick,
+  onAdd,
+  isHoverable,
+  isSelected,
 }) {
   return (
-    <CardStyled>
+    <CardStyled
+      onClick={onClick}
+      isSelected={isSelected}
+      isHoverable={isHoverable}
+    >
       <div>
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />
@@ -26,7 +34,13 @@ export default function Card({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <Button label={"Ajouter"} variant="small" />
+            <Button
+              label={"Ajouter"}
+              variant="primary"
+              size="small"
+              padding="small"
+              onClick={onAdd}
+            />
           </div>
         </div>
       </div>
@@ -44,6 +58,8 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
+
+  ${({ isHoverable }) => isHoverable && hoverableStyle}
 
   .closeBtn {
     position: relative;
@@ -86,17 +102,17 @@ const CardStyled = styled.div`
 
     .title {
       margin: auto 0;
-      font-size: ${theme.fonts.size.P4};
+      font-size: ${theme.font.sizes.P4};
       position: relative;
       bottom: 10px;
-      font-weight: ${theme.fonts.weight.bold};
+      font-weight: ${theme.font.weights.bold};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
       width: 100%;
       text-overflow: ellipsis;
-      font-family: "Amatic SC", cursive;
+      font-family: ${theme.font.families.stylish};
     }
 
     .description {
@@ -107,11 +123,11 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        font-weight: ${theme.fonts.weight.medium};
+        font-weight: ${theme.font.weights.medium};
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-weight: ${theme.fonts.weight.medium};
+        font-weight: ${theme.font.weights.medium};
         color: ${theme.colors.primary};
       }
 
@@ -119,7 +135,58 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        font-size: ${theme.fonts.size.P1};
+        font-size: ${theme.font.sizes.P1};
+      }
+    }
+  }
+
+  ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
+`;
+
+const hoverableStyle = css`
+  &:hover {
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};
+  }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+
+  .closeBtn {
+    color: ${theme.colors.white};
+    &:hover {
+      color: ${theme.colors.red};
+      &:active {
+        color: ${theme.colors.white};
+      }
+    }
+  }
+
+  .text-info {
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+
+      .right-description {
+        button {
+          background: ${theme.colors.white};
+          color: ${theme.colors.primary};
+          border: 1px solid ${theme.colors.white};
+          &:hover {
+            background: ${theme.colors.primary};
+            color: ${theme.colors.white};
+          }
+
+          &:active {
+            background: ${theme.colors.white};
+            color: ${theme.colors.primary};
+          }
+        }
       }
     }
   }

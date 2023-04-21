@@ -7,8 +7,17 @@ export default createContext({
   setIsPanelCollapsed: () => {},
   activeTab: "",
   setActiveTab: () => {},
-  menu: [],
-  setMenu: () => {},
   productToAdd: {},
   setProductToAdd: () => {},
+  productToEdit: {},
+  setProductToEdit: () => {},
+  titleEditBoxRef: {},
+
+  handleProductEdited: () => {},
+  handleProductDelete: () => {},
+  handleProductAdd: () => {},
+  reloadMenu: () => {},
+
+  menu: [],
+  wasProductAdded: false,
 });

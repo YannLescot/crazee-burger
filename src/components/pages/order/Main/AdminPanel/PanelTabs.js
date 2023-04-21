@@ -2,26 +2,39 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import Tab from "../../../../reusable/Tab";
-import { tabsConfig } from "./tabsConfig";
+import { getTabsConfig } from "./tabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { focusTitleEditBox } from "../../../../../utils/ref";
 
 export default function PanelTabs() {
-  const { activeTab, setActiveTab, isPanelCollapsed, setIsPanelCollapsed } =
-    useContext(OrderContext);
+  const {
+    activeTab,
+    isPanelCollapsed,
+    setIsPanelCollapsed,
+    productToEdit,
+    titleEditBoxRef,
+    setActiveTab,
+  } = useContext(OrderContext);
 
-  const selectTab = (tabId) => {
-    setActiveTab(tabId);
-    setIsPanelCollapsed(false);
+  const tabs = getTabsConfig(productToEdit);
+
+  const handleCollapseClick = async () => {
+    await setIsPanelCollapsed(!isPanelCollapsed);
+    focusTitleEditBox(titleEditBoxRef);
   };
 
-  const tabs = tabsConfig;
+  const onTabClick = async (id) => {
+    await setActiveTab(id);
+    await setIsPanelCollapsed(false);
+    focusTitleEditBox(titleEditBoxRef);
+  };
 
   return (
     <PanelTabsStyled>
       <Tab
         Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label=""
-        onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
+        onClick={handleCollapseClick}
         className={isPanelCollapsed ? "active" : ""}
       />
       {tabs.map(({ id, Icon, label }) => (
@@ -29,7 +42,7 @@ export default function PanelTabs() {
           key={id}
           Icon={Icon}
           label={label}
-          onClick={() => selectTab(id)}
+          onClick={() => onTabClick(id)}
           className={activeTab === id ? "active" : ""}
         />
       ))}

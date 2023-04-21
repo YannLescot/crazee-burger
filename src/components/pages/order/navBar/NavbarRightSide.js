@@ -7,23 +7,28 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
+import { focusTitleEditBox } from "../../../../utils/ref";
 
 export default function RightSide() {
-  const { isAdmin, setIsAdmin } = useContext(OrderContext);
+  const { isAdmin, setIsAdmin, titleEditBoxRef } = useContext(OrderContext);
 
-  const displayToastNotification = () => {
-    !isAdmin &&
-      toast.info("Mode admin activé", {
-        theme: "dark",
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    setIsAdmin(!isAdmin);
+  const displayToastNotification = async () => {
+    toast.info("Mode admin activé", {
+      theme: "dark",
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const onToggle = async () => {
+    await setIsAdmin(!isAdmin);
+    !isAdmin && (await displayToastNotification());
+    focusTitleEditBox(titleEditBoxRef);
   };
 
   return (
@@ -31,7 +36,7 @@ export default function RightSide() {
       <AdminToast />
       <ToggleButton
         isChecked={isAdmin}
-        onToggle={displayToastNotification}
+        onToggle={onToggle}
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />

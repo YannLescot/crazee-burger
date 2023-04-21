@@ -2,26 +2,25 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
-export default function TextInput({
-  type,
-  value,
-  onChange,
-  placeholder,
-  Icon,
-  variant,
-}) {
-  return (
-    <TextInputStyled variant={variant}>
-      <div className="icon">{Icon && Icon}</div>
-      <input
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type ? type : "text"}
-      />
-    </TextInputStyled>
-  );
-}
+const TextInput = React.forwardRef(
+  ({ type, value, onChange, name, placeholder, Icon, variant }, ref) => {
+    return (
+      <TextInputStyled variant={variant}>
+        <div className="icon">{Icon && Icon}</div>
+        <input
+          ref={ref}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          type={type}
+        />
+      </TextInputStyled>
+    );
+  }
+);
+
+export default TextInput;
 
 const TextInputStyled = styled.div`
   display: flex;
@@ -32,18 +31,18 @@ const TextInputStyled = styled.div`
 
   input {
     width: 70%;
-    font-size: ${theme.fonts.size.SM};
-    font-weight: ${theme.fonts.weight.regular};
+    font-size: ${theme.font.sizes.SM};
+    font-weight: ${theme.font.weights.regular};
     border-radius: ${theme.borderRadius.round};
     border: none;
 
     &::placeholder {
-      font-size: ${theme.fonts.size.SM};
+      font-size: ${theme.font.sizes.SM};
     }
   }
 
   .icon {
-    font-size: ${theme.fonts.size.SM};
+    font-size: ${theme.font.sizes.SM};
   }
 
   ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}
@@ -55,7 +54,7 @@ const getNormalStyle = () => {
     max-width: 400px;
     height: 54px;
     background-color: ${theme.colors.white};
-    gap: ${theme.spacing.xs};
+    gap: ${theme.spacing.sm};
 
     input {
       width: 70%;
@@ -68,8 +67,7 @@ const getNormalStyle = () => {
 
     .icon {
       color: ${theme.colors.greyBlue};
-      margin-left: ${theme.spacing.md};
-      padding: 0px 10px;
+      margin-left: ${theme.spacing.sm};
     }
   `;
 };

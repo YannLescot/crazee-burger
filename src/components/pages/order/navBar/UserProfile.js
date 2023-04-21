@@ -46,25 +46,25 @@ const UserProfileStyled = styled.div`
     }
 
     .welcome {
-      font-size: ${theme.fonts.size.SM};
+      font-size: ${theme.font.sizes.SM};
       color: ${theme.colors.greyBlue};
       margin: 0px;
 
       .username {
-        font-weight: ${theme.fonts.weight.bold};
+        font-weight: ${theme.font.weights.bold};
         color: ${theme.colors.primary};
       }
     }
 
     .disconnect {
-      font-size: ${theme.fonts.size.XXS};
-      font-weight: ${theme.fonts.weight.regular};
+      font-size: ${theme.font.sizes.XXS};
+      font-weight: ${theme.font.weights.regular};
       color: ${theme.colors.greyBlue};
     }
   }
 
   .icon {
-    font-size: ${theme.fonts.size.P4};
+    font-size: ${theme.font.sizes.P4};
     color: ${theme.colors.greyBlue};
   }
 `;

@@ -21,11 +21,11 @@ const LogoStyled = styled.div`
     display: inline;
     text-align: center;
     margin: 0px;
-    font-family: "Amatic SC", cursive;
+    font-family: ${theme.font.families.stylish};
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weight.bold};
+    font-size: ${theme.font.sizes.P4};
+    font-weight: ${theme.font.weights.bold};
     line-height: 1em;
     color: ${theme.colors.primary};
   }

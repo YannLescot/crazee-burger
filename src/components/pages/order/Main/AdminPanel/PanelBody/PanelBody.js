@@ -1,14 +1,14 @@
 import React from "react";
 import { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../context/OrderContext";
-import { theme } from "../../../../../theme";
-import { getTabSelected, tabsConfig } from "./tabsConfig";
+import OrderContext from "../../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme";
+import { getTabSelected, getTabsConfig } from "../tabsConfig";
 
 export default function PanelBody() {
-  const { activeTab } = useContext(OrderContext);
+  const { activeTab, productToEdit } = useContext(OrderContext);
 
-  const tabs = tabsConfig;
+  const tabs = getTabsConfig(productToEdit);
   const tabSelected = getTabSelected(tabs, activeTab);
 
   return (
