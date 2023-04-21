@@ -5,8 +5,8 @@ import { theme } from "../../../../../theme";
 export default function BasketHeader() {
   return (
     <BasketHeaderStyled>
-      <p>Total</p>
-      <p className="price">0,00 €</p>
+      <span>Total</span>
+      <span className="price">0,00 €</span>
     </BasketHeaderStyled>
   );
 }

@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
 export default function BasketFooter() {
-  return <BasketFooterStyled>Codé avec 🥰 et React.JS</BasketFooterStyled>;
+  return (
+    <BasketFooterStyled>
+      <span>Codé avec 🥰 et React.JS</span>
+    </BasketFooterStyled>
+  );
 }
 
 const BasketFooterStyled = styled.div`

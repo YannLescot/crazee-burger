@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
 export default function BasketBody() {
-  return <BasketBodyStyled>Votre commande est vide.</BasketBodyStyled>;
+  return (
+    <BasketBodyStyled>
+      <span>Votre commande est vide.</span>
+    </BasketBodyStyled>
+  );
 }
 
 const BasketBodyStyled = styled.div`
