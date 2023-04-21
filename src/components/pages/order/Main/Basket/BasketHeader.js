@@ -9,15 +9,15 @@ export default function BasketHeader() {
 
   return (
     <BasketHeaderStyled>
-      <p>Total</p>
-      <p className="totalPrice">
+      <span>Total</span>
+      <span className="totalPrice">
         {formatPrice(
           basket.reduce((acc, product) => {
             const productInfo = menu.find((item) => item.id === product.id);
             return acc + productInfo.price * product.quantity;
           }, 0)
         )}
-      </p>
+      </span>
     </BasketHeaderStyled>
   );
 }
