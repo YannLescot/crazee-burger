@@ -5,6 +5,7 @@ import { BsFillCameraFill } from "react-icons/bs";
 
 export const getInputsConfig = (product) => [
   {
+    type: "text",
     value: product.title,
     name: "title",
     placeholder: "Nom du produit (ex: Super Burger)",
@@ -20,7 +21,7 @@ export const getInputsConfig = (product) => [
   },
   {
     value: product.price ? product.price : "",
-    name: "price",
+    type: "text",
     placeholder: "Prix",
     Icon: <MdOutlineEuro />,
   },

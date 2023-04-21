@@ -22,7 +22,7 @@ export default function ProductForm({
               <TextInput
                 key={name}
                 ref={name === "title" ? titleRef : null}
-                type={type && type}
+                type={type}
                 value={value}
                 name={name}
                 onChange={handleChange}
