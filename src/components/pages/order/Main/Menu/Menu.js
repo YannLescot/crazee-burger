@@ -20,8 +20,8 @@ export default function Menu() {
     setProductToEdit,
   } = useContext(OrderContext);
 
-  const onDelete = (e, id) => {
-    e.stopPropagation();
+  const onDelete = (event, id) => {
+    event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
   };
@@ -52,7 +52,7 @@ export default function Menu() {
               title={title}
               leftDescription={formatPrice(price)}
               hasDeleteButton={isAdmin}
-              onDelete={(e) => onDelete(e, id)}
+              onDelete={(event) => onDelete(event, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
               onAdd={(e) => e.stopPropagation()}
               isHoverable={isAdmin}
