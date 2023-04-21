@@ -18,6 +18,7 @@ const EditFooterStyled = styled.div`
   align-items: center;
   color: ${theme.colors.primary};
   font-size: ${theme.font.sizes.SM};
+  height: 38px;
 
   span {
     display: inline;

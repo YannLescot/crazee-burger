@@ -35,6 +35,6 @@ export default function AddProduct() {
 
 const AddProductStyled = styled.div`
   height: 100%;
-  width: 70%;
+  width: 80%;
   display: grid;
 `;

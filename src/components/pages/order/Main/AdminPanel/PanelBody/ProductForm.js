@@ -43,9 +43,10 @@ const ProductFormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 3fr 1fr;
-  grid-column-gap: 20px;
+  height: 100%;
 
   .inputSection {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);

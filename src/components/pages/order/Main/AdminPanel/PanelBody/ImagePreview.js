@@ -22,8 +22,8 @@ const ImagePreviewStyled = styled.div`
   font-weight: ${theme.font.weights.regular};
   color: ${theme.colors.greySemiDark};
 
-  width: 215px;
-  height: 120px;
+  width: 160px;
+  height: 130px;
 
   //Make it so the border is 1 px solid greylight when there is no image, and none when there is an image
   border: ${({ imageSource }) =>

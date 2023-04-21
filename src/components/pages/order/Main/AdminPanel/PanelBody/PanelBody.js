@@ -21,11 +21,10 @@ export default function PanelBody() {
 const PanelBodyStyled = styled.div`
   background-color: ${theme.colors.white};
   height: 250px;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
-  padding: 31px 71px;
+  padding: 31px 53px;
   box-sizing: border-box;
 
   p {
