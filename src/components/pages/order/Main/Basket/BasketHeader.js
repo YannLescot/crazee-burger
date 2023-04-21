@@ -19,7 +19,7 @@ const BasketHeaderStyled = styled.div`
   background: ${theme.colors.background_dark};
   letter-spacing: 2px;
 
-  p {
+  span {
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P4};
     color: ${theme.colors.primary};
