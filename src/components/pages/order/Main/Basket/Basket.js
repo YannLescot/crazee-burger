@@ -17,7 +17,7 @@ export default function Basket() {
 
 const BasketStyled = styled.div`
   display: grid;
-  grid-template-rows: 9% 1fr 9%;
+  grid-template-rows: 70px 1fr 70px;
   height: 100%;
   position: relative;
 
