@@ -17,7 +17,7 @@ export default function LoginForm() {
     navigate(`/order/${inputValue}`);
   };
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     setInputValue(e.target.value);
   };
 
@@ -28,7 +28,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <TextInput
         value={inputValue}
-        onChange={onChange}
+        onChange={handleChange}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
         variant="normal"
