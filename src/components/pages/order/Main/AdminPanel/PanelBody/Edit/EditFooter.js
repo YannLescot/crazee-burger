@@ -5,10 +5,10 @@ import { theme } from "../../../../../../../theme";
 export default function EditFooter() {
   return (
     <EditFooterStyled>
-      <div className="editSection">
+      <span>
         Cliquer sur un produit du menu pour le modifier{" "}
-        <span>en temps réel</span>
-      </div>
+        <span className="decorated">en temps réel</span>
+      </span>
     </EditFooterStyled>
   );
 }
@@ -21,7 +21,9 @@ const EditFooterStyled = styled.div`
   height: 38px;
 
   span {
-    display: inline;
-    text-decoration: underline;
+    .decorated {
+      display: inline;
+      text-decoration: underline;
+    }
   }
 `;
