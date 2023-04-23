@@ -24,27 +24,22 @@ const EmptyMenuStyled = styled.div`
 
   box-shadow: ${theme.shadows.strong};
 
-  font-family: ${theme.font.families.stylish};
-  color: ${theme.colors.greyBlue};
-
-  h1 {
-    font-size: ${theme.font.sizes.P4};
-    font-weight: ${theme.font.weights.bold};
-    margin-top: 0px;
-    margin-bottom: 31px;
-  }
-
-  h2 {
+  h1,
+  h2,
+  h3 {
+    font-family: ${theme.font.families.stylish};
+    color: ${theme.colors.greyBlue};
     font-size: ${theme.font.sizes.P4};
     font-weight: ${theme.font.weights.regular};
     margin-top: 0px;
     margin-bottom: 31px;
+  }
+
+  h1 {
+    font-weight: ${theme.font.weights.bold};
   }
 
   h3 {
-    font-size: ${theme.font.sizes.P4};
-    font-weight: ${theme.font.weights.regular};
-    margin-top: 0px;
     margin-bottom: 0px;
   }
 `;
