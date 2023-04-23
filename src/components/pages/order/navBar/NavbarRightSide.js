@@ -2,31 +2,21 @@ import { useContext } from "react";
 import styled from "styled-components";
 import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 import { focusTitleEditBox } from "../../../../utils/ref";
 
+//Ce nom de hook existe déjà dans react-toastify, mais là c'est le mien
+import { useToast } from "../../../../hooks/useToast";
+
 export default function RightSide() {
   const { isAdmin, setIsAdmin, titleEditBoxRef } = useContext(OrderContext);
-
-  const displayToastNotification = async () => {
-    toast.info("Mode admin activé", {
-      theme: "dark",
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+  const { displayAdminToast } = useToast();
 
   const onToggle = async () => {
     await setIsAdmin(!isAdmin);
-    !isAdmin && (await displayToastNotification());
+    !isAdmin && (await displayAdminToast());
     focusTitleEditBox(titleEditBoxRef);
   };
 
