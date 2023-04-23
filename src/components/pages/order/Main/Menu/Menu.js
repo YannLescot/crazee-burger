@@ -73,4 +73,8 @@ const MenuStyled = styled.div`
   padding: 50px 50px 150px;
   overflow-y: scroll;
   box-shadow: ${theme.shadows.strong};
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
