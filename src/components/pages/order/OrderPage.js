@@ -14,27 +14,15 @@ export default function OrderPage() {
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
-  const [productToEdit, setProductToEdit] = useState();
+  const [productToEdit, setProductToEdit] = useState(null);
 
-  const {
-    menu,
-    handleProductAdd,
-    handleProductDelete,
-    handleProductEdited,
-    reloadMenu,
-  } = useMenu();
-
-  const {
-    basket,
-    handleAddToBasket,
-    handleRemoveFromBasket,
-    isProductInBasket,
-  } = useBasket();
+  const menuContent = useMenu();
+  const basketContent = useBasket();
 
   const titleEditBoxRef = useRef();
 
   const selectProductToEdit = async (id) => {
-    const product = menu.find((item) => item.id === id);
+    const product = menuContent.menu.find((item) => item.id === id);
     await setActiveTab("edit");
     await setIsPanelCollapsed(false);
     await setProductToEdit(product);
@@ -62,16 +50,9 @@ export default function OrderPage() {
     selectProductToEdit,
     verifyIfCardIsSelected,
 
-    menu,
-    handleProductAdd,
-    handleProductDelete,
-    handleProductEdited,
-    reloadMenu,
+    ...menuContent,
 
-    basket,
-    handleAddToBasket,
-    handleRemoveFromBasket,
-    isProductInBasket,
+    ...basketContent,
   };
 
   return (
