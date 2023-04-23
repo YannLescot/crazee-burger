@@ -11,8 +11,8 @@ export default function BasketHeader() {
 
   return (
     <BasketHeaderStyled>
-      <p>Total</p>
-      <p className="totalPrice">{totalPrice}</p>
+      <span>Total</span>
+      <span className="totalPrice">{totalPrice}</span>
     </BasketHeaderStyled>
   );
 }
