@@ -11,24 +11,24 @@ export default function LoginForm() {
   const [inputValue, setInputValue] = useState("Yann");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     setInputValue("");
     navigate(`/order/${inputValue}`);
   };
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     setInputValue(e.target.value);
   };
 
   return (
-    <LoginFormStyled onSubmit={handleSubmit}>
+    <LoginFormStyled onSubmit={onSubmit}>
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
       <TextInput
         value={inputValue}
-        onChange={handleChange}
+        onChange={onChange}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
         variant="normal"
