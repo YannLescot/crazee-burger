@@ -18,7 +18,7 @@ const EditHintStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 190px;
+  margin-top: 40px;
 
   span {
     font-family: ${theme.font.families.stylish};
