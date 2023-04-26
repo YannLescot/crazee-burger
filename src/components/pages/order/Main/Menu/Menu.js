@@ -7,11 +7,7 @@ import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
-import {
-  findObjectById,
-  isEmpty,
-  isProductSelected,
-} from "../../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
