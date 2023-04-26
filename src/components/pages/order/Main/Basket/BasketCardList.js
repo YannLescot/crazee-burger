@@ -28,7 +28,7 @@ export default function BasketCardList() {
             price={formatPrice(productInfo.price)}
             quantity={product.quantity}
             onDelete={() => handleRemoveFromBasket(product.id)}
-            isHoverable={isAdmin}
+            isClickable={isAdmin}
             isSelected={isCardSelected(product.id)}
             onClick={isAdmin ? () => selectProductToEdit(product.id) : null}
           />

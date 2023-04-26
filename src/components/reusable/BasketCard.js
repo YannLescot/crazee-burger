@@ -9,13 +9,13 @@ export default function BasketCard({
   price,
   quantity,
   onDelete,
-  isHoverable,
+  isClickable,
   isSelected,
   onClick,
 }) {
   return (
     <BasketCardStyled
-      isHoverable={isHoverable}
+      isClickable={isClickable}
       isSelected={isSelected}
       onClick={onClick}
     >
@@ -48,7 +48,7 @@ const BasketCardStyled = styled.div`
   box-shadow: ${theme.shadows.tiny};
   position: relative;
 
-  ${({ isHoverable }) => isHoverable && hoverableStyle}
+  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
 
   img {
     width: 85px;
@@ -102,16 +102,16 @@ const BasketCardStyled = styled.div`
       color: ${theme.colors.white};
 
       &:hover {
-        color: black;
+        color: ${theme.colors.dark};
+
+        &:active {
+          color: ${theme.colors.white};
+        }
       }
     }
   }
 
-  ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
-`;
-
-const hoverableStyle = css`
-  cursor: pointer;
+  ${({ isClickable, isSelected }) => isClickable && isSelected && selectedStyle}
 `;
 
 const selectedStyle = css`
