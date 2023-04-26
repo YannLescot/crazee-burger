@@ -9,3 +9,7 @@ export function isEmpty(arr) {
 export function findObjectById(id, arr) {
   return arr.find((product) => product.id === id);
 }
+
+export function removeObjectById(id, arr) {
+  return arr.filter((product) => product.id !== id);
+}
