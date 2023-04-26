@@ -16,6 +16,11 @@ export default function BasketCardList() {
     selectProductToEdit,
   } = useContext(OrderContext);
 
+  const onDelete = (e, id) => {
+    e.stopPropagation();
+    handleRemoveFromBasket(id);
+  };
+
   return (
     <BasketCardListStyled>
       {basket.map((product) => {
@@ -27,7 +32,7 @@ export default function BasketCardList() {
             title={productInfo.title}
             price={formatPrice(productInfo.price)}
             quantity={product.quantity}
-            onDelete={() => handleRemoveFromBasket(product.id)}
+            onDelete={(e) => onDelete(e, product.id)}
             isClickable={isAdmin}
             isSelected={isCardSelected(product.id)}
             onClick={isAdmin ? () => selectProductToEdit(product.id) : null}
