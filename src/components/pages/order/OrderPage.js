@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
-import { useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById, checkProductSelection } from "../../../utils/array";
+import { findObjectById, isProductSelected } from "../../../utils/array";
+import { retrieveFromLocalStorage, storeLocally } from "../../../utils/window";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -29,6 +30,7 @@ export default function OrderPage() {
     await setIsPanelCollapsed(false);
 
     focusTitleEditBox(titleEditBoxRef);
+    storeLocally("productToEdit", product);
   };
 
   const isCardSelected = (id) => {
@@ -57,6 +59,20 @@ export default function OrderPage() {
 
     ...basketContent,
   };
+
+  useLayoutEffect(() => {
+    const localProductToEdit = retrieveFromLocalStorage("productToEdit");
+    if (localProductToEdit) setProductToEdit(localProductToEdit);
+
+    const localProductToAdd = retrieveFromLocalStorage("productToAdd");
+    if (localProductToAdd) setProductToAdd(localProductToAdd);
+
+    const localMenu = retrieveFromLocalStorage("menu");
+    if (localMenu) menuContent.setMenu(localMenu);
+
+    const localBasket = retrieveFromLocalStorage("basket");
+    if (localBasket) basketContent.setBasket(localBasket);
+  }, []);
 
   return (
     <OrderPageStyled>
