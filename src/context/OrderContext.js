@@ -14,13 +14,13 @@ export default createContext({
   titleEditBoxRef: {},
 
   selectProductToEdit: () => {},
-  verifyIfCardIsSelected: () => {},
 
   menu: [],
   handleProductEdited: () => {},
   handleProductDelete: () => {},
   handleProductAdd: () => {},
   reloadMenu: () => {},
+  isCardSelected: () => {},
 
   basket: [],
   handleAddToBasket: () => {},

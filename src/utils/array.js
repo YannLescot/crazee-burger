@@ -13,3 +13,7 @@ export function findObjectById(id, arr) {
 export function removeObjectById(id, arr) {
   return arr.filter((product) => product.id !== id);
 }
+
+export function isProductSelected(productId, productSelectedId) {
+  return productId === productSelectedId;
+}

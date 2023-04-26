@@ -7,13 +7,16 @@ import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
-import { findObjectById, isEmpty } from "../../../../../utils/array";
+import {
+  findObjectById,
+  isEmpty,
+  isProductSelected,
+} from "../../../../../utils/array";
 
 export default function Menu() {
   const {
     isAdmin,
     menu,
-    verifyIfCardIsSelected,
     selectProductToEdit,
     handleProductDelete,
     reloadMenu,
@@ -23,6 +26,7 @@ export default function Menu() {
     setProductToEdit,
     basket,
     handleRemoveFromBasket,
+    isCardSelected,
   } = useContext(OrderContext);
 
   const onDelete = (event, id) => {
@@ -55,7 +59,7 @@ export default function Menu() {
             onClick={isAdmin ? () => selectProductToEdit(id) : null}
             onAdd={(e) => onAdd(e, id)}
             isHoverable={isAdmin}
-            isSelected={verifyIfCardIsSelected(id)}
+            isSelected={isCardSelected(id)}
           />
         );
       })}

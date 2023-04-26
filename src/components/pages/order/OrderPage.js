@@ -8,7 +8,7 @@ import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById } from "../../../utils/array";
+import { findObjectById, isProductSelected } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -24,15 +24,16 @@ export default function OrderPage() {
 
   const selectProductToEdit = async (id) => {
     const product = await findObjectById(id, menuContent.menu);
+    await setProductToEdit(product);
     await setActiveTab("edit");
     await setIsPanelCollapsed(false);
-    await setProductToEdit(product);
 
     focusTitleEditBox(titleEditBoxRef);
   };
 
-  const verifyIfCardIsSelected = (id) => {
-    return productToEdit && activeTab === "edit" && productToEdit.id === id;
+  const isCardSelected = (id) => {
+    if (activeTab === "add" || !productToEdit) return false;
+    return isProductSelected(id, productToEdit.id);
   };
 
   const orderContextValue = {
@@ -47,9 +48,9 @@ export default function OrderPage() {
     productToEdit,
     setProductToEdit,
     titleEditBoxRef,
+    isCardSelected,
 
     selectProductToEdit,
-    verifyIfCardIsSelected,
 
     ...menuContent,
 

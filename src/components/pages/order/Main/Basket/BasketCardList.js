@@ -12,7 +12,7 @@ export default function BasketCardList() {
     menu,
     handleRemoveFromBasket,
     isAdmin,
-    verifyIfCardIsSelected,
+    isCardSelected,
     selectProductToEdit,
   } = useContext(OrderContext);
 
@@ -29,7 +29,7 @@ export default function BasketCardList() {
             quantity={product.quantity}
             onDelete={() => handleRemoveFromBasket(product.id)}
             isHoverable={isAdmin}
-            isSelected={verifyIfCardIsSelected(product.id)}
+            isSelected={isCardSelected(product.id)}
             onClick={isAdmin ? () => selectProductToEdit(product.id) : null}
           />
         );
