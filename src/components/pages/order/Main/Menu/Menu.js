@@ -7,6 +7,7 @@ import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -37,7 +38,7 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
-  if (menu.length === 0)
+  if (isEmpty(menu))
     return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;
 
   return (
