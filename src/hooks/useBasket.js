@@ -12,8 +12,9 @@ export const useBasket = () => {
       setBasket([...basket]);
       return;
     }
-    const newProduct = { id: productID, quantity: 1 };
-    const newBasket = [newProduct, ...basket];
+
+    const newBasketProduct = { id: productID, quantity: 1 };
+    const newBasket = [newBasketProduct, ...basket];
     setBasket(newBasket);
   };
 
