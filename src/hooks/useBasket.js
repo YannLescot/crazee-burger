@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { deepClone } from "../utils/array";
+import { deepClone, findObjectById } from "../utils/array";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productID) => {
-    if (isProductInBasket(productID)) {
-      const productInBasket = basket.find((item) => item.id === productID);
+    if (findObjectById(productID, basket)) {
+      const productInBasket = findObjectById(productID, basket);
       productInBasket.quantity++;
       setBasket([...basket]);
       return;
@@ -23,14 +23,9 @@ export const useBasket = () => {
     setBasket(newBasket);
   };
 
-  const isProductInBasket = (productID) => {
-    return basket.find((item) => item.id === productID);
-  };
-
   return {
     basket,
     handleAddToBasket,
     handleRemoveFromBasket,
-    isProductInBasket,
   };
 };

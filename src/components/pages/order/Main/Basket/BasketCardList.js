@@ -4,6 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import BasketCard from "../../../../reusable/BasketCard";
 import { formatPrice } from "../../../../../utils/maths";
 import { getImageSource } from "../../../../../utils/falsy";
+import { findObjectById } from "../../../../../utils/array";
 
 export default function BasketCardList() {
   const {
@@ -18,7 +19,7 @@ export default function BasketCardList() {
   return (
     <BasketCardListStyled>
       {basket.map((product) => {
-        const productInfo = menu.find((item) => item.id === product.id);
+        const productInfo = findObjectById(product.id, menu);
         return (
           <BasketCard
             key={product.id}

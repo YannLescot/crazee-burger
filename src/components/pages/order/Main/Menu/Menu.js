@@ -7,7 +7,7 @@ import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
-import { isEmpty } from "../../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -21,7 +21,7 @@ export default function Menu() {
     handleAddToBasket,
     productToEdit,
     setProductToEdit,
-    isProductInBasket,
+    basket,
     handleRemoveFromBasket,
   } = useContext(OrderContext);
 
@@ -30,7 +30,7 @@ export default function Menu() {
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
     if (productToEdit && productToEdit.id === id) setProductToEdit(null);
-    if (isProductInBasket(id)) handleRemoveFromBasket(id);
+    if (findObjectById(id, basket)) handleRemoveFromBasket(id);
   };
 
   const onAdd = (e, id) => {

@@ -5,3 +5,7 @@ export function deepClone(obj) {
 export function isEmpty(arr) {
   return arr.length === 0;
 }
+
+export function findObjectById(id, arr) {
+  return arr.find((product) => product.id === id);
+}
