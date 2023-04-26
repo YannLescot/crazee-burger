@@ -5,6 +5,7 @@ import OrderContext from "../../../../../../../context/OrderContext";
 import ProductForm from "../ProductForm";
 import { EMPTY_PRODUCT } from "../../../../../../../js/enum";
 import { useDisplaySuccessMessage } from "../../../../../../../hooks/useDisplaySuccessMessage";
+import { storeLocally } from "../../../../../../../utils/window";
 
 export default function AddProduct() {
   const { productToAdd, handleProductAdd, setProductToAdd } =
@@ -17,6 +18,7 @@ export default function AddProduct() {
     handleProductAdd({ ...productToAdd, id: crypto.randomUUID() });
     displaySuccessMessage();
     setProductToAdd(EMPTY_PRODUCT);
+    storeLocally("productToAdd", EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
@@ -24,6 +26,7 @@ export default function AddProduct() {
 
     const newProductToAdd = { ...productToAdd, [name]: value };
     setProductToAdd(newProductToAdd);
+    storeLocally("productToAdd", newProductToAdd);
   };
 
   return (

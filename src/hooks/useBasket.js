@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { deepClone, findObjectById, removeObjectById } from "../utils/array";
+import { storeLocally } from "../utils/window";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState([]);
@@ -21,6 +22,7 @@ export const useBasket = () => {
     const newBasketProduct = { id: productId, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
+    storeLocally("basket", newBasket);
   };
 
   const incrementProductQuantity = (product) => {
@@ -36,6 +38,7 @@ export const useBasket = () => {
 
   return {
     basket,
+    setBasket,
     handleAddToBasket,
     handleRemoveFromBasket,
   };

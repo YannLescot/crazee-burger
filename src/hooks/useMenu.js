@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, removeObjectById } from "../utils/array";
+import { storeLocally } from "../utils/window";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(fakeMenu.SMALL);
@@ -9,6 +10,7 @@ export const useMenu = () => {
     const menuCopy = deepClone(menu);
     const newMenu = [product, ...menuCopy];
     setMenu(newMenu);
+    storeLocally("menu", newMenu);
   };
 
   const handleProductEdit = (productEdited) => {
@@ -16,6 +18,7 @@ export const useMenu = () => {
       product.id === productEdited.id ? productEdited : product
     );
     setMenu(newMenu);
+    storeLocally("menu", newMenu);
   };
 
   const handleProductDelete = (id) => {
@@ -23,6 +26,7 @@ export const useMenu = () => {
 
     const newMenu = removeObjectById(id, menuCopy);
     setMenu(newMenu);
+    storeLocally("menu", newMenu);
   };
 
   const reloadMenu = () => {
