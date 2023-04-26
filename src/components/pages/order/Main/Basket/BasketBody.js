@@ -1,23 +1,64 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import BasketCard from "../../../../reusable/BasketCard";
+import OrderContext from "../../../../../context/OrderContext";
+import { formatPrice } from "../../../../../utils/maths";
 
 export default function BasketBody() {
+  const { basket, menu, handleRemoveFromBasket } = useContext(OrderContext);
+
   return (
     <BasketBodyStyled>
-      <span>Votre commande est vide.</span>
+      <div className="produits">
+        {basket.length === 0 && (
+          <div className="empty">Votre commande est vide.</div>
+        )}
+        {basket.map((product) => {
+          const productInfo = menu.find((item) => item.id === product.id);
+          return (
+            <BasketCard
+              key={product.id}
+              imageSource={productInfo.imageSource}
+              title={productInfo.title}
+              price={formatPrice(productInfo.price)}
+              quantity={product.quantity}
+              onDelete={() => handleRemoveFromBasket(product.id)}
+            />
+          );
+        })}
+      </div>
     </BasketBodyStyled>
   );
 }
 
 const BasketBodyStyled = styled.div`
+  //background: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: ${theme.colors.background_white};
+  max-height: 100%;
+  overflow-y: scroll;
 
-  font-size: ${theme.font.sizes.P4};
-  font-family: ${theme.font.families.stylish};
-  color: ${theme.colors.greyBlue};
+  z-index: 2;
+
+  .produits {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .empty {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: ${theme.font.sizes.P4};
+      font-family: ${theme.font.families.stylish};
+      color: ${theme.colors.greyBlue};
+    }
+  }
 `;

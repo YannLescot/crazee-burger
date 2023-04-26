@@ -12,12 +12,36 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [basket, setBasket] = useState([]);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState();
   const [wasProductAdded, setWasProductAdded] = useState(false);
 
   const titleEditBoxRef = useRef();
+
+  const handleAddToBasket = (productID) => {
+    const basketCopy = deepClone(basket);
+
+    //if the product ID is already in the basket, increase the quantity
+    const productInBasket = basketCopy.find((item) => item.id === productID);
+    if (productInBasket) {
+      productInBasket.quantity++;
+      setBasket(basketCopy);
+      return;
+    }
+    //if the product ID is not in the basket, add it to the basket with quantity 1
+    const newProduct = { id: productID, quantity: 1 };
+    const newBasket = [...basketCopy, newProduct];
+    setBasket(newBasket);
+  };
+
+  const handleRemoveFromBasket = (productID) => {
+    const basketCopy = deepClone(basket);
+
+    const newBasket = basketCopy.filter((item) => item.id !== productID);
+    setBasket(newBasket);
+  };
 
   const handleProductAdd = () => {
     const menuCopy = deepClone(menu);
@@ -49,6 +73,13 @@ export default function OrderPage() {
     const newMenu = menuCopy.filter((item) => item.id !== id);
     setMenu(newMenu);
 
+    //if the product deleted was in the basket, remove it from the basket
+    if (basket.find((item) => item.id === id)) {
+      const basketCopy = deepClone(basket);
+      const newBasket = basketCopy.filter((item) => item.id !== id);
+      setBasket(newBasket);
+    }
+
     if (productToEdit && productToEdit.id === id) setProductToEdit(null);
   };
 
@@ -69,12 +100,16 @@ export default function OrderPage() {
     setProductToEdit,
     titleEditBoxRef,
 
+    menu,
     handleProductAdd,
     handleProductDelete,
     handleProductEdited,
     reloadMenu,
 
-    menu,
+    basket,
+    handleAddToBasket,
+    handleRemoveFromBasket,
+
     wasProductAdded,
   };
 

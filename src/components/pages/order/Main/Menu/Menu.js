@@ -19,6 +19,7 @@ export default function Menu() {
     setActiveTab,
     setIsPanelCollapsed,
     setProductToEdit,
+    handleAddToBasket,
   } = useContext(OrderContext);
 
   const onDelete = (event, id) => {
@@ -40,6 +41,11 @@ export default function Menu() {
     return productToEdit && activeTab === "edit" && productToEdit.id === id;
   };
 
+  const onAdd = (e, id) => {
+    e.stopPropagation();
+    handleAddToBasket(id);
+  };
+
   return (
     <MenuStyled>
       {menu.length ? (
@@ -55,7 +61,7 @@ export default function Menu() {
               hasDeleteButton={isAdmin}
               onDelete={(event) => onDelete(event, id)}
               onClick={isAdmin ? () => selectProductToEdit(id) : null}
-              onAdd={(e) => e.stopPropagation()}
+              onAdd={(e) => onAdd(e, id)}
               isHoverable={isAdmin}
               isSelected={isCardSelected(id)}
             />

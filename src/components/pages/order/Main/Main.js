@@ -11,6 +11,8 @@ export default function Main() {
 
   return (
     <MainStyled>
+      <div className="shadow" />
+
       <Basket />
 
       <div className="menu-and-admin">
@@ -29,10 +31,23 @@ const MainStyled = styled.div`
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  overflow: hidden;
 
   .menu-and-admin {
     display: grid;
     position: relative;
     overflow-y: hidden;
+  }
+
+  .shadow {
+    position: absolute;
+    width: 100%;
+    height: calc(95vh - 10vh);
+    width: 1400px;
+    box-shadow: ${theme.shadows.light};
+    z-index: 1;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+    pointer-events: none;
   }
 `;

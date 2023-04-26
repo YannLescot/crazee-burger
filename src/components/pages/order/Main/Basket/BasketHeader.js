@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import OrderContext from "../../../../../context/OrderContext";
+import { formatPrice } from "../../../../../utils/maths";
 
 export default function BasketHeader() {
+  const { basket, menu } = useContext(OrderContext);
+
   return (
     <BasketHeaderStyled>
       <span>Total</span>
-      <span className="price">0,00 €</span>
+      <span className="totalPrice">
+        {formatPrice(
+          basket.reduce((acc, product) => {
+            const productInfo = menu.find((item) => item.id === product.id);
+            return acc + productInfo.price * product.quantity;
+          }, 0)
+        )}
+      </span>
     </BasketHeaderStyled>
   );
 }
@@ -25,7 +36,7 @@ const BasketHeaderStyled = styled.div`
     color: ${theme.colors.primary};
   }
 
-  .price {
+  .totalPrice {
     font-weight: ${theme.font.weights.bold};
   }
 `;
