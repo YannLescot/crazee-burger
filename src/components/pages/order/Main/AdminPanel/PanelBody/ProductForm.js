@@ -20,7 +20,7 @@ export default function ProductForm({
           ({ type, value, name, placeholder, Icon }) => {
             return (
               <TextInput
-                key={name}
+                key={crypto.randomUUID()}
                 ref={name === "title" ? titleRef : null}
                 type={type}
                 value={value}
@@ -44,7 +44,6 @@ const ProductFormStyled = styled.form`
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 3fr 1fr;
   height: 100%;
-
   .inputSection {
     height: 100%;
     display: grid;
