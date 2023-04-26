@@ -3,7 +3,10 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
 const TextInput = React.forwardRef(
-  ({ type, value, onChange, name, placeholder, Icon, variant }, ref) => {
+  (
+    { type, value, onChange, name, placeholder, Icon, variant, onBlur },
+    ref
+  ) => {
     return (
       <TextInputStyled variant={variant}>
         <div className="icon">{Icon && Icon}</div>
@@ -14,6 +17,7 @@ const TextInput = React.forwardRef(
           onChange={onChange}
           placeholder={placeholder}
           type={type}
+          onBlur={onBlur}
         />
       </TextInputStyled>
     );

@@ -4,19 +4,20 @@ import AddFooter from "./AddFooter";
 import OrderContext from "../../../../../../../context/OrderContext";
 import ProductForm from "../ProductForm";
 import { EMPTY_PRODUCT } from "../../../../../../../js/enum";
-import { useDisplaySuccessMessage } from "../../../../../../../hooks/useDisplaySuccessMessage";
 import { storeLocally } from "../../../../../../../utils/window";
+import { useDisplaySuccessMessages } from "../../../../../../../hooks/useDisplaySuccessMessages";
 
 export default function AddProduct() {
   const { productToAdd, handleProductAdd, setProductToAdd } =
     useContext(OrderContext);
 
-  const { wasProductAdded, displaySuccessMessage } = useDisplaySuccessMessage();
+  const { wasProductAdded, displaySuccessAddMessage } =
+    useDisplaySuccessMessages();
 
   const onSubmit = (e) => {
     e.preventDefault();
     handleProductAdd({ ...productToAdd, id: crypto.randomUUID() });
-    displaySuccessMessage();
+    displaySuccessAddMessage();
     setProductToAdd(EMPTY_PRODUCT);
     storeLocally("productToAdd", EMPTY_PRODUCT);
   };

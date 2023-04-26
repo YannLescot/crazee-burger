@@ -10,6 +10,8 @@ export default function ProductForm({
   handleSubmit,
   titleRef,
   children,
+  shouldBlur,
+  onBlur,
 }) {
   return (
     <ProductFormStyled onSubmit={handleSubmit}>
@@ -29,6 +31,7 @@ export default function ProductForm({
                 placeholder={placeholder}
                 Icon={Icon}
                 variant="minimalist"
+                onBlur={shouldBlur && onBlur}
               />
             );
           }
