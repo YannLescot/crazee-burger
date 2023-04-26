@@ -99,6 +99,7 @@ const CardStyled = styled.div`
     display: grid;
     grid-template-rows: 30% 70%;
     padding: 5px;
+    user-select: none;
 
     .title {
       min-height: 45px;

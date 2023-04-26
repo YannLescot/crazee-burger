@@ -59,6 +59,7 @@ const BasketCardStyled = styled.div`
 
   .description {
     margin-left: 14px;
+    user-select: none;
 
     .title {
       min-height: 32px;
