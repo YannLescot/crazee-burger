@@ -5,17 +5,27 @@ export const useBasket = () => {
   const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productID) => {
-    const productInBasket = findObjectById(productID, basket);
+    const basketCopy = deepClone(basket);
+    const productInBasket = findObjectById(productID, basketCopy);
 
     if (productInBasket) {
-      productInBasket.quantity++;
-      setBasket([...basket]);
+      incrementProductQuantity(productInBasket, basketCopy);
+      setBasket(basketCopy);
       return;
     }
 
-    const newBasketProduct = { id: productID, quantity: 1 };
-    const newBasket = [newBasketProduct, ...basket];
+    addProductToBasket(productID, basketCopy);
+  };
+
+  const addProductToBasket = (productId, basketCopy) => {
+    const newBasketProduct = { id: productId, quantity: 1 };
+    const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
+    return;
+  };
+
+  const incrementProductQuantity = (product) => {
+    product.quantity++;
   };
 
   const handleRemoveFromBasket = (productID) => {
