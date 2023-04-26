@@ -22,10 +22,10 @@ export function replaceFrenchCommaWithDot(price) {
 export function calculateTotalPrice(basket, menu) {
   return basket.reduce((currentTotal, product) => {
     const productInfo = findObjectById(product.id, menu);
-    const price =
+    const summedProductPrice =
       replaceFrenchCommaWithDot(productInfo.price) * product.quantity;
 
-    if (isNaN(price)) return currentTotal;
-    return currentTotal + price;
+    if (isNaN(summedProductPrice)) return currentTotal;
+    return currentTotal + summedProductPrice;
   }, 0);
 }
