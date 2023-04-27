@@ -20,7 +20,7 @@ export default function ProductForm({
           ({ type, value, name, placeholder, Icon }) => {
             return (
               <TextInput
-                key={crypto.randomUUID()}
+                key={`${name}ipt`}
                 ref={name === "title" ? titleRef : null}
                 type={type}
                 value={value}
