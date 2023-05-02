@@ -43,5 +43,6 @@ const EditFooterStyled = styled.div`
 
   .icon {
     font-size: ${theme.font.sizes.P2};
+    margin-left: 0px;
   }
 `;

@@ -30,7 +30,6 @@ export default function OrderPage() {
     await setIsPanelCollapsed(false);
 
     focusTitleEditBox(titleEditBoxRef);
-    storeLocally("productToEdit", product);
   };
 
   const isCardSelected = (id) => {
@@ -61,12 +60,6 @@ export default function OrderPage() {
   };
 
   useLayoutEffect(() => {
-    const localProductToEdit = retrieveFromLocalStorage("productToEdit");
-    if (localProductToEdit) setProductToEdit(localProductToEdit);
-
-    const localProductToAdd = retrieveFromLocalStorage("productToAdd");
-    if (localProductToAdd) setProductToAdd(localProductToAdd);
-
     const localMenu = retrieveFromLocalStorage("menu");
     if (localMenu) menuContent.setMenu(localMenu);
 

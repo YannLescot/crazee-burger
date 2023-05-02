@@ -19,7 +19,6 @@ export default function AddProduct() {
     handleProductAdd({ ...productToAdd, id: crypto.randomUUID() });
     displaySuccessAddMessage();
     setProductToAdd(EMPTY_PRODUCT);
-    storeLocally("productToAdd", EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
@@ -27,7 +26,6 @@ export default function AddProduct() {
 
     const newProductToAdd = { ...productToAdd, [name]: value };
     setProductToAdd(newProductToAdd);
-    storeLocally("productToAdd", newProductToAdd);
   };
 
   return (
