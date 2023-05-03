@@ -11,7 +11,7 @@ export default function LoginForm() {
   const [inputValue, setInputValue] = useState("Yann");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
     setInputValue("");
     navigate(`/order/${inputValue}`);
@@ -22,7 +22,7 @@ export default function LoginForm() {
   };
 
   return (
-    <LoginFormStyled onSubmit={handleSubmit}>
+    <LoginFormStyled onSubmit={handleOnSubmit}>
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>

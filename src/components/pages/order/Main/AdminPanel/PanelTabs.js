@@ -23,7 +23,7 @@ export default function PanelTabs() {
     focusTitleEditBox(titleEditBoxRef);
   };
 
-  const onTabClick = async (id) => {
+  const onClick = async (id) => {
     await setActiveTab(id);
     await setIsPanelCollapsed(false);
     focusTitleEditBox(titleEditBoxRef);
@@ -42,7 +42,7 @@ export default function PanelTabs() {
           key={id}
           Icon={Icon}
           label={label}
-          onClick={() => onTabClick(id)}
+          onClick={() => onClick(id)}
           className={activeTab === id ? "active" : ""}
         />
       ))}
@@ -54,6 +54,5 @@ const PanelTabsStyled = styled.div`
   gap: 1px;
   margin-left: 53px;
   height: 43px;
-  display: flex;
-  align-items: center;
+  display: inline-flex;
 `;

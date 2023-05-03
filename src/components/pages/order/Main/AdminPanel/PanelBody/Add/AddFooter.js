@@ -3,6 +3,7 @@ import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../../theme";
 import Button from "../../../../../../reusable/Button";
+import UpdateMessage from "../../../../../../reusable/UpdateMessage";
 
 export default function AddFooter({ wasProductAdded }) {
   return (
@@ -14,11 +15,12 @@ export default function AddFooter({ wasProductAdded }) {
         size="large"
         padding="large"
       />
-      {wasProductAdded && (
-        <span>
-          <FiCheck className="icon" /> Ajouté avec succès !
-        </span>
-      )}
+      <UpdateMessage
+        label="Ajouté avec succès !"
+        Icon={<FiCheck className="icon" />}
+        color={theme.colors.success}
+        shouldDisplay={wasProductAdded}
+      />
     </AddFooterStyled>
   );
 }
@@ -35,16 +37,8 @@ const AddFooterStyled = styled.div`
     height: 100%;
   }
 
-  span {
-    display: flex;
-    align-items: center;
-    font-size: ${theme.font.sizes.SM};
-    margin: 8px 18px;
-    color: ${theme.colors.success};
-    .icon {
-      border: 1px solid ${theme.colors.success};
-      border-radius: ${theme.borderRadius.circle};
-      margin-right: 8px;
-    }
+  .icon {
+    border: 1px solid ${theme.colors.success};
+    border-radius: ${theme.borderRadius.circle};
   }
 `;

@@ -6,39 +6,33 @@ import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
+import { getImageSource } from "../../../../../utils/falsy";
+import { findObjectById, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
     isAdmin,
     menu,
-    productToEdit,
-    activeTab,
+    selectProductToEdit,
     handleProductDelete,
     reloadMenu,
     titleEditBoxRef,
-    setActiveTab,
-    setIsPanelCollapsed,
-    setProductToEdit,
     handleAddToBasket,
+    productToEdit,
+    setProductToEdit,
+    basket,
+    handleRemoveFromBasket,
+    isCardSelected,
   } = useContext(OrderContext);
+
+  const isMenuEmpty = isEmpty(menu);
 
   const onDelete = (event, id) => {
     event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
-  };
-
-  const selectProductToEdit = async (id) => {
-    const product = menu.find((item) => item.id === id);
-    await setActiveTab("edit");
-    await setIsPanelCollapsed(false);
-    await setProductToEdit(product);
-
-    focusTitleEditBox(titleEditBoxRef);
-  };
-
-  const isCardSelected = (id) => {
-    return productToEdit && activeTab === "edit" && productToEdit.id === id;
+    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
+    if (findObjectById(id, basket)) handleRemoveFromBasket(id);
   };
 
   const onAdd = (e, id) => {
@@ -46,37 +40,34 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
+  if (isMenuEmpty)
+    return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;
+
   return (
     <MenuStyled>
-      {menu.length ? (
-        menu.map(({ id, imageSource, title, price }) => {
-          return (
-            <Card
-              key={id}
-              imageSource={
-                imageSource ? imageSource : "/images/coming-soon.png"
-              }
-              title={title}
-              leftDescription={formatPrice(price)}
-              hasDeleteButton={isAdmin}
-              onDelete={(event) => onDelete(event, id)}
-              onClick={isAdmin ? () => selectProductToEdit(id) : null}
-              onAdd={(e) => onAdd(e, id)}
-              isHoverable={isAdmin}
-              isSelected={isCardSelected(id)}
-            />
-          );
-        })
-      ) : (
-        <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />
-      )}
+      {menu.map(({ id, imageSource, title, price }) => {
+        return (
+          <Card
+            key={id}
+            imageSource={getImageSource(imageSource)}
+            title={title}
+            leftDescription={formatPrice(price)}
+            hasDeleteButton={isAdmin}
+            onDelete={(e) => onDelete(e, id)}
+            onClick={isAdmin ? () => selectProductToEdit(id) : null}
+            onAdd={(e) => onAdd(e, id)}
+            isHoverable={isAdmin}
+            isSelected={isCardSelected(id)}
+          />
+        );
+      })}
     </MenuStyled>
   );
 }
 
 const MenuStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   grid-row-gap: 60px;
   grid-column-gap: 5px;
@@ -85,4 +76,8 @@ const MenuStyled = styled.div`
   padding: 50px 50px 150px;
   overflow-y: scroll;
   box-shadow: ${theme.shadows.strong};
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;

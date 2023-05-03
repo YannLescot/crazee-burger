@@ -20,4 +20,5 @@ const BasketFooterStyled = styled.div`
   font-size: ${theme.font.sizes.P2};
   font-family: ${theme.font.families.stylish};
   color: ${theme.colors.white};
+  font-weight: ${theme.font.weights.bold};
 `;

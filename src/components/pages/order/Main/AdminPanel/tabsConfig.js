@@ -3,6 +3,7 @@ import { MdModeEditOutline } from "react-icons/md";
 import EditHint from "./PanelBody/Edit/EditHint";
 import EditProduct from "./PanelBody/Edit/EditProduct";
 import AddProduct from "./PanelBody/Add/AddProduct";
+import { findObjectById } from "../../../../../utils/array";
 
 export const getTabsConfig = (isAnyProductSelected) => [
   {
@@ -20,5 +21,5 @@ export const getTabsConfig = (isAnyProductSelected) => [
 ];
 
 export const getTabSelected = (tabs, currentTabSelected) => {
-  return tabs.find((tab) => tab.id === currentTabSelected);
+  return findObjectById(currentTabSelected, tabs);
 };

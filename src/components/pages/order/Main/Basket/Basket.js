@@ -8,8 +8,6 @@ import { theme } from "../../../../../theme";
 export default function Basket() {
   return (
     <BasketStyled>
-      <div className="shadow" />
-
       <BasketHeader />
       <BasketBody />
       <BasketFooter />
@@ -23,11 +21,6 @@ const BasketStyled = styled.div`
   height: 100%;
   max-height: calc(95vh - 10vh);
   position: relative;
-
-  .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: ${theme.shadows.strong};
-  }
+  overflow: hidden;
+  box-shadow: ${theme.shadows.light};
 `;

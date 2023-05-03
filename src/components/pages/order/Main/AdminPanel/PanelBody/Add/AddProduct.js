@@ -3,14 +3,20 @@ import styled from "styled-components";
 import AddFooter from "./AddFooter";
 import OrderContext from "../../../../../../../context/OrderContext";
 import ProductForm from "../ProductForm";
+import { EMPTY_PRODUCT } from "../../../../../../../js/enum";
+import { useDisplaySuccessMessage } from "../../../../../../../hooks/useDisplaySuccessMessage";
 
 export default function AddProduct() {
-  const { productToAdd, handleProductAdd, wasProductAdded, setProductToAdd } =
+  const { productToAdd, handleProductAdd, setProductToAdd } =
     useContext(OrderContext);
+
+  const { wasProductAdded, displaySuccessMessage } = useDisplaySuccessMessage();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    handleProductAdd();
+    handleProductAdd({ ...productToAdd, id: crypto.randomUUID() });
+    displaySuccessMessage();
+    setProductToAdd(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {

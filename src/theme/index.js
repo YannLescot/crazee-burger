@@ -83,9 +83,11 @@ const borderRadius = {
   circle: "50%",
 };
 const shadows = {
+  tiny: "-4px 8px 8px 0px rgb(0 0 0 / 10%)",
   subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.1)",
   light: "0px 0px 20px 0px rgba(0, 0, 0, 0.2) inset ",
   medium: "-8px 8px 20px 0px rgb(0 0 0 / 20%)",
+  consequent: "8px 0px 20px 8px rgba(0, 0, 0, 0.2) inset",
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
 };
 

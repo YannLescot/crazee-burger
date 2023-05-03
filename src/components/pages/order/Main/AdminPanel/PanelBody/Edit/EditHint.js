@@ -6,26 +6,26 @@ import { theme } from "../../../../../../../theme";
 export default function EditHint() {
   return (
     <EditHintStyled>
-      <p>
+      <span>
         Cliquer sur un produit du menu pour le modifier{" "}
         <HiCursorClick className="icon" />
-      </p>
+      </span>
     </EditHintStyled>
   );
 }
 
 const EditHintStyled = styled.div`
-  display: grid;
-  margin-top: 30px;
-  grid-column-gap: 20px;
-  grid-template-columns: 4fr 2fr;
-  p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+
+  span {
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P3};
     color: ${theme.colors.greyBlue};
     display: flex;
     align-items: center;
-    padding: 0px;
     .icon {
       margin-left: 10px;
     }

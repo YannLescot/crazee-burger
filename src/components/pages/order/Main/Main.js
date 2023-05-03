@@ -11,8 +11,6 @@ export default function Main() {
 
   return (
     <MainStyled>
-      <div className="shadow" />
-
       <Basket />
 
       <div className="menu-and-admin">
@@ -39,7 +37,8 @@ const MainStyled = styled.div`
     overflow-y: hidden;
   }
 
-  .shadow {
+  ::before {
+    content: "";
     position: absolute;
     width: 100%;
     height: calc(95vh - 10vh);

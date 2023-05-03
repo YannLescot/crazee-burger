@@ -2,22 +2,17 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../utils/maths";
+import { calculateTotalPrice, formatPrice } from "../../../../../utils/maths";
 
 export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
+  const totalPrice = formatPrice(calculateTotalPrice(basket, menu));
+
   return (
     <BasketHeaderStyled>
       <span>Total</span>
-      <span className="totalPrice">
-        {formatPrice(
-          basket.reduce((acc, product) => {
-            const productInfo = menu.find((item) => item.id === product.id);
-            return acc + productInfo.price * product.quantity;
-          }, 0)
-        )}
-      </span>
+      <span className="totalPrice">{totalPrice}</span>
     </BasketHeaderStyled>
   );
 }

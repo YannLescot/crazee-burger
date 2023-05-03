@@ -13,15 +13,17 @@ export default createContext({
   setProductToEdit: () => {},
   titleEditBoxRef: {},
 
+  selectProductToEdit: () => {},
+
   menu: [],
-  handleProductEdited: () => {},
+  handleProductEdit: () => {},
   handleProductDelete: () => {},
   handleProductAdd: () => {},
   reloadMenu: () => {},
+  isCardSelected: () => {},
 
   basket: [],
   handleAddToBasket: () => {},
   handleRemoveFromBasket: () => {},
-
-  wasProductAdded: false,
+  isProductInBasket: () => {},
 });

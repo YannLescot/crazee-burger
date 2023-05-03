@@ -4,87 +4,37 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../js/enum";
-import { deepClone } from "../../../utils/array";
+import { focusTitleEditBox } from "../../../utils/ref";
+import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById, checkProductSelection } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
-  const [basket, setBasket] = useState([]);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
-  const [productToEdit, setProductToEdit] = useState();
-  const [wasProductAdded, setWasProductAdded] = useState(false);
+  const [productToEdit, setProductToEdit] = useState(null);
+
+  const menuContent = useMenu();
+  const basketContent = useBasket();
 
   const titleEditBoxRef = useRef();
 
-  const handleAddToBasket = (productID) => {
-    const basketCopy = deepClone(basket);
+  const selectProductToEdit = async (id) => {
+    const product = await findObjectById(id, menuContent.menu);
+    await setProductToEdit(product);
+    await setActiveTab("edit");
+    await setIsPanelCollapsed(false);
 
-    //if the product ID is already in the basket, increase the quantity
-    const productInBasket = basketCopy.find((item) => item.id === productID);
-    if (productInBasket) {
-      productInBasket.quantity++;
-      setBasket(basketCopy);
-      return;
-    }
-    //if the product ID is not in the basket, add it to the basket with quantity 1
-    const newProduct = { id: productID, quantity: 1 };
-    const newBasket = [...basketCopy, newProduct];
-    setBasket(newBasket);
+    focusTitleEditBox(titleEditBoxRef);
   };
 
-  const handleRemoveFromBasket = (productID) => {
-    const basketCopy = deepClone(basket);
-
-    const newBasket = basketCopy.filter((item) => item.id !== productID);
-    setBasket(newBasket);
-  };
-
-  const handleProductAdd = () => {
-    const menuCopy = deepClone(menu);
-    const productToAddCopy = deepClone(productToAdd);
-    const newMenu = [
-      { ...productToAddCopy, id: crypto.randomUUID() },
-      ...menuCopy,
-    ];
-    setMenu(newMenu);
-
-    setWasProductAdded(!wasProductAdded);
-    setTimeout(() => {
-      setWasProductAdded(false);
-    }, 2000);
-
-    setProductToAdd(EMPTY_PRODUCT);
-  };
-
-  const handleProductEdited = (productEdited) => {
-    const newMenu = menu.map((product) =>
-      product.id === productEdited.id ? productEdited : product
-    );
-    setMenu(newMenu);
-  };
-
-  const handleProductDelete = (id) => {
-    const menuCopy = deepClone(menu);
-
-    const newMenu = menuCopy.filter((item) => item.id !== id);
-    setMenu(newMenu);
-
-    //if the product deleted was in the basket, remove it from the basket
-    if (basket.find((item) => item.id === id)) {
-      const basketCopy = deepClone(basket);
-      const newBasket = basketCopy.filter((item) => item.id !== id);
-      setBasket(newBasket);
-    }
-
-    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
-  };
-
-  const reloadMenu = () => {
-    setMenu(fakeMenu.SMALL);
+  const isCardSelected = (id) => {
+    if (activeTab === "add" || !productToEdit) return false;
+    const isProductSelected = checkProductSelection(id, productToEdit.id);
+    return isProductSelected;
   };
 
   const orderContextValue = {
@@ -99,18 +49,13 @@ export default function OrderPage() {
     productToEdit,
     setProductToEdit,
     titleEditBoxRef,
+    isCardSelected,
 
-    menu,
-    handleProductAdd,
-    handleProductDelete,
-    handleProductEdited,
-    reloadMenu,
+    selectProductToEdit,
 
-    basket,
-    handleAddToBasket,
-    handleRemoveFromBasket,
+    ...menuContent,
 
-    wasProductAdded,
+    ...basketContent,
   };
 
   return (
