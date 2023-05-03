@@ -34,6 +34,7 @@ export const useBasket = () => {
 
     const newBasket = removeObjectById(productID, basketCopy);
     setBasket(newBasket);
+    storeLocally("basket", newBasket);
   };
 
   return {

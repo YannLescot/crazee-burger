@@ -64,7 +64,7 @@ export default function OrderPage() {
     if (localMenu) menuContent.setMenu(localMenu);
 
     const localBasket = retrieveFromLocalStorage("basket");
-    if (localBasket) basketContent.setBasket(localBasket);
+    //if (localBasket) basketContent.setBasket(localBasket);
   }, []);
 
   return (
