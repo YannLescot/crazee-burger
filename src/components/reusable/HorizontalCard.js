@@ -34,12 +34,12 @@ export default function HorizontalCard({
 
 const HorizontalCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 4fr 2fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
   min-height: 86px;
-  padding: 8px 16px;
+  padding: 8px 20px;
   margin: 10px 0;
   border-radius: ${theme.borderRadius.round};
   overflow: hidden;
@@ -58,7 +58,7 @@ const HorizontalCardStyled = styled.div`
   }
 
   .description {
-    margin-left: 14px;
+    margin-left: 25px;
     user-select: none;
 
     .title {
@@ -67,7 +67,8 @@ const HorizontalCardStyled = styled.div`
       font-size: ${theme.font.sizes.P3};
       line-height: 32px;
       font-family: ${theme.font.families.stylish};
-      font-weight: ${theme.font.weights.bold};
+      font-weight: ${theme.font.weights.heavy};
+      letter-spacing: -0.5px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -83,6 +84,8 @@ const HorizontalCardStyled = styled.div`
 
   .quantity {
     color: ${theme.colors.primary};
+    justify-self: flex-end;
+    margin-right: 15px;
   }
 
   .delete {
