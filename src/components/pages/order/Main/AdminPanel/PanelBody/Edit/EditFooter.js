@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../../theme";
-import UpdateIndicator from "../../../../../../reusable/UpdateIndicator";
+import UpdateMessage from "../../../../../../reusable/UpdateMessage";
 import { BsCloudCheck } from "react-icons/bs";
 
 export default function EditFooter({ wasProductEdited }) {
   if (wasProductEdited)
     return (
       <EditFooterStyled>
-        <UpdateIndicator
+        <UpdateMessage
           label="Modifications enregistrées !"
           Icon={<BsCloudCheck className="icon" />}
           color={theme.colors.blue}

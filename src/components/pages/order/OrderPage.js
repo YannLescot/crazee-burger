@@ -8,7 +8,11 @@ import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById, isProductSelected } from "../../../utils/array";
+import {
+  checkProductSelection,
+  findObjectById,
+  isProductSelected,
+} from "../../../utils/array";
 import { retrieveFromLocalStorage, storeLocally } from "../../../utils/window";
 
 export default function OrderPage() {
