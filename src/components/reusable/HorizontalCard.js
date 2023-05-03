@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { MdDeleteForever } from "react-icons/md";
 
-export default function BasketCard({
+export default function HorizontalCard({
   imageSource,
   title,
   price,
@@ -14,7 +14,7 @@ export default function BasketCard({
   onClick,
 }) {
   return (
-    <BasketCardStyled
+    <HorizontalCardStyled
       isClickable={isClickable}
       isSelected={isSelected}
       onClick={onClick}
@@ -28,11 +28,11 @@ export default function BasketCard({
       <button className="delete" onClick={onDelete}>
         <MdDeleteForever />
       </button>
-    </BasketCardStyled>
+    </HorizontalCardStyled>
   );
 }
 
-const BasketCardStyled = styled.div`
+const HorizontalCardStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   align-items: center;

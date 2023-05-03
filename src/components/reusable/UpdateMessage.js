@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function UpdateIndicator({ label, Icon, color, shouldDisplay }) {
+export default function UpdateMessage({ label, Icon, color, shouldDisplay }) {
   return (
-    <UpdateIndicatorStyled color={color}>
+    <UpdateMessageStyled color={color}>
       {shouldDisplay && (
         <div>
           <span>{Icon}</span>
@@ -12,11 +12,11 @@ export default function UpdateIndicator({ label, Icon, color, shouldDisplay }) {
           <span>{label}</span>
         </div>
       )}
-    </UpdateIndicatorStyled>
+    </UpdateMessageStyled>
   );
 }
 
-const UpdateIndicatorStyled = styled.div`
+const UpdateMessageStyled = styled.div`
   display: flex;
   align-items: center;
   font-size: ${theme.font.sizes.SM};

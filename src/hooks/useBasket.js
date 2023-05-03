@@ -21,7 +21,6 @@ export const useBasket = () => {
     const newBasketProduct = { id: productId, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
-    return;
   };
 
   const incrementProductQuantity = (product) => {

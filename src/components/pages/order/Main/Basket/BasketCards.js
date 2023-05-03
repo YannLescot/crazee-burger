@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
-import BasketCard from "../../../../reusable/BasketCard";
+import HorizontalCard from "../../../../reusable/HorizontalCard";
 import { formatPrice } from "../../../../../utils/maths";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById } from "../../../../../utils/array";
 
-export default function BasketCardList() {
+export default function BasketCards() {
   const {
     basket,
     menu,
@@ -22,11 +22,11 @@ export default function BasketCardList() {
   };
 
   return (
-    <BasketCardListStyled>
+    <BasketCardsStyled>
       {basket.map((product) => {
         const productInfo = findObjectById(product.id, menu);
         return (
-          <BasketCard
+          <HorizontalCard
             key={product.id}
             imageSource={getImageSource(productInfo.imageSource)}
             title={productInfo.title}
@@ -39,11 +39,11 @@ export default function BasketCardList() {
           />
         );
       })}
-    </BasketCardListStyled>
+    </BasketCardsStyled>
   );
 }
 
-const BasketCardListStyled = styled.div`
+const BasketCardsStyled = styled.div`
   padding: 10px 0px;
   display: flex;
   flex-direction: column;

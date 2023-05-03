@@ -2,7 +2,7 @@ export function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-export function isEmpty(arr) {
+export function checkArrayEmptiness(arr) {
   return arr.length === 0;
 }
 
@@ -14,6 +14,6 @@ export function removeObjectById(id, arr) {
   return arr.filter((product) => product.id !== id);
 }
 
-export function isProductSelected(productId, productSelectedId) {
+export function checkProductSelection(productId, productSelectedId) {
   return productId === productSelectedId;
 }

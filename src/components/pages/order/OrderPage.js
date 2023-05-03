@@ -8,7 +8,7 @@ import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById, isProductSelected } from "../../../utils/array";
+import { findObjectById, checkProductSelection } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -33,7 +33,8 @@ export default function OrderPage() {
 
   const isCardSelected = (id) => {
     if (activeTab === "add" || !productToEdit) return false;
-    return isProductSelected(id, productToEdit.id);
+    const isProductSelected = checkProductSelection(id, productToEdit.id);
+    return isProductSelected;
   };
 
   const orderContextValue = {

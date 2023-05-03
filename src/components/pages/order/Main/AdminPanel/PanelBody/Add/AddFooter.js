@@ -3,7 +3,7 @@ import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../../theme";
 import Button from "../../../../../../reusable/Button";
-import UpdateIndicator from "../../../../../../reusable/UpdateIndicator";
+import UpdateMessage from "../../../../../../reusable/UpdateMessage";
 
 export default function AddFooter({ wasProductAdded }) {
   return (
@@ -15,7 +15,7 @@ export default function AddFooter({ wasProductAdded }) {
         size="large"
         padding="large"
       />
-      <UpdateIndicator
+      <UpdateMessage
         label="Ajouté avec succès !"
         Icon={<FiCheck className="icon" />}
         color={theme.colors.success}

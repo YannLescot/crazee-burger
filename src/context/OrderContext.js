@@ -16,7 +16,7 @@ export default createContext({
   selectProductToEdit: () => {},
 
   menu: [],
-  handleProductEdited: () => {},
+  handleProductEdit: () => {},
   handleProductDelete: () => {},
   handleProductAdd: () => {},
   reloadMenu: () => {},

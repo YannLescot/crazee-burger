@@ -11,7 +11,7 @@ export const useMenu = () => {
     setMenu(newMenu);
   };
 
-  const handleProductEdited = (productEdited) => {
+  const handleProductEdit = (productEdited) => {
     const newMenu = menu.map((product) =>
       product.id === productEdited.id ? productEdited : product
     );
@@ -34,7 +34,7 @@ export const useMenu = () => {
     setMenu,
     handleProductAdd,
     handleProductDelete,
-    handleProductEdited,
+    handleProductEdit,
     reloadMenu,
   };
 };

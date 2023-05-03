@@ -9,7 +9,7 @@ export default function EditProduct() {
     productToEdit,
     titleEditBoxRef,
     setProductToEdit,
-    handleProductEdited,
+    handleProductEdit,
   } = useContext(OrderContext);
 
   const onChange = (event) => {
@@ -18,7 +18,7 @@ export default function EditProduct() {
     const newProductToEdit = { ...productToEdit, [name]: value };
     setProductToEdit(newProductToEdit);
 
-    handleProductEdited(newProductToEdit);
+    handleProductEdit(newProductToEdit);
   };
 
   return (
