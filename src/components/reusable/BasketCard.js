@@ -24,7 +24,7 @@ export default function BasketCard({
         <div className="title">{title}</div>
         <div className="prix">{price}</div>
       </div>
-      <div className="quantity">x{quantity}</div>
+      <div className="quantity">x {quantity}</div>
       <button className="delete" onClick={onDelete}>
         <MdDeleteForever />
       </button>
@@ -74,6 +74,7 @@ const BasketCardStyled = styled.div`
     }
 
     .prix {
+      margin-top: 3px;
       color: ${theme.colors.primary};
       font-size: ${theme.font.sizes.SM};
       justify-self: center;
@@ -96,7 +97,7 @@ const BasketCardStyled = styled.div`
       top: 0;
       right: 0;
       bottom: 0;
-      width: 95px;
+      width: 75px;
       background-color: ${theme.colors.red};
       border: none;
       font-size: ${theme.font.sizes.P3};
