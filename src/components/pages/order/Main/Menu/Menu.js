@@ -7,10 +7,7 @@ import EmptyMenu from "./EmptyMenu";
 import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
-import {
-  findObjectById,
-  checkArrayEmptiness,
-} from "../../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -28,7 +25,7 @@ export default function Menu() {
     isCardSelected,
   } = useContext(OrderContext);
 
-  const isMenuEmpty = checkArrayEmptiness(menu);
+  const isMenuEmpty = isEmpty(menu);
 
   const onDelete = (event, id) => {
     event.stopPropagation();

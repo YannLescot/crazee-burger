@@ -3,11 +3,11 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 import BasketCards from "./BasketCards";
-import { checkArrayEmptiness } from "../../../../../utils/array";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketBody() {
   const { basket } = useContext(OrderContext);
-  const isBasketEmpty = checkArrayEmptiness(basket);
+  const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketBodyStyled>
