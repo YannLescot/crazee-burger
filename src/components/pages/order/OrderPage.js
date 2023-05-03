@@ -8,12 +8,8 @@ import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import {
-  checkProductSelection,
-  findObjectById,
-  isProductSelected,
-} from "../../../utils/array";
-import { retrieveFromLocalStorage, storeLocally } from "../../../utils/window";
+import { checkProductSelection, findObjectById } from "../../../utils/array";
+import { retrieveFromLocalStorage } from "../../../utils/window";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -68,7 +64,7 @@ export default function OrderPage() {
     if (localMenu) menuContent.setMenu(localMenu);
 
     const localBasket = retrieveFromLocalStorage("basket");
-    //if (localBasket) basketContent.setBasket(localBasket);
+    if (localBasket) basketContent.setBasket(localBasket);
   }, []);
 
   return (
