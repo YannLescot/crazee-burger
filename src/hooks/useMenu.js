@@ -31,6 +31,7 @@ export const useMenu = () => {
 
   const reloadMenu = () => {
     setMenu(fakeMenu.SMALL);
+    storeLocally("menu", fakeMenu.SMALL);
   };
 
   return {

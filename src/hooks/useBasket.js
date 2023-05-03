@@ -12,6 +12,7 @@ export const useBasket = () => {
     if (productInBasket) {
       incrementProductQuantity(productInBasket, basketCopy);
       setBasket(basketCopy);
+      storeLocally("basket", basketCopy);
       return;
     }
 
