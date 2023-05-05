@@ -10,6 +10,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { checkProductSelection, findObjectById } from "../../../utils/array";
 import { retrieveFromLocalStorage } from "../../../utils/window";
+import { useParams } from "react-router-dom";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -17,9 +18,11 @@ export default function OrderPage() {
   const [activeTab, setActiveTab] = useState("add");
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState(null);
+  const { username } = useParams();
+  const [userName, setUserName] = useState(username);
 
   const menuContent = useMenu();
-  const basketContent = useBasket();
+  const basketContent = useBasket(userName);
 
   const titleEditBoxRef = useRef();
 
@@ -51,6 +54,7 @@ export default function OrderPage() {
     setProductToEdit,
     titleEditBoxRef,
     isCardSelected,
+    userName,
 
     selectProductToEdit,
 
@@ -60,12 +64,14 @@ export default function OrderPage() {
   };
 
   useLayoutEffect(() => {
-    const localMenu = retrieveFromLocalStorage("menu");
-    if (localMenu) menuContent.setMenu(localMenu);
+    if (userName) {
+      const localMenu = retrieveFromLocalStorage(userName, "menu");
+      if (localMenu) menuContent.setMenu(localMenu);
 
-    const localBasket = retrieveFromLocalStorage("basket");
-    if (localBasket) basketContent.setBasket(localBasket);
-  }, []);
+      const localBasket = retrieveFromLocalStorage(userName, "basket");
+      if (localBasket) basketContent.setBasket(localBasket);
+    }
+  }, [userName]);
 
   return (
     <OrderPageStyled>
