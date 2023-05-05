@@ -30,8 +30,8 @@ export const useMenu = (userName) => {
   };
 
   const reloadMenu = () => {
-    setMenu(fakeMenu.SMALL);
-    saveUserMenu(userName, fakeMenu.SMALL);
+    setMenu(fakeMenu.MEDIUM);
+    saveUserMenu(userName, fakeMenu.MEDIUM);
   };
 
   return {

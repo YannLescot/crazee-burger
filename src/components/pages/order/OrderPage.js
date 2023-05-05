@@ -71,8 +71,8 @@ export default function OrderPage() {
         if (!newUser) {
           menuContent.setMenu(menu);
         } else if (newUser) {
-          menuContent.setMenu(fakeMenu.SMALL);
-          saveUserMenu(userName, fakeMenu.SMALL);
+          menuContent.setMenu(fakeMenu.MEDIUM);
+          saveUserMenu(userName, fakeMenu.MEDIUM);
         }
       });
 
