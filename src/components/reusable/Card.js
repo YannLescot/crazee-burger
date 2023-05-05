@@ -32,7 +32,9 @@ export default function Card({
       <div className="text-info">
         <strong className="title">{title}</strong>
         <div className="description">
-          <p className="left-description">{leftDescription}</p>
+          <p className="left-description">
+            <span>{leftDescription}</span>
+          </p>
           <div className="right-description">
             <Button
               label={"Ajouter"}
@@ -118,19 +120,26 @@ const CardStyled = styled.div`
     }
 
     .description {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
 
       .left-description {
+        max-width: 85px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         font-weight: ${theme.font.weights.medium};
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         font-weight: ${theme.font.weights.medium};
         color: ${theme.colors.primary};
+
+        span {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       .right-description {
