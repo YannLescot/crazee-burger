@@ -70,7 +70,6 @@ export default function OrderPage() {
   useLayoutEffect(() => {
     if (userName) {
       setIsLoading(true);
-      console.log(1);
       getUserMenu(userName, (menu, newUser) => {
         if (!newUser) {
           menuContent.setMenu(menu);
@@ -79,7 +78,6 @@ export default function OrderPage() {
           saveUserMenu(userName, fakeMenu.MEDIUM);
         }
         setIsLoading(false);
-        console.log(2);
         const localBasket = retrieveFromLocalStorage(userName, "basket");
         if (localBasket) basketContent.setBasket(localBasket);
       });
