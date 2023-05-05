@@ -11,6 +11,8 @@ import { useBasket } from "../../../hooks/useBasket";
 import { checkProductSelection, findObjectById } from "../../../utils/array";
 import { retrieveFromLocalStorage } from "../../../utils/window";
 import { useParams } from "react-router-dom";
+import { getUserMenu, saveUserMenu } from "../../../hooks/useDatabase";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -65,8 +67,14 @@ export default function OrderPage() {
 
   useLayoutEffect(() => {
     if (userName) {
-      const localMenu = retrieveFromLocalStorage(userName, "menu");
-      if (localMenu) menuContent.setMenu(localMenu);
+      getUserMenu(userName, (menu, newUser) => {
+        if (!newUser) {
+          menuContent.setMenu(menu);
+        } else if (newUser) {
+          menuContent.setMenu(fakeMenu.SMALL);
+          saveUserMenu(userName, fakeMenu.SMALL);
+        }
+      });
 
       const localBasket = retrieveFromLocalStorage(userName, "basket");
       if (localBasket) basketContent.setBasket(localBasket);

@@ -1,4 +1,4 @@
-import { ref, set, onValue } from "firebase/database";
+import { ref, set, get } from "firebase/database";
 import database from "../data/firebaseConfig";
 
 function saveUserMenu(username, menu) {
@@ -6,12 +6,16 @@ function saveUserMenu(username, menu) {
   set(userRef, { menu: menu });
 }
 
-function getUserMenu(username, callback) {
+async function getUserMenu(username, callback) {
   const userRef = ref(database, "users/" + username);
-  onValue(userRef, (snapshot) => {
+  const snapshot = await get(userRef);
+
+  if (snapshot.exists()) {
     const data = snapshot.val();
-    callback(data ? data.menuState : null);
-  });
+    callback(data.menu, false);
+  } else {
+    callback(null, true);
+  }
 }
 
 export { saveUserMenu, getUserMenu };
