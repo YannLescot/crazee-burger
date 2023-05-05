@@ -3,6 +3,7 @@ export function deepClone(obj) {
 }
 
 export function isEmpty(arr) {
+  if (!arr) return true;
   return arr.length === 0;
 }
 

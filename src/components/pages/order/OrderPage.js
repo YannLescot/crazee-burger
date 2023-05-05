@@ -74,10 +74,9 @@ export default function OrderPage() {
           menuContent.setMenu(fakeMenu.MEDIUM);
           saveUserMenu(userName, fakeMenu.MEDIUM);
         }
+        const localBasket = retrieveFromLocalStorage(userName, "basket");
+        if (localBasket) basketContent.setBasket(localBasket);
       });
-
-      const localBasket = retrieveFromLocalStorage(userName, "basket");
-      if (localBasket) basketContent.setBasket(localBasket);
     }
   }, [userName]);
 

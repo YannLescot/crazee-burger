@@ -9,8 +9,6 @@ export const useBasket = (userName) => {
     const basketCopy = deepClone(basket);
     const productInBasket = findObjectById(productID, basketCopy);
 
-    console.log(userName);
-
     if (productInBasket) {
       incrementProductQuantity(productInBasket, basketCopy);
       setBasket(basketCopy);
