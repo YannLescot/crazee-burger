@@ -9,8 +9,8 @@ export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
   const totalPrice = isEmpty(basket)
-    ? formatPrice(calculateTotalPrice(basket, menu))
-    : formatPrice(0);
+    ? formatPrice(0)
+    : formatPrice(calculateTotalPrice(basket, menu));
 
   return (
     <BasketHeaderStyled>
