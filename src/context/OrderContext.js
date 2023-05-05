@@ -27,5 +27,5 @@ export default createContext({
   handleRemoveFromBasket: () => {},
   isProductInBasket: () => {},
 
-  userName: {},
+  isLoading: false,
 });

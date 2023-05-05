@@ -23,6 +23,7 @@ export default function Menu() {
     basket,
     handleRemoveFromBasket,
     isCardSelected,
+    isLoading,
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
@@ -39,6 +40,8 @@ export default function Menu() {
     e.stopPropagation();
     handleAddToBasket(id);
   };
+
+  if (isLoading) return <div>Loading...</div>;
 
   if (isMenuEmpty)
     return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;

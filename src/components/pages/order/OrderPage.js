@@ -22,6 +22,7 @@ export default function OrderPage() {
   const [productToEdit, setProductToEdit] = useState(null);
   const { username } = useParams();
   const [userName, setUserName] = useState(username);
+  const [isLoading, setIsLoading] = useState(false);
 
   const menuContent = useMenu(userName);
   const basketContent = useBasket(userName);
@@ -56,17 +57,20 @@ export default function OrderPage() {
     setProductToEdit,
     titleEditBoxRef,
     isCardSelected,
-    userName,
 
     selectProductToEdit,
 
     ...menuContent,
 
     ...basketContent,
+
+    isLoading,
   };
 
   useLayoutEffect(() => {
     if (userName) {
+      setIsLoading(true);
+      console.log(1);
       getUserMenu(userName, (menu, newUser) => {
         if (!newUser) {
           menuContent.setMenu(menu);
@@ -74,6 +78,8 @@ export default function OrderPage() {
           menuContent.setMenu(fakeMenu.MEDIUM);
           saveUserMenu(userName, fakeMenu.MEDIUM);
         }
+        setIsLoading(false);
+        console.log(2);
         const localBasket = retrieveFromLocalStorage(userName, "basket");
         if (localBasket) basketContent.setBasket(localBasket);
       });
