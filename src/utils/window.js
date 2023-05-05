@@ -2,11 +2,14 @@ export const refreshPage = () => {
   window.location.reload();
 };
 
-export const storeLocally = (key, value) => {
-  window.localStorage.setItem(key, JSON.stringify(value));
+export const storeLocally = (username, key, value) => {
+  if (!username) return;
+  window.localStorage.setItem(username, JSON.stringify({ [key]: value }));
 };
 
-export const retrieveFromLocalStorage = (key) => {
-  if (!window.localStorage.getItem(key)) return null;
-  return JSON.parse(window.localStorage.getItem(key));
+export const retrieveFromLocalStorage = (username, key) => {
+  if (!username) return;
+  const storedData = JSON.parse(window.localStorage.getItem(username));
+  if (!storedData) return;
+  return storedData[key];
 };

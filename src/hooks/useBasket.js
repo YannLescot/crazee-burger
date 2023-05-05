@@ -2,17 +2,19 @@ import { useState } from "react";
 import { deepClone, findObjectById, removeObjectById } from "../utils/array";
 import { storeLocally } from "../utils/window";
 
-export const useBasket = () => {
+export const useBasket = (userName) => {
   const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productID) => {
     const basketCopy = deepClone(basket);
     const productInBasket = findObjectById(productID, basketCopy);
 
+    console.log(userName);
+
     if (productInBasket) {
       incrementProductQuantity(productInBasket, basketCopy);
       setBasket(basketCopy);
-      storeLocally("basket", basketCopy);
+      storeLocally(userName, "basket", basketCopy);
       return;
     }
 
@@ -23,7 +25,7 @@ export const useBasket = () => {
     const newBasketProduct = { id: productId, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
-    storeLocally("basket", newBasket);
+    storeLocally(userName, "basket", newBasket);
   };
 
   const incrementProductQuantity = (product) => {
@@ -35,7 +37,7 @@ export const useBasket = () => {
 
     const newBasket = removeObjectById(productID, basketCopy);
     setBasket(newBasket);
-    storeLocally("basket", newBasket);
+    storeLocally(userName, "basket", newBasket);
   };
 
   return {
