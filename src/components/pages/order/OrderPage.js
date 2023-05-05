@@ -21,7 +21,7 @@ export default function OrderPage() {
   const { username } = useParams();
   const [userName, setUserName] = useState(username);
 
-  const menuContent = useMenu();
+  const menuContent = useMenu(userName);
   const basketContent = useBasket(userName);
 
   const titleEditBoxRef = useRef();
