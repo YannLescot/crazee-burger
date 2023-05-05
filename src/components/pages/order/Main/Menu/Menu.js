@@ -8,6 +8,7 @@ import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
+import LoadingMessage from "./LoadingMessage";
 
 export default function Menu() {
   const {
@@ -41,7 +42,7 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <LoadingMessage />;
 
   if (isMenuEmpty)
     return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;
