@@ -2,11 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function EmptyBasket() {
-  return <EmptyBasketStyled>Votre commande est vide.</EmptyBasketStyled>;
+export default function EmptyBasketMessage() {
+  return (
+    <EmptyBasketMessageStyled>
+      Votre commande est vide.
+    </EmptyBasketMessageStyled>
+  );
 }
 
-const EmptyBasketStyled = styled.div`
+const EmptyBasketMessageStyled = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
