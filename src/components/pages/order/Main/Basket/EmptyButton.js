@@ -9,7 +9,7 @@ const EmptyButton = () => {
 
   return (
     <EmptyButtonStyled onClick={handleEmptyBasket}>
-      <RiDeleteBin2Line />
+      <RiDeleteBin2Line className="icon" />
       <p>Vider le panier</p>
     </EmptyButtonStyled>
   );
@@ -18,9 +18,8 @@ const EmptyButton = () => {
 export default EmptyButton;
 
 const EmptyButtonStyled = styled.div`
-  cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-size: ${theme.font.sizes.P3};
   color: ${theme.colors.white};
@@ -33,13 +32,23 @@ const EmptyButtonStyled = styled.div`
   bottom: 80px;
   right: 10px;
 
+  cursor: pointer;
+
   p {
     display: none;
   }
 
   transition: all 0.1s ease-in-out;
   &:hover {
-    padding: 0 10px;
+    &:active {
+      transition: all 0.1s ease-in-out;
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      p {
+        color: ${theme.colors.white};
+      }
+    }
+
     justify-content: flex-start;
     width: 145px;
     border-radius: ${theme.borderRadius.round};
@@ -49,12 +58,17 @@ const EmptyButtonStyled = styled.div`
     transition: all 0.3s ease-in-out;
 
     overflow: hidden;
+
+    .icon {
+      margin-left: 5px;
+    }
+
     p {
       color: ${theme.colors.primary};
-      margin-left: 10px;
       display: block;
-      font-size: ${theme.font.sizes.P0};
+      font-size: ${theme.font.sizes.SM};
       flex-shrink: 0;
+      margin: 0 5px;
     }
   }
 `;
