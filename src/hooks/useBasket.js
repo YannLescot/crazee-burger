@@ -38,10 +38,16 @@ export const useBasket = (userName) => {
     storeLocally(userName, "basket", newBasket);
   };
 
+  const handleEmptyBasket = () => {
+    setBasket([]);
+    storeLocally(userName, "basket", []);
+  };
+
   return {
     basket,
     setBasket,
     handleAddToBasket,
     handleRemoveFromBasket,
+    handleEmptyBasket,
   };
 };
