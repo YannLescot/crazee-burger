@@ -4,7 +4,6 @@ import OrderContext from "../../../../../context/OrderContext";
 import EmptyBasketMessage from "./EmptyBasketMessage";
 import BasketCards from "./BasketCards";
 import { isEmpty } from "../../../../../utils/array";
-import EmptyButton from "./EmptyButton";
 
 export default function BasketBody() {
   const { basket } = useContext(OrderContext);
@@ -13,7 +12,6 @@ export default function BasketBody() {
   return (
     <BasketBodyStyled>
       {isBasketEmpty ? <EmptyBasketMessage /> : <BasketCards />}
-      <EmptyButton />
     </BasketBodyStyled>
   );
 }

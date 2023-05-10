@@ -23,14 +23,15 @@ const EmptyButtonStyled = styled.div`
   align-items: center;
   font-size: ${theme.font.sizes.P3};
   color: ${theme.colors.white};
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border: 1px solid ${theme.colors.primary};
   border-radius: ${theme.borderRadius.circle};
   background: ${theme.colors.primary};
   position: absolute;
   bottom: 80px;
   right: 10px;
+  padding: 5px;
 
   cursor: pointer;
 
@@ -49,7 +50,7 @@ const EmptyButtonStyled = styled.div`
       }
     }
 
-    justify-content: flex-start;
+    justify-content: space-around;
     width: 145px;
     border-radius: ${theme.borderRadius.round};
     background: ${theme.colors.white};
@@ -59,16 +60,11 @@ const EmptyButtonStyled = styled.div`
 
     overflow: hidden;
 
-    .icon {
-      margin-left: 5px;
-    }
-
     p {
       color: ${theme.colors.primary};
       display: block;
       font-size: ${theme.font.sizes.SM};
       flex-shrink: 0;
-      margin: 0 5px;
     }
   }
 `;
