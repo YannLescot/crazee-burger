@@ -4,7 +4,6 @@ import OrderContext from "../../../../../context/OrderContext";
 import EmptyBasketMessage from "./EmptyBasketMessage";
 import BasketCards from "./BasketCards";
 import { isEmpty } from "../../../../../utils/array";
-import { theme } from "../../../../../theme";
 import EmptyButton from "./EmptyButton";
 
 export default function BasketBody() {
