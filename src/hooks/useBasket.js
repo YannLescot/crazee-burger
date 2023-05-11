@@ -31,6 +31,7 @@ export const useBasket = (userName) => {
       const basketCopy = deepClone(prevBasket);
       const productInBasket = findObjectById(product.id, basketCopy);
       productInBasket.quantity++;
+      storeLocally(userName, "basket", basketCopy);
       return basketCopy;
     });
   };
@@ -40,6 +41,7 @@ export const useBasket = (userName) => {
       const basketCopy = deepClone(prevBasket);
       const productInBasket = findObjectById(product.id, basketCopy);
       productInBasket.quantity--;
+      storeLocally(userName, "basket", basketCopy);
       return basketCopy;
     });
   };
