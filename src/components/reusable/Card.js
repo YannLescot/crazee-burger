@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
+import QuantityButton from "./QuantityButton";
 
 export default function Card({
   imageSource,
@@ -14,6 +15,9 @@ export default function Card({
   onAdd,
   isHoverable,
   isSelected,
+  basketQuantity,
+  onIncrease,
+  onDecrease,
 }) {
   return (
     <CardStyled
@@ -36,13 +40,21 @@ export default function Card({
             <span>{leftDescription}</span>
           </p>
           <div className="right-description">
-            <Button
-              label={"Ajouter"}
-              variant="primary"
-              size="small"
-              padding="small"
-              onClick={onAdd}
-            />
+            {!basketQuantity ? (
+              <Button
+                label={"Ajouter"}
+                variant="primary"
+                size="small"
+                padding="small"
+                onClick={onAdd}
+              />
+            ) : (
+              <QuantityButton
+                label={basketQuantity}
+                onIncrease={onIncrease}
+                onDecrease={onDecrease}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -196,6 +208,43 @@ const selectedStyle = css`
           &:active {
             background: ${theme.colors.white};
             color: ${theme.colors.primary};
+          }
+        }
+
+        div {
+          background: ${theme.colors.white};
+          color: ${theme.colors.primary};
+
+          .quantity {
+            border: 1px solid ${theme.colors.white};
+          }
+
+          .increase {
+            border: 1px solid ${theme.colors.white};
+            &:hover {
+              background: ${theme.colors.success};
+              color: ${theme.colors.white};
+              border: 1px solid ${theme.colors.success};
+            }
+            &:active {
+              background: ${theme.colors.primary};
+              color: ${theme.colors.white};
+              border: 1px solid ${theme.colors.white};
+            }
+          }
+
+          .decrease {
+            border: 1px solid ${theme.colors.white};
+            &:hover {
+              background: ${theme.colors.red};
+              color: ${theme.colors.white};
+              border: 1px solid ${theme.colors.red};
+            }
+            &:active {
+              background: ${theme.colors.primary};
+              color: ${theme.colors.white};
+              border: 1px solid ${theme.colors.white};
+            }
           }
         }
       }

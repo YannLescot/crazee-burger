@@ -25,6 +25,8 @@ export default function Menu() {
     handleRemoveFromBasket,
     isCardSelected,
     isLoading,
+    incrementProductQuantity,
+    decrementProductQuantity,
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
@@ -40,6 +42,23 @@ export default function Menu() {
   const onAdd = (e, id) => {
     e.stopPropagation();
     handleAddToBasket(id);
+  };
+
+  const onIncrease = (e, productInBasket) => {
+    e.stopPropagation();
+    if (!productInBasket) return;
+    incrementProductQuantity(productInBasket);
+  };
+
+  const onDecrease = (e, productInBasket) => {
+    e.stopPropagation();
+
+    if (!productInBasket) return;
+    if (productInBasket.quantity === 1) {
+      handleRemoveFromBasket(productInBasket.id);
+      return;
+    }
+    decrementProductQuantity(productInBasket);
   };
 
   if (isLoading) return <LoadingMessage />;
@@ -62,6 +81,9 @@ export default function Menu() {
             onAdd={(e) => onAdd(e, id)}
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
+            basketQuantity={findObjectById(id, basket)?.quantity}
+            onIncrease={(e) => onIncrease(e, findObjectById(id, basket))}
+            onDecrease={(e) => onDecrease(e, findObjectById(id, basket))}
           />
         );
       })}
