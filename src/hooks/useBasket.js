@@ -27,7 +27,21 @@ export const useBasket = (userName) => {
   };
 
   const incrementProductQuantity = (product) => {
-    product.quantity++;
+    setBasket((prevBasket) => {
+      const basketCopy = deepClone(prevBasket);
+      const productInBasket = findObjectById(product.id, basketCopy);
+      productInBasket.quantity++;
+      return basketCopy;
+    });
+  };
+
+  const decrementProductQuantity = (product) => {
+    setBasket((prevBasket) => {
+      const basketCopy = deepClone(prevBasket);
+      const productInBasket = findObjectById(product.id, basketCopy);
+      productInBasket.quantity--;
+      return basketCopy;
+    });
   };
 
   const handleRemoveFromBasket = (productID) => {
@@ -49,5 +63,7 @@ export const useBasket = (userName) => {
     handleAddToBasket,
     handleRemoveFromBasket,
     handleEmptyBasket,
+    incrementProductQuantity,
+    decrementProductQuantity,
   };
 };
