@@ -29,7 +29,7 @@ const EmptyButtonStyled = styled.div`
   border-radius: ${theme.borderRadius.circle};
   background: ${theme.colors.primary};
   position: absolute;
-  bottom: 80px;
+  bottom: 12px;
   right: 10px;
   padding: 5px;
 

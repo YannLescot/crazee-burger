@@ -5,7 +5,7 @@ import { theme } from "../../../../../theme";
 export default function BasketFooter() {
   return (
     <BasketFooterStyled>
-      <span>Codé avec 🥰 et React.JS</span>
+      {/* <span>Codé avec 🥰 et React.JS</span> */}
     </BasketFooterStyled>
   );
 }

@@ -212,33 +212,23 @@ const selectedStyle = css`
         }
 
         div {
-          background: ${theme.colors.white};
+          background: ${theme.colors.primary};
           color: ${theme.colors.primary};
-
+          border: 1px solid ${theme.colors.white};
           .quantity {
-            border: 1px solid ${theme.colors.white};
+            border: none;
+            background-color: ${theme.colors.primary};
+            color: ${theme.colors.white};
           }
 
-          .increase {
-            border: 1px solid ${theme.colors.white};
-            &:hover {
-              background: ${theme.colors.success};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.success};
-            }
-            &:active {
-              background: ${theme.colors.primary};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.white};
-            }
-          }
-
+          .increase,
           .decrease {
             border: 1px solid ${theme.colors.white};
+            background-color: ${theme.colors.white};
             &:hover {
-              background: ${theme.colors.red};
+              background: ${theme.colors.primary};
               color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.red};
+              border: 1px solid ${theme.colors.primary};
             }
             &:active {
               background: ${theme.colors.primary};

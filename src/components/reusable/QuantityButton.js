@@ -23,13 +23,11 @@ const QuantityButtonStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-weight: ${theme.font.weights.bold};
   line-height: 1;
   color: ${theme.colors.white};
-
-  background-color: ${theme.colors.primary};
 
   width: ${theme.button.sizes.width.SM};
   height: ${theme.button.sizes.height.MD};
@@ -40,45 +38,49 @@ const QuantityButtonStyled = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 33%;
+    width: 33.33%;
     height: 100%;
-
-    border: 1px solid ${theme.colors.primary};
   }
 
   .increase,
   .decrease {
-    cursor: pointer;
+    box-sizing: border-box;
     border: 1px solid ${theme.colors.primary};
+    background-color: ${theme.colors.primary};
+    cursor: pointer;
 
     &:hover {
       transition: all 0.3s ease-out;
-      color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      background-color: ${theme.colors.white};
 
       &:active {
         transition: all 0.2s ease-out;
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.primary};
-        border: 1px solid ${theme.colors.primary};
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
       }
     }
   }
 
+  .quantity {
+    box-sizing: border-box;
+    border: 1px solid ${theme.colors.primary};
+    border-right: none;
+    border-left: none;
+
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+  }
+
   .increase {
+    border-left: none;
     border-top-right-radius: ${theme.borderRadius.round};
     border-bottom-right-radius: ${theme.borderRadius.round};
-    &:hover {
-      background-color: ${theme.colors.success};
-      border: 1px solid ${theme.colors.success};
-    }
   }
 
   .decrease {
+    border-right: none;
     border-top-left-radius: ${theme.borderRadius.round};
     border-bottom-left-radius: ${theme.borderRadius.round};
-    &:hover {
-      background-color: ${theme.colors.red};
-      border: 1px solid ${theme.colors.red};
-    }
   }
 `;
