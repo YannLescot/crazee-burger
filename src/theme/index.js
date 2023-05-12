@@ -1,12 +1,12 @@
 const colors = {
-  dark: "#17161a",
+  dark: "#252525",
   incognito: "#333",
   white: "#fff",
   background_white: "#f5f5f7",
   background_dark: "#292729",
-  primary: "#ffa01b",
+  primary: "#E33F3F",
   green: "green",
-  success: "#60bd4f",
+  success: "#24BA45",
   red: "#e25549",
   redSecondary: "#c4151c",
   blue: "#51a7e1",
@@ -72,7 +72,7 @@ const font = {
     heavy: 800,
   },
   families: {
-    stylish: `"Amatic SC", cursive`,
+    stylish: `"Annie Use Your Telescope", cursive`,
   },
 };
 const gridUnit = 8;
