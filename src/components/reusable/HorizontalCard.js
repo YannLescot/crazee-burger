@@ -64,10 +64,10 @@ const HorizontalCardStyled = styled.div`
     .title {
       min-height: 32px;
       max-width: 115px;
-      font-size: ${theme.font.sizes.P2};
+      font-size: ${theme.font.sizes.P1};
       line-height: 32px;
       font-family: ${theme.font.families.stylish};
-      font-weight: ${theme.font.weights.bold};
+      font-weight: ${theme.font.weights.medium};
       letter-spacing: 0.5px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -102,13 +102,13 @@ const HorizontalCardStyled = styled.div`
       right: 0;
       bottom: 0;
       width: 75px;
-      background-color: ${theme.colors.red};
+      background-color: ${theme.colors.dark};
       border: none;
       font-size: ${theme.font.sizes.P3};
       color: ${theme.colors.white};
 
       &:hover {
-        color: ${theme.colors.dark};
+        color: ${theme.colors.primary};
 
         &:active {
           color: ${theme.colors.white};

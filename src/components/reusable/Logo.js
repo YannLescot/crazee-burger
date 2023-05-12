@@ -38,7 +38,7 @@ const LogoStyled = styled.div`
     font-size: ${theme.font.sizes.P5};
     padding: 0 12px;
     font-weight: ${theme.font.weights.regular};
-    margin-bottom: 9px;
+    margin-bottom: 7px;
   }
 
   .firstWord {

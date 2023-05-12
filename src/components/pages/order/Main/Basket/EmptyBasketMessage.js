@@ -16,7 +16,8 @@ const EmptyBasketMessageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${theme.font.sizes.P4};
+  font-size: ${theme.font.sizes.P3};
+  font-weight: ${theme.font.weights.regular};
   font-family: ${theme.font.families.stylish};
   color: ${theme.colors.greyBlue};
 `;

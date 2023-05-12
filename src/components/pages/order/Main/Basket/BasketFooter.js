@@ -15,7 +15,6 @@ const BasketFooterStyled = styled.div`
   justify-content: center;
   align-items: center;
   background: ${theme.colors.background_dark};
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
 
   font-size: ${theme.font.sizes.P2};
   font-family: ${theme.font.families.stylish};

@@ -21,6 +21,8 @@ export default QuantityButton;
 const QuantityButtonStyled = styled.div`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
+  border: 1px solid ${theme.colors.primary};
+  background-color: ${theme.colors.primary};
 
   display: flex;
   justify-content: center;
@@ -40,13 +42,13 @@ const QuantityButtonStyled = styled.div`
 
     width: 33.33%;
     height: 100%;
+
+    box-sizing: border-box;
+    background-color: ${theme.colors.primary};
   }
 
   .increase,
   .decrease {
-    box-sizing: border-box;
-    border: 1px solid ${theme.colors.primary};
-    background-color: ${theme.colors.primary};
     cursor: pointer;
 
     &:hover {
@@ -60,16 +62,6 @@ const QuantityButtonStyled = styled.div`
         background-color: ${theme.colors.primary};
       }
     }
-  }
-
-  .quantity {
-    box-sizing: border-box;
-    border: 1px solid ${theme.colors.primary};
-    border-right: none;
-    border-left: none;
-
-    color: ${theme.colors.primary};
-    background-color: ${theme.colors.white};
   }
 
   .increase {
