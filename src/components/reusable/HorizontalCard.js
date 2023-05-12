@@ -63,15 +63,16 @@ const HorizontalCardStyled = styled.div`
 
     .title {
       min-height: 32px;
-      max-width: 100px;
-      font-size: ${theme.font.sizes.P3};
+      max-width: 115px;
+      font-size: ${theme.font.sizes.P2};
       line-height: 32px;
       font-family: ${theme.font.families.stylish};
-      font-weight: ${theme.font.weights.heavy};
-      letter-spacing: -0.5px;
+      font-weight: ${theme.font.weights.bold};
+      letter-spacing: 0.5px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: ${theme.colors.dark};
     }
 
     .prix {
