@@ -72,7 +72,7 @@ const font = {
     heavy: 800,
   },
   families: {
-    stylish: `"Annie Use Your Telescope", cursive`,
+    stylish: `"Atma", cursive`,
   },
 };
 const gridUnit = 8;
