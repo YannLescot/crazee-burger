@@ -26,28 +26,23 @@ const LogoStyled = styled.div`
     font-family: ${theme.font.families.stylish};
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: ${theme.font.sizes.P4};
+    font-size: ${theme.font.sizes.P5};
     font-weight: ${theme.font.weights.medium};
     line-height: 1em;
     color: ${theme.colors.primary};
+    letter-spacing: 0.5px;
   }
 
   .icon {
     color: ${theme.colors.primary};
     font-size: ${theme.font.sizes.P5};
-    padding: 0 7px;
+    padding: 0 12px;
     font-weight: ${theme.font.weights.regular};
-    margin-bottom: 6px;
+    margin-bottom: 9px;
   }
 
   .firstWord {
-    letter-spacing: 3.5px;
-  }
-
-  img {
-    object-fit: contain;
-    height: 60px;
-    width: 80px;
-    margin: 0 5px;
+    margin-left: 15px;
+    letter-spacing: 4px;
   }
 `;
