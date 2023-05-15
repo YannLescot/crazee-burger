@@ -35,6 +35,6 @@ const BasketHeaderStyled = styled.div`
   }
 
   .totalPrice {
-    font-weight: ${theme.font.weights.bold};
+    font-weight: ${theme.font.weights.regular};
   }
 `;

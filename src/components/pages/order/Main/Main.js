@@ -11,12 +11,12 @@ export default function Main() {
 
   return (
     <MainStyled>
-      <Basket />
-
       <div className="menu-and-admin">
         <Menu />
         {isAdmin && <AdminPanel />}
       </div>
+
+      <Basket />
     </MainStyled>
   );
 }
@@ -24,7 +24,7 @@ export default function Main() {
 const MainStyled = styled.div`
   flex: 1;
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 1fr 25%;
   height: calc(95vh - 10vh);
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};

@@ -85,7 +85,7 @@ const CardStyled = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: ${theme.colors.red};
+      color: ${theme.colors.dark};
 
       &:active {
         color: ${theme.colors.primary};
@@ -118,10 +118,10 @@ const CardStyled = styled.div`
     .title {
       min-height: 45px;
       margin: auto 0;
-      font-size: ${theme.font.sizes.P4};
+      font-size: 28px;
       position: relative;
       bottom: 10px;
-      font-weight: ${theme.font.weights.bold};
+      font-weight: ${theme.font.weights.medium};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
@@ -190,6 +190,10 @@ const selectedStyle = css`
   }
 
   .text-info {
+    .title {
+      color: ${theme.colors.white};
+    }
+
     .description {
       .left-description {
         color: ${theme.colors.white};
@@ -212,38 +216,17 @@ const selectedStyle = css`
         }
 
         div {
-          background: ${theme.colors.white};
-          color: ${theme.colors.primary};
+          background: ${theme.colors.dark};
+          color: ${theme.colors.white};
+          border: 1px solid ${theme.colors.dark};
 
-          .quantity {
-            border: 1px solid ${theme.colors.white};
-          }
-
-          .increase {
-            border: 1px solid ${theme.colors.white};
-            &:hover {
-              background: ${theme.colors.success};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.success};
-            }
-            &:active {
-              background: ${theme.colors.primary};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.white};
-            }
-          }
-
+          .increase,
           .decrease {
-            border: 1px solid ${theme.colors.white};
             &:hover {
-              background: ${theme.colors.red};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.red};
+              background: ${theme.colors.primary};
             }
             &:active {
-              background: ${theme.colors.primary};
-              color: ${theme.colors.white};
-              border: 1px solid ${theme.colors.white};
+              background: ${theme.colors.dark};
             }
           }
         }

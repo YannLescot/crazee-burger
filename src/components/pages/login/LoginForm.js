@@ -23,9 +23,9 @@ export default function LoginForm() {
 
   return (
     <LoginFormStyled onSubmit={handleOnSubmit}>
-      <h1>Bienvenue chez nous !</h1>
+      <h1>Régalez-vous chez nous !</h1>
       <hr />
-      <h2>Connectez-vous</h2>
+      <h2>Quel est votre prénom ?</h2>
       <TextInput
         value={inputValue}
         onChange={handleChange}
@@ -41,6 +41,8 @@ export default function LoginForm() {
         size="xlarge"
         padding="medium"
       />
+
+      <p>Copyright © 2023 Yann Lescot - Tous droits réservés.</p>
     </LoginFormStyled>
   );
 }
@@ -60,7 +62,7 @@ const LoginFormStyled = styled.form`
     margin: 0px;
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P5};
-    font-weight: ${theme.font.weights.bold};
+    font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.white};
   }
 
@@ -69,15 +71,21 @@ const LoginFormStyled = styled.form`
     flex-shrink: 0;
     min-width: 400px;
     height: 2px;
-    background-color: ${theme.colors.loginLine};
+    background-color: ${theme.colors.primary};
   }
 
   h2 {
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P4};
-    font-weight: ${theme.font.weights.bold};
+    font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.white};
-    margin-top: 10px;
+    margin-top: 8px;
     margin-bottom: 0px;
+  }
+
+  p {
+    position: absolute;
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.4);
   }
 `;

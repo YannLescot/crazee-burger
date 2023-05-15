@@ -74,8 +74,8 @@ export default function OrderPage() {
         if (!newUser) {
           menuContent.setMenu(menu);
         } else if (newUser) {
-          menuContent.setMenu(fakeMenu.MEDIUM);
-          saveUserMenu(userName, fakeMenu.MEDIUM);
+          menuContent.setMenu(fakeMenu.LARGE);
+          saveUserMenu(userName, fakeMenu.LARGE);
         }
         setIsLoading(false);
         const localBasket = retrieveFromLocalStorage(userName, "basket");

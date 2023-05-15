@@ -21,15 +21,15 @@ export default QuantityButton;
 const QuantityButtonStyled = styled.div`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
+  border: 1px solid ${theme.colors.primary};
+  background-color: ${theme.colors.primary};
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-weight: ${theme.font.weights.bold};
   line-height: 1;
   color: ${theme.colors.white};
-
-  background-color: ${theme.colors.primary};
 
   width: ${theme.button.sizes.width.SM};
   height: ${theme.button.sizes.height.MD};
@@ -40,45 +40,39 @@ const QuantityButtonStyled = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 33%;
+    width: 33.33%;
     height: 100%;
 
-    border: 1px solid ${theme.colors.primary};
+    box-sizing: border-box;
+    background-color: ${theme.colors.primary};
   }
 
   .increase,
   .decrease {
     cursor: pointer;
-    border: 1px solid ${theme.colors.primary};
 
     &:hover {
       transition: all 0.3s ease-out;
-      color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      background-color: ${theme.colors.white};
 
       &:active {
         transition: all 0.2s ease-out;
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.primary};
-        border: 1px solid ${theme.colors.primary};
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
       }
     }
   }
 
   .increase {
+    border-left: none;
     border-top-right-radius: ${theme.borderRadius.round};
     border-bottom-right-radius: ${theme.borderRadius.round};
-    &:hover {
-      background-color: ${theme.colors.success};
-      border: 1px solid ${theme.colors.success};
-    }
   }
 
   .decrease {
+    border-right: none;
     border-top-left-radius: ${theme.borderRadius.round};
     border-bottom-left-radius: ${theme.borderRadius.round};
-    &:hover {
-      background-color: ${theme.colors.red};
-      border: 1px solid ${theme.colors.red};
-    }
   }
 `;

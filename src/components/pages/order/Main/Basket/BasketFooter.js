@@ -5,7 +5,7 @@ import { theme } from "../../../../../theme";
 export default function BasketFooter() {
   return (
     <BasketFooterStyled>
-      <span>Codé avec 🥰 et React.JS</span>
+      {/* <span>Codé avec 🥰 et React.JS</span> */}
     </BasketFooterStyled>
   );
 }
@@ -15,7 +15,6 @@ const BasketFooterStyled = styled.div`
   justify-content: center;
   align-items: center;
   background: ${theme.colors.background_dark};
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
 
   font-size: ${theme.font.sizes.P2};
   font-family: ${theme.font.families.stylish};
