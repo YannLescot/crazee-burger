@@ -10,7 +10,7 @@ export default function ProductForm({
   handleSubmit,
   titleRef,
   children,
-  shouldBlur,
+  canBlur,
   onBlur,
 }) {
   return (
@@ -31,7 +31,7 @@ export default function ProductForm({
                 placeholder={placeholder}
                 Icon={Icon}
                 variant="minimalist"
-                onBlur={shouldBlur && onBlur}
+                onBlur={canBlur && onBlur}
               />
             );
           }

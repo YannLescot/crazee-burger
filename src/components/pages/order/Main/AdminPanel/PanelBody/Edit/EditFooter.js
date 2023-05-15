@@ -12,7 +12,7 @@ export default function EditFooter({ wasProductEdited }) {
           label="Modifications enregistrées !"
           Icon={<BsCloudCheck className="icon" />}
           color={theme.colors.blue}
-          shouldDisplay={wasProductEdited}
+          isDisplayed={wasProductEdited}
         />
       </EditFooterStyled>
     );

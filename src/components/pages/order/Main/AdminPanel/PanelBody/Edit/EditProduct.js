@@ -43,7 +43,7 @@ export default function EditProduct() {
           product={productToEdit}
           handleChange={onChange}
           titleRef={titleEditBoxRef}
-          shouldBlur={true}
+          canBlur={true}
           onBlur={handleOnBlur}
         >
           <EditFooter wasProductEdited={wasProductEdited} />

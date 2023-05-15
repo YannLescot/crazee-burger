@@ -18,7 +18,7 @@ export default function AddFooter({ wasProductAdded }) {
         label="Ajouté avec succès !"
         Icon={<FiCheck className="icon" />}
         color={theme.colors.success}
-        shouldDisplay={wasProductAdded}
+        isDisplayed={wasProductAdded}
       />
     </AddFooterStyled>
   );

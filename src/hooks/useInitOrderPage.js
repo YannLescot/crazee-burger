@@ -13,7 +13,9 @@ export const initOrderPage = (
     getUserMenu(userName, (menu, newUser) => {
       if (!newUser) {
         menuContent.setMenu(menu);
-      } else if (newUser) {
+      }
+
+      if (newUser) {
         menuContent.setMenu(fakeMenu.LARGE);
         saveUserMenu(userName, fakeMenu.LARGE);
       }
