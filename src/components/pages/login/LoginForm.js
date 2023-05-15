@@ -88,4 +88,17 @@ const LoginFormStyled = styled.form`
     bottom: 0;
     color: rgba(255, 255, 255, 0.4);
   }
+
+  @media ${theme.devices.mobile} {
+    h1 {
+      font-size: ${theme.font.sizes.P3};
+    }
+    h2 {
+      font-size: ${theme.font.sizes.P2};
+    }
+
+    hr {
+      min-width: 200px;
+    }
+  }
 `;

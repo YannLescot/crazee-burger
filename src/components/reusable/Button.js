@@ -119,6 +119,11 @@ const getExtraLargeSize = () => {
     width: ${theme.button.sizes.width.XL};
     height: ${theme.button.sizes.height.LG};
     font-size: ${theme.font.sizes.SM};
+
+    @media ${theme.devices.mobile} {
+      width: ${theme.button.sizes.width.LG};
+      height: ${theme.button.sizes.height.SM};
+    }
   `;
 };
 
@@ -131,6 +136,10 @@ const getSmallPadding = () => {
 const getMediumPadding = () => {
   return css`
     padding: ${theme.button.paddings.MD};
+
+    @media ${theme.devices.mobile} {
+      padding: ${theme.button.paddings.SM};
+    }
   `;
 };
 
