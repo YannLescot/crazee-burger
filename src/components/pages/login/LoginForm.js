@@ -39,7 +39,6 @@ export default function LoginForm() {
         Icon={<IoChevronForward className="icon" />}
         variant="primary"
         size="xlarge"
-        padding="medium"
       />
 
       <p>Copyright © 2023 Yann Lescot - Tous droits réservés.</p>
@@ -90,6 +89,8 @@ const LoginFormStyled = styled.form`
   }
 
   @media ${theme.devices.mobile} {
+    margin-top: ${theme.spacing.xl};
+
     h1 {
       font-size: ${theme.font.sizes.P3};
     }
@@ -99,6 +100,10 @@ const LoginFormStyled = styled.form`
 
     hr {
       min-width: 200px;
+    }
+
+    p {
+      font-size: ${theme.font.sizes.SM};
     }
   }
 `;

@@ -76,7 +76,11 @@ const getNormalStyle = () => {
 
     @media ${theme.devices.mobile} {
       height: ${theme.button.sizes.height.MD};
-      width: ${theme.button.sizes.width.LG};
+      width: ${theme.button.sizes.width.MD};
+
+      .icon {
+        margin-left: ${theme.spacing.xs};
+      }
     }
   `;
 };

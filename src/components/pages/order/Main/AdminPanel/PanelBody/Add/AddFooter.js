@@ -13,7 +13,6 @@ export default function AddFooter({ wasProductAdded }) {
         label={"Ajouter un nouveau produit au menu"}
         variant="add"
         size="large"
-        padding="large"
       />
       <UpdateMessage
         label="Ajouté avec succès !"

@@ -43,6 +43,7 @@ const button = {
     },
   },
   paddings: {
+    XS: "6px",
     SM: "12px",
     MD: "0px 24px",
     LG: "18px 24px",

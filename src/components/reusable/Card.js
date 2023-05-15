@@ -45,7 +45,6 @@ export default function Card({
                 label={"Ajouter"}
                 variant="primary"
                 size="small"
-                padding="small"
                 onClick={onAdd}
               />
             ) : (
