@@ -13,6 +13,7 @@ import { retrieveFromLocalStorage } from "../../../utils/window";
 import { useParams } from "react-router-dom";
 import { getUserMenu, saveUserMenu } from "../../../hooks/useDatabase";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import bgPattern from "../../../assets/images/bgPattern.svg";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -104,6 +105,10 @@ const OrderPageStyled = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${theme.colors.primary};
+  background-image: url(${bgPattern});
+  background-size: 50px;
+  background-repeat: repeat;
+  background-position: center;
 
   .container {
     height: 95vh;
