@@ -44,13 +44,13 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
-  const onIncrease = (e, productInBasket) => {
+  const onIncrement = (e, productInBasket) => {
     e.stopPropagation();
     if (!productInBasket) return;
     incrementProductQuantity(productInBasket);
   };
 
-  const onDecrease = (e, productInBasket) => {
+  const onDecrement = (e, productInBasket) => {
     e.stopPropagation();
 
     if (!productInBasket) return;
@@ -82,8 +82,8 @@ export default function Menu() {
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
             basketQuantity={findObjectById(id, basket)?.quantity}
-            onIncrease={(e) => onIncrease(e, findObjectById(id, basket))}
-            onDecrease={(e) => onDecrease(e, findObjectById(id, basket))}
+            onIncrement={(e) => onIncrement(e, findObjectById(id, basket))}
+            onDecrement={(e) => onDecrement(e, findObjectById(id, basket))}
           />
         );
       })}

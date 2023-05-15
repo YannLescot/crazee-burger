@@ -43,6 +43,7 @@ const button = {
     },
   },
   paddings: {
+    XS: "6px",
     SM: "12px",
     MD: "0px 24px",
     LG: "18px 24px",
@@ -91,6 +92,18 @@ const shadows = {
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
 };
 
+const sizes = {
+  medium: "1440px",
+  small: "1024px",
+  mobile: "550px",
+};
+
+const devices = {
+  medium: `(max-width: ${sizes.medium})`,
+  small: `(max-width: ${sizes.small})`,
+  mobile: `(max-width: ${sizes.mobile})`,
+};
+
 export const theme = {
   colors,
   font,
@@ -99,4 +112,6 @@ export const theme = {
   shadows,
   spacing,
   button,
+  sizes,
+  devices,
 };

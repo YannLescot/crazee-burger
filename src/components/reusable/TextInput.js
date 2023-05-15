@@ -73,6 +73,15 @@ const getNormalStyle = () => {
       color: ${theme.colors.greyBlue};
       margin-left: ${theme.spacing.sm};
     }
+
+    @media ${theme.devices.mobile} {
+      height: ${theme.button.sizes.height.MD};
+      width: ${theme.button.sizes.width.MD};
+
+      .icon {
+        margin-left: ${theme.spacing.xs};
+      }
+    }
   `;
 };
 

@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function UpdateMessage({ label, Icon, color, shouldDisplay }) {
+export default function UpdateMessage({ label, Icon, color, isDisplayed }) {
   return (
     <UpdateMessageStyled color={color}>
-      {shouldDisplay && (
+      {isDisplayed && (
         <div>
           <span>{Icon}</span>
 

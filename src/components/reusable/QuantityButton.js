@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const QuantityButton = ({ label, onIncrease, onDecrease }) => {
+const QuantityButton = ({ label, onIncrement, onDecrement }) => {
   return (
     <QuantityButtonStyled>
-      <div className="decrease" onClick={onDecrease}>
+      <div className="decrease" onClick={onDecrement}>
         -
       </div>
       <div className="quantity">{label}</div>
-      <div className="increase" onClick={onIncrease}>
+      <div className="increase" onClick={onIncrement}>
         +
       </div>
     </QuantityButtonStyled>

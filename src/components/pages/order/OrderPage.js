@@ -9,10 +9,9 @@ import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { checkProductSelection, findObjectById } from "../../../utils/array";
-import { retrieveFromLocalStorage } from "../../../utils/window";
 import { useParams } from "react-router-dom";
-import { getUserMenu, saveUserMenu } from "../../../hooks/useDatabase";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
+import bgPattern from "../../../assets/images/bgPattern.svg";
+import { initOrderPage } from "../../../hooks/useInitOrderPage";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -68,20 +67,7 @@ export default function OrderPage() {
   };
 
   useLayoutEffect(() => {
-    if (userName) {
-      setIsLoading(true);
-      getUserMenu(userName, (menu, newUser) => {
-        if (!newUser) {
-          menuContent.setMenu(menu);
-        } else if (newUser) {
-          menuContent.setMenu(fakeMenu.LARGE);
-          saveUserMenu(userName, fakeMenu.LARGE);
-        }
-        setIsLoading(false);
-        const localBasket = retrieveFromLocalStorage(userName, "basket");
-        if (localBasket) basketContent.setBasket(localBasket);
-      });
-    }
+    initOrderPage(userName, menuContent, basketContent, setIsLoading);
   }, [userName]);
 
   return (
@@ -104,6 +90,10 @@ const OrderPageStyled = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${theme.colors.primary};
+  background-image: url(${bgPattern});
+  background-size: 50px;
+  background-repeat: repeat;
+  background-position: center;
 
   .container {
     height: 95vh;

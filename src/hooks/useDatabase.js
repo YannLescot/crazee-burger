@@ -14,9 +14,10 @@ async function getUserMenu(username, callback) {
   if (snapshot.exists()) {
     const data = snapshot.val();
     callback(data.menu, false);
-  } else {
-    callback(null, true);
+    return;
   }
+
+  callback(null, true);
 }
 
 export { saveUserMenu, getUserMenu };

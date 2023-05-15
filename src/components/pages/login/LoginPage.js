@@ -24,7 +24,7 @@ const LoginStyled = styled.div`
   background-size: cover;
   background-position: center;
   background-position-y: 50%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.9)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.9)),
     url(${bgImage});
   .login-page-logo {
     transform: scale(2.5);

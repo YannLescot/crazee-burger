@@ -2,21 +2,9 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function Button({
-  label,
-  Icon,
-  variant,
-  size,
-  padding,
-  onClick,
-}) {
+export default function Button({ label, Icon, variant, size, onClick }) {
   return (
-    <ButtonStyled
-      variant={variant}
-      size={size}
-      padding={padding}
-      onClick={onClick}
-    >
+    <ButtonStyled variant={variant} size={size} onClick={onClick}>
       {label}
       {Icon && Icon}
     </ButtonStyled>
@@ -41,11 +29,6 @@ const ButtonStyled = styled.button`
   ${({ size }) => size === "medium" && getMediumSize()}
   ${({ size }) => size === "large" && getLargeSize()}
   ${({ size }) => size === "xlarge" && getExtraLargeSize()}
-
-  ${({ padding }) => padding === "small" && getSmallPadding()}
-  ${({ padding }) => padding === "medium" && getMediumPadding()}
-  ${({ padding }) => padding === "large" && getLargePadding()}
-
 
   ${({ variant }) => variant === "primary" && getPrimaryStyle()}
   ${({ variant }) => variant === "add" && getAddStyle()}
@@ -96,6 +79,7 @@ const getSmallSize = () => {
     width: ${theme.button.sizes.width.SM};
     height: ${theme.button.sizes.height.MD};
     font-size: ${theme.font.sizes.XS};
+    padding: ${theme.button.paddings.SM};
   `;
 };
 
@@ -104,6 +88,7 @@ const getMediumSize = () => {
     width: ${theme.button.sizes.width.MD};
     height: ${theme.button.sizes.height.LG};
     font-size: ${theme.font.sizes.XS};
+    padding: ${theme.button.paddings.MD};
   `;
 };
 
@@ -111,6 +96,7 @@ const getLargeSize = () => {
   return css`
     width: ${theme.button.sizes.width.LG};
     height: ${theme.button.sizes.height.SM};
+    padding: ${theme.button.paddings.LG};
   `;
 };
 
@@ -119,23 +105,12 @@ const getExtraLargeSize = () => {
     width: ${theme.button.sizes.width.XL};
     height: ${theme.button.sizes.height.LG};
     font-size: ${theme.font.sizes.SM};
-  `;
-};
 
-const getSmallPadding = () => {
-  return css`
-    padding: ${theme.button.paddings.SM};
-  `;
-};
-
-const getMediumPadding = () => {
-  return css`
-    padding: ${theme.button.paddings.MD};
-  `;
-};
-
-const getLargePadding = () => {
-  return css`
-    padding: ${theme.button.paddings.LG};
+    @media ${theme.devices.mobile} {
+      width: ${theme.button.sizes.width.MD};
+      height: ${theme.button.sizes.height.MD};
+      padding: ${theme.button.paddings.XS};
+      font-size: ${theme.font.sizes.XS};
+    }
   `;
 };

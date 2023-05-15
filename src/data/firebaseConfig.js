@@ -7,7 +7,7 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAInG_fvBorskRaTXjXKU_pLf2L94ZOUtA",
+  apiKey: process.env.API_KEY,
   authDomain: "burgermvp-ae75d.firebaseapp.com",
   databaseURL:
     "https://burgermvp-ae75d-default-rtdb.europe-west1.firebasedatabase.app",

@@ -16,8 +16,8 @@ export default function Card({
   isHoverable,
   isSelected,
   basketQuantity,
-  onIncrease,
-  onDecrease,
+  onIncrement,
+  onDecrement,
 }) {
   return (
     <CardStyled
@@ -45,14 +45,13 @@ export default function Card({
                 label={"Ajouter"}
                 variant="primary"
                 size="small"
-                padding="small"
                 onClick={onAdd}
               />
             ) : (
               <QuantityButton
                 label={basketQuantity}
-                onIncrease={onIncrease}
-                onDecrease={onDecrease}
+                onIncrement={onIncrement}
+                onDecrement={onDecrement}
               />
             )}
           </div>
