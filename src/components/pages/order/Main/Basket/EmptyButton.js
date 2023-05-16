@@ -22,16 +22,18 @@ const EmptyButtonStyled = styled.div`
   justify-content: space-around;
   align-items: center;
   font-size: ${theme.font.sizes.P3};
-  color: ${theme.colors.white};
-  width: 35px;
-  height: 35px;
+  height: 30px;
+  width: 130px;
   border: 1px solid ${theme.colors.primary};
-  border-radius: ${theme.borderRadius.circle};
-  background: ${theme.colors.primary};
-  position: absolute;
-  bottom: 12px;
-  right: 10px;
+  border-radius: ${theme.borderRadius.round};
   padding: 5px;
+
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+
+  transition: all 0.3s ease-in-out;
+
+  overflow: hidden;
 
   cursor: pointer;
 
@@ -41,30 +43,18 @@ const EmptyButtonStyled = styled.div`
 
   transition: all 0.1s ease-in-out;
   &:hover {
-    &:active {
-      transition: all 0.1s ease-in-out;
-      background-color: ${theme.colors.primary};
-      color: ${theme.colors.white};
-      p {
-        color: ${theme.colors.white};
-      }
-    }
-
-    justify-content: space-around;
-    width: 145px;
-    border-radius: ${theme.borderRadius.round};
-    background: ${theme.colors.white};
+    transition: all 0.1s ease-in-out;
+    background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
-
-    transition: all 0.3s ease-in-out;
-
-    overflow: hidden;
-
     p {
       color: ${theme.colors.primary};
-      display: block;
-      font-size: ${theme.font.sizes.SM};
-      flex-shrink: 0;
     }
+  }
+
+  p {
+    color: ${theme.colors.white};
+    display: block;
+    font-size: ${theme.font.sizes.SM};
+    flex-shrink: 0;
   }
 `;

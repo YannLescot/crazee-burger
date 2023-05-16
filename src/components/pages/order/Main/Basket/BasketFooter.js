@@ -1,23 +1,59 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import { GiConfirmed } from "react-icons/gi";
+import Button from "../../../../reusable/Button";
+import OrderContext from "../../../../../context/OrderContext";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketFooter() {
+  const { handleEmptyBasket, basket } = useContext(OrderContext);
+  const isBasketEmpty = isEmpty(basket);
   return (
     <BasketFooterStyled>
-      {/* <span>Codé avec 🥰 et React.JS</span> */}
+      {!isBasketEmpty && (
+        <div className="buttonsContainer">
+          <Button
+            label="Valider"
+            variant="add"
+            Icon=<GiConfirmed className="icon" />
+            iconPos="left"
+            size="small"
+          />
+          <Button
+            label="Vider le panier"
+            variant="primary"
+            Icon=<RiDeleteBin2Line className="icon" />
+            iconPos="left"
+            size="small"
+            onClick={handleEmptyBasket}
+          />
+        </div>
+      )}
     </BasketFooterStyled>
   );
 }
 
 const BasketFooterStyled = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: ${theme.colors.background_dark};
+  width: 100%;
 
   font-size: ${theme.font.sizes.P2};
   font-family: ${theme.font.families.stylish};
   color: ${theme.colors.white};
   font-weight: ${theme.font.weights.bold};
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    .icon {
+      font-size: ${theme.font.sizes.P1};
+    }
+  }
 `;
