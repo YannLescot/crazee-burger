@@ -35,14 +35,16 @@ export default function LoginForm() {
         required
       />
       <Button
-        label={"Accéder à mon espace"}
+        label="Accéder à mon espace"
         Icon={<IoChevronForward className="icon" />}
         iconPos="right"
         variant="primary"
         size="xlarge"
       />
 
-      <p>Copyright © 2023 Yann Lescot - Tous droits réservés.</p>
+      <p className="copyright">
+        Copyright © 2023 Yann Lescot - Tous droits réservés.
+      </p>
     </LoginFormStyled>
   );
 }
@@ -83,7 +85,7 @@ const LoginFormStyled = styled.form`
     margin-bottom: 0px;
   }
 
-  p {
+  .copyright {
     position: absolute;
     bottom: 0;
     color: rgba(255, 255, 255, 0.4);
