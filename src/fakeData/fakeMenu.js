@@ -19,15 +19,6 @@ const SMALL = [
     isAvailable: true,
     isAdvertised: false,
   },
-  // {
-  //   id: 2,
-  //   imageSource: "/images/mugicha.png",
-  //   title: "mugicha",
-  //   price: .556,
-  //   quantity: 0,
-  //   isAvailable: true,
-  //   isAdvertised: false,
-  // },
 ];
 
 const MEDIUM = [
