@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 import QuantityButton from "./QuantityButton";

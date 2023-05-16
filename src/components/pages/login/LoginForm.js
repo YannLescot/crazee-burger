@@ -37,6 +37,7 @@ export default function LoginForm() {
       <Button
         label={"Accéder à mon espace"}
         Icon={<IoChevronForward className="icon" />}
+        iconPos="right"
         variant="primary"
         size="xlarge"
       />

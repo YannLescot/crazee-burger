@@ -2,11 +2,19 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function Button({ label, Icon, variant, size, onClick }) {
+export default function Button({
+  label,
+  Icon,
+  iconPos,
+  variant,
+  size,
+  onClick,
+}) {
   return (
     <ButtonStyled variant={variant} size={size} onClick={onClick}>
-      {label}
-      {Icon && Icon}
+      {iconPos === "left" && Icon}
+      <p>{label}</p>
+      {iconPos === "right" && Icon}
     </ButtonStyled>
   );
 }
@@ -76,7 +84,7 @@ const getAddStyle = () => {
 
 const getSmallSize = () => {
   return css`
-    width: ${theme.button.sizes.width.SM};
+    width: 140px;
     height: ${theme.button.sizes.height.MD};
     font-size: ${theme.font.sizes.XS};
     padding: ${theme.button.paddings.SM};
