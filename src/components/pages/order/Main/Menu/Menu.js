@@ -25,8 +25,7 @@ export default function Menu() {
     handleRemoveFromBasket,
     isCardSelected,
     isLoading,
-    incrementProductQuantity,
-    decrementProductQuantity,
+    updateProductQuantity,
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
@@ -44,21 +43,30 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
+  const onRemove = (e, id) => {
+    e.stopPropagation();
+    handleRemoveFromBasket(id);
+  };
+
   const onIncrement = (e, productInBasket) => {
     e.stopPropagation();
     if (!productInBasket) return;
-    incrementProductQuantity(productInBasket);
+    updateProductQuantity(productInBasket, +1);
   };
 
   const onDecrement = (e, productInBasket) => {
     e.stopPropagation();
-
     if (!productInBasket) return;
-    if (productInBasket.quantity === 1) {
+
+    const quantity = productInBasket.quantity;
+
+    if (quantity === 0) return;
+
+    if (quantity === 1) {
       handleRemoveFromBasket(productInBasket.id);
       return;
     }
-    decrementProductQuantity(productInBasket);
+    updateProductQuantity(productInBasket, -1);
   };
 
   if (isLoading) return <LoadingMessage />;
@@ -78,7 +86,8 @@ export default function Menu() {
             hasDeleteButton={isAdmin}
             onDelete={(e) => onDelete(e, id)}
             onClick={isAdmin ? () => selectProductToEdit(id) : null}
-            onAdd={(e) => onAdd(e, id)}
+            addProductToBasket={(e) => onAdd(e, id)}
+            removeProductFromBasket={(e) => onRemove(e, id)}
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
             basketQuantity={findObjectById(id, basket)?.quantity}

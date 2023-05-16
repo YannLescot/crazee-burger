@@ -26,8 +26,8 @@ export default createContext({
   handleAddToBasket: () => {},
   handleRemoveFromBasket: () => {},
   isProductInBasket: () => {},
-  incrementProductQuantity: () => {},
-  decrementProductQuantity: () => {},
+
+  updateProductQuantity: () => {},
 
   isLoading: false,
 });

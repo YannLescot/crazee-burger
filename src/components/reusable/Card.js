@@ -12,10 +12,11 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
-  onAdd,
   isHoverable,
   isSelected,
   basketQuantity,
+  addProductToBasket,
+  removeProductFromBasket,
   onIncrement,
   onDecrement,
 }) {
@@ -40,20 +41,13 @@ export default function Card({
             <span>{leftDescription}</span>
           </p>
           <div className="right-description">
-            {!basketQuantity ? (
-              <Button
-                label={"Ajouter"}
-                variant="primary"
-                size="small"
-                onClick={onAdd}
-              />
-            ) : (
-              <QuantityButton
-                label={basketQuantity}
-                onIncrement={onIncrement}
-                onDecrement={onDecrement}
-              />
-            )}
+            <QuantityButton
+              label={basketQuantity ? basketQuantity : 0}
+              onIncrement={basketQuantity ? onIncrement : addProductToBasket}
+              onDecrement={
+                basketQuantity === 1 ? removeProductFromBasket : onDecrement
+              }
+            />
           </div>
         </div>
       </div>

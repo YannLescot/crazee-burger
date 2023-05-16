@@ -10,37 +10,27 @@ export const useBasket = (userName) => {
     const productInBasket = findObjectById(productID, basketCopy);
 
     if (productInBasket) {
-      incrementProductQuantity(productInBasket, basketCopy);
+      updateProductQuantity(productInBasket, +1);
       setBasket(basketCopy);
       storeLocally(userName, "basket", basketCopy);
       return;
     }
 
-    addProductToBasket(productID, basketCopy);
+    addNewProductToBasket(productID, basketCopy);
   };
 
-  const addProductToBasket = (productId, basketCopy) => {
+  const addNewProductToBasket = (productId, basketCopy) => {
     const newBasketProduct = { id: productId, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
     storeLocally(userName, "basket", newBasket);
   };
 
-  const incrementProductQuantity = (product) => {
+  const updateProductQuantity = (product, action) => {
     setBasket((prevBasket) => {
       const basketCopy = deepClone(prevBasket);
       const productInBasket = findObjectById(product.id, basketCopy);
-      productInBasket.quantity++;
-      storeLocally(userName, "basket", basketCopy);
-      return basketCopy;
-    });
-  };
-
-  const decrementProductQuantity = (product) => {
-    setBasket((prevBasket) => {
-      const basketCopy = deepClone(prevBasket);
-      const productInBasket = findObjectById(product.id, basketCopy);
-      productInBasket.quantity--;
+      productInBasket.quantity += action;
       storeLocally(userName, "basket", basketCopy);
       return basketCopy;
     });
@@ -65,7 +55,6 @@ export const useBasket = (userName) => {
     handleAddToBasket,
     handleRemoveFromBasket,
     handleEmptyBasket,
-    incrementProductQuantity,
-    decrementProductQuantity,
+    updateProductQuantity,
   };
 };
