@@ -216,7 +216,8 @@ const selectedStyle = css`
           .increase,
           .decrease {
             &:hover {
-              background: ${theme.colors.primary};
+              background: ${theme.colors.white};
+              color: ${theme.colors.dark};
             }
             &:active {
               background: ${theme.colors.dark};
