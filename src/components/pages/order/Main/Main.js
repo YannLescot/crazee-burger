@@ -40,9 +40,8 @@ const MainStyled = styled.div`
   ::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 80vw;
     height: calc(95vh - 10vh);
-    width: 1400px;
     box-shadow: ${theme.shadows.light};
     z-index: 1;
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
