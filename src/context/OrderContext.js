@@ -30,4 +30,7 @@ export default createContext({
   updateProductQuantity: () => {},
 
   isLoading: false,
+
+  wasOrderConfirmed: false,
+  handleOrderConfirmation: () => {},
 });

@@ -8,7 +8,8 @@ import OrderContext from "../../../../../context/OrderContext";
 import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketFooter() {
-  const { handleEmptyBasket, basket } = useContext(OrderContext);
+  const { handleEmptyBasket, basket, handleOrderConfirmation } =
+    useContext(OrderContext);
   const isBasketEmpty = isEmpty(basket);
   return (
     <BasketFooterStyled>
@@ -20,6 +21,7 @@ export default function BasketFooter() {
             Icon=<GiConfirmed className="icon" />
             iconPos="left"
             size="small"
+            onClick={() => handleOrderConfirmation(5000)}
           />
           <Button
             label="Vider le panier"

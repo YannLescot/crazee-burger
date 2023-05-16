@@ -63,6 +63,7 @@ const font = {
     P4: "36px",
     P5: "48px",
     P6: "60px",
+    HUGE: "128px",
   },
   weights: {
     light: 300,
