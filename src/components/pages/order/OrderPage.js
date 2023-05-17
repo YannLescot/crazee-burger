@@ -119,6 +119,21 @@ const smokeAnimation = keyframes`
   }
 `;
 
+const slideInOut = keyframes`
+  0% {
+    transform: translateX(-120%);
+  }
+  8% {
+    transform: translateX(0%);
+  }
+  92% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(180%);
+  }
+`;
+
 const OrderPageStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -157,6 +172,7 @@ const OrderPageStyled = styled.div`
       opacity: 1;
       //pointer-events: none;
       transition: all 0.3s ease-out;
+      overflow: hidden;
 
       .orderConfirmedModal {
         background-color: ${theme.colors.primary};
@@ -169,6 +185,9 @@ const OrderPageStyled = styled.div`
         justify-items: center;
         padding: 30px;
         box-sizing: border-box;
+
+        animation: ${slideInOut} 4.5s ease-in-out;
+        animation-fill-mode: forwards;
 
         .texts {
           margin-top: 10px;
@@ -233,14 +252,14 @@ const OrderPageStyled = styled.div`
               );
               background-size: 200% 175%;
 
-              filter: blur(6px);
+              filter: blur(5.5px);
 
               animation: ${smokeAnimation} 2s ease-in-out infinite;
             }
 
             .smoke2 {
               height: 110px;
-              animation: ${smokeAnimation} 2.5s ease-in-out 0.5s infinite;
+              animation: ${smokeAnimation} 2.5s ease-in-out infinite;
             }
           }
         }
