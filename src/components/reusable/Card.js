@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
+import QuantityButton from "./QuantityButton";
 
 export default function Card({
   imageSource,
@@ -11,9 +11,13 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
-  onAdd,
   isHoverable,
   isSelected,
+  basketQuantity,
+  addProductToBasket,
+  removeProductFromBasket,
+  onIncrement,
+  onDecrement,
 }) {
   return (
     <CardStyled
@@ -32,14 +36,16 @@ export default function Card({
       <div className="text-info">
         <strong className="title">{title}</strong>
         <div className="description">
-          <p className="left-description">{leftDescription}</p>
+          <p className="left-description">
+            <span>{leftDescription}</span>
+          </p>
           <div className="right-description">
-            <Button
-              label={"Ajouter"}
-              variant="primary"
-              size="small"
-              padding="small"
-              onClick={onAdd}
+            <QuantityButton
+              label={basketQuantity ? basketQuantity : 0}
+              onIncrement={basketQuantity ? onIncrement : addProductToBasket}
+              onDecrement={
+                basketQuantity === 1 ? removeProductFromBasket : onDecrement
+              }
             />
           </div>
         </div>
@@ -71,7 +77,7 @@ const CardStyled = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: ${theme.colors.red};
+      color: ${theme.colors.dark};
 
       &:active {
         color: ${theme.colors.primary};
@@ -104,10 +110,10 @@ const CardStyled = styled.div`
     .title {
       min-height: 45px;
       margin: auto 0;
-      font-size: ${theme.font.sizes.P4};
+      font-size: 28px;
       position: relative;
       bottom: 10px;
-      font-weight: ${theme.font.weights.bold};
+      font-weight: ${theme.font.weights.medium};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
@@ -118,19 +124,26 @@ const CardStyled = styled.div`
     }
 
     .description {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
 
       .left-description {
+        max-width: 85px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         font-weight: ${theme.font.weights.medium};
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         font-weight: ${theme.font.weights.medium};
         color: ${theme.colors.primary};
+
+        span {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       .right-description {
@@ -169,6 +182,10 @@ const selectedStyle = css`
   }
 
   .text-info {
+    .title {
+      color: ${theme.colors.white};
+    }
+
     .description {
       .left-description {
         color: ${theme.colors.white};
@@ -187,6 +204,23 @@ const selectedStyle = css`
           &:active {
             background: ${theme.colors.white};
             color: ${theme.colors.primary};
+          }
+        }
+
+        div {
+          background: ${theme.colors.dark};
+          color: ${theme.colors.white};
+          border: 1px solid ${theme.colors.dark};
+
+          .increase,
+          .decrease {
+            &:hover {
+              background: ${theme.colors.white};
+              color: ${theme.colors.dark};
+            }
+            &:active {
+              background: ${theme.colors.dark};
+            }
           }
         }
       }

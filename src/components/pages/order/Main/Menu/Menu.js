@@ -8,6 +8,7 @@ import { focusTitleEditBox } from "../../../../../utils/ref";
 import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
+import LoadingMessage from "./LoadingMessage";
 
 export default function Menu() {
   const {
@@ -23,6 +24,8 @@ export default function Menu() {
     basket,
     handleRemoveFromBasket,
     isCardSelected,
+    isLoading,
+    updateProductQuantity,
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
@@ -40,6 +43,34 @@ export default function Menu() {
     handleAddToBasket(id);
   };
 
+  const onRemove = (e, id) => {
+    e.stopPropagation();
+    handleRemoveFromBasket(id);
+  };
+
+  const onIncrement = (e, productInBasket) => {
+    e.stopPropagation();
+    if (!productInBasket) return;
+    updateProductQuantity(productInBasket, +1);
+  };
+
+  const onDecrement = (e, productInBasket) => {
+    e.stopPropagation();
+    if (!productInBasket) return;
+
+    const quantity = productInBasket.quantity;
+
+    if (quantity === 0) return;
+
+    if (quantity === 1) {
+      handleRemoveFromBasket(productInBasket.id);
+      return;
+    }
+    updateProductQuantity(productInBasket, -1);
+  };
+
+  if (isLoading) return <LoadingMessage />;
+
   if (isMenuEmpty)
     return <EmptyMenu isAdmin={isAdmin} reloadMenu={reloadMenu} />;
 
@@ -55,9 +86,13 @@ export default function Menu() {
             hasDeleteButton={isAdmin}
             onDelete={(e) => onDelete(e, id)}
             onClick={isAdmin ? () => selectProductToEdit(id) : null}
-            onAdd={(e) => onAdd(e, id)}
+            addProductToBasket={(e) => onAdd(e, id)}
+            removeProductFromBasket={(e) => onRemove(e, id)}
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
+            basketQuantity={findObjectById(id, basket)?.quantity}
+            onIncrement={(e) => onIncrement(e, findObjectById(id, basket))}
+            onDecrement={(e) => onDecrement(e, findObjectById(id, basket))}
           />
         );
       })}

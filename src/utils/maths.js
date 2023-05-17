@@ -3,7 +3,6 @@ import { findObjectById } from "./array";
 export function formatPrice(priceToFormat) {
   let price = priceToFormat;
 
-  // @TODO: perhaps change this to if(!price) return 0
   if (!price) return "0,00 €";
   price = replaceFrenchCommaWithDot(price);
 
@@ -22,6 +21,7 @@ export function replaceFrenchCommaWithDot(price) {
 export function calculateTotalPrice(basket, menu) {
   return basket.reduce((currentTotal, product) => {
     const productInfo = findObjectById(product.id, menu);
+    if (!productInfo) return currentTotal;
     const summedProductPrice =
       replaceFrenchCommaWithDot(productInfo.price) * product.quantity;
 

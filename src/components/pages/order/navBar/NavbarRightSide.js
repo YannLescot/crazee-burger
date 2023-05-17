@@ -7,7 +7,7 @@ import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 import { focusTitleEditBox } from "../../../../utils/ref";
 
-//Ce nom de hook existe déjà dans react-toastify, mais là c'est le mien
+//Ce nom de hook existe déjà dans react-toastify, mais là on parle de celui du projet
 import { useToast } from "../../../../hooks/useToast";
 
 export default function RightSide() {

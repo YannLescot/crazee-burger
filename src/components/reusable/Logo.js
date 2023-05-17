@@ -1,39 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../../assets/images/F03_logo-orange.png";
 import { theme } from "../../theme/index.js";
+import { ReactComponent as LogoSvg } from "../../assets/images/LogoOishiiSVG.svg";
 
 export default function Logo({ className, onClick }) {
   return (
     <LogoStyled className={className} onClick={onClick}>
-      <h1>CRAZEE</h1>
-      <img src={logo} alt="logo" />
-      <h1>BURGER</h1>
+      <LogoSvg fill={theme.colors.primary} width="100%" height="100%" />
     </LogoStyled>
   );
 }
 
 const LogoStyled = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
 
-  h1 {
-    display: inline;
-    text-align: center;
-    margin: 0px;
-    font-family: ${theme.font.families.stylish};
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-size: ${theme.font.sizes.P4};
-    font-weight: ${theme.font.weights.bold};
-    line-height: 1em;
-    color: ${theme.colors.primary};
+  @media ${theme.devices.medium} {
+    scale: 0.8;
   }
 
-  img {
-    object-fit: contain;
-    height: 60px;
-    width: 80px;
-    margin: 0 5px;
+  @media ${theme.devices.small} {
+    scale: 0.6;
+  }
+
+  @media ${theme.devices.mobile} {
+    scale: 0.45;
   }
 `;

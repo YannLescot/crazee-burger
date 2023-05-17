@@ -26,4 +26,11 @@ export default createContext({
   handleAddToBasket: () => {},
   handleRemoveFromBasket: () => {},
   isProductInBasket: () => {},
+
+  updateProductQuantity: () => {},
+
+  isLoading: false,
+
+  wasOrderConfirmed: false,
+  handleOrderConfirmation: () => {},
 });

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import EditFooter from "./EditFooter";
 import OrderContext from "../../../../../../../context/OrderContext";
 import ProductForm from "../ProductForm";
+import { useDisplaySuccessMessages } from "../../../../../../../hooks/useDisplaySuccessMessages";
 
 export default function EditProduct() {
   const {
@@ -12,6 +13,13 @@ export default function EditProduct() {
     handleProductEdit,
   } = useContext(OrderContext);
 
+  const {
+    wasProductEdited,
+    displaySuccessEditMessage,
+    registeredEdition,
+    setRegisteredEdition,
+  } = useDisplaySuccessMessages();
+
   const onChange = (event) => {
     const { name, value } = event.target;
 
@@ -19,6 +27,13 @@ export default function EditProduct() {
     setProductToEdit(newProductToEdit);
 
     handleProductEdit(newProductToEdit);
+    setRegisteredEdition(true);
+  };
+
+  const handleOnBlur = () => {
+    if (registeredEdition) {
+      displaySuccessEditMessage();
+    }
   };
 
   return (
@@ -28,8 +43,10 @@ export default function EditProduct() {
           product={productToEdit}
           handleChange={onChange}
           titleRef={titleEditBoxRef}
+          canBlur={true}
+          onBlur={handleOnBlur}
         >
-          <EditFooter />
+          <EditFooter wasProductEdited={wasProductEdited} />
         </ProductForm>
       </div>
     </EditProductStyled>

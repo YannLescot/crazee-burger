@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
-import EmptyBasket from "./EmptyBasket";
+import EmptyBasketMessage from "./EmptyBasketMessage";
 import BasketCards from "./BasketCards";
 import { isEmpty } from "../../../../../utils/array";
 
@@ -11,7 +11,7 @@ export default function BasketBody() {
 
   return (
     <BasketBodyStyled>
-      {isBasketEmpty ? <EmptyBasket /> : <BasketCards />}
+      {isBasketEmpty ? <EmptyBasketMessage /> : <BasketCards />}
     </BasketBodyStyled>
   );
 }

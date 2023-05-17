@@ -31,12 +31,6 @@ export default function PanelTabs() {
 
   return (
     <PanelTabsStyled>
-      <Tab
-        Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
-        label=""
-        onClick={handleCollapseClick}
-        className={isPanelCollapsed ? "active" : ""}
-      />
       {tabs.map(({ id, Icon, label }) => (
         <Tab
           key={id}
@@ -46,6 +40,12 @@ export default function PanelTabs() {
           className={activeTab === id ? "active" : ""}
         />
       ))}
+      <Tab
+        Icon={isPanelCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        label=""
+        onClick={handleCollapseClick}
+        className={isPanelCollapsed ? "active" : ""}
+      />
     </PanelTabsStyled>
   );
 }

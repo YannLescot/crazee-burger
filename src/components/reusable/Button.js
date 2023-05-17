@@ -5,20 +5,16 @@ import { theme } from "../../theme";
 export default function Button({
   label,
   Icon,
+  iconPos,
   variant,
   size,
-  padding,
   onClick,
 }) {
   return (
-    <ButtonStyled
-      variant={variant}
-      size={size}
-      padding={padding}
-      onClick={onClick}
-    >
-      {label}
-      {Icon && Icon}
+    <ButtonStyled variant={variant} size={size} onClick={onClick}>
+      {iconPos === "left" && Icon}
+      <p>{label}</p>
+      {iconPos === "right" && Icon}
     </ButtonStyled>
   );
 }
@@ -42,11 +38,6 @@ const ButtonStyled = styled.button`
   ${({ size }) => size === "large" && getLargeSize()}
   ${({ size }) => size === "xlarge" && getExtraLargeSize()}
 
-  ${({ padding }) => padding === "small" && getSmallPadding()}
-  ${({ padding }) => padding === "medium" && getMediumPadding()}
-  ${({ padding }) => padding === "large" && getLargePadding()}
-
-
   ${({ variant }) => variant === "primary" && getPrimaryStyle()}
   ${({ variant }) => variant === "add" && getAddStyle()}
 `;
@@ -57,14 +48,13 @@ const getPrimaryStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
     cursor: pointer;
+    transition: background-color 0.2s ease-out;
 
     &:hover {
-      transition: background-color 0.2s ease-out;
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary};
 
       &:active {
-        transition: background-color 0.2s ease-out;
         background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
       }
@@ -78,6 +68,7 @@ const getAddStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
     font-size: ${theme.font.sizes.XS};
+    transition: background-color 0.2s ease-out;
 
     &:hover {
       background-color: ${theme.colors.white};
@@ -93,9 +84,10 @@ const getAddStyle = () => {
 
 const getSmallSize = () => {
   return css`
-    width: ${theme.button.sizes.width.SM};
+    width: 140px;
     height: ${theme.button.sizes.height.MD};
     font-size: ${theme.font.sizes.XS};
+    padding: ${theme.button.paddings.SM};
   `;
 };
 
@@ -104,6 +96,7 @@ const getMediumSize = () => {
     width: ${theme.button.sizes.width.MD};
     height: ${theme.button.sizes.height.LG};
     font-size: ${theme.font.sizes.XS};
+    padding: ${theme.button.paddings.MD};
   `;
 };
 
@@ -111,6 +104,7 @@ const getLargeSize = () => {
   return css`
     width: ${theme.button.sizes.width.LG};
     height: ${theme.button.sizes.height.SM};
+    padding: ${theme.button.paddings.LG};
   `;
 };
 
@@ -119,23 +113,12 @@ const getExtraLargeSize = () => {
     width: ${theme.button.sizes.width.XL};
     height: ${theme.button.sizes.height.LG};
     font-size: ${theme.font.sizes.SM};
-  `;
-};
 
-const getSmallPadding = () => {
-  return css`
-    padding: ${theme.button.paddings.SM};
-  `;
-};
-
-const getMediumPadding = () => {
-  return css`
-    padding: ${theme.button.paddings.MD};
-  `;
-};
-
-const getLargePadding = () => {
-  return css`
-    padding: ${theme.button.paddings.LG};
+    @media ${theme.devices.mobile} {
+      width: ${theme.button.sizes.width.MD};
+      height: ${theme.button.sizes.height.MD};
+      padding: ${theme.button.paddings.XS};
+      font-size: ${theme.font.sizes.XS};
+    }
   `;
 };

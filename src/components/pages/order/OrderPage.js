@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById, checkProductSelection } from "../../../utils/array";
+import { checkProductSelection, findObjectById } from "../../../utils/array";
+import { useParams } from "react-router-dom";
+import bgPattern from "../../../assets/images/bgPattern.svg";
+import { initOrderPage } from "../../../hooks/useInitOrderPage";
+import { useModal } from "../../../hooks/useModal";
+import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -16,9 +21,13 @@ export default function OrderPage() {
   const [activeTab, setActiveTab] = useState("add");
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState(null);
+  const { username } = useParams();
+  const [userName, setUserName] = useState(username);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const menuContent = useMenu();
-  const basketContent = useBasket();
+  const menuContent = useMenu(userName);
+  const basketContent = useBasket(userName);
+  const modalContent = useModal();
 
   const titleEditBoxRef = useRef();
 
@@ -54,14 +63,21 @@ export default function OrderPage() {
     selectProductToEdit,
 
     ...menuContent,
-
     ...basketContent,
+    ...modalContent,
+
+    isLoading,
   };
+
+  useLayoutEffect(() => {
+    initOrderPage(userName, menuContent, basketContent, setIsLoading);
+  }, [userName]);
 
   return (
     <OrderPageStyled>
       <OrderContext.Provider value={orderContextValue}>
         <div className="container">
+          {modalContent.wasOrderConfirmed && <OrderConfirmed />}
           <Navbar />
           <Main />
         </div>
@@ -78,9 +94,14 @@ const OrderPageStyled = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${theme.colors.primary};
+  background-image: url(${bgPattern});
+  background-size: 50px;
+  background-repeat: repeat;
+  background-position: center;
 
   .container {
     height: 95vh;
     width: 1400px;
+    width: 80vw;
   }
 `;

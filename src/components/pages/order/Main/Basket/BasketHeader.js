@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
 import { calculateTotalPrice, formatPrice } from "../../../../../utils/maths";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
-  const totalPrice = formatPrice(calculateTotalPrice(basket, menu));
+  const totalPrice = isEmpty(basket)
+    ? formatPrice(0)
+    : formatPrice(calculateTotalPrice(basket, menu));
 
   return (
     <BasketHeaderStyled>
@@ -32,6 +35,6 @@ const BasketHeaderStyled = styled.div`
   }
 
   .totalPrice {
-    font-weight: ${theme.font.weights.bold};
+    font-weight: ${theme.font.weights.regular};
   }
 `;

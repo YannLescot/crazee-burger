@@ -3,7 +3,10 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
 const TextInput = React.forwardRef(
-  ({ type, value, onChange, name, placeholder, Icon, variant }, ref) => {
+  (
+    { type, value, onChange, name, placeholder, Icon, variant, onBlur },
+    ref
+  ) => {
     return (
       <TextInputStyled variant={variant}>
         <div className="icon">{Icon && Icon}</div>
@@ -14,6 +17,7 @@ const TextInput = React.forwardRef(
           onChange={onChange}
           placeholder={placeholder}
           type={type}
+          onBlur={onBlur}
         />
       </TextInputStyled>
     );
@@ -68,6 +72,15 @@ const getNormalStyle = () => {
     .icon {
       color: ${theme.colors.greyBlue};
       margin-left: ${theme.spacing.sm};
+    }
+
+    @media ${theme.devices.mobile} {
+      height: ${theme.button.sizes.height.MD};
+      width: ${theme.button.sizes.width.MD};
+
+      .icon {
+        margin-left: ${theme.spacing.xs};
+      }
     }
   `;
 };

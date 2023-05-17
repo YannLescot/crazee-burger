@@ -11,12 +11,12 @@ export default function Main() {
 
   return (
     <MainStyled>
-      <Basket />
-
       <div className="menu-and-admin">
         <Menu />
         {isAdmin && <AdminPanel />}
       </div>
+
+      <Basket />
     </MainStyled>
   );
 }
@@ -24,7 +24,7 @@ export default function Main() {
 const MainStyled = styled.div`
   flex: 1;
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 1fr 25%;
   height: calc(95vh - 10vh);
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
@@ -40,9 +40,8 @@ const MainStyled = styled.div`
   ::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 80vw;
     height: calc(95vh - 10vh);
-    width: 1400px;
     box-shadow: ${theme.shadows.light};
     z-index: 1;
     border-bottom-left-radius: ${theme.borderRadius.extraRound};

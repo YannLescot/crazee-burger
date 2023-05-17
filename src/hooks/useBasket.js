@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { deepClone, findObjectById, removeObjectById } from "../utils/array";
+import { storeLocally } from "../utils/window";
 
-export const useBasket = () => {
+export const useBasket = (userName) => {
   const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productID) => {
@@ -9,22 +10,30 @@ export const useBasket = () => {
     const productInBasket = findObjectById(productID, basketCopy);
 
     if (productInBasket) {
-      incrementProductQuantity(productInBasket, basketCopy);
+      updateProductQuantity(productInBasket, +1);
       setBasket(basketCopy);
+      storeLocally(userName, "basket", basketCopy);
       return;
     }
 
-    addProductToBasket(productID, basketCopy);
+    addNewProductToBasket(productID, basketCopy);
   };
 
-  const addProductToBasket = (productId, basketCopy) => {
+  const addNewProductToBasket = (productId, basketCopy) => {
     const newBasketProduct = { id: productId, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
+    storeLocally(userName, "basket", newBasket);
   };
 
-  const incrementProductQuantity = (product) => {
-    product.quantity++;
+  const updateProductQuantity = (product, action) => {
+    setBasket((prevBasket) => {
+      const basketCopy = deepClone(prevBasket);
+      const productInBasket = findObjectById(product.id, basketCopy);
+      productInBasket.quantity += action;
+      storeLocally(userName, "basket", basketCopy);
+      return basketCopy;
+    });
   };
 
   const handleRemoveFromBasket = (productID) => {
@@ -32,11 +41,20 @@ export const useBasket = () => {
 
     const newBasket = removeObjectById(productID, basketCopy);
     setBasket(newBasket);
+    storeLocally(userName, "basket", newBasket);
+  };
+
+  const handleEmptyBasket = () => {
+    setBasket([]);
+    storeLocally(userName, "basket", []);
   };
 
   return {
     basket,
+    setBasket,
     handleAddToBasket,
     handleRemoveFromBasket,
+    handleEmptyBasket,
+    updateProductQuantity,
   };
 };

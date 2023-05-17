@@ -1,8 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../../theme";
+import UpdateMessage from "../../../../../../reusable/UpdateMessage";
+import { BsCloudCheck } from "react-icons/bs";
 
-export default function EditFooter() {
+export default function EditFooter({ wasProductEdited }) {
+  if (wasProductEdited)
+    return (
+      <EditFooterStyled>
+        <UpdateMessage
+          label="Modifications enregistrées !"
+          Icon={<BsCloudCheck className="icon" />}
+          color={theme.colors.blue}
+          isDisplayed={wasProductEdited}
+        />
+      </EditFooterStyled>
+    );
+
   return (
     <EditFooterStyled>
       <span>
@@ -25,5 +39,10 @@ const EditFooterStyled = styled.div`
       display: inline;
       text-decoration: underline;
     }
+  }
+
+  .icon {
+    font-size: ${theme.font.sizes.P2};
+    margin-left: 0px;
   }
 `;

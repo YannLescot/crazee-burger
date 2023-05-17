@@ -1,12 +1,12 @@
 const colors = {
-  dark: "#17161a",
+  dark: "#252525",
   incognito: "#333",
   white: "#fff",
   background_white: "#f5f5f7",
   background_dark: "#292729",
-  primary: "#ffa01b",
+  primary: "#E33F3F",
   green: "green",
-  success: "#60bd4f",
+  success: "#24BA45",
   red: "#e25549",
   redSecondary: "#c4151c",
   blue: "#51a7e1",
@@ -43,6 +43,7 @@ const button = {
     },
   },
   paddings: {
+    XS: "6px",
     SM: "12px",
     MD: "0px 24px",
     LG: "18px 24px",
@@ -62,6 +63,7 @@ const font = {
     P4: "36px",
     P5: "48px",
     P6: "60px",
+    HUGE: "128px",
   },
   weights: {
     light: 300,
@@ -72,7 +74,7 @@ const font = {
     heavy: 800,
   },
   families: {
-    stylish: `"Amatic SC", cursive`,
+    stylish: `"Atma", cursive`,
   },
 };
 const gridUnit = 8;
@@ -91,6 +93,18 @@ const shadows = {
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
 };
 
+const sizes = {
+  medium: "1440px",
+  small: "1024px",
+  mobile: "550px",
+};
+
+const devices = {
+  medium: `(max-width: ${sizes.medium})`,
+  small: `(max-width: ${sizes.small})`,
+  mobile: `(max-width: ${sizes.mobile})`,
+};
+
 export const theme = {
   colors,
   font,
@@ -99,4 +113,6 @@ export const theme = {
   shadows,
   spacing,
   button,
+  sizes,
+  devices,
 };
