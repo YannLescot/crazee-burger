@@ -186,7 +186,7 @@ const OrderPageStyled = styled.div`
         padding: 30px;
         box-sizing: border-box;
 
-        animation: ${slideInOut} 4.5s ease-in-out;
+        animation: ${slideInOut} 5s ease-in-out;
         animation-fill-mode: forwards;
 
         .texts {
