@@ -48,14 +48,13 @@ const getPrimaryStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
     cursor: pointer;
+    transition: background-color 0.2s ease-out;
 
     &:hover {
-      transition: background-color 0.2s ease-out;
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary};
 
       &:active {
-        transition: background-color 0.2s ease-out;
         background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
       }
@@ -69,6 +68,7 @@ const getAddStyle = () => {
     color: ${theme.colors.white};
     border: 1px solid ${theme.colors.success};
     font-size: ${theme.font.sizes.XS};
+    transition: background-color 0.2s ease-out;
 
     &:hover {
       background-color: ${theme.colors.white};
