@@ -11,6 +11,11 @@ export default function BasketFooter() {
   const { handleEmptyBasket, basket, handleOrderConfirmation } =
     useContext(OrderContext);
   const isBasketEmpty = isEmpty(basket);
+
+  const handleOnOrder = () => {
+    handleEmptyBasket();
+    handleOrderConfirmation(5000);
+  };
   return (
     <BasketFooterStyled>
       {!isBasketEmpty && (
@@ -21,7 +26,7 @@ export default function BasketFooter() {
             Icon=<GiConfirmed className="icon" />
             iconPos="left"
             size="small"
-            onClick={() => handleOrderConfirmation(5000)}
+            onClick={handleOnOrder}
           />
           <Button
             label="Vider le panier"
