@@ -29,7 +29,7 @@ export default function BasketFooter() {
             onClick={handleOnOrder}
           />
           <Button
-            label="Vider le panier"
+            label="Annuler"
             variant="primary"
             Icon=<RiDeleteBin2Line className="icon" />
             iconPos="left"
@@ -60,7 +60,7 @@ const BasketFooterStyled = styled.div`
     width: 100%;
 
     .icon {
-      font-size: ${theme.font.sizes.P1};
+      font-size: ${theme.font.sizes.P2};
     }
   }
 `;

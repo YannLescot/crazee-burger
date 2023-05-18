@@ -95,7 +95,7 @@ const OrderPageStyled = styled.div`
   width: 100vw;
   background-color: ${theme.colors.primary};
   background-image: url(${bgPattern});
-  background-size: 50px;
+  background-size: 55px;
   background-repeat: repeat;
   background-position: center;
 
