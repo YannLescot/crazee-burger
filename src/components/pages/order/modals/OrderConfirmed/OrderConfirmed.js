@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { theme } from "../../../../../theme";
-import SmokingBowl from "./SmokingBowl";
 import OrderConfirmedTexts from "./OrderConfirmedTexts";
 
 const OrderConfirmed = () => {
@@ -9,7 +8,7 @@ const OrderConfirmed = () => {
     <OrderConfirmedStyled>
       <div className="orderConfirmedPanel">
         <OrderConfirmedTexts />
-        <SmokingBowl />
+        <img src="/images/orderOK.png" alt="orderOK" />
       </div>
     </OrderConfirmedStyled>
   );
@@ -41,7 +40,7 @@ const OrderConfirmedStyled = styled.div`
   width: 80vw;
   height: 95vh;
   background-color: rgba(0, 0, 0, 0.85);
-  z-index: 4;
+  z-index: 6;
 
   border-radius: ${theme.borderRadius.extraRound};
   display: flex;
@@ -55,9 +54,9 @@ const OrderConfirmedStyled = styled.div`
   overflow: hidden;
 
   .orderConfirmedPanel {
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
     width: 65%;
-    height: 65%;
+    height: 55%;
     border-radius: ${theme.borderRadius.extraRound};
     display: grid;
     grid-template-rows: 1fr 3fr;
