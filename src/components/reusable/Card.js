@@ -194,12 +194,14 @@ const selectedStyle = css`
   background: ${theme.colors.primary};
   color: ${theme.colors.white};
 
-  .closeBtn {
-    color: ${theme.colors.white};
-    &:hover {
-      color: ${theme.colors.red};
-      &:active {
-        color: ${theme.colors.white};
+  .topButtons {
+    .closeBtn {
+      color: ${theme.colors.white};
+      &:hover {
+        color: ${theme.colors.dark};
+        &:active {
+          color: ${theme.colors.white};
+        }
       }
     }
   }

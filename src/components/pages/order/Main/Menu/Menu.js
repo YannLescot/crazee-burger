@@ -29,6 +29,8 @@ export default function Menu() {
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
+  const noIngredientsMessage =
+    "Les ingrédients n'ont pas été renseignés pour ce produit.";
 
   const onDelete = (event, id) => {
     event.stopPropagation();
@@ -83,7 +85,9 @@ export default function Menu() {
             imageSource={getImageSource(imageSource)}
             title={title}
             leftDescription={formatPrice(price)}
-            productDetails={productDetails ? productDetails : null}
+            productDetails={
+              productDetails ? productDetails : noIngredientsMessage
+            }
             hasDeleteButton={isAdmin}
             onDelete={(e) => onDelete(e, id)}
             onClick={isAdmin ? () => selectProductToEdit(id) : null}

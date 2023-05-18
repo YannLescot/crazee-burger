@@ -22,6 +22,7 @@ const AdminPanelStyled = styled.div`
   right: 0;
 
   pointer-events: none;
+  z-index: 4;
 
   & > * {
     pointer-events: all;

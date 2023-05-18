@@ -84,7 +84,7 @@ const getAddStyle = () => {
 
 const getSmallSize = () => {
   return css`
-    width: 140px;
+    width: 30%;
     height: ${theme.button.sizes.height.MD};
     font-size: ${theme.font.sizes.XS};
     padding: ${theme.button.paddings.SM};

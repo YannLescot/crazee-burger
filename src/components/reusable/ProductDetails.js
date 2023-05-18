@@ -47,6 +47,11 @@ const ProductDetailsStyled = styled.div`
       padding: 5px 10px;
       box-sizing: border-box;
 
+      overflow-y: scroll;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
       z-index: 2;
     }
   }
