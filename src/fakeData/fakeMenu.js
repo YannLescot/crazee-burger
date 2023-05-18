@@ -9,6 +9,8 @@ const SMALL = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ const MEDIUM = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
   {
     id: 2,
@@ -78,6 +82,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
   {
     id: 2,

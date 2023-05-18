@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 import QuantityButton from "./QuantityButton";
+import ProductDetails from "./ProductDetails";
 
 export default function Card({
   imageSource,
@@ -18,6 +19,7 @@ export default function Card({
   removeProductFromBasket,
   onIncrement,
   onDecrement,
+  productDetails,
 }) {
   return (
     <CardStyled
@@ -25,7 +27,8 @@ export default function Card({
       isSelected={isSelected}
       isHoverable={isHoverable}
     >
-      <div>
+      <div className="topButtons">
+        <ProductDetails className="productDetails" content={productDetails} />
         {hasDeleteButton && (
           <TiDelete className="closeBtn" onClick={onDelete} />
         )}
@@ -67,21 +70,41 @@ const CardStyled = styled.div`
 
   ${({ isHoverable }) => isHoverable && hoverableStyle}
 
-  .closeBtn {
+  .topButtons {
     position: relative;
     top: -5px;
-    right: -175px;
-    font-size: 30px;
-    color: ${theme.colors.primary};
-    border-radius: ${theme.borderRadius.round};
-    cursor: pointer;
+    height: 30px;
+    width: 100%;
 
-    &:hover {
-      color: ${theme.colors.dark};
+    display: flex;
+    align-items: center;
 
-      &:active {
-        color: ${theme.colors.primary};
+    .closeBtn {
+      position: absolute;
+      top: 0px;
+      left: 87%;
+      font-size: 30px;
+      color: ${theme.colors.primary};
+      border-radius: ${theme.borderRadius.round};
+      cursor: pointer;
+
+      z-index: 3;
+
+      &:hover {
+        color: ${theme.colors.dark};
+
+        &:active {
+          color: ${theme.colors.primary};
+        }
       }
+    }
+
+    .productDetails {
+      position: relative;
+      top: 0px;
+      right: 55%;
+      color: ${theme.colors.dark};
+      cursor: pointer;
     }
   }
 

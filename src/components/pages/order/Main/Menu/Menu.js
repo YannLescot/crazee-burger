@@ -76,13 +76,14 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menu.map(({ id, imageSource, title, price }) => {
+      {menu.map(({ id, imageSource, title, price, productDetails }) => {
         return (
           <Card
             key={id}
             imageSource={getImageSource(imageSource)}
             title={title}
             leftDescription={formatPrice(price)}
+            productDetails={productDetails ? productDetails : null}
             hasDeleteButton={isAdmin}
             onDelete={(e) => onDelete(e, id)}
             onClick={isAdmin ? () => selectProductToEdit(id) : null}
