@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import OrderConfirmedTexts from "./OrderConfirmedTexts";
+import { slideInOut } from "./slideAnimation";
 
 const OrderConfirmed = () => {
   return (
@@ -15,21 +16,6 @@ const OrderConfirmed = () => {
 };
 
 export default OrderConfirmed;
-
-const slideInOut = keyframes`
-  0% {
-    transform: translateX(-120%);
-  }
-  8% {
-    transform: translateX(0%);
-  }
-  92% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(180%);
-  }
-`;
 
 const OrderConfirmedStyled = styled.div`
   position: absolute;
