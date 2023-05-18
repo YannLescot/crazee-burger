@@ -75,6 +75,7 @@ const font = {
   },
   families: {
     stylish: `"Atma", cursive`,
+    classic: `"Open Sans", sans-serif`,
   },
 };
 const gridUnit = 8;

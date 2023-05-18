@@ -19,10 +19,11 @@ export default function ProductForm({
 
       <div className="inputSection">
         {getInputsConfig(product).map(
-          ({ type, value, name, placeholder, Icon }) => {
+          ({ index, type, value, name, placeholder, Icon, variant }) => {
             return (
               <TextInput
-                key={`${name}ipt`}
+                className={name}
+                key={index}
                 ref={name === "title" ? titleRef : null}
                 type={type}
                 value={value}
@@ -30,8 +31,9 @@ export default function ProductForm({
                 onChange={handleChange}
                 placeholder={placeholder}
                 Icon={Icon}
-                variant="minimalist"
+                variant={variant}
                 onBlur={canBlur && onBlur}
+                rows={name === "details" ? 6 : 1}
               />
             );
           }
@@ -44,15 +46,36 @@ export default function ProductForm({
 
 const ProductFormStyled = styled.form`
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr 4fr;
   height: 100%;
   .inputSection {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 3fr 1.5fr;
     grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 8px;
     grid-row-gap: 8px;
+
+    .title {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .imageSource {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .price {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .details {
+      grid-column: 2;
+      grid-row: span 3;
+    }
+
     .formFooter {
       grid-column: 1;
       grid-row: 4;

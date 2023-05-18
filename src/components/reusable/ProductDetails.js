@@ -41,7 +41,7 @@ const ProductDetailsStyled = styled.div`
       margin-left: 20px;
       margin-top: 195px;
 
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.93);
       border-radius: ${theme.borderRadius.round};
       border: 1px solid ${theme.colors.dark};
       padding: 5px 10px;

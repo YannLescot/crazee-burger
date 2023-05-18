@@ -4,21 +4,44 @@ import { theme } from "../../theme/index.js";
 
 const TextInput = React.forwardRef(
   (
-    { type, value, onChange, name, placeholder, Icon, variant, onBlur },
+    {
+      type,
+      value,
+      onChange,
+      name,
+      placeholder,
+      Icon,
+      variant,
+      onBlur,
+      className,
+      rows,
+    },
     ref
   ) => {
     return (
-      <TextInputStyled variant={variant}>
+      <TextInputStyled variant={variant} className={className}>
         <div className="icon">{Icon && Icon}</div>
-        <input
-          ref={ref}
-          name={name}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          type={type}
-          onBlur={onBlur}
-        />
+        {type === "textarea" ? (
+          <textarea
+            ref={ref}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            onBlur={onBlur}
+            rows={rows}
+          />
+        ) : (
+          <input
+            ref={ref}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            type={type}
+            onBlur={onBlur}
+          />
+        )}
       </TextInputStyled>
     );
   }
@@ -33,7 +56,8 @@ const TextInputStyled = styled.div`
   border: none;
   border-radius: ${theme.borderRadius.round};
 
-  input {
+  input,
+  textarea {
     width: 70%;
     font-size: ${theme.font.sizes.SM};
     font-weight: ${theme.font.weights.regular};
@@ -45,12 +69,29 @@ const TextInputStyled = styled.div`
     }
   }
 
+  textarea {
+    width: 75%;
+    margin-left: ${theme.spacing.xs};
+    font-weight: 100;
+    background-color: ${theme.colors.background_white};
+    color: ${theme.colors.black};
+    resize: none;
+    font-family: "Arial", sans-serif;
+
+    &::placeholder {
+      font-size: ${theme.font.sizes.MD};
+      color: ${theme.colors.greyMedium};
+      font-weight: ${theme.font.weights.light};
+    }
+  }
+
   .icon {
     font-size: ${theme.font.sizes.SM};
   }
 
   ${({ variant }) => variant === "minimalist" && getMinimalistStyle()}
   ${({ variant }) => variant === "normal" && getNormalStyle()}
+  ${({ variant }) => variant === "large" && getLargeStyle()}
 `;
 
 const getNormalStyle = () => {
@@ -94,6 +135,31 @@ const getMinimalistStyle = () => {
     input {
       width: 90%;
       background-color: ${theme.colors.background_white};
+      margin-left: 15px;
+
+      &::placeholder {
+        color: ${theme.colors.greyMedium};
+      }
+    }
+
+    .icon {
+      color: ${theme.colors.greyBlue};
+      margin-left: 25px;
+    }
+  `;
+};
+
+const getLargeStyle = () => {
+  return css`
+    max-width: 400px;
+    height: 100%;
+    background-color: ${theme.colors.background_white};
+
+    input {
+      width: 90%;
+      height: 90%;
+      background-color: ${theme.colors.background_white};
+      background-color: red;
       margin-left: 15px;
 
       &::placeholder {
