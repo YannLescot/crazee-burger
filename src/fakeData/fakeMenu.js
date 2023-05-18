@@ -10,7 +10,7 @@ const SMALL = [
     isAvailable: true,
     isAdvertised: false,
     productDetails:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "pâtes, bouillon, miso, algues, oignons verts, champignons, tofu, viande (porc ou poulet), légumes, œuf, gingembre, ail, huile de sésame, sauce soja, vinaigre de riz.",
   },
   {
     id: 2,
@@ -20,6 +20,8 @@ const SMALL = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon, sauce soja, mirin, sucre, oignons verts, algues, viande (porc ou poulet), œuf, champignons, légumes, gingembre, ail, huile de sésame, vinaigre de riz.",
   },
 ];
 
@@ -33,7 +35,7 @@ const MEDIUM = [
     isAvailable: true,
     isAdvertised: false,
     productDetails:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "pâtes, bouillon, miso, algues, oignons verts, champignons, tofu, viande (porc ou poulet), légumes, œuf, gingembre, ail, huile de sésame, sauce soja, vinaigre de riz.",
   },
   {
     id: 2,
@@ -43,6 +45,8 @@ const MEDIUM = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon, sauce soja, mirin, sucre, oignons verts, algues, viande (porc ou poulet), œuf, champignons, légumes, gingembre, ail, huile de sésame, vinaigre de riz.",
   },
   {
     id: 3,
@@ -52,6 +56,8 @@ const MEDIUM = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "nouilles, sauce mazesoba, viande (porc ou poulet), oignons verts, œuf, algues, légumes, ail, huile de sésame, vinaigre de riz, mayonnaise, nori, sésame, poivre, gingembre mariné.",
   },
   {
     id: 4,
@@ -61,6 +67,8 @@ const MEDIUM = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon, sel, mirin, sucre, oignons verts, algues, viande (porc ou poulet), œuf, champignons, légumes, gingembre, ail, huile de sésame, vinaigre de riz.",
   },
   {
     id: 5,
@@ -70,6 +78,8 @@ const MEDIUM = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon de porc, viande de porc, oignons verts, algues, œuf, champignons, gingembre, ail, huile de sésame, vinaigre de riz, sauce soja, sésame, poivre, beurre d'ail.",
   },
 ];
 
@@ -83,7 +93,7 @@ const LARGE = [
     isAvailable: true,
     isAdvertised: false,
     productDetails:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "pâtes, bouillon, miso, algues, oignons verts, champignons, tofu, viande (porc ou poulet), légumes, œuf, gingembre, ail, huile de sésame, sauce soja, vinaigre de riz.",
   },
   {
     id: 2,
@@ -93,6 +103,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon, sauce soja, mirin, sucre, oignons verts, algues, viande (porc ou poulet), œuf, champignons, légumes, gingembre, ail, huile de sésame, vinaigre de riz.",
   },
   {
     id: 3,
@@ -102,6 +114,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "nouilles, sauce mazesoba, viande (porc ou poulet), oignons verts, œuf, algues, légumes, ail, huile de sésame, vinaigre de riz, mayonnaise, nori, sésame, poivre, gingembre mariné.",
   },
   {
     id: 4,
@@ -111,6 +125,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon, sel, mirin, sucre, oignons verts, algues, viande (porc ou poulet), œuf, champignons, légumes, gingembre, ail, huile de sésame, vinaigre de riz.",
   },
   {
     id: 5,
@@ -120,6 +136,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon de porc, viande de porc, oignons verts, algues, œuf, champignons, gingembre, ail, huile de sésame, vinaigre de riz, sauce soja, sésame, poivre, beurre d'ail.",
   },
   {
     id: 6,
@@ -129,6 +147,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "pâtes, bouillon épais, viande (porc ou poulet), oignons verts, algues, œuf, légumes, gingembre, ail, huile de sésame, vinaigre de riz, sauce soja, sésame, poivre, poudre de piment.",
   },
   {
     id: 7,
@@ -138,6 +158,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "eau gazéifiée, sucre, arômes naturels et artificiels, acidifiants, colorants, agents conservateurs",
   },
   {
     id: 8,
@@ -147,6 +169,7 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails: "orge japonais torréfié, eau.",
   },
   {
     id: 9,
@@ -156,6 +179,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "eau gazéifiée, sucre, arôme de myrtille, acide citrique, colorant alimentaire.",
   },
   {
     id: 10,
@@ -165,6 +190,8 @@ const LARGE = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    productDetails:
+      "thé noir, lait, perles de tapioca, sirop de saveur (fruit ou thé), glace pilée, sucre, crème.",
   },
 ];
 
