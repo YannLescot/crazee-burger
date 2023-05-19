@@ -116,8 +116,9 @@ const getNormalStyle = () => {
     }
 
     @media ${theme.devices.mobile} {
-      height: ${theme.button.sizes.height.MD};
-      width: ${theme.button.sizes.width.MD};
+      height: 45px;
+      width: 225px;
+      padding: 2px 10px;
 
       .icon {
         margin-left: ${theme.spacing.xs};

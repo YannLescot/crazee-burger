@@ -115,9 +115,9 @@ const getExtraLargeSize = () => {
     font-size: ${theme.font.sizes.SM};
 
     @media ${theme.devices.mobile} {
-      width: ${theme.button.sizes.width.MD};
-      height: ${theme.button.sizes.height.MD};
-      padding: ${theme.button.paddings.XS};
+      height: 48px;
+      width: 245px;
+      padding: 3px 10px;
       font-size: ${theme.font.sizes.XS};
     }
   `;
