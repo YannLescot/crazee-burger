@@ -33,7 +33,7 @@ export default function ProductForm({
                 Icon={Icon}
                 variant={variant}
                 onBlur={canBlur && onBlur}
-                rows={name === "details" ? 6 : 1}
+                rows={name === "productDetails" ? 6 : 1}
               />
             );
           }
@@ -71,7 +71,7 @@ const ProductFormStyled = styled.form`
       grid-row: 3;
     }
 
-    .details {
+    .productDetails {
       grid-column: 2;
       grid-row: span 3;
     }

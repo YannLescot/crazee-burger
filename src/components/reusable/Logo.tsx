@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../theme/index.js";
-import { ReactComponent as LogoSvg } from "../../assets/images/LogoOishiiSVG.svg";
+import { theme } from "../../theme/index";
 
-export default function Logo({ className, onClick }) {
+type LogoProps = {
+  className?: string;
+  onClick?: () => void;
+};
+
+export default function Logo({ className, onClick }: LogoProps) {
   return (
     <LogoStyled className={className} onClick={onClick}>
-      <LogoSvg fill={theme.colors.primary} width="100%" height="100%" />
+      <img src="/images/logoOishii.svg" alt="Logo" className="logoSVG" />
     </LogoStyled>
   );
 }
@@ -16,6 +20,11 @@ const LogoStyled = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+
+  .logoSVG {
+    width: 100%;
+    height: 100%;
+  }
 
   @media ${theme.devices.medium} {
     scale: 0.8;

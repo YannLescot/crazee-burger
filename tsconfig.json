@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES6",
+    "allowJs": true
+    //"moduleResolution": "node",
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/index.js"],
+  "exclude": ["node_modules"]
+}

@@ -33,10 +33,10 @@ export const getInputsConfig = (product) => [
     variant: "minimalist",
   },
   {
-    className: "details",
+    className: "productDetails",
     index: 3,
     value: product.productDetails,
-    name: "details",
+    name: "productDetails",
     type: "textarea",
     placeholder: "Ingrédients du produit (ex: nouilles, poulet, sauce soja...)",
     Icon: <MdEditNote />,

@@ -3,7 +3,11 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const ProductDetails = ({ content }) => {
+type ProductDetailsProps = {
+  content: string;
+};
+
+const ProductDetails = ({ content }: ProductDetailsProps) => {
   return (
     <ProductDetailsStyled>
       <AiOutlineInfoCircle className="icon" />
@@ -46,6 +50,7 @@ const ProductDetailsStyled = styled.div`
       border: 1px solid ${theme.colors.dark};
       padding: 5px 10px;
       box-sizing: border-box;
+      word-wrap: break-word;
 
       overflow-y: scroll;
       ::-webkit-scrollbar {
