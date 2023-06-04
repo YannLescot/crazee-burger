@@ -13,6 +13,12 @@
     "allowJs": true
     //"moduleResolution": "node",
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/index.js"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "src/index.js",
+    "src/components/pages/order/OrderPage.js",
+    "src/components/reusable/TextInput.js"
+  ],
   "exclude": ["node_modules"]
 }

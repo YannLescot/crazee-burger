@@ -2,7 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ Icon, label, onClick, className }) {
+interface TabProps {
+  Icon?: React.ReactNode;
+  label: string;
+  onClick: () => void;
+  className?: string;
+}
+
+export default function Tab({ Icon, label, onClick, className }: TabProps) {
   return (
     <TabStyled onClick={onClick} className={className}>
       {Icon && Icon}

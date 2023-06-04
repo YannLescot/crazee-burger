@@ -2,7 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const QuantityButton = ({ label, onIncrement, onDecrement }) => {
+interface QuantityButtonProps {
+  label: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
+}
+
+const QuantityButton = ({
+  label,
+  onIncrement,
+  onDecrement,
+}: QuantityButtonProps) => {
   return (
     <QuantityButtonStyled>
       <div className="decrease" onClick={onDecrement}>

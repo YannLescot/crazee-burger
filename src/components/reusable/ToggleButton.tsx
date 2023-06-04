@@ -2,12 +2,19 @@ import React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../theme";
 
+interface ToggleButtonProps {
+  isChecked: boolean;
+  onToggle: () => void;
+  labelIfChecked?: string;
+  labelIfUnchecked?: string;
+}
+
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-}) {
+}: ToggleButtonProps) {
   return (
     <ToggleButtonStyled>
       <input

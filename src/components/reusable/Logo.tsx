@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme/index";
 
-type LogoProps = {
+interface LogoProps {
   className?: string;
   onClick?: () => void;
-};
+}
 
 export default function Logo({ className, onClick }: LogoProps) {
   return (

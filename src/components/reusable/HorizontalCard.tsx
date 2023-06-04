@@ -3,6 +3,17 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { MdDeleteForever } from "react-icons/md";
 
+interface HorizontalCardProps {
+  imageSource?: string;
+  title?: string;
+  price?: string;
+  quantity?: number;
+  onDelete?: () => void;
+  onClick: () => void;
+  isClickable: boolean;
+  isSelected: boolean;
+}
+
 export default function HorizontalCard({
   imageSource,
   title,
@@ -12,7 +23,7 @@ export default function HorizontalCard({
   isClickable,
   isSelected,
   onClick,
-}) {
+}: HorizontalCardProps) {
   return (
     <HorizontalCardStyled
       isClickable={isClickable}
@@ -32,7 +43,7 @@ export default function HorizontalCard({
   );
 }
 
-const HorizontalCardStyled = styled.div`
+const HorizontalCardStyled = styled.div<HorizontalCardProps>`
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
   align-items: center;
