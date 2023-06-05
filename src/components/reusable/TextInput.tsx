@@ -15,8 +15,9 @@ interface TextInputProps {
   onBlur?: (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  className: string;
+  className?: string;
   rows?: number;
+  required?: boolean;
 }
 
 type refType = LegacyRef<HTMLInputElement & HTMLTextAreaElement>;

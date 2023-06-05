@@ -10,13 +10,13 @@ export default createContext({
   productToAdd: {},
   setProductToAdd: () => {},
   productToEdit: {},
-  setProductToEdit: () => {},
+  setProductToEdit: (p: object) => {},
   titleEditBoxRef: {},
 
   selectProductToEdit: () => {},
 
   menu: [],
-  handleProductEdit: () => {},
+  handleProductEdit: (p: object) => {},
   handleProductDelete: () => {},
   handleProductAdd: () => {},
   reloadMenu: () => {},

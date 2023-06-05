@@ -4,7 +4,11 @@ import { theme } from "../../../../../../../theme";
 import UpdateMessage from "../../../../../../reusable/UpdateMessage";
 import { BsCloudCheck } from "react-icons/bs";
 
-export default function EditFooter({ wasProductEdited }) {
+interface EditFooterProps {
+  wasProductEdited: boolean;
+}
+
+export default function EditFooter({ wasProductEdited }: EditFooterProps) {
   if (wasProductEdited)
     return (
       <EditFooterStyled>

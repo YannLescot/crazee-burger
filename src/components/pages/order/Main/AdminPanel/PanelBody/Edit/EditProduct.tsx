@@ -20,7 +20,7 @@ export default function EditProduct() {
     setRegisteredEdition,
   } = useDisplaySuccessMessages();
 
-  const onChange = (event) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     const newProductToEdit = { ...productToEdit, [name]: value };
@@ -45,6 +45,7 @@ export default function EditProduct() {
           titleRef={titleEditBoxRef}
           canBlur={true}
           onBlur={handleOnBlur}
+          handleSubmit={() => {}}
         >
           <EditFooter wasProductEdited={wasProductEdited} />
         </ProductForm>

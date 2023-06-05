@@ -4,20 +4,20 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
-import TextInput from "../../reusable/TextInput.tsx";
+import TextInput from "../../reusable/TextInput";
 import Button from "../../reusable/Button";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useState("Yann");
+  const [inputValue, setInputValue] = useState<string>("Yann");
   const navigate = useNavigate();
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setInputValue("");
     navigate(`/order/${inputValue}`);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -28,7 +28,7 @@ export default function LoginForm() {
       <h2>Quel est votre prénom ?</h2>
       <TextInput
         value={inputValue}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e as any)}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
         variant="normal"
@@ -40,6 +40,7 @@ export default function LoginForm() {
         iconPos="right"
         variant="primary"
         size="xlarge"
+        onClick={() => {}}
       />
 
       <p className="copyright">
