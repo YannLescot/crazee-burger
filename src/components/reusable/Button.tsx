@@ -2,6 +2,15 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
+interface ButtonProps {
+  label?: string;
+  Icon?: React.ReactNode;
+  iconPos?: "left" | "right";
+  variant: "primary" | "add";
+  size: "small" | "medium" | "large" | "xlarge";
+  onClick: () => void;
+}
+
 export default function Button({
   label,
   Icon,
@@ -9,7 +18,7 @@ export default function Button({
   variant,
   size,
   onClick,
-}) {
+}: ButtonProps) {
   return (
     <ButtonStyled variant={variant} size={size} onClick={onClick}>
       {iconPos === "left" && Icon}
@@ -19,7 +28,7 @@ export default function Button({
   );
 }
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled.button<ButtonProps>`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.round};
   gap: ${theme.spacing.xs};

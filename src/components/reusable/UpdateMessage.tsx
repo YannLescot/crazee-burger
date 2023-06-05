@@ -2,7 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function UpdateMessage({ label, Icon, color, isDisplayed }) {
+interface UpdateMessageProps {
+  label: string;
+  Icon: React.ReactNode;
+  color: string;
+  isDisplayed: boolean;
+}
+
+export default function UpdateMessage({
+  label,
+  Icon,
+  color,
+  isDisplayed,
+}: UpdateMessageProps) {
   return (
     <UpdateMessageStyled color={color}>
       {isDisplayed && (

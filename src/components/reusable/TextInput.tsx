@@ -1,6 +1,25 @@
-import React from "react";
+import React, { LegacyRef } from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
+
+interface TextInputProps {
+  type?: string;
+  value?: string;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  name?: string;
+  placeholder?: string;
+  Icon?: React.ReactNode;
+  variant: "normal" | "minimalist" | "large";
+  onBlur?: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  className: string;
+  rows?: number;
+}
+
+type refType = LegacyRef<HTMLInputElement & HTMLTextAreaElement>;
 
 const TextInput = React.forwardRef(
   (
@@ -15,8 +34,8 @@ const TextInput = React.forwardRef(
       onBlur,
       className,
       rows,
-    },
-    ref
+    }: TextInputProps,
+    ref: refType
   ) => {
     return (
       <TextInputStyled variant={variant} className={className}>
@@ -49,7 +68,7 @@ const TextInput = React.forwardRef(
 
 export default TextInput;
 
-const TextInputStyled = styled.div`
+const TextInputStyled = styled.div<TextInputProps>`
   display: flex;
   align-items: center;
   width: 100%;
@@ -74,12 +93,11 @@ const TextInputStyled = styled.div`
     margin-left: ${theme.spacing.xs};
     font-weight: 100;
     background-color: ${theme.colors.background_white};
-    color: ${theme.colors.black};
+    color: ${theme.colors.dark};
     resize: none;
     font-family: "Arial", sans-serif;
 
     &::placeholder {
-      font-size: ${theme.font.sizes.MD};
       color: ${theme.colors.greyMedium};
       font-weight: ${theme.font.weights.light};
     }

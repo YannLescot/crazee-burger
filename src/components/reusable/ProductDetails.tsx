@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { theme } from "../../theme";
 
 type ProductDetailsProps = {
-  content: string;
+  content?: string;
+  className: string;
 };
 
 const ProductDetails = ({ content }: ProductDetailsProps) => {

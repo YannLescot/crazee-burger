@@ -5,6 +5,23 @@ import { TiDelete } from "react-icons/ti";
 import QuantityButton from "./QuantityButton";
 import ProductDetails from "./ProductDetails";
 
+interface CardProps {
+  imageSource?: string;
+  title?: string;
+  leftDescription?: string;
+  hasDeleteButton?: boolean;
+  onDelete?: () => void;
+  onClick: () => void;
+  isHoverable: boolean;
+  isSelected: boolean;
+  basketQuantity?: number;
+  addProductToBasket?: () => void;
+  removeProductFromBasket?: () => void;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
+  productDetails?: string;
+}
+
 export default function Card({
   imageSource,
   title,
@@ -20,7 +37,7 @@ export default function Card({
   onIncrement,
   onDecrement,
   productDetails,
-}) {
+}: CardProps) {
   return (
     <CardStyled
       onClick={onClick}
@@ -57,7 +74,7 @@ export default function Card({
   );
 }
 
-const CardStyled = styled.div`
+const CardStyled = styled.div<CardProps>`
   background: ${theme.colors.white};
   width: 200px;
   height: 300px;

@@ -4,8 +4,8 @@ import { theme } from "../../theme";
 
 interface QuantityButtonProps {
   label: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
 }
 
 const QuantityButton = ({
