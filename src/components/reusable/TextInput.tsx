@@ -1,4 +1,4 @@
-import React, { LegacyRef } from "react";
+import React, { ForwardedRef, LegacyRef, RefObject } from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
@@ -11,7 +11,7 @@ interface TextInputProps {
   name?: string;
   placeholder?: string;
   Icon?: React.ReactNode;
-  variant: "normal" | "minimalist" | "large";
+  variant: "normal" | "minimalist" | "large" | string;
   onBlur?: (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -20,7 +20,7 @@ interface TextInputProps {
   required?: boolean;
 }
 
-type refType = LegacyRef<HTMLInputElement & HTMLTextAreaElement>;
+type refType = ForwardedRef<HTMLInputElement & HTMLTextAreaElement>;
 
 const TextInput = React.forwardRef(
   (
@@ -36,7 +36,7 @@ const TextInput = React.forwardRef(
       className,
       rows,
     }: TextInputProps,
-    ref: refType
+    ref?: refType
   ) => {
     return (
       <TextInputStyled variant={variant} className={className}>

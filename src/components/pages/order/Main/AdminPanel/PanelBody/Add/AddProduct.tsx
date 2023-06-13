@@ -13,14 +13,16 @@ export default function AddProduct() {
   const { wasProductAdded, displaySuccessAddMessage } =
     useDisplaySuccessMessages();
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleProductAdd({ ...productToAdd, id: crypto.randomUUID() });
     displaySuccessAddMessage();
     setProductToAdd(EMPTY_PRODUCT);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
 
     const newProductToAdd = { ...productToAdd, [name]: value };
@@ -28,7 +30,7 @@ export default function AddProduct() {
   };
 
   return (
-    <AddProductStyled onSubmit={onSubmit}>
+    <AddProductStyled>
       <ProductForm
         product={productToAdd}
         handleChange={handleChange}

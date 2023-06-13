@@ -20,7 +20,9 @@ export default function EditProduct() {
     setRegisteredEdition,
   } = useDisplaySuccessMessages();
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
 
     const newProductToEdit = { ...productToEdit, [name]: value };

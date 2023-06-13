@@ -5,7 +5,11 @@ import { theme } from "../../../../../../../theme";
 import Button from "../../../../../../reusable/Button";
 import UpdateMessage from "../../../../../../reusable/UpdateMessage";
 
-export default function AddFooter({ wasProductAdded }) {
+interface AddFooterProps {
+  wasProductAdded: boolean;
+}
+
+export default function AddFooter({ wasProductAdded }: AddFooterProps) {
   return (
     <AddFooterStyled>
       <Button
@@ -13,6 +17,7 @@ export default function AddFooter({ wasProductAdded }) {
         label={"Ajouter un nouveau produit au menu"}
         variant="add"
         size="large"
+        onClick={() => {}}
       />
       <UpdateMessage
         label="Ajouté avec succès !"

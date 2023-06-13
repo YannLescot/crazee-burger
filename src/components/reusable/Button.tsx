@@ -9,6 +9,7 @@ interface ButtonProps {
   variant: "primary" | "add";
   size: "small" | "medium" | "large" | "xlarge";
   onClick: () => void;
+  className?: string;
 }
 
 export default function Button({

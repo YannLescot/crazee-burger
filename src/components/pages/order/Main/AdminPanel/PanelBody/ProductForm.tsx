@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import TextInput from "../../../../../reusable/TextInput";
 import { getInputsConfig } from "../inputsConfig";
 import ImagePreview from "./ImagePreview";
+
+interface ProductFormProps {
+  product: {
+    imageSource: string;
+    title: string;
+    price: string;
+    productDetails: string;
+  };
+  handleChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  titleRef?: React.RefObject<HTMLInputElement>;
+  canBlur?: boolean;
+  onBlur?: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  children?: React.ReactNode;
+}
 
 export default function ProductForm({
   product,
@@ -12,7 +31,9 @@ export default function ProductForm({
   children,
   canBlur,
   onBlur,
-}) {
+}: ProductFormProps) {
+  const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
+
   return (
     <ProductFormStyled onSubmit={handleSubmit}>
       <ImagePreview imageSource={product.imageSource} />
@@ -24,7 +45,7 @@ export default function ProductForm({
               <TextInput
                 className={name}
                 key={index}
-                ref={name === "title" ? titleRef : null}
+                ref={name === "title" ? inputRef : undefined}
                 type={type}
                 value={value}
                 name={name}
@@ -32,7 +53,7 @@ export default function ProductForm({
                 placeholder={placeholder}
                 Icon={Icon}
                 variant={variant}
-                onBlur={canBlur && onBlur}
+                onBlur={canBlur ? onBlur : undefined}
                 rows={name === "productDetails" ? 6 : 1}
               />
             );
