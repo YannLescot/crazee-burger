@@ -3,14 +3,10 @@ import styled from "styled-components";
 import TextInput from "../../../../../reusable/TextInput";
 import { getInputsConfig } from "../inputsConfig";
 import ImagePreview from "./ImagePreview";
+import { Product } from "../../../../../../utils/interfaces";
 
 interface ProductFormProps {
-  product: {
-    imageSource: string;
-    title: string;
-    price: string;
-    productDetails: string;
-  };
+  product: Product;
   handleChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;

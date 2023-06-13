@@ -23,7 +23,7 @@ export default function PanelTabs() {
     focusTitleEditBox(titleEditBoxRef);
   };
 
-  const onClick = async (id) => {
+  const onClick = async (id: string) => {
     await setActiveTab(id);
     await setIsPanelCollapsed(false);
     focusTitleEditBox(titleEditBoxRef);

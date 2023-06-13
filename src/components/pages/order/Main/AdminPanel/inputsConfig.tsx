@@ -2,8 +2,9 @@ import React from "react";
 import { FaHamburger } from "react-icons/fa";
 import { MdEditNote, MdOutlineEuro } from "react-icons/md";
 import { BsFillCameraFill } from "react-icons/bs";
+import { Product } from "../../../../../utils/interfaces";
 
-export const getInputsConfig = (product) => [
+export const getInputsConfig = (product: Product) => [
   {
     index: 0,
     type: "text",

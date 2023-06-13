@@ -11,19 +11,9 @@ interface ContextType {
   activeTab: string;
   setActiveTab: (s: string) => void;
 
-  productToAdd: {
-    imageSource: string;
-    title: string;
-    price: string;
-    productDetails: string;
-  };
+  productToAdd: Product;
   setProductToAdd: (p: object) => void;
-  productToEdit: {
-    imageSource: "";
-    title: "";
-    price: "";
-    productDetails: "";
-  };
+  productToEdit: Product;
   setProductToEdit: (p: object) => void;
   selectProductToEdit: (id: string) => void;
 
@@ -57,6 +47,7 @@ export default createContext<ContextType>({
   activeTab: "",
   setActiveTab: () => {},
   productToAdd: {
+    id: "",
     imageSource: "",
     title: "",
     price: "",
@@ -64,6 +55,7 @@ export default createContext<ContextType>({
   },
   setProductToAdd: () => {},
   productToEdit: {
+    id: "",
     imageSource: "",
     title: "",
     price: "",

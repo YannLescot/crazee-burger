@@ -3,7 +3,11 @@ import styled from "styled-components";
 import NoImage from "./NoImage";
 import { theme } from "../../../../../../theme";
 
-export default function ImagePreview({ imageSource }) {
+interface ImagePreviewProps {
+  imageSource: string;
+}
+
+export default function ImagePreview({ imageSource }: ImagePreviewProps) {
   return (
     <ImagePreviewStyled imageSource={imageSource}>
       {!imageSource ? <NoImage /> : <img src={imageSource} alt="Produit" />}
@@ -11,7 +15,7 @@ export default function ImagePreview({ imageSource }) {
   );
 }
 
-const ImagePreviewStyled = styled.div`
+const ImagePreviewStyled = styled.div<ImagePreviewProps>`
   display: flex;
   justify-content: center;
   align-items: center;

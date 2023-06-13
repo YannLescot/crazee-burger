@@ -1,11 +1,13 @@
+import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import EditHint from "./PanelBody/Edit/EditHint";
 import EditProduct from "./PanelBody/Edit/EditProduct";
 import AddProduct from "./PanelBody/Add/AddProduct";
 import { findObjectById } from "../../../../../utils/array";
+import { Product } from "../../../../../utils/interfaces";
 
-export const getTabsConfig = (isAnyProductSelected) => [
+export const getTabsConfig = (isAnyProductSelected: Product) => [
   {
     id: "add",
     Icon: <AiOutlinePlus />,
@@ -20,6 +22,6 @@ export const getTabsConfig = (isAnyProductSelected) => [
   },
 ];
 
-export const getTabSelected = (tabs, currentTabSelected) => {
+export const getTabSelected = (tabs: object[], currentTabSelected: string) => {
   return findObjectById(currentTabSelected, tabs);
 };
