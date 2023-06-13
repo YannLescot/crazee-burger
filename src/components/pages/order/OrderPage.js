@@ -43,7 +43,7 @@ export default function OrderPage() {
   const isCardSelected = (id) => {
     if (activeTab === "add" || !productToEdit) return false;
     const isProductSelected = checkProductSelection(id, productToEdit.id);
-    return isProductSelected;
+    return isProductSelected ? true : false;
   };
 
   const orderContextValue = {

@@ -8,7 +8,7 @@ interface HorizontalCardProps {
   title?: string;
   price?: string;
   quantity?: number;
-  onDelete?: () => void;
+  onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick: () => void;
   isClickable: boolean;
   isSelected: boolean;

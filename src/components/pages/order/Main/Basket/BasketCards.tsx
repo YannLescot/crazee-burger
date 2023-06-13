@@ -5,6 +5,7 @@ import HorizontalCard from "../../../../reusable/HorizontalCard";
 import { formatPrice } from "../../../../../utils/maths";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById } from "../../../../../utils/array";
+import { BasketProduct } from "../../../../../utils/interfaces";
 
 export default function BasketCards() {
   const {
@@ -16,16 +17,20 @@ export default function BasketCards() {
     selectProductToEdit,
   } = useContext(OrderContext);
 
-  const handleOnDelete = (e, id) => {
+  const handleOnDelete = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     e.stopPropagation();
     handleRemoveFromBasket(id);
   };
 
   return (
     <BasketCardsStyled>
-      {basket.map((product) => {
+      {basket.map((product: BasketProduct) => {
         const productInfo = findObjectById(product.id, menu);
         !productInfo && handleRemoveFromBasket(product.id);
+        const isSelected = isCardSelected(product.id);
         return (
           <HorizontalCard
             key={product.id}
@@ -33,10 +38,12 @@ export default function BasketCards() {
             title={productInfo.title}
             price={formatPrice(productInfo.price)}
             quantity={product.quantity}
-            onDelete={(e) => handleOnDelete(e, product.id)}
+            onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>
+              handleOnDelete(e, product.id)
+            }
             isClickable={isAdmin}
-            isSelected={isCardSelected(product.id)}
-            onClick={isAdmin ? () => selectProductToEdit(product.id) : null}
+            isSelected={isSelected}
+            onClick={isAdmin ? () => selectProductToEdit(product.id) : () => {}}
           />
         );
       })}
