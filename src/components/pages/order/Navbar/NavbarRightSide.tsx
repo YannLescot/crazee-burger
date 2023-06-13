@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import UserProfile from "./UserProfile";
 import ToggleButton from "../../../reusable/ToggleButton";
@@ -7,7 +7,7 @@ import AdminToast from "./AdminToast";
 import OrderContext from "../../../../context/OrderContext";
 import { focusTitleEditBox } from "../../../../utils/ref";
 
-//Ce nom de hook existe déjà dans react-toastify, mais là on parle de celui du projet
+//Ce nom de hook existe déjà dans react-toastify, ici on parle de celui du projet
 import { useToast } from "../../../../hooks/useToast";
 
 export default function RightSide() {

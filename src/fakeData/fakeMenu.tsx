@@ -1,4 +1,4 @@
-const EMPTY = [];
+const EMPTY = [null];
 
 const SMALL = [
   {
