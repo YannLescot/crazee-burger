@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../../../../reusable/Button";
 
-export default function EmptyMessageAdmin({ reloadMenu }) {
+interface EmptyMessageAdminProps {
+  reloadMenu: () => void;
+}
+
+export default function EmptyMessageAdmin({
+  reloadMenu,
+}: EmptyMessageAdminProps) {
   return (
     <EmptyMessageAdminStyled>
       <h1>Le menu est vide ?</h1>

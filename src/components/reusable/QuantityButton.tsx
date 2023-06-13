@@ -4,8 +4,8 @@ import { theme } from "../../theme";
 
 interface QuantityButtonProps {
   label: number;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
+  onIncrement?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onDecrement?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const QuantityButton = ({
@@ -15,13 +15,13 @@ const QuantityButton = ({
 }: QuantityButtonProps) => {
   return (
     <QuantityButtonStyled>
-      <div className="decrease" onClick={onDecrement}>
+      <button className="decrease" onClick={onDecrement}>
         -
-      </div>
+      </button>
       <div className="quantity">{label}</div>
-      <div className="increase" onClick={onIncrement}>
+      <button className="increase" onClick={onIncrement}>
         +
-      </div>
+      </button>
     </QuantityButtonStyled>
   );
 };
@@ -37,15 +37,12 @@ const QuantityButtonStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: ${theme.font.weights.bold};
-  line-height: 1;
-  color: ${theme.colors.white};
 
   width: ${theme.button.sizes.width.SM};
   height: ${theme.button.sizes.height.MD};
-  font-size: ${theme.font.sizes.SM};
 
-  div {
+  div,
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,8 +50,14 @@ const QuantityButtonStyled = styled.div`
     width: 33.33%;
     height: 100%;
 
+    font-size: ${theme.font.sizes.SM};
+    color: ${theme.colors.white};
+    font-weight: ${theme.font.weights.bold};
+    line-height: 1;
+
     box-sizing: border-box;
     background-color: ${theme.colors.primary};
+    border: none;
   }
 
   .increase,

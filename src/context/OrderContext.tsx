@@ -21,18 +21,21 @@ interface ContextType {
 
   menu: Product[];
   handleProductEdit: (p: object) => void;
-  handleProductDelete: (p: object) => void;
+  handleProductDelete: (id: string) => void;
   handleProductAdd: (p: object) => void;
 
   reloadMenu: () => void;
   isCardSelected: (id: string) => boolean;
   basket: BasketProduct[];
 
-  handleAddToBasket: (p: object) => void;
+  handleAddToBasket: (id: string) => void;
   handleRemoveFromBasket: (id: string) => void;
   handleEmptyBasket: () => void;
   isProductInBasket: (p: object) => boolean;
-  updateProductQuantity: (p: object) => void;
+  updateProductQuantity: (
+    product: BasketProduct,
+    quantityModif: number
+  ) => void;
 
   isLoading: boolean;
   wasOrderConfirmed: boolean;

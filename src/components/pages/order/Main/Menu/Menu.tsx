@@ -9,6 +9,7 @@ import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
 import LoadingMessage from "./LoadingMessage";
+import { BasketProduct } from "../../../../../utils/interfaces";
 
 export default function Menu() {
   const {
@@ -32,31 +33,37 @@ export default function Menu() {
   const noIngredientsMessage =
     "Les ingrédients n'ont pas été renseignés pour ce produit.";
 
-  const onDelete = (event, id) => {
+  const onDelete = (event: React.MouseEvent<HTMLButtonElement>, id: string) => {
     event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
-    if (productToEdit && productToEdit.id === id) setProductToEdit(null);
+    if (productToEdit && productToEdit.id === id) setProductToEdit({});
     if (findObjectById(id, basket)) handleRemoveFromBasket(id);
   };
 
-  const onAdd = (e, id) => {
+  const onAdd = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
     e.stopPropagation();
     handleAddToBasket(id);
   };
 
-  const onRemove = (e, id) => {
+  const onRemove = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
     e.stopPropagation();
     handleRemoveFromBasket(id);
   };
 
-  const onIncrement = (e, productInBasket) => {
+  const onIncrement = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    productInBasket: BasketProduct
+  ) => {
     e.stopPropagation();
     if (!productInBasket) return;
     updateProductQuantity(productInBasket, +1);
   };
 
-  const onDecrement = (e, productInBasket) => {
+  const onDecrement = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    productInBasket: BasketProduct
+  ) => {
     e.stopPropagation();
     if (!productInBasket) return;
 
@@ -89,15 +96,25 @@ export default function Menu() {
               productDetails ? productDetails : noIngredientsMessage
             }
             hasDeleteButton={isAdmin}
-            onDelete={(e) => onDelete(e, id)}
-            onClick={isAdmin ? () => selectProductToEdit(id) : null}
-            addProductToBasket={(e) => onAdd(e, id)}
-            removeProductFromBasket={(e) => onRemove(e, id)}
+            onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>
+              onDelete(e, id)
+            }
+            onClick={isAdmin ? () => selectProductToEdit(id) : () => {}}
+            addProductToBasket={(e: React.MouseEvent<HTMLButtonElement>) =>
+              onAdd(e, id)
+            }
+            removeProductFromBasket={(e: React.MouseEvent<HTMLButtonElement>) =>
+              onRemove(e, id)
+            }
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
             basketQuantity={findObjectById(id, basket)?.quantity}
-            onIncrement={(e) => onIncrement(e, findObjectById(id, basket))}
-            onDecrement={(e) => onDecrement(e, findObjectById(id, basket))}
+            onIncrement={(e: React.MouseEvent<HTMLButtonElement>) =>
+              onIncrement(e, findObjectById(id, basket))
+            }
+            onDecrement={(e: React.MouseEvent<HTMLButtonElement>) =>
+              onDecrement(e, findObjectById(id, basket))
+            }
           />
         );
       })}

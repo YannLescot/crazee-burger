@@ -4,7 +4,12 @@ import { theme } from "../../../../../theme";
 import EmptyMessageAdmin from "./EmptyMessageAdmin";
 import EmptyMessageCustomer from "./EmptyMessageCustomer";
 
-export default function EmptyMenu({ isAdmin, reloadMenu }) {
+interface EmptyMenuProps {
+  isAdmin: boolean;
+  reloadMenu: () => void;
+}
+
+export default function EmptyMenu({ isAdmin, reloadMenu }: EmptyMenuProps) {
   return (
     <EmptyMenuStyled>
       {isAdmin ? (

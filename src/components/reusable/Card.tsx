@@ -10,15 +10,15 @@ interface CardProps {
   title?: string;
   leftDescription?: string;
   hasDeleteButton?: boolean;
-  onDelete?: () => void;
+  onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick: () => void;
   isHoverable: boolean;
   isSelected: boolean;
   basketQuantity?: number;
-  addProductToBasket?: () => void;
-  removeProductFromBasket?: () => void;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
+  addProductToBasket?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  removeProductFromBasket?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onIncrement?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onDecrement?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   productDetails?: string;
 }
 
@@ -47,7 +47,9 @@ export default function Card({
       <div className="topButtons">
         <ProductDetails className="productDetails" content={productDetails} />
         {hasDeleteButton && (
-          <TiDelete className="closeBtn" onClick={onDelete} />
+          <button className="closeBtn" onClick={onDelete}>
+            <TiDelete className="closeBtnIcon" />
+          </button>
         )}
       </div>
       <div className="image">
@@ -99,19 +101,23 @@ const CardStyled = styled.div<CardProps>`
     .closeBtn {
       position: absolute;
       top: 0px;
-      left: 87%;
-      font-size: 30px;
-      color: ${theme.colors.primary};
-      border-radius: ${theme.borderRadius.round};
-      cursor: pointer;
+      left: 85%;
+      background-color: transparent;
+      border: none;
+      .closeBtnIcon {
+        font-size: 30px;
+        color: ${theme.colors.primary};
+        border-radius: ${theme.borderRadius.round};
+        cursor: pointer;
 
-      z-index: 3;
+        z-index: 3;
 
-      &:hover {
-        color: ${theme.colors.dark};
+        &:hover {
+          color: ${theme.colors.dark};
 
-        &:active {
-          color: ${theme.colors.primary};
+          &:active {
+            color: ${theme.colors.primary};
+          }
         }
       }
     }
