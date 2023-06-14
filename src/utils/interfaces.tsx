@@ -7,6 +7,6 @@ export interface Product {
   id: string;
   imageSource: string;
   title: string;
-  price: string;
+  price: number;
   productDetails: string;
 }

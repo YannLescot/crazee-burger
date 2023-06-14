@@ -17,7 +17,7 @@
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "src/index.js",
-    "src/components/pages/order/OrderPage.js",
+    "src/components/pages/order/OrderPage.tsx",
     "src/components/reusable/TextInput.tsx"
   ],
   "exclude": ["node_modules"]

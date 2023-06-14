@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
-import { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../js/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
@@ -14,13 +14,14 @@ import bgPattern from "../../../assets/images/bgPattern.svg";
 import { initOrderPage } from "../../../hooks/useInitOrderPage";
 import { useModal } from "../../../hooks/useModal";
 import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
+import { Product } from "../../../utils/interfaces";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("add");
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
-  const [productToEdit, setProductToEdit] = useState(null);
+  const [productToEdit, setProductToEdit] = useState({} as Product);
   const { username } = useParams();
   const [userName, setUserName] = useState(username);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,9 +30,9 @@ export default function OrderPage() {
   const basketContent = useBasket(userName);
   const modalContent = useModal();
 
-  const titleEditBoxRef = useRef();
+  const titleEditBoxRef = useRef<HTMLInputElement | null>(null);
 
-  const selectProductToEdit = async (id) => {
+  const selectProductToEdit = async (id: string) => {
     const product = await findObjectById(id, menuContent.menu);
     await setProductToEdit(product);
     await setActiveTab("edit");
@@ -40,7 +41,7 @@ export default function OrderPage() {
     focusTitleEditBox(titleEditBoxRef);
   };
 
-  const isCardSelected = (id) => {
+  const isCardSelected = (id: string) => {
     if (activeTab === "add" || !productToEdit) return false;
     const isProductSelected = checkProductSelection(id, productToEdit.id);
     return isProductSelected ? true : false;

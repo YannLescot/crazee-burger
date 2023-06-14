@@ -1,4 +1,6 @@
-export const EMPTY_PRODUCT = Object.freeze({
+import { Product } from "../utils/interfaces";
+
+export const EMPTY_PRODUCT: Product = Object.freeze({
   id: "",
   title: "",
   imageSource: "",

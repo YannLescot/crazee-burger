@@ -12,12 +12,12 @@ interface ContextType {
   setActiveTab: (s: string) => void;
 
   productToAdd: Product;
-  setProductToAdd: (p: object) => void;
+  setProductToAdd: React.Dispatch<React.SetStateAction<Product>>;
   productToEdit: Product;
-  setProductToEdit: (p: object) => void;
+  setProductToEdit: React.Dispatch<React.SetStateAction<Product>>;
   selectProductToEdit: (id: string) => void;
 
-  titleEditBoxRef: React.RefObject<HTMLInputElement>;
+  titleEditBoxRef: React.RefObject<HTMLInputElement | null>;
 
   menu: Product[];
   handleProductEdit: (p: object) => void;
@@ -31,7 +31,6 @@ interface ContextType {
   handleAddToBasket: (id: string) => void;
   handleRemoveFromBasket: (id: string) => void;
   handleEmptyBasket: () => void;
-  isProductInBasket: (p: object) => boolean;
   updateProductQuantity: (
     product: BasketProduct,
     quantityModif: number
@@ -53,7 +52,7 @@ export default createContext<ContextType>({
     id: "",
     imageSource: "",
     title: "",
-    price: "",
+    price: 0,
     productDetails: "",
   },
   setProductToAdd: () => {},
@@ -61,7 +60,7 @@ export default createContext<ContextType>({
     id: "",
     imageSource: "",
     title: "",
-    price: "",
+    price: 0,
     productDetails: "",
   },
   setProductToEdit: () => {},
@@ -80,7 +79,6 @@ export default createContext<ContextType>({
   handleAddToBasket: () => {},
   handleRemoveFromBasket: () => {},
   handleEmptyBasket: () => {},
-  isProductInBasket: () => false,
 
   updateProductQuantity: () => {},
 
