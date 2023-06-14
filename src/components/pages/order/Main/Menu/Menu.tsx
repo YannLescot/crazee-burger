@@ -9,7 +9,7 @@ import { theme } from "../../../../../theme";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
 import LoadingMessage from "./LoadingMessage";
-import { BasketProduct } from "../../../../../utils/interfaces";
+import { BasketProduct, Product } from "../../../../../utils/interfaces";
 
 export default function Menu() {
   const {
@@ -37,7 +37,8 @@ export default function Menu() {
     event.stopPropagation();
     handleProductDelete(id);
     focusTitleEditBox(titleEditBoxRef);
-    if (productToEdit && productToEdit.id === id) setProductToEdit({});
+    if (productToEdit && productToEdit.id === id)
+      setProductToEdit({} as Product);
     if (findObjectById(id, basket)) handleRemoveFromBasket(id);
   };
 

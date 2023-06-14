@@ -30,10 +30,11 @@ export default function OrderPage() {
   const basketContent = useBasket(userName);
   const modalContent = useModal();
 
-  const titleEditBoxRef = useRef<HTMLInputElement | null>(null);
+  const titleEditBoxRef = useRef<HTMLInputElement>(null);
 
   const selectProductToEdit = async (id: string) => {
     const product = await findObjectById(id, menuContent.menu);
+    if (!product) return console.log("Product not found");
     await setProductToEdit(product);
     await setActiveTab("edit");
     await setIsPanelCollapsed(false);
