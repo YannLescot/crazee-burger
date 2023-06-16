@@ -4,11 +4,11 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../js/enum";
+import { EMPTY_PRODUCT } from "../../../ts/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { checkProductSelection, findObjectById } from "../../../utils/array";
+import { isProductSelected, findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
 import bgPattern from "../../../assets/images/bgPattern.svg";
 import { initOrderPage } from "../../../hooks/useInitOrderPage";
@@ -33,7 +33,7 @@ export default function OrderPage() {
   const titleEditBoxRef = useRef<HTMLInputElement>(null);
 
   const selectProductToEdit = async (id: string) => {
-    const product = await findObjectById(id, menuContent.menu);
+    const product = (await findObjectById(id, menuContent.menu)) as Product;
     if (!product) return console.log("Product not found");
     await setProductToEdit(product);
     await setActiveTab("edit");
@@ -44,8 +44,8 @@ export default function OrderPage() {
 
   const isCardSelected = (id: string) => {
     if (activeTab === "add" || !productToEdit) return false;
-    const isProductSelected = checkProductSelection(id, productToEdit.id);
-    return isProductSelected ? true : false;
+    const productSelected: Boolean = isProductSelected(id, productToEdit.id);
+    return productSelected ? true : false;
   };
 
   const orderContextValue = {

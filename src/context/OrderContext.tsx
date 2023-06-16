@@ -17,7 +17,7 @@ interface ContextType {
   setProductToEdit: React.Dispatch<React.SetStateAction<Product>>;
   selectProductToEdit: (id: string) => void;
 
-  titleEditBoxRef: React.RefObject<HTMLInputElement | null>;
+  titleEditBoxRef: React.RefObject<HTMLInputElement>;
 
   menu: Product[];
   handleProductEdit: (p: object) => void;

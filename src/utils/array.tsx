@@ -1,4 +1,4 @@
-import { Product, BasketProduct } from "../utils/interfaces";
+import { Product, BasketProduct, Tab } from "../utils/interfaces";
 
 export function deepClone(obj: object) {
   return JSON.parse(JSON.stringify(obj));
@@ -9,7 +9,10 @@ export function isEmpty(array: (Product | BasketProduct)[]) {
   return array.length === 0;
 }
 
-export function findObjectById(id: string, array: (Product | BasketProduct)[]) {
+export function findObjectById(
+  id: string,
+  array: (Product | BasketProduct | Tab)[]
+) {
   return array.find((product) => product.id === id);
 }
 
@@ -20,7 +23,7 @@ export function removeObjectById(
   return array.filter((product) => product.id !== id);
 }
 
-export function checkProductSelection(
+export function isProductSelected(
   productId: string,
   productSelectedId: string
 ) {

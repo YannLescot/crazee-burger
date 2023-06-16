@@ -10,3 +10,10 @@ export interface Product {
   price: number;
   productDetails: string;
 }
+
+export interface Tab {
+  id: string;
+  Icon: JSX.Element;
+  label: string;
+  Content: JSX.Element;
+}

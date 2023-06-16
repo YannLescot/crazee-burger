@@ -54,7 +54,7 @@ export default function Menu() {
 
   const onIncrement = (
     e: React.MouseEvent<HTMLButtonElement>,
-    productInBasket: BasketProduct
+    productInBasket: BasketProduct | undefined
   ) => {
     e.stopPropagation();
     if (!productInBasket) return;
@@ -63,7 +63,7 @@ export default function Menu() {
 
   const onDecrement = (
     e: React.MouseEvent<HTMLButtonElement>,
-    productInBasket: BasketProduct
+    productInBasket: BasketProduct | undefined
   ) => {
     e.stopPropagation();
     if (!productInBasket) return;
@@ -87,6 +87,9 @@ export default function Menu() {
   return (
     <MenuStyled>
       {menu.map(({ id, imageSource, title, price, productDetails }) => {
+        const productInBasket = findObjectById(id, basket) as
+          | BasketProduct
+          | undefined;
         return (
           <Card
             key={id}
@@ -109,12 +112,12 @@ export default function Menu() {
             }
             isHoverable={isAdmin}
             isSelected={isCardSelected(id)}
-            basketQuantity={findObjectById(id, basket)?.quantity}
+            basketQuantity={productInBasket?.quantity}
             onIncrement={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onIncrement(e, findObjectById(id, basket))
+              onIncrement(e, productInBasket)
             }
             onDecrement={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onDecrement(e, findObjectById(id, basket))
+              onDecrement(e, productInBasket)
             }
           />
         );

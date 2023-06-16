@@ -5,7 +5,7 @@ import HorizontalCard from "../../../../reusable/HorizontalCard";
 import { formatPrice } from "../../../../../utils/maths";
 import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById } from "../../../../../utils/array";
-import { BasketProduct } from "../../../../../utils/interfaces";
+import { BasketProduct, Product } from "../../../../../utils/interfaces";
 
 export default function BasketCards() {
   const {
@@ -28,9 +28,10 @@ export default function BasketCards() {
   return (
     <BasketCardsStyled>
       {basket.map((product: BasketProduct) => {
-        const productInfo = findObjectById(product.id, menu);
+        const productInfo = findObjectById(product.id, menu) as Product;
         !productInfo && handleRemoveFromBasket(product.id);
         const isSelected = isCardSelected(product.id);
+        if (!productInfo) return null;
         return (
           <HorizontalCard
             key={product.id}

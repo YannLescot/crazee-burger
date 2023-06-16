@@ -3,7 +3,7 @@ import styled from "styled-components";
 import AddFooter from "./AddFooter";
 import OrderContext from "../../../../../../../context/OrderContext";
 import ProductForm from "../ProductForm";
-import { EMPTY_PRODUCT } from "../../../../../../../js/enum";
+import { EMPTY_PRODUCT } from "../../../../../../../ts/enum";
 import { useDisplaySuccessMessages } from "../../../../../../../hooks/useDisplaySuccessMessages";
 
 export default function AddProduct() {

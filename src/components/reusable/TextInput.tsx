@@ -4,7 +4,7 @@ import { theme } from "../../theme/index.js";
 
 interface TextInputProps {
   type?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;

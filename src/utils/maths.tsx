@@ -21,7 +21,7 @@ export function replaceFrenchCommaWithDot(price: string) {
 
 export function calculateTotalPrice(basket: BasketProduct[], menu: Product[]) {
   return basket.reduce((currentTotal, product) => {
-    const productInfo = findObjectById(product.id, menu);
+    const productInfo = findObjectById(product.id, menu) as Product;
     if (!productInfo) return currentTotal;
     const summedProductPrice =
       parseInt(replaceFrenchCommaWithDot(productInfo.price.toString())) *
