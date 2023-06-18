@@ -28,7 +28,7 @@ export default function LoginForm() {
       <h2>Quel est votre prénom ?</h2>
       <TextInput
         value={inputValue}
-        onChange={(e) => handleChange(e as any)}
+        onChange={(e) => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
         variant="normal"
