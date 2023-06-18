@@ -241,9 +241,9 @@ const selectedStyle = css`
 
       .right-description {
         button {
-          background: ${theme.colors.white};
-          color: ${theme.colors.primary};
-          border: 1px solid ${theme.colors.white};
+          background: ${theme.colors.dark};
+          color: ${theme.colors.white};
+          border: 1px solid ${theme.colors.dark};
           &:hover {
             background: ${theme.colors.primary};
             color: ${theme.colors.white};

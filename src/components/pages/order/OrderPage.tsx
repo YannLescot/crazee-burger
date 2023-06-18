@@ -14,7 +14,7 @@ import bgPattern from "../../../assets/images/bgPattern.svg";
 import { initOrderPage } from "../../../hooks/useInitOrderPage";
 import { useModal } from "../../../hooks/useModal";
 import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
-import { Product, UseBasketReturn } from "../../../utils/interfaces";
+import { Product } from "../../../utils/interfaces";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -43,10 +43,7 @@ export default function OrderPage() {
 
   const isCardSelected = (id: string) => {
     if (activeTab === "add" || !productToEdit) return false;
-    const productSelected: Boolean = isProductSelected(
-      id,
-      productToEdit.id.toString()
-    );
+    const productSelected: Boolean = isProductSelected(id, productToEdit.id);
     return productSelected ? true : false;
   };
 
