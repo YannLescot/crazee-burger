@@ -5,6 +5,7 @@ export const EMPTY_PRODUCT: Product = Object.freeze({
   title: "",
   imageSource: "",
   price: 0,
+  quantity: 0,
   productDetails: "",
 });
 

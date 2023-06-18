@@ -14,7 +14,7 @@ import bgPattern from "../../../assets/images/bgPattern.svg";
 import { initOrderPage } from "../../../hooks/useInitOrderPage";
 import { useModal } from "../../../hooks/useModal";
 import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
-import { Product } from "../../../utils/interfaces";
+import { Product, UseBasketReturn } from "../../../utils/interfaces";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -25,9 +25,8 @@ export default function OrderPage() {
   const { username } = useParams();
   const [userName, setUserName] = useState(username);
   const [isLoading, setIsLoading] = useState(false);
-
-  const menuContent = useMenu(userName);
-  const basketContent = useBasket(userName);
+  const menuContent = useMenu(userName || "");
+  const basketContent = useBasket(userName || "");
   const modalContent = useModal();
 
   const titleEditBoxRef = useRef<HTMLInputElement>(null);
@@ -44,7 +43,10 @@ export default function OrderPage() {
 
   const isCardSelected = (id: string) => {
     if (activeTab === "add" || !productToEdit) return false;
-    const productSelected: Boolean = isProductSelected(id, productToEdit.id);
+    const productSelected: Boolean = isProductSelected(
+      id,
+      productToEdit.id.toString()
+    );
     return productSelected ? true : false;
   };
 
@@ -71,8 +73,22 @@ export default function OrderPage() {
     isLoading,
   };
 
+  interface initOrderPageProps {
+    userName: string | undefined;
+    menuContent: ReturnType<typeof useMenu>;
+    basketContent: ReturnType<typeof useBasket>;
+    setIsLoading: (isLoading: boolean) => void;
+  }
+
   useLayoutEffect(() => {
-    initOrderPage(userName, menuContent, basketContent, setIsLoading);
+    const initOrderPageArgs: initOrderPageProps = {
+      userName,
+      menuContent,
+      basketContent,
+      setIsLoading,
+    };
+
+    initOrderPage(initOrderPageArgs);
   }, [userName]);
 
   return (

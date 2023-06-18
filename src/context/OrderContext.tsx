@@ -4,28 +4,25 @@ import { BasketProduct, Product } from "../utils/interfaces";
 interface ContextType {
   isAdmin: boolean;
   setIsAdmin: (b: boolean) => void;
-
   isPanelCollapsed: boolean;
   setIsPanelCollapsed: (b: boolean) => void;
-
   activeTab: string;
   setActiveTab: (s: string) => void;
-
   productToAdd: Product;
   setProductToAdd: React.Dispatch<React.SetStateAction<Product>>;
   productToEdit: Product;
   setProductToEdit: React.Dispatch<React.SetStateAction<Product>>;
+  titleEditBoxRef: React.RefObject<HTMLInputElement>;
+  isCardSelected: (id: string) => boolean;
+
   selectProductToEdit: (id: string) => void;
 
-  titleEditBoxRef: React.RefObject<HTMLInputElement>;
-
   menu: Product[];
-  handleProductEdit: (p: object) => void;
+  handleProductEdit: (p: Product) => void;
   handleProductDelete: (id: string) => void;
-  handleProductAdd: (p: object) => void;
+  handleProductAdd: (p: Product) => void;
 
   reloadMenu: () => void;
-  isCardSelected: (id: string) => boolean;
   basket: BasketProduct[];
 
   handleAddToBasket: (id: string) => void;
@@ -52,6 +49,7 @@ export default createContext<ContextType>({
     id: "",
     imageSource: "",
     title: "",
+    quantity: 0,
     price: 0,
     productDetails: "",
   },
@@ -60,6 +58,7 @@ export default createContext<ContextType>({
     id: "",
     imageSource: "",
     title: "",
+    quantity: 0,
     price: 0,
     productDetails: "",
   },
