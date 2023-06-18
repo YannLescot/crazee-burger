@@ -1,6 +1,6 @@
-import React, { ForwardedRef, LegacyRef, RefObject } from "react";
+import React, { ForwardedRef } from "react";
 import styled, { css } from "styled-components";
-import { theme } from "../../theme/index.js";
+import { theme } from "../../theme/index";
 
 interface TextInputProps {
   type?: string;

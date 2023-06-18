@@ -16,7 +16,7 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "src/index.js",
+    "src/index.tsx",
     "src/components/pages/order/OrderPage.tsx",
     "src/components/reusable/TextInput.tsx"
   ],

@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import bgImage from "../../../assets/images/F03_Ramen_Background.jpg";
-import { theme } from "../../../theme/index.js";
+import { theme } from "../../../theme/index";
 import Logo from "../../reusable/Logo";
 
 export default function LoginPage() {
