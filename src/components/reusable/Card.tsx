@@ -219,11 +219,13 @@ const selectedStyle = css`
 
   .topButtons {
     .closeBtn {
-      color: ${theme.colors.white};
-      &:hover {
-        color: ${theme.colors.dark};
-        &:active {
-          color: ${theme.colors.white};
+      .closeBtnIcon {
+        color: ${theme.colors.white};
+        &:hover {
+          color: ${theme.colors.dark};
+          &:active {
+            color: ${theme.colors.white};
+          }
         }
       }
     }
