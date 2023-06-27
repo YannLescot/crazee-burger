@@ -1,12 +1,7 @@
 import { fakeMenu } from "../fakeData/fakeMenu";
-import {
-  BasketProduct,
-  Product,
-  UseBasketReturn,
-  UseMenuReturn,
-} from "../utils/interfaces";
+import { Product, UseBasketReturn, UseMenuReturn } from "../utils/interfaces";
 import { retrieveFromLocalStorage } from "../utils/window";
-import { getUserMenu, saveUserMenu } from "./useDatabase";
+import { getUserMenu, saveUserMenu } from "../api/users";
 
 interface initOrderPageProps {
   userName: string | undefined;
