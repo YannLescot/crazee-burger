@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../../../reusable/Button";
+import { EMPTY_MENU_MESSAGES } from "../../../../../ts/enum";
 
 interface EmptyMessageAdminProps {
   reloadMenu: () => void;
@@ -11,9 +12,9 @@ export default function EmptyMessageAdmin({
 }: EmptyMessageAdminProps) {
   return (
     <EmptyMessageAdminStyled>
-      <h1>Le menu est vide ?</h1>
+      <h1>{EMPTY_MENU_MESSAGES.ADMIN.TITLE}</h1>
 
-      <h2>Cliquez ci-dessous pour le réinitialiser</h2>
+      <h2>{EMPTY_MENU_MESSAGES.ADMIN.SUBTITLE}</h2>
       <Button
         label="Générer de nouveaux produits"
         variant="primary"

@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
+import { WELCOME_MESSAGES } from "../../../ts/enum";
 
 const Welcome = () => {
   return (
     <WelcomeStyled>
-      <h1>Régalez-vous chez nous !</h1>
+      <h1>{WELCOME_MESSAGES.TITLE}</h1>
       <hr />
-      <h2>Quel est votre prénom ?</h2>
+      <h2>{WELCOME_MESSAGES.LOGIN}</h2>
     </WelcomeStyled>
   );
 };

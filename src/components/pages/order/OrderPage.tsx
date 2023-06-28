@@ -4,7 +4,7 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../ts/enum";
+import { EMPTY_PRODUCT, TABS } from "../../../ts/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
@@ -19,7 +19,7 @@ import { Product } from "../../../utils/interfaces";
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState("add");
+  const [activeTab, setActiveTab] = useState(TABS.ADD);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState({} as Product);
   const { username } = useParams();
@@ -35,7 +35,7 @@ export default function OrderPage() {
     const product = (await findObjectById(id, menuContent.menu)) as Product;
     if (!product) return console.log("Product not found");
     await setProductToEdit(product);
-    await setActiveTab("edit");
+    await setActiveTab(TABS.EDIT);
     await setIsPanelCollapsed(false);
 
     focusTitleEditBox(titleEditBoxRef);
