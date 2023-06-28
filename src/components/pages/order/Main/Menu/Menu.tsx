@@ -10,6 +10,7 @@ import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
 import LoadingMessage from "./LoadingMessage";
 import { BasketProduct, Product } from "../../../../../utils/interfaces";
+import { NO_INGREDIENTS_MESSAGE } from "../../../../../ts/enum";
 
 export default function Menu() {
   const {
@@ -30,8 +31,6 @@ export default function Menu() {
   } = useContext(OrderContext);
 
   const isMenuEmpty = isEmpty(menu);
-  const noIngredientsMessage =
-    "Les ingrédients n'ont pas été renseignés pour ce produit.";
 
   const onDelete = (event: React.MouseEvent<HTMLButtonElement>, id: string) => {
     event.stopPropagation();
@@ -97,7 +96,7 @@ export default function Menu() {
             title={title}
             leftDescription={formatPrice(price)}
             productDetails={
-              productDetails ? productDetails : noIngredientsMessage
+              productDetails ? productDetails : NO_INGREDIENTS_MESSAGE
             }
             hasDeleteButton={isAdmin}
             onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>

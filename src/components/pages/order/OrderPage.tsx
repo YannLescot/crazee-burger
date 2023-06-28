@@ -4,14 +4,14 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../ts/enum";
+import { EMPTY_PRODUCT, TABS } from "../../../ts/enum";
 import { focusTitleEditBox } from "../../../utils/ref";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { isProductSelected, findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
 import bgPattern from "../../../assets/images/bgPattern.svg";
-import { initOrderPage } from "../../../hooks/useInitOrderPage";
+import { orderPageInitData } from "../../../hooks/useInitOrderPage";
 import { useModal } from "../../../hooks/useModal";
 import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
 import { Product } from "../../../utils/interfaces";
@@ -19,7 +19,7 @@ import { Product } from "../../../utils/interfaces";
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState("add");
+  const [activeTab, setActiveTab] = useState(TABS.ADD);
   const [productToAdd, setProductToAdd] = useState(EMPTY_PRODUCT);
   const [productToEdit, setProductToEdit] = useState({} as Product);
   const { username } = useParams();
@@ -35,7 +35,7 @@ export default function OrderPage() {
     const product = (await findObjectById(id, menuContent.menu)) as Product;
     if (!product) return console.log("Product not found");
     await setProductToEdit(product);
-    await setActiveTab("edit");
+    await setActiveTab(TABS.EDIT);
     await setIsPanelCollapsed(false);
 
     focusTitleEditBox(titleEditBoxRef);
@@ -70,22 +70,18 @@ export default function OrderPage() {
     isLoading,
   };
 
-  interface initOrderPageProps {
-    userName: string | undefined;
-    menuContent: ReturnType<typeof useMenu>;
-    basketContent: ReturnType<typeof useBasket>;
-    setIsLoading: (isLoading: boolean) => void;
-  }
+  const initializeOrderPage = async () => {
+    if (userName) {
+      setIsLoading(true);
+      const data = await orderPageInitData(userName);
+      await menuContent.setMenu(data.menu);
+      await basketContent.setBasket(data.basket);
+      await setIsLoading(false);
+    }
+  };
 
   useLayoutEffect(() => {
-    const initOrderPageArgs: initOrderPageProps = {
-      userName,
-      menuContent,
-      basketContent,
-      setIsLoading,
-    };
-
-    initOrderPage(initOrderPageArgs);
+    initializeOrderPage();
   }, [userName]);
 
   return (

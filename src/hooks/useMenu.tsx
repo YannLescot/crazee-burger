@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, removeObjectById } from "../utils/array";
-import { saveUserMenu } from "./useDatabase";
+import { saveUserMenu } from "../api/user";
 import { Product } from "../utils/interfaces";
 
 export const useMenu = (userName: string) => {

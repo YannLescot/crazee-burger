@@ -6,28 +6,31 @@ import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable/TextInput";
 import Button from "../../reusable/Button";
+import { authanticateUser } from "../../../api/user";
+import Welcome from "./Welcome";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useState<string>("Yann");
+  const [username, setUsername] = useState<string>("Yann");
   const navigate = useNavigate();
 
-  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setInputValue("");
-    navigate(`/order/${inputValue}`);
+
+    authanticateUser(username);
+
+    setUsername("");
+    navigate(`/order/${username}`);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setUsername(e.target.value);
   };
 
   return (
     <LoginFormStyled onSubmit={handleOnSubmit}>
-      <h1>Régalez-vous chez nous !</h1>
-      <hr />
-      <h2>Quel est votre prénom ?</h2>
+      <Welcome />
       <TextInput
-        value={inputValue}
+        value={username}
         onChange={(e) => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
         placeholder={"Entrez votre prénom"}
         Icon={<BsPersonCircle className="icon" />}
@@ -60,31 +63,6 @@ const LoginFormStyled = styled.form`
   gap: ${theme.spacing.md};
   border-radius: ${theme.borderRadius.round};
   margin-bottom: ${theme.spacing.lg};
-
-  h1 {
-    margin: 0px;
-    font-family: ${theme.font.families.stylish};
-    font-size: ${theme.font.sizes.P5};
-    font-weight: ${theme.font.weights.regular};
-    color: ${theme.colors.white};
-  }
-
-  hr {
-    border: none;
-    flex-shrink: 0;
-    min-width: 400px;
-    height: 2px;
-    background-color: ${theme.colors.primary};
-  }
-
-  h2 {
-    font-family: ${theme.font.families.stylish};
-    font-size: ${theme.font.sizes.P4};
-    font-weight: ${theme.font.weights.regular};
-    color: ${theme.colors.white};
-    margin-top: 8px;
-    margin-bottom: 0px;
-  }
 
   .copyright {
     position: absolute;

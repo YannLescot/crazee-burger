@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import { ORDER_CONFIRMED_MESSAGE } from "../../../../../ts/enum";
 
 const OrderConfirmedTexts = () => {
   return (
     <OrderConfirmedTextsStyled>
-      <h1>Votre commande est partie en cuisine !</h1>
+      <h1>{ORDER_CONFIRMED_MESSAGE}</h1>
     </OrderConfirmedTextsStyled>
   );
 };

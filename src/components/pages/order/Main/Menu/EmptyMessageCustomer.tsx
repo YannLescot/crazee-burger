@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { EMPTY_MENU_MESSAGES } from "../../../../../ts/enum";
 
 export default function EmptyMessageCustomer() {
   return (
     <EmptyMessageCustomerStyled>
-      <h1>Victime de notre succès ! :D</h1>
+      <h1>{EMPTY_MENU_MESSAGES.CUSTOMER.TITLE}</h1>
 
-      <h2>De nouvelles recettes sont encours de préparation.</h2>
+      <h2>{EMPTY_MENU_MESSAGES.CUSTOMER.SUBTITLE}</h2>
 
-      <h3>À très vite !</h3>
+      <h3>{EMPTY_MENU_MESSAGES.CUSTOMER.SUBTITLE2}</h3>
     </EmptyMessageCustomerStyled>
   );
 }
