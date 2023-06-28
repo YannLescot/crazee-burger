@@ -70,15 +70,18 @@ export default function OrderPage() {
     isLoading,
   };
 
-  useLayoutEffect(() => {
+  const initializeOrderPage = async () => {
     if (userName) {
       setIsLoading(true);
-      orderPageInitData(userName).then((data) => {
-        menuContent.setMenu(data.menu);
-        basketContent.setBasket(data.basket);
-        setIsLoading(false);
-      });
+      const data = await orderPageInitData(userName);
+      await menuContent.setMenu(data.menu);
+      await basketContent.setBasket(data.basket);
+      await setIsLoading(false);
     }
+  };
+
+  useLayoutEffect(() => {
+    initializeOrderPage();
   }, [userName]);
 
   return (
