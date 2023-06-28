@@ -11,7 +11,7 @@ export const EMPTY_PRODUCT: Product = Object.freeze({
 
 export const DEFAULT_IMAGE_SOURCE = "/images/coming-soon.png";
 
-export const NO_INGREDIENTS =
+export const NO_INGREDIENTS_MESSAGE =
   "Les ingrédients n'ont pas été renseignés pour ce produit.";
 
 export const EMPTY_BASKET_MESSAGE = "Votre panier est vide.";

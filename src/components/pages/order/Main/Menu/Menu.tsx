@@ -10,7 +10,7 @@ import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById, isEmpty } from "../../../../../utils/array";
 import LoadingMessage from "./LoadingMessage";
 import { BasketProduct, Product } from "../../../../../utils/interfaces";
-import { NO_INGREDIENTS } from "../../../../../ts/enum";
+import { NO_INGREDIENTS_MESSAGE } from "../../../../../ts/enum";
 
 export default function Menu() {
   const {
@@ -95,7 +95,9 @@ export default function Menu() {
             imageSource={getImageSource(imageSource)}
             title={title}
             leftDescription={formatPrice(price)}
-            productDetails={productDetails ? productDetails : NO_INGREDIENTS}
+            productDetails={
+              productDetails ? productDetails : NO_INGREDIENTS_MESSAGE
+            }
             hasDeleteButton={isAdmin}
             onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>
               onDelete(e, id)
