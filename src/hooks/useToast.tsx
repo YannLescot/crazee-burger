@@ -4,7 +4,7 @@ export const useToast = () => {
   const displayAdminToast = async () => {
     toast.info("Mode admin activé", {
       theme: "dark",
-      position: "bottom-center",
+      position: "bottom-left",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
