@@ -11,7 +11,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { isProductSelected, findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
 import bgPattern from "../../../assets/images/bgPattern.svg";
-import { initOrderPage } from "../../../hooks/useInitOrderPage";
+import { orderPageInitData } from "../../../hooks/useInitOrderPage";
 import { useModal } from "../../../hooks/useModal";
 import OrderConfirmed from "./modals/OrderConfirmed/OrderConfirmed";
 import { Product } from "../../../utils/interfaces";
@@ -70,22 +70,15 @@ export default function OrderPage() {
     isLoading,
   };
 
-  interface initOrderPageProps {
-    userName: string | undefined;
-    menuContent: ReturnType<typeof useMenu>;
-    basketContent: ReturnType<typeof useBasket>;
-    setIsLoading: (isLoading: boolean) => void;
-  }
-
   useLayoutEffect(() => {
-    const initOrderPageArgs: initOrderPageProps = {
-      userName,
-      menuContent,
-      basketContent,
-      setIsLoading,
-    };
-
-    initOrderPage(initOrderPageArgs);
+    if (userName) {
+      setIsLoading(true);
+      orderPageInitData(userName).then((data) => {
+        menuContent.setMenu(data.menu);
+        basketContent.setBasket(data.basket);
+        setIsLoading(false);
+      });
+    }
   }, [userName]);
 
   return (
