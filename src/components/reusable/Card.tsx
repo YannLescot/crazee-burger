@@ -88,17 +88,6 @@ const CardStyled = styled.div<CardProps>`
   border-radius: ${theme.borderRadius.extraRound};
   overflow: hidden;
 
-  @keyframes appearFromRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
   ${({ isHoverable }) => isHoverable && hoverableStyle}
 
   .topButtons {
@@ -116,7 +105,7 @@ const CardStyled = styled.div<CardProps>`
       left: 85%;
       background-color: transparent;
       border: none;
-      animation: appearFromRight 0.5s ease-out;
+      animation: ${theme.animations.slideFromRight} 0.5s ease-out;
       .closeBtnIcon {
         font-size: 30px;
         color: ${theme.colors.primary};

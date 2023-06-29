@@ -3,6 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import PanelBody from "./PanelBody/PanelBody";
 import PanelTabs from "./PanelTabs";
+import { theme } from "../../../../../theme";
 
 export default function AdminPanel() {
   const { isPanelCollapsed } = useContext(OrderContext);
@@ -28,16 +29,5 @@ const AdminPanelStyled = styled.div`
     pointer-events: all;
   }
 
-  @keyframes slideFromBottom {
-    0% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  animation: slideFromBottom 0.5s ease-out;
+  animation: ${theme.animations.slideFromBottom} 0.5s ease-out;
 `;

@@ -19,4 +19,6 @@ const EmptyBasketMessageStyled = styled.div`
   font-weight: ${theme.font.weights.regular};
   font-family: ${theme.font.families.stylish};
   color: ${theme.colors.greyBlue};
+
+  animation: ${theme.animations.slideFromLeft} 0.5s ease-in-out;
 `;

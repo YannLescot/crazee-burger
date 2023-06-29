@@ -62,5 +62,7 @@ const BasketFooterStyled = styled.div`
     .icon {
       font-size: ${theme.font.sizes.P2};
     }
+
+    animation: ${theme.animations.slideFromBottom} 0.5s ease-in-out;
   }
 `;
