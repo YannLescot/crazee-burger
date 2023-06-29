@@ -130,6 +130,7 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
+  overflow-y: scroll;
   .transition-group {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -139,7 +140,6 @@ const MenuStyled = styled.div`
     min-height: 83%;
     background: none;
     padding: 50px 50px 150px;
-    overflow-y: scroll;
     box-shadow: ${theme.shadows.strong};
 
     .card-enter {
@@ -160,9 +160,8 @@ const MenuStyled = styled.div`
       opacity: 0;
       transition: 500ms;
     }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
