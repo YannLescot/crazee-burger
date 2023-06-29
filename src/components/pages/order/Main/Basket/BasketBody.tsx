@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyBasketMessage from "./EmptyBasketMessage";
@@ -7,7 +7,19 @@ import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketBody() {
   const { basket } = useContext(OrderContext);
-  const isBasketEmpty = isEmpty(basket);
+  const [isBasketEmpty, setIsBasketEmpty] = useState(isEmpty(basket));
+
+  useEffect(() => {
+    if (isEmpty(basket)) {
+      const timeout = setTimeout(() => {
+        setIsBasketEmpty(true);
+      }, 450);
+
+      return () => clearTimeout(timeout);
+    } else {
+      setIsBasketEmpty(false);
+    }
+  }, [basket]);
 
   return (
     <BasketBodyStyled>
