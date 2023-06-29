@@ -24,5 +24,6 @@ export const getTabsConfig = (isAnyProductSelected: Product): Tab[] => [
 
 export const getTabSelected = (tabs: Tab[], currentTabSelected: string) => {
   const tabSelected = findObjectById(currentTabSelected, tabs);
+
   return tabSelected as Tab;
 };

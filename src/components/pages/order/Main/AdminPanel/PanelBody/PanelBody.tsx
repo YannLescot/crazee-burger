@@ -4,11 +4,15 @@ import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
 import { getTabSelected, getTabsConfig } from "../tabsConfig";
+import { findObjectById } from "../../../../../../utils/array";
+import { Product } from "../../../../../../utils/interfaces";
 
 export default function PanelBody() {
-  const { activeTab, productToEdit } = useContext(OrderContext);
+  const { activeTab, productToEdit, menu } = useContext(OrderContext);
 
-  const tabs = getTabsConfig(productToEdit);
+  const tabs = getTabsConfig(findObjectById(productToEdit.id, menu) as Product);
+  console.log(productToEdit);
+
   const tabSelected = getTabSelected(tabs, activeTab);
 
   return (
