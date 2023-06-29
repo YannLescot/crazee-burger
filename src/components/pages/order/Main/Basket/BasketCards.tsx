@@ -64,12 +64,16 @@ export default function BasketCards() {
 }
 
 const BasketCardsStyled = styled.div`
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  overflow-y: scroll;
+
   .transition-container {
     padding: 10px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
 
     .basket-card-enter,
     .basket-card-appear {
@@ -92,10 +96,6 @@ const BasketCardsStyled = styled.div`
       opacity: 0;
       transform: translateX(100px);
       transition: 0.3s;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
     }
   }
 `;
