@@ -38,7 +38,7 @@ export default function BasketCards() {
             <CSSTransition
               appear={true}
               key={product.id}
-              timeout={500}
+              timeout={300}
               classNames="basket-card"
             >
               <HorizontalCard
@@ -80,7 +80,7 @@ const BasketCardsStyled = styled.div`
     .basket-card-appear-active {
       opacity: 1;
       transform: translateX(0px);
-      transition: 0.5s;
+      transition: 0.3s;
     }
 
     .basket-card-exit {
@@ -91,7 +91,7 @@ const BasketCardsStyled = styled.div`
     .basket-card-exit-active {
       opacity: 0;
       transform: translateX(100px);
-      transition: 0.5s;
+      transition: 0.3s;
     }
 
     ::-webkit-scrollbar {
