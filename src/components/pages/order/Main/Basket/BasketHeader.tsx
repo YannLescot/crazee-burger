@@ -16,7 +16,11 @@ export default function BasketHeader() {
   return (
     <BasketHeaderStyled>
       <span>Total</span>
-      <CasinoText className="totalPrice" count={totalPrice} />
+      <CasinoText
+        className="totalPrice"
+        count={totalPrice}
+        alignment={"right"}
+      />
     </BasketHeaderStyled>
   );
 }
@@ -35,5 +39,6 @@ const BasketHeaderStyled = styled.div`
     font-family: ${theme.font.families.stylish};
     font-size: ${theme.font.sizes.P4};
     color: ${theme.colors.primary};
+    text-align: right;
   }
 `;

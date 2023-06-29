@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { MdDeleteForever } from "react-icons/md";
+import CasinoText from "./CasinoText";
 
 interface HorizontalCardProps {
   imageSource?: string;
@@ -35,7 +36,11 @@ export default function HorizontalCard({
         <div className="title">{title}</div>
         <div className="prix">{price}</div>
       </div>
-      <div className="quantity">x {quantity}</div>
+      <CasinoText
+        className="quantity"
+        count={`x ${quantity}`}
+        alignment="left"
+      />
       <button className="delete" onClick={onDelete}>
         <MdDeleteForever />
       </button>
@@ -45,7 +50,7 @@ export default function HorizontalCard({
 
 const HorizontalCardStyled = styled.div<HorizontalCardProps>`
   display: grid;
-  grid-template-columns: 1fr 4fr 2fr;
+  grid-template-columns: 1fr 4fr 1.5fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
@@ -96,8 +101,8 @@ const HorizontalCardStyled = styled.div<HorizontalCardProps>`
 
   .quantity {
     color: ${theme.colors.primary};
-    justify-self: flex-end;
-    margin-right: 15px;
+    text-align: center;
+    width: 100%;
   }
 
   .delete {
