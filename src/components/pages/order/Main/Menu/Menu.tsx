@@ -11,6 +11,7 @@ import { findObjectById, isEmpty } from "../../../../../utils/array";
 import LoadingMessage from "./LoadingMessage";
 import { BasketProduct, Product } from "../../../../../utils/interfaces";
 import { NO_INGREDIENTS_MESSAGE } from "../../../../../ts/enum";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export default function Menu() {
   const {
@@ -85,59 +86,83 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menu.map(({ id, imageSource, title, price, productDetails }) => {
-        const productInBasket = findObjectById(id, basket) as
-          | BasketProduct
-          | undefined;
-        return (
-          <Card
-            key={id}
-            imageSource={getImageSource(imageSource)}
-            title={title}
-            leftDescription={formatPrice(price)}
-            productDetails={
-              productDetails ? productDetails : NO_INGREDIENTS_MESSAGE
-            }
-            hasDeleteButton={isAdmin}
-            onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onDelete(e, id)
-            }
-            onClick={isAdmin ? () => selectProductToEdit(id) : () => {}}
-            addProductToBasket={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onAdd(e, id)
-            }
-            removeProductFromBasket={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onRemove(e, id)
-            }
-            isHoverable={isAdmin}
-            isSelected={isCardSelected(id)}
-            basketQuantity={productInBasket?.quantity}
-            onIncrement={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onIncrement(e, productInBasket)
-            }
-            onDecrement={(e: React.MouseEvent<HTMLButtonElement>) =>
-              onDecrement(e, productInBasket)
-            }
-          />
-        );
-      })}
+      <TransitionGroup className="transition-group">
+        {menu.map(({ id, imageSource, title, price, productDetails }) => {
+          const productInBasket = findObjectById(id, basket) as
+            | BasketProduct
+            | undefined;
+          return (
+            <CSSTransition classNames={"card"} key={id} timeout={500}>
+              <Card
+                imageSource={getImageSource(imageSource)}
+                title={title}
+                leftDescription={formatPrice(price)}
+                productDetails={
+                  productDetails ? productDetails : NO_INGREDIENTS_MESSAGE
+                }
+                hasDeleteButton={isAdmin}
+                onDelete={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  onDelete(e, id)
+                }
+                onClick={isAdmin ? () => selectProductToEdit(id) : () => {}}
+                addProductToBasket={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  onAdd(e, id)
+                }
+                removeProductFromBasket={(
+                  e: React.MouseEvent<HTMLButtonElement>
+                ) => onRemove(e, id)}
+                isHoverable={isAdmin}
+                isSelected={isCardSelected(id)}
+                basketQuantity={productInBasket?.quantity}
+                onIncrement={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  onIncrement(e, productInBasket)
+                }
+                onDecrement={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  onDecrement(e, productInBasket)
+                }
+              />
+            </CSSTransition>
+          );
+        })}
+      </TransitionGroup>
     </MenuStyled>
   );
 }
 
 const MenuStyled = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  grid-row-gap: 60px;
-  grid-column-gap: 5px;
-  min-height: 83%;
-  background: none;
-  padding: 50px 50px 150px;
-  overflow-y: scroll;
-  box-shadow: ${theme.shadows.strong};
+  .transition-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    grid-row-gap: 60px;
+    grid-column-gap: 5px;
+    min-height: 83%;
+    background: none;
+    padding: 50px 50px 150px;
+    overflow-y: scroll;
+    box-shadow: ${theme.shadows.strong};
 
-  ::-webkit-scrollbar {
-    display: none;
+    .card-enter {
+      opacity: 0;
+      transform: translateX(70%);
+    }
+
+    .card-enter-active {
+      opacity: 1;
+      transform: translateX(0%);
+      transition: 500ms;
+    }
+
+    .card-exit {
+      opacity: 1;
+    }
+    .card-exit-active {
+      opacity: 0;
+      transition: 500ms;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
