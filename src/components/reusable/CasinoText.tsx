@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
+import { casinoTextAnimation } from "../../keyframes/animations";
 
 interface CasinoTextProps {
   count: string;
@@ -34,23 +35,10 @@ const CasinoTextStyled = styled.div<{ alignment?: string }>`
     display: inline-block;
   }
 
-  .casino-text-animated-enter {
-    transform: translateY(100%);
-  }
-  .casino-text-animated-enter-active {
-    transform: translateY(0%);
-    transition: 300ms;
-  }
+  ${casinoTextAnimation}
 
   .casino-text-animated-exit {
-    transform: translateY(0%);
-    position: absolute;
     ${({ alignment }) => (alignment === "left" ? "left: 0;" : "right: 0;")}
-    bottom: 0;
-  }
-  .casino-text-animated-exit-active {
-    transform: translateY(-100%);
-    transition: 300ms;
   }
 
   ::-webkit-scrollbar {

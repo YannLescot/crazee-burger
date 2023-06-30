@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { EMPTY_BASKET_MESSAGE } from "../../../../../ts/enum";
+import { slideFromLeft } from "../../../../../keyframes/animations";
 
 export default function EmptyBasketMessage() {
   return (
@@ -20,5 +21,5 @@ const EmptyBasketMessageStyled = styled.div`
   font-family: ${theme.font.families.stylish};
   color: ${theme.colors.greyBlue};
 
-  animation: ${theme.animations.slideFromLeft} 0.5s ease-in-out;
+  animation: ${slideFromLeft} ${theme.animations.speed.fast} ease-in-out;
 `;

@@ -4,6 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import PanelBody from "./PanelBody/PanelBody";
 import PanelTabs from "./PanelTabs";
 import { theme } from "../../../../../theme";
+import { slideFromBottom } from "../../../../../keyframes/animations";
 
 export default function AdminPanel() {
   const { isPanelCollapsed } = useContext(OrderContext);
@@ -29,5 +30,5 @@ const AdminPanelStyled = styled.div`
     pointer-events: all;
   }
 
-  animation: ${theme.animations.slideFromBottom} 0.5s ease-out;
+  animation: ${slideFromBottom} ${theme.animations.speed.medium} ease-out;
 `;

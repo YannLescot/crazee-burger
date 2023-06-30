@@ -4,6 +4,7 @@ import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 import QuantityButton from "./QuantityButton";
 import ProductDetails from "./ProductDetails";
+import { slideFromRight } from "../../keyframes/animations";
 
 interface CardProps {
   imageSource?: string;
@@ -105,7 +106,7 @@ const CardStyled = styled.div<CardProps>`
       left: 85%;
       background-color: transparent;
       border: none;
-      animation: ${theme.animations.slideFromRight} 0.5s ease-out;
+      animation: ${slideFromRight} ${theme.animations.speed.slow} ease-out;
       .closeBtnIcon {
         font-size: 30px;
         color: ${theme.colors.primary};
@@ -208,7 +209,8 @@ const CardStyled = styled.div<CardProps>`
 
 const hoverableStyle = css`
   &:hover {
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out,
+      box-shadow ${theme.animations.speed.slow} ease-in-out;
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: ${theme.shadows.medium}, 0 0 10px 0.1px ${theme.colors.primary};

@@ -109,37 +109,11 @@ const devices = {
 };
 
 const animations = {
-  slideFromLeft: keyframes`
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-`,
-  slideFromRight: keyframes`
-
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-`,
-  slideFromBottom: keyframes`
-    0% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-`,
+  speed: {
+    fast: "0.2s",
+    medium: "0.3s",
+    slow: "0.5s",
+  },
 };
 
 export const theme = {

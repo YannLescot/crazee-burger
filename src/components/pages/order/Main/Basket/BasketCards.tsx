@@ -7,6 +7,7 @@ import { getImageSource } from "../../../../../utils/falsy";
 import { findObjectById } from "../../../../../utils/array";
 import { BasketProduct, Product } from "../../../../../utils/interfaces";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { basketCardAnimation } from "../../../../../keyframes/animations";
 
 export default function BasketCards() {
   const {
@@ -75,27 +76,6 @@ const BasketCardsStyled = styled.div`
     flex-direction: column;
     align-items: center;
 
-    .basket-card-enter,
-    .basket-card-appear {
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-    .basket-card-enter-active,
-    .basket-card-appear-active {
-      opacity: 1;
-      transform: translateX(0px);
-      transition: 0.3s;
-    }
-
-    .basket-card-exit {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-
-    .basket-card-exit-active {
-      opacity: 0;
-      transform: translateX(100px);
-      transition: 0.3s;
-    }
+    ${basketCardAnimation}
   }
 `;

@@ -12,6 +12,7 @@ import LoadingMessage from "./LoadingMessage";
 import { BasketProduct, Product } from "../../../../../utils/interfaces";
 import { NO_INGREDIENTS_MESSAGE } from "../../../../../ts/enum";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuCardAnimation } from "../../../../../keyframes/animations";
 
 export default function Menu() {
   const {
@@ -142,24 +143,7 @@ const MenuStyled = styled.div`
     padding: 50px 50px 150px;
     box-shadow: ${theme.shadows.strong};
 
-    .card-enter {
-      opacity: 0;
-      transform: translateX(70%);
-    }
-
-    .card-enter-active {
-      opacity: 1;
-      transform: translateX(0%);
-      transition: 500ms;
-    }
-
-    .card-exit {
-      opacity: 1;
-    }
-    .card-exit-active {
-      opacity: 0;
-      transition: 500ms;
-    }
+    ${menuCardAnimation}
   }
   ::-webkit-scrollbar {
     display: none;
