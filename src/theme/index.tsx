@@ -1,5 +1,3 @@
-import { keyframes } from "styled-components";
-
 const colors = {
   dark: "#252525",
   incognito: "#333",
