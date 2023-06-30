@@ -93,7 +93,7 @@ export default function Menu() {
             | BasketProduct
             | undefined;
           return (
-            <CSSTransition classNames={"card"} key={id} timeout={500}>
+            <CSSTransition classNames={"card"} key={id} timeout={400}>
               <Card
                 imageSource={getImageSource(imageSource)}
                 title={title}

@@ -36,13 +36,13 @@ export const slideFromRight = keyframes`
 export const menuCardAnimation = css`
   .card-enter {
     opacity: 0;
-    transform: translateX(70%);
+    transform: translateX(-70%);
   }
 
   .card-enter-active {
     opacity: 1;
     transform: translateX(0%);
-    transition: 500ms;
+    transition: 400ms;
   }
 
   .card-exit {
@@ -50,7 +50,7 @@ export const menuCardAnimation = css`
   }
   .card-exit-active {
     opacity: 0;
-    transition: 500ms;
+    transition: 400ms;
   }
 `;
 
