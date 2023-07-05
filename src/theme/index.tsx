@@ -106,6 +106,14 @@ const devices = {
   mobile: `(max-width: ${sizes.mobile})`,
 };
 
+const animations = {
+  speed: {
+    fast: "0.2s",
+    medium: "0.3s",
+    slow: "0.5s",
+  },
+};
+
 export const theme = {
   colors,
   font,
@@ -116,4 +124,5 @@ export const theme = {
   button,
   sizes,
   devices,
+  animations,
 };

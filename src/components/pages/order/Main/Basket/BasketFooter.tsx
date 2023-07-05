@@ -6,6 +6,7 @@ import { GiConfirmed } from "react-icons/gi";
 import Button from "../../../../reusable/Button";
 import OrderContext from "../../../../../context/OrderContext";
 import { isEmpty } from "../../../../../utils/array";
+import { slideFromBottom } from "../../../../../keyframes/animations";
 
 export default function BasketFooter() {
   const { handleEmptyBasket, basket, handleOrderConfirmation } =
@@ -62,5 +63,7 @@ const BasketFooterStyled = styled.div`
     .icon {
       font-size: ${theme.font.sizes.P2};
     }
+
+    animation: ${slideFromBottom} ${theme.animations.speed.medium} ease-in-out;
   }
 `;
